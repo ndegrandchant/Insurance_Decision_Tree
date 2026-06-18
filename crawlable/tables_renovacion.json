@@ -1,0 +1,85 @@
+{
+  "_material_class": "renovación bands (S2 decision tables) + renovación minimums — §4.1",
+  "_note": "Siniestralidad bands per segment as bracket_map decision tables (siniestralidad en %, p.ej. 150 = 150%). The source's ambiguous edges (Comercial 150; Consumer 60/150/250; Pesados/motos the (50,51) gap and the shared 250) are modelled as GAPS between exclusive-bounded rows, so a value landing exactly on an edge matches no row → bracket_lookup escalates → RUL-BAND-EDGES (S2: never a silent inequality). Each row output = {action (verbatim rate action), outcome}. The Consumer-vs-pesados/motos OVERLAP for a Consumer pesado/moto is a separate node conflict → RUL-RENOV-CONSUMER-PESADOS-OVERLAP.",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "version '3.0' literal; cover/changelog '4.0'." }
+  ],
+
+  "TBL-RENOV-COMERCIAL": {
+    "role": "bracket_map",
+    "name": "Renovación — Comercial/Pyme: ajuste de tasa por siniestralidad",
+    "hit_policy": "unique",
+    "input": "siniestralidad",
+    "rows": [
+      { "lower": 0, "upper": 0, "lower_inclusive": true, "upper_inclusive": true, "output": { "action": "mantener su tasa vigente sin considerar las tasas mínimas", "outcome": "eligible" }, "source_quote": "siniestralidad histórica de la póliza es nula → podrá mantener su tasa vigente sin considerar las tasas mínimas" },
+      { "lower": 0, "upper": 150, "lower_inclusive": false, "upper_inclusive": false, "output": { "action": "el suscriptor con límites estándar decide entre mantener o incrementar la tasa a su criterio", "outcome": "eligible" }, "source_quote": "siniestralidad histórica o última vigencia es menor al 150% → el suscriptor con límites de suscripción estándar podrá decidir entre mantener su tasa o incrementarla según su criterio" },
+      { "lower": 150, "upper": null, "lower_inclusive": false, "upper_inclusive": null, "output": { "action": "revisado y autorizado por Case Underwriting", "outcome": "refer_process", "target": "case_underwriting" }, "source_quote": "la siniestralidad supera el 150% → el caso deberá ser revisado y autorizado por suscripción Case Underwriting" }
+    ],
+    "boundary_conflicts": [
+      { "edge": 150, "kind": "undefined_boundary", "detail": "'<150%' (decide) vs 'supera el 150%' (Case UW): el valor exacto 150% no está asignado.", "ledger_ref": "rulings/RUL-BAND-EDGES.md" }
+    ],
+    "source": { "section": "4.1", "pdf_page": 35, "printed_page": 28, "version": "3.0" },
+    "_origin": { "artifact": "decision_trees.json", "path": "T-RENOVACION.branch[0]", "source_id": "branch[0]" },
+    "provenance": "parameter_digest"
+  },
+
+  "TBL-RENOV-CONSUMER": {
+    "role": "bracket_map",
+    "name": "Renovación — Consumer: ajuste de tasa por siniestralidad histórica",
+    "hit_policy": "unique",
+    "input": "siniestralidad",
+    "rows": [
+      { "lower": 0, "upper": 0, "lower_inclusive": true, "upper_inclusive": true, "output": { "action": "hasta 10% de descuento (una sola vez por vehículo; se mantiene mientras la siniestralidad histórica no suba del 60%; no baja de la prima mínima)", "outcome": "eligible" }, "source_quote": "Siniestralidad histórica nula → hasta 10% de descuento, aplicable una sola vez por vehículo; esta tasa descontada se mantiene en siguientes renovaciones mientras la siniestralidad histórica no suba del 60%; prevalecen las primas mínimas vigentes" },
+      { "lower": 0, "upper": 60, "lower_inclusive": false, "upper_inclusive": false, "output": { "action": "mismas tasas", "outcome": "eligible" }, "source_quote": "Siniestralidad histórica hasta el 60% → mismas tasas" },
+      { "lower": 60, "upper": 150, "lower_inclusive": false, "upper_inclusive": false, "output": { "action": "recargo del 10% en tasas o tasas del Tarificador (el que sea mayor)", "outcome": "eligible" }, "source_quote": "Siniestralidad histórica entre el 60% y el 150% → recargo del 10% en tasas o tasas del Tarificador (el que sea mayor)" },
+      { "lower": 150, "upper": 250, "lower_inclusive": false, "upper_inclusive": false, "output": { "action": "recargo del 50%", "outcome": "eligible" }, "source_quote": "Siniestralidad histórica entre 150% y 250% → recargo del 50%" },
+      { "lower": 250, "upper": null, "lower_inclusive": false, "upper_inclusive": null, "output": { "action": "Depuración (recargo exagerado)", "outcome": "decline" }, "source_quote": "Siniestralidad histórica mayor al 250% → Depuración (recargo exagerado)" }
+    ],
+    "boundary_conflicts": [
+      { "edge": 60, "kind": "undefined_boundary", "detail": "'hasta el 60%' vs 'entre el 60% y el 150%': el valor exacto 60% aparece en ambas bandas adyacentes.", "ledger_ref": "rulings/RUL-BAND-EDGES.md" },
+      { "edge": 150, "kind": "undefined_boundary", "detail": "'entre el 60% y el 150%' vs 'entre 150% y 250%': 150% en ambas.", "ledger_ref": "rulings/RUL-BAND-EDGES.md" },
+      { "edge": 250, "kind": "undefined_boundary", "detail": "'entre 150% y 250%' vs 'mayor al 250%': 250% en ambas.", "ledger_ref": "rulings/RUL-BAND-EDGES.md" }
+    ],
+    "minimums_table_ref": "TBL-RENOV-MIN",
+    "additional_verbatim": "El descuento por siniestralidad nula no puede bajar de la prima mínima vigente; el suscriptor con límites locales puede realizar recargos mayores; sigue vigente la revisión por Case UW; renovaciones del producto VIP por procedimiento estándar manteniendo T&C solo si la póliza no registró siniestralidad históricamente. Enforcement: el CRM bloquea si el descuento deja la prima por debajo de la mínima.",
+    "source": { "section": "4.1", "pdf_page": 35, "printed_page": 28, "version": "3.0" },
+    "_origin": { "artifact": "decision_trees.json", "path": "T-RENOVACION.branch[1]", "source_id": "branch[1]" },
+    "provenance": "parameter_digest"
+  },
+
+  "TBL-RENOV-PESADOS-MOTOS": {
+    "role": "bracket_map",
+    "name": "Renovación — Pesados y motocicletas (pólizas individuales, perfil estándar)",
+    "hit_policy": "unique",
+    "input": "siniestralidad",
+    "rows": [
+      { "lower": 0, "upper": 50, "lower_inclusive": true, "upper_inclusive": true, "output": { "action": "mantener las tasas de la última vigencia", "outcome": "eligible" }, "source_quote": "siniestralidad menor o igual al 50% (en la Última vigencia o en su Histórico) → pueden mantener las tasas de la última vigencia" },
+      { "lower": 51, "upper": 250, "lower_inclusive": true, "upper_inclusive": false, "output": { "action": "incrementar un 17%", "outcome": "eligible" }, "source_quote": "desde el 51% hasta el 250% → se deberá incrementar un 17%" },
+      { "lower": 250, "upper": null, "lower_inclusive": false, "upper_inclusive": null, "output": { "action": "revisado a través de Case Underwriting", "outcome": "refer_process", "target": "case_underwriting" }, "source_quote": "a partir del 250% → debe ser revisado a través de Case Underwriting" }
+    ],
+    "boundary_conflicts": [
+      { "edge": 50, "edge_upper": 51, "kind": "gap", "detail": "'menor o igual al 50%' / 'desde el 51%': el intervalo abierto (50%,51%) queda sin asignar.", "ledger_ref": "rulings/RUL-BAND-EDGES.md" },
+      { "edge": 250, "kind": "undefined_boundary", "detail": "'hasta el 250%' vs 'a partir del 250%': 250% en ambas bandas.", "ledger_ref": "rulings/RUL-BAND-EDGES.md" }
+    ],
+    "placement_note": "En la fuente este esquema es el punto 3 DENTRO del bloque Consumer (pdf p.36), no una sección independiente; se modela como tabla propia por su alcance material distinto. Para un pesado/moto del segmento Consumer compite con TBL-RENOV-CONSUMER → conflicto RUL-RENOV-CONSUMER-PESADOS-OVERLAP.",
+    "source": { "section": "4.1", "pdf_page": 36, "printed_page": 29, "version": "3.0" },
+    "_origin": { "artifact": "decision_trees.json", "path": "T-RENOVACION.branch[2]", "source_id": "branch[2]" },
+    "provenance": "parameter_digest"
+  },
+
+  "TBL-RENOV-MIN": {
+    "role": "rate_table",
+    "name": "Tasas y primas mínimas para renovaciones — vehículos livianos (Consumer)",
+    "lookup_key": "ciudad",
+    "rows": [
+      { "ciudad": "la_paz", "prima_minima_bob": 3300, "tasa_minima": 0.028, "verbatim": "LA PAZ | Bs. 3.300 | 2,8%" },
+      { "ciudad": "santa_cruz", "prima_minima_bob": 3500, "tasa_minima": 0.030, "verbatim": "SANTA CRUZ | Bs. 3.500 | 3,0%" },
+      { "ciudad": "cochabamba", "prima_minima_bob": 3150, "tasa_minima": 0.027, "verbatim": "COCHABAMABA [sic] | Bs. 3.150 | 2,7%" },
+      { "ciudad": "resto_del_pais", "prima_minima_bob": 2800, "tasa_minima": 0.022, "verbatim": "RESTO DEL PAÍS | Bs. 2.800 | 2,2%" }
+    ],
+    "note": "'COCHABAMABA' [sic] en la fuente. Mínimos para el descuento por siniestralidad nula (no baja de la prima mínima).",
+    "source": { "section": "4.1", "pdf_page": 36, "printed_page": 29, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-RENOV-MIN" },
+    "provenance": "verbatim_table"
+  }
+}

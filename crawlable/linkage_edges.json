@@ -1,0 +1,279 @@
+{
+ "_material_class": "rule↔clause linkage edges (forward + reverse inversion)",
+ "_note": "Forward edges from linkage.json (manual mention/rule -> bundle clause codes) with match-confidence. Reverse (clause -> rules) is the free inversion. Lets a crawl outcome cite the governing clause(s).",
+ "edges": [
+  {
+   "manual_mention": "Cláusula de Renovación y Depreciación Anual para Pólizas Mayores a Un Año",
+   "manual_rule": "R-015",
+   "bundle_codes": [
+    "2034"
+   ],
+   "match": "partial",
+   "note": "El título del bundle no incluye “para Pólizas Mayores a Un Año”.",
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[0]"
+   }
+  },
+  {
+   "manual_mention": "Cláusula de Participación de Utilidades",
+   "manual_rule": "R-015",
+   "bundle_codes": [
+    "2051"
+   ],
+   "match": "partial",
+   "note": "La única registrada en el bundle es la de uso exclusivo en licitaciones.",
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[1]"
+   }
+  },
+  {
+   "manual_mention": "Cláusula de Valor Admitido",
+   "manual_rule": "R-015",
+   "bundle_codes": [
+    "2038",
+    "2112"
+   ],
+   "match": "exact",
+   "note": "Dos registros: 2038 (general) y 2112 (uso exclusivo licitaciones). El manual también prohíbe Valor Admitido en Licitaciones (R-097) pese a existir 2112 registrada para licitaciones — tensión no resuelta.",
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[2]"
+   }
+  },
+  {
+   "manual_mention": "Cláusula de No Subrogación (Petroleras)",
+   "manual_rule": "R-016",
+   "bundle_codes": [
+    "2010"
+   ],
+   "match": "exact",
+   "note": null,
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[3]"
+   }
+  },
+  {
+   "manual_mention": "Cláusula de Cancelación (Petroleras)",
+   "manual_rule": "R-016",
+   "bundle_codes": [
+    "2011"
+   ],
+   "match": "exact",
+   "note": null,
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[4]"
+   }
+  },
+  {
+   "manual_mention": "Cláusula de Asegurado Adicional (Petroleras)",
+   "manual_rule": "R-016",
+   "bundle_codes": [
+    "2009"
+   ],
+   "match": "exact",
+   "note": null,
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[5]"
+   }
+  },
+  {
+   "manual_mention": "Cláusula de Elegibilidad de Talleres (en lugar de Libre Elegibilidad)",
+   "manual_rule": null,
+   "bundle_codes": [
+    "2045"
+   ],
+   "match": "exact",
+   "note": "“Libre Elegibilidad” de talleres aparece como 2053 (TIPO B licitaciones); la libre elección está también en Sección III Cláusula 3 (límite +20%).",
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[6]"
+   }
+  },
+  {
+   "manual_mention": "Cláusula de Adhesión al Pliego",
+   "manual_rule": null,
+   "bundle_codes": [
+    "2001"
+   ],
+   "match": "exact",
+   "note": null,
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[7]"
+   }
+  },
+  {
+   "manual_mention": "cláusula de extraterritorialidad que forma parte de la póliza",
+   "manual_rule": null,
+   "bundle_codes": [
+    "2027"
+   ],
+   "match": "partial",
+   "note": "Coinciden los 30 días; el manual añade extra prima Bs. 420/mes hasta 90 días, que el texto 2027 no menciona (2027 excluye daños si la permanencia supera los 30 días). Tensión no resuelta.",
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[8]"
+   }
+  },
+  {
+   "manual_mention": "Anexo de Inclusiones y Exclusiones a prorrata",
+   "manual_rule": null,
+   "bundle_codes": [
+    "2029"
+   ],
+   "match": "partial",
+   "note": null,
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[9]"
+   }
+  },
+  {
+   "manual_mention": "“Auxilio Mecánico Express”",
+   "manual_rule": null,
+   "bundle_codes": [
+    "2018"
+   ],
+   "match": "exact",
+   "note": null,
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[10]"
+   }
+  },
+  {
+   "manual_mention": "Anexo de Liquidación de Cobranza",
+   "manual_rule": null,
+   "bundle_codes": [
+    "2102"
+   ],
+   "match": "exact",
+   "note": null,
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[11]"
+   }
+  },
+  {
+   "manual_mention": "productos enlatados: LBC | Auto (Producto para Personas), LBC | Auto Por Kilometraje, LBC | Moto (Low Cost)",
+   "manual_rule": null,
+   "bundle_codes": [
+    "2111"
+   ],
+   "match": "partial",
+   "note": "Solo “Por Kilometraje” tiene cláusula identificable en el bundle (2111). Los demás productos enlatados no tienen texto propio identificable en esta compilación.",
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[12]"
+   }
+  },
+  {
+   "manual_mention": "Nota Aclaratoria sobre este tipo de vehículos (antiguos)",
+   "manual_rule": null,
+   "bundle_codes": [],
+   "match": "unmatched",
+   "note": "No se encontró en el bundle un texto titulado “Nota Aclaratoria” para vehículos antiguos.",
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[13]"
+   }
+  },
+  {
+   "manual_mention": "Cláusulas de licencia: el manual restringe licencias vencidas >90 días en licitaciones (R-097)",
+   "manual_rule": null,
+   "bundle_codes": [
+    "2030",
+    "2136",
+    "2139",
+    "2054",
+    "2059"
+   ],
+   "match": "related",
+   "note": "El bundle registra cláusulas que flexibilizan requisitos de licencia (2030 caduca hasta plazo del CP; 2054 no portar; 2136/2139 extravío). La compatibilidad con el límite de 90 días del manual queda como regla del manual, no de los textos.",
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[14]"
+   }
+  },
+  {
+   "manual_mention": "alcoholemia: CG excluye >0.50 g/1000ml; manual prohíbe pactar >0,70 g/l en licitaciones; cláusula 2002 permite pactar dosaje en CP",
+   "manual_rule": null,
+   "bundle_codes": [
+    "2002"
+   ],
+   "match": "related",
+   "note": "Tres números conviven: 0.50 (exclusión CG), dosaje pactable en CP (2002), tope 0,70 para licitaciones (manual). Se registran los tres sin armonizar.",
+   "_origin": {
+    "artifact": "linkage.json",
+    "source_id": "link[15]"
+   }
+  }
+ ],
+ "reverse_index": {
+  "2034": [
+   "R-015"
+  ],
+  "2051": [
+   "R-015"
+  ],
+  "2038": [
+   "R-015"
+  ],
+  "2112": [
+   "R-015"
+  ],
+  "2010": [
+   "R-016"
+  ],
+  "2011": [
+   "R-016"
+  ],
+  "2009": [
+   "R-016"
+  ],
+  "2045": [
+   "Cláusula de Elegibilidad de Talleres (en lugar de Libre Elegibilidad)"
+  ],
+  "2001": [
+   "Cláusula de Adhesión al Pliego"
+  ],
+  "2027": [
+   "cláusula de extraterritorialidad que forma parte de la póliza"
+  ],
+  "2029": [
+   "Anexo de Inclusiones y Exclusiones a prorrata"
+  ],
+  "2018": [
+   "“Auxilio Mecánico Express”"
+  ],
+  "2102": [
+   "Anexo de Liquidación de Cobranza"
+  ],
+  "2111": [
+   "productos enlatados: LBC | Auto (Producto para Personas), LBC | Auto Por Kilometraje, LBC | Moto (Low Cost)"
+  ],
+  "2030": [
+   "Cláusulas de licencia: el manual restringe licencias vencidas >90 días en licitaciones (R-097)"
+  ],
+  "2136": [
+   "Cláusulas de licencia: el manual restringe licencias vencidas >90 días en licitaciones (R-097)"
+  ],
+  "2139": [
+   "Cláusulas de licencia: el manual restringe licencias vencidas >90 días en licitaciones (R-097)"
+  ],
+  "2054": [
+   "Cláusulas de licencia: el manual restringe licencias vencidas >90 días en licitaciones (R-097)"
+  ],
+  "2059": [
+   "Cláusulas de licencia: el manual restringe licencias vencidas >90 días en licitaciones (R-097)"
+  ],
+  "2002": [
+   "alcoholemia: CG excluye >0.50 g/1000ml; manual prohíbe pactar >0,70 g/l en licitaciones; cláusula 2002 permite pactar dosaje en CP"
+  ]
+ }
+}

@@ -1,0 +1,24 @@
+{
+  "_material_class": "core_decision_logic",
+  "_section": "3.3.3 — Límite de Responsabilidad Civil — Case Underwriting",
+  "_note": "RC bajo Case UW > Bs. 350.000 → Línea de Responsabilidad Civil (R-074). Encadenada tras la autoridad de Case UW (order 44). Sólo dispara si has_rc (short-circuit).",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "source.version '3.0' literal; cover/changelog '4.0'." }
+  ],
+  "nodes": [
+    {
+      "id": "case_underwriting.rc_limit",
+      "type": "referral",
+      "process": "case_underwriting",
+      "order": 44,
+      "title": "Límite de Responsabilidad Civil — Case Underwriting (máx Bs. 350.000)",
+      "needs_facts": ["has_rc", "rc_asegurado"],
+      "evaluate": { "and": [ { "==": [ { "var": "has_rc" }, true ] }, { ">": [ { "var": "rc_asegurado" }, { "var": "@tables.limits.rc_max_caseuw_bob" } ] } ] },
+      "outcome": "refer_line",
+      "referral_target": { "kind": "line", "name": "responsabilidad_civil", "reason": "RC > Bs. 350.000 (o extensiones distintas a las permitidas también para el caso Estándar) deben ser suscritas por la respectiva Línea de Responsabilidad Civil." },
+      "source_quote": "El límite máximo de Responsabilidad Civil asegurable bajo un análisis caso por caso no puede superar los Bs. 350.000. Límites mayores en esta cobertura u otro tipo de extensiones, diferentes a las permitidas también para el caso Estándar, deben ser suscritas por la respectiva Línea de Responsabilidad Civil.",
+      "source": { "section": "3.3.3", "pdf_page": 26, "printed_page": 19, "version": "3.0" },
+      "_origin": { "artifact": "rules.json", "source_id": "R-074" }
+    }
+  ]
+}

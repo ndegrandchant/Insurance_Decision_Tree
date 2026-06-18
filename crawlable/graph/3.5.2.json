@@ -1,0 +1,59 @@
+{
+  "_material_class": "core_decision_logic",
+  "_section": "2.1 Capacidad + 3.5.2 Autoridades de Suscripción y Tarificación — Licitaciones",
+  "_note": "Entrada del proceso Licitaciones (el router enruta is_public_tender aquí). SÓLO la etapa de autoridad está construida en este batch: capacity(35) → authority(40) → terminal(99). El resto de Licitaciones (pasos R-094–R-099, condiciones prohibidas R-097, Tarificador de Flotas) queda diferido a Phase 1 (rating/proceso). La fuente no define un árbol de elegibilidad para Licitaciones.",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "source.version '3.0' literal; cover/changelog '4.0'." }
+  ],
+  "nodes": [
+    {
+      "id": "licitaciones.capacity",
+      "type": "condition",
+      "process": "licitaciones",
+      "order": 35,
+      "title": "Capacidad máxima por vehículo (Retención Local): Bs. 3.480.000",
+      "needs_facts": ["valor_asegurado"],
+      "evaluate": { ">": [ { "var": "valor_asegurado" }, { "var": "@tables.limits.capacidad_max_por_vehiculo_bob" } ] },
+      "outcome": "refer_authority",
+      "note": "R-003 aplica a toda la línea Automotores, incluido Licitaciones.",
+      "source_quote": "no se puede suscribir riesgos mayores a Bs. 3.480.000,00 por vehículo asegurado",
+      "source": { "section": "2.1", "pdf_page": 9, "printed_page": 2, "version": "3.0" },
+      "_origin": { "artifact": "rules.json", "source_id": "R-003" }
+    },
+    {
+      "id": "licitaciones.authority",
+      "type": "authority",
+      "process": "licitaciones",
+      "order": 40,
+      "title": "Autoridad de Suscripción — Licitaciones (por nº de vehículos y mayor vehículo)",
+      "needs_facts": ["suscriptor", "valor_asegurado", "cantidad_vehiculos"],
+      "matrix": "TBL-AUTH-LICITACIONES",
+      "lookup_by": "suscriptor",
+      "constraints": [
+        { "fact": "valor_asegurado", "op": "<=", "row_field": "max_valor_bob" },
+        { "fact": "cantidad_vehiculos", "op": "<=", "row_field": "max_vehiculos" }
+      ],
+      "exceeds_outcome": "refer_authority",
+      "unknown_key_outcome": "refer_authority",
+      "note": "Matriz Licitaciones. La fila de Lizeth Rios (10 / 700.000) difiere de Case UW (100 / 1.400.000) — ver conflicto.",
+      "source_quote": "Las autoridades de suscripción definidas para este Procedimiento, según el número máximo de vehículos asegurados en una póliza y el valor comercial máximo del mayor vehículo",
+      "source": { "section": "3.5.2", "pdf_page": 30, "printed_page": 23, "version": "3.0" },
+      "row_conflict_ref": "rulings/RUL-LIZETH-RIOS-AUTH.md (vía TBL-AUTH-LICITACIONES.cross_table_conflicts; el caveat se emite sólo si el suscriptor consultado es Lizeth Rios)",
+      "_origin": { "artifact": "rules.json", "source_id": "R-092" }
+    },
+    {
+      "id": "licitaciones.within_authority",
+      "type": "terminal",
+      "process": "licitaciones",
+      "order": 99,
+      "title": "Dentro de autoridad de Licitaciones (pasos de licitación y tarificación pendientes)",
+      "needs_facts": [],
+      "outcome": "eligible",
+      "note": "Terminal de la etapa de autoridad solamente. Confirma que el riesgo está dentro de la autoridad de Licitaciones; los pasos del proceso (R-094–R-099), las condiciones prohibidas (R-097) y la tarificación (Tarificador de Flotas) se convierten en Phase 1. 'eligible' aquí = dentro de autoridad, no fin del proceso de licitación.",
+      "source_quote": "estas pólizas son contratadas a través de una licitación pública que normalmente incluye la Cláusula de Adhesión al Pliego",
+      "source": { "section": "3.5", "pdf_page": 30, "printed_page": 23, "version": "3.0" },
+      "derived": true,
+      "_origin": { "artifact": "synthetic", "source_id": "licitaciones.flow_terminal", "note": "Terminal de flujo del proceso Licitaciones (sintética). R-090 (definición del proceso) permanece 'partial' en rule_buckets.json; este nodo no lo convierte por completo." }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "_material_class": "core_decision_logic (entry point)",
+  "_note": "root.process_router. Per decisions.md D-P4: the branches the source STATES are asserted; the overall precedence-when-several-apply is NOT invented -> hit_policy unique + on_no_match standard means 0 explicit triggers => Standard (sourced fast-lane default R-010), exactly 1 => route, >1 => unresolved precedence => escalate citing RUL-ROUTER-PRECEDENCE. Honours representation decisions.md D2 (no master precedence invented) while giving the crawler a root.",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "source.version '3.0' is the literal page stamp; cover/changelog say '4.0'." }
+  ],
+  "nodes": [
+    {
+      "id": "root.process_router",
+      "type": "router",
+      "process": null,
+      "title": "Selección del proceso de suscripción",
+      "needs_facts": ["product", "is_public_tender", "is_mass_grouping", "channel", "client_type", "requests_standard_deviation"],
+      "hit_policy": "unique",
+      "on_no_match": "standard.elig.gate_tipo_vehiculo",
+      "branches": [
+        { "when": { "in": [ { "var": "product" }, ["lbc_auto", "lbc_auto_kilometraje", "lbc_moto_low_cost"] ] },
+          "outcome": "refer_process", "target": "automatica",
+          "reason": "Productos enlatados con T&C predefinidos; no aplican autoridades de suscripción (R-060 lista LBC|Auto, LBC|Auto Por Kilometraje, LBC|Moto Low Cost).",
+          "source_quote": "En este procedimiento no aplican autoridades de suscripción, ya que los productos ‘enlatados’ cuentan con términos y condiciones definidas para riesgos específicos." },
+        { "when": { "in": [ { "var": "product" }, ["lbc_auto", "moto_proteccion"] ] },
+          "outcome": "refer_process", "target": "standard",
+          "reason": "Productos comercializables por la vía Estándar (R-011: LBC|Auto incluyendo Planes enlatados, y Moto Protección).",
+          "source_quote": "Los únicos productos que pueden ser comercializados por esta vía son: LBC | Auto (incluyendo los Planes enlatados) y Moto Protección." },
+        { "when": { "==": [ { "var": "is_public_tender" }, true ] },
+          "outcome": "refer_process", "target": "licitaciones",
+          "reason": "Clientes Estatales / licitaciones del sector público o privadas.",
+          "source_quote": "estas pólizas son contratadas a través de una licitación pública que normalmente incluye la Cláusula de Adhesión al Pliego" },
+        { "when": { "or": [ { "==": [ { "var": "is_mass_grouping" }, true ] }, { "==": [ { "var": "channel" }, "wholesale" ] } ] },
+          "outcome": "refer_process", "target": "masiva",
+          "reason": "Agrupación de muchos clientes individuales en un solo programa; acuerdos con Concesionarios/Bancos/Entidades Financieras.",
+          "source_quote": "Bajo este procedimiento de suscripción se puede atender a Entidades Financieras u otros agrupadores con un vínculo de afinidad" },
+        { "when": { "or": [ { "==": [ { "var": "requests_standard_deviation" }, true ] }, { "==": [ { "var": "client_type" }, "consumer_fleet_4plus" ] } ] },
+          "outcome": "refer_process", "target": "case_underwriting",
+          "reason": "Desviaciones a condiciones estándar / flotas Consumer (>=4) que requieren análisis caso por caso.",
+          "source_quote": "este procedimiento debe ser analizado considerando factores ajenos a la misma póliza, como ser: antigüedad del cliente, volumen del programa de seguros en la Compañía, rentabilidad de la cuenta y del programa y el interés comercial por la cuenta." }
+      ],
+      "source_quote": "El procedimiento de Suscripción Estándar representa la vía rápida de atención a nuestros clientes, mediante productos no diferenciados que se enmarcan dentro el perfil de riesgo de la estrategia del negocio.",
+      "source": { "section": "3", "pdf_page": "10-30", "printed_page": "3-23", "version": "3.0" },
+      "derived": true,
+      "conflict": {
+        "status": "open",
+        "ledger_ref": "rulings/RUL-ROUTER-PRECEDENCE.md",
+        "kind": "derived_reading",
+        "summary": "El manual describe los 5 procesos pero no fija una precedencia global cuando varios podrían aplicar. En particular LBC|Auto es a la vez producto Automática (R-060) y producto Estándar (R-011): coincide con dos ramas y, bajo hit_policy 'unique', ESCALA (no se resuelve hacia ninguno). Igual ocurre con cualquier caso que dispare >1 rama (p.ej. licitación estatal con producto enlatado). La precedencia más-específica-primero NO se afirma como lógica.",
+        "source_variants": [
+          { "label": "estandar_via_rapida_R-010", "quote": "El procedimiento de Suscripción Estándar representa la vía rápida de atención a nuestros clientes", "source": { "section": "3.1", "pdf_page": 10 } },
+          { "label": "case_uw_desviaciones_R-070", "quote": "este procedimiento debe ser analizado considerando factores ajenos a la misma póliza", "source": { "section": "3.3", "pdf_page": 24 } }
+        ],
+        "recommended_resolution": null
+      },
+      "_origin": { "artifact": "rules.json", "source_id": "R-010,R-060,R-070,R-080,R-090,R-103", "note": "Synthesized entry point; representation has no master router (decisions.md D2)." }
+    }
+  ]
+}

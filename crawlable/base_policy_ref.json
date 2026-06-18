@@ -1,0 +1,116 @@
+{
+ "_material_class": "base policy (Condiciones Generales) capture (reference)",
+ "_note": "Structured base policy elements; canonical detail in base_policy.json + clause_texts/CG-base.txt.",
+ "elements": [
+  {
+   "element": "prelacion_documental",
+   "representation_key": "prelacion_documental",
+   "present": true,
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "prelacion_documental"
+   }
+  },
+  {
+   "element": "definiciones",
+   "representation_key": "definiciones",
+   "present": true,
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "definiciones"
+   }
+  },
+  {
+   "element": "consideraciones_generales",
+   "representation_key": "consideraciones_generales",
+   "present": true,
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "consideraciones_generales"
+   }
+  },
+  {
+   "element": "obligaciones_del_asegurado",
+   "representation_key": "obligaciones_del_asegurado_en_caso_de_siniestro",
+   "present": true,
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "obligaciones_del_asegurado"
+   }
+  },
+  {
+   "element": "exclusiones_generales",
+   "representation_key": "exclusiones_generales",
+   "present": true,
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "exclusiones_generales"
+   }
+  },
+  {
+   "element": "invalidez_scale",
+   "representation_key": "invalidez_scale",
+   "present": true,
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "invalidez_scale"
+   }
+  },
+  {
+   "element": "seccion[1]",
+   "title": "SECCIÓN I COBERTURA DE PÉRDIDA TOTAL POR ACCIDENTE",
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "seccion[1]"
+   }
+  },
+  {
+   "element": "seccion[2]",
+   "title": "SECCIÓN II COBERTURA DE PÉRDIDA TOTAL POR ROBO",
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "seccion[2]"
+   }
+  },
+  {
+   "element": "seccion[3]",
+   "title": "SECCIÓN III COBERTURA DE DAÑOS PROPIOS",
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "seccion[3]"
+   }
+  },
+  {
+   "element": "seccion[4]",
+   "title": "SECCIÓN IV COBERTURA DE HMACC-AMITT",
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "seccion[4]"
+   }
+  },
+  {
+   "element": "seccion[5]",
+   "title": "SECCIÓN V COBERTURA DE ROBO PARCIAL DE PARTES Y PIEZAS",
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "seccion[5]"
+   }
+  },
+  {
+   "element": "seccion[6]",
+   "title": "SECCIÓN VI COBERTURA DE RESPONSABILIDAD CIVIL",
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "seccion[6]"
+   }
+  },
+  {
+   "element": "seccion[7]",
+   "title": "SECCIÓN VII COBERTURA DE ACCIDENTES PERSONALES A OCUPANTES DE VEHÍCULOS",
+   "_origin": {
+    "artifact": "base_policy.json",
+    "source_id": "seccion[7]"
+   }
+  }
+ ]
+}

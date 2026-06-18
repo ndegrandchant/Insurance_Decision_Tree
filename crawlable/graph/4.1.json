@@ -1,0 +1,80 @@
+{
+  "_material_class": "core_decision_logic",
+  "_section": "4.1 — Renovación de pólizas (por segmento y siniestralidad)",
+  "_source_tree": "T-RENOVACION (representation/underwriting_manual/decision_trees.json)",
+  "_note": "Renovación = ajuste de tasa por siniestralidad, por segmento (process tag 'renovacion', política 4.x cross-cutting). Nodos accumulator con band_table (S2). Orden: comercial/pyme (10) → conflicto Consumer-pesado/moto (11, BLOCKING) → consumer livianos (12) → pesados/motos individual (13). El conflicto Consumer-vs-pesados (T-RENOVACION.conflict_flag) se modela como nodo bloqueante que escala: un pesado/moto Consumer está doblemente cubierto (bandas Consumer y esquema pesados/motos) y la fuente no indica cuál prevalece.",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "version '3.0' literal; cover/changelog '4.0'." }
+  ],
+  "nodes": [
+    {
+      "id": "renovacion.comercial",
+      "type": "accumulator",
+      "process": "renovacion",
+      "order": 10,
+      "title": "Renovación Comercial/Pyme — ajuste por siniestralidad",
+      "needs_facts": ["segment", "siniestralidad"],
+      "evaluate": { "in": [ { "var": "segment" }, ["comercial", "pyme"] ] },
+      "band_table": "TBL-RENOV-COMERCIAL",
+      "band_input": "siniestralidad",
+      "note": "Aplica también a Pyme cuando el Asegurado tenga denominación S.A., SRL, S.A.M., R.L. u ONG. Requiere que el riesgo esté en perfil/autoridad Estándar y T&C sin cambios (condiciones 1–2 de la renovación automática).",
+      "source_quote": "Comercial (aplica también a Pyme cuando el Asegurado tenga denominación S.A., SRL, S.A.M., R.L. u ONG)",
+      "source": { "section": "4.1", "pdf_page": 35, "printed_page": 28, "version": "3.0" },
+      "_origin": { "artifact": "decision_trees.json", "path": "T-RENOVACION.branch[0]", "source_id": "branch[0]" }
+    },
+    {
+      "id": "renovacion.consumer_pesado_overlap",
+      "type": "condition",
+      "process": "renovacion",
+      "order": 11,
+      "title": "Conflicto: pesado/motocicleta del segmento Consumer (doble cobertura de esquemas)",
+      "needs_facts": ["segment", "vehicle_class"],
+      "evaluate": { "and": [ { "==": [ { "var": "segment" }, "consumer" ] }, { "in": [ { "var": "vehicle_class" }, ["pesado_bajo_tonelaje", "camion", "tractocamion", "volqueta", "cisterna", "tractor", "trailer", "microbus", "colectivo", "omnibus", "chata", "semirremolque", "remolque", "tolva", "carroceria", "motocicleta"] ] } ] },
+      "conflict": {
+        "status": "open",
+        "blocking": true,
+        "ledger_ref": "rulings/RUL-RENOV-CONSUMER-PESADOS-OVERLAP.md",
+        "kind": "overlap",
+        "summary": "Un pesado/motocicleta del segmento Consumer está cubierto a la vez por las bandas Consumer (TBL-RENOV-CONSUMER) y por el esquema de pesados/motos (TBL-RENOV-PESADOS-MOTOS), que dan resultados distintos (p.ej. siniestralidad 55%: 'mismas tasas' vs '+17%'). La fuente no indica cuál prevalece; el crawler escala.",
+        "source_variants": [
+          { "label": "consumer_bands", "quote": "Consumer: aplica a cualquier póliza con perfil de Suscripción Estándar (livianos, pesados, motocicletas, etc.)", "source": { "pdf_page": 35 } },
+          { "label": "pesados_motos_scheme", "quote": "Vehículos Pesados y motocicletas (pólizas individuales): ≤50% mantener; 51–250% +17%; >250% Case UW", "source": { "pdf_page": 36 } }
+        ],
+        "recommended_resolution": null
+      },
+      "source_quote": "CONFLICTO INTERNO DE LA FUENTE: el alcance Consumer (livianos, pesados, motocicletas, etc.) se solapa con el esquema del punto 3 para Pesados y motocicletas; la fuente no indica cuál esquema prevalece para pesados/motocicletas del segmento Consumer.",
+      "source": { "section": "4.1", "pdf_page": 36, "printed_page": 29, "version": "3.0" },
+      "_origin": { "artifact": "decision_trees.json", "path": "T-RENOVACION.conflict_flag", "source_id": "conflict_flag" }
+    },
+    {
+      "id": "renovacion.consumer",
+      "type": "accumulator",
+      "process": "renovacion",
+      "order": 12,
+      "title": "Renovación Consumer (livianos) — ajuste por siniestralidad histórica",
+      "needs_facts": ["segment", "siniestralidad"],
+      "evaluate": { "==": [ { "var": "segment" }, "consumer" ] },
+      "band_table": "TBL-RENOV-CONSUMER",
+      "band_input": "siniestralidad",
+      "note": "Los pesados/motocicletas Consumer ya fueron capturados por el nodo de conflicto (order 11); aquí llegan los livianos Consumer.",
+      "source_quote": "Consumer: aplica a renovaciones por cualquier canal y para cualquier póliza que corresponda a un riesgo con perfil de Suscripción Estándar … sin considerar antigüedad",
+      "source": { "section": "4.1", "pdf_page": 35, "printed_page": 28, "version": "3.0" },
+      "_origin": { "artifact": "decision_trees.json", "path": "T-RENOVACION.branch[1]", "source_id": "branch[1]" }
+    },
+    {
+      "id": "renovacion.pesados_motos",
+      "type": "accumulator",
+      "process": "renovacion",
+      "order": 13,
+      "title": "Renovación Pesados/motocicletas (pólizas individuales, perfil estándar)",
+      "needs_facts": ["vehicle_class", "siniestralidad"],
+      "evaluate": { "in": [ { "var": "vehicle_class" }, ["pesado_bajo_tonelaje", "camion", "tractocamion", "volqueta", "cisterna", "tractor", "trailer", "microbus", "colectivo", "omnibus", "chata", "semirremolque", "remolque", "tolva", "carroceria", "motocicleta"] ] },
+      "band_table": "TBL-RENOV-PESADOS-MOTOS",
+      "band_input": "siniestralidad",
+      "note": "Esquema del punto 3 (pesados/motos individual). En un crawl ruteado por segmento, los pesados Comercial/Pyme los toma renovacion.comercial (10) y los Consumer el nodo de conflicto (11); este nodo es alcanzable directamente para evaluar el esquema de pesados/motos en sí.",
+      "source_quote": "Vehículos Pesados y motocicletas (pólizas individuales con perfil de límites de suscripción estándar)",
+      "source": { "section": "4.1", "pdf_page": 36, "printed_page": 29, "version": "3.0" },
+      "_origin": { "artifact": "decision_trees.json", "path": "T-RENOVACION.branch[2]", "source_id": "branch[2]" }
+    }
+  ]
+}

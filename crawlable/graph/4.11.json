@@ -1,0 +1,42 @@
+{
+  "_material_class": "core_decision_logic",
+  "_section": "4.11 — Retroactividad en emisión / renovación / inclusión",
+  "_source_tree": "T-RETROACTIVIDAD (representation/underwriting_manual/decision_trees.json)",
+  "_note": "Política general: no se acepta retroactividad > 30 días. Modelo: overlay de siniestro (order 10, aplica en CUALQUIER caso) → si hubo siniestro en el periodo, al Comité de Riesgos y Siniestros; si no, la rama de duración (order 11): ≤30 días → condicional con requisitos; >30 días → Case UW (+ Operaciones). El overlay se modela como condición superpuesta, no como tercera rama excluyente (representation fix).",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "version '3.0' literal; cover/changelog '4.0'." }
+  ],
+  "nodes": [
+    {
+      "id": "retroactividad.siniestro_overlay",
+      "type": "referral",
+      "process": "retroactividad",
+      "order": 10,
+      "title": "Siniestro durante el periodo de retroactividad → Comité de Riesgos y Siniestros",
+      "needs_facts": ["siniestro_en_periodo"],
+      "evaluate": { "==": [ { "var": "siniestro_en_periodo" }, true ] },
+      "outcome": "refer_authority",
+      "referral_target": { "kind": "committee", "name": "comite_riesgos_siniestros", "reason": "Si el cliente tuvo algún siniestro durante el periodo, debe solicitarse al Comité de Riesgos y Siniestros la alternativa de cubrirlo (riesgo de fraude); con el VoBo del CR&S se autoriza la retroactividad." },
+      "note": "Condición superpuesta: aplica en cualquiera de los dos casos de duración. Nótese que el caso ≤30 días exige conformidad de que NO existen siniestros reportados.",
+      "source_quote": "si el cliente tuvo algún siniestro durante este periodo … debe solicitarse al Comité de Riesgos y Siniestros la alternativa de cubrirlo, considerando el riesgo de posibles fraudes; con el VoBo del CR&S se autorizará la retroactividad",
+      "source": { "section": "4.11", "pdf_page": 40, "printed_page": 33, "version": "3.0" },
+      "_origin": { "artifact": "decision_trees.json", "path": "T-RETROACTIVIDAD.root.overlay_condition", "source_id": "overlay_condition" }
+    },
+    {
+      "id": "retroactividad.duracion",
+      "type": "condition",
+      "process": "retroactividad",
+      "order": 11,
+      "title": "Retroactividad por duración (≤30 días estándar; >30 días excepción)",
+      "needs_facts": ["retroactividad_dias"],
+      "hit_policy": "first",
+      "branches": [
+        { "when": { "<=": [ { "var": "retroactividad_dias" }, 30 ] }, "outcome": "conditional_eligible", "reason": "≤30 días (procedimiento estándar): requiere que la orden se haya dado oportunamente antes del inicio de vigencia (caso contrario, nueva inspección o declaración jurada) y conformidad del cliente de que no existen siniestros reportados a la fecha de expedición." },
+        { "when": { ">": [ { "var": "retroactividad_dias" }, 30 ] }, "outcome": "refer_process", "target": "case_underwriting", "reason": "Mayor a 30 días (excepción a la política general): el caso deberá ser analizado por Case Underwriting y según el Procedimiento establecido desde el área de Operaciones." }
+      ],
+      "source_quote": "Como política general, no se acepta la emisión de pólizas nuevas, renovaciones o inclusiones, con retroactividad mayor a 30 días (entre la fecha de expedición y el inicio de cobertura).",
+      "source": { "section": "4.11", "pdf_page": 40, "printed_page": 33, "version": "3.0" },
+      "_origin": { "artifact": "decision_trees.json", "path": "T-RETROACTIVIDAD.root", "source_id": "root" }
+    }
+  ]
+}

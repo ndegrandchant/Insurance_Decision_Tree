@@ -1,0 +1,45 @@
+{
+  "_material_class": "core_decision_logic",
+  "_section": "2.1 Capacidad + 3.3.2 Autoridades de Suscripción — Case Underwriting",
+  "_note": "Etapa de autoridad de Case UW, encadenada tras la elegibilidad (3.3.1): exclusiones(10-20) → capacity(35) → authority(40) → terminal elegible(99). Autoridad = R-072 + matriz TBL-AUTH-CASEUW.",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "source.version '3.0' literal; cover/changelog '4.0'." }
+  ],
+  "nodes": [
+    {
+      "id": "case_underwriting.capacity",
+      "type": "condition",
+      "process": "case_underwriting",
+      "order": 35,
+      "title": "Capacidad máxima por vehículo (Retención Local): Bs. 3.480.000",
+      "needs_facts": ["valor_asegurado"],
+      "evaluate": { ">": [ { "var": "valor_asegurado" }, { "var": "@tables.limits.capacidad_max_por_vehiculo_bob" } ] },
+      "outcome": "refer_authority",
+      "note": "R-003 aplica a toda la línea Automotores, incluido Case UW.",
+      "source_quote": "no se puede suscribir riesgos mayores a Bs. 3.480.000,00 por vehículo asegurado",
+      "source": { "section": "2.1", "pdf_page": 9, "printed_page": 2, "version": "3.0" },
+      "_origin": { "artifact": "rules.json", "source_id": "R-003" }
+    },
+    {
+      "id": "case_underwriting.authority",
+      "type": "authority",
+      "process": "case_underwriting",
+      "order": 40,
+      "title": "Autoridad de Suscripción — Case Underwriting (por valor comercial)",
+      "needs_facts": ["suscriptor", "valor_asegurado", "cantidad_vehiculos"],
+      "matrix": "TBL-AUTH-CASEUW",
+      "lookup_by": "suscriptor",
+      "constraints": [
+        { "fact": "valor_asegurado", "op": "<=", "row_field": "max_valor_bob" },
+        { "fact": "cantidad_vehiculos", "op": "<=", "row_field": "max_vehiculos" }
+      ],
+      "exceeds_outcome": "refer_authority",
+      "unknown_key_outcome": "refer_authority",
+      "note": "Matriz Case UW. La fila de Lizeth Rios (100 / 1.400.000) difiere de la de Licitaciones (10 / 700.000) — ver conflicto.",
+      "source_quote": "Las autoridades de suscripción del Procedimiento Case Underwriting se encuentran definidas en la siguiente matriz, según el valor comercial del vehículo asegurado.",
+      "source": { "section": "3.3.2", "pdf_page": 25, "printed_page": 18, "version": "3.0" },
+      "row_conflict_ref": "rulings/RUL-LIZETH-RIOS-AUTH.md (vía TBL-AUTH-CASEUW.cross_table_conflicts; el caveat se emite sólo si el suscriptor consultado es Lizeth Rios)",
+      "_origin": { "artifact": "rules.json", "source_id": "R-072" }
+    }
+  ]
+}

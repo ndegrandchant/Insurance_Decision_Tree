@@ -1,0 +1,42 @@
+{
+  "_material_class": "core_decision_logic",
+  "_section": "3.1.4.b/c — Límites de cobertura (RC y AP) — Estándar",
+  "_note": "Restricciones de cobertura con ruteo de desborde, encadenadas tras la autoridad (order 44–45): RC incidental > Bs. 210.000 (salvo enlatado) → Case UW (R-018); AP capital > Bs. 140.000/persona → Línea de Seguros Personales (R-022). Sólo disparan si la cobertura está contratada (has_rc/has_ap), de modo que una póliza sin RC/AP no las exige (short-circuit).",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "source.version '3.0' literal; cover/changelog '4.0'." }
+  ],
+  "nodes": [
+    {
+      "id": "standard.rc_limit",
+      "type": "condition",
+      "process": "standard",
+      "order": 44,
+      "title": "Límite de Responsabilidad Civil incidental — Estándar (máx Bs. 210.000)",
+      "needs_facts": ["has_rc", "is_enlatado", "rc_asegurado"],
+      "evaluate": { "and": [ { "==": [ { "var": "has_rc" }, true ] }, { "==": [ { "var": "is_enlatado" }, false ] }, { ">": [ { "var": "rc_asegurado" }, { "var": "@tables.limits.rc_max_standard_bob" } ] } ] },
+      "outcome": "refer_process",
+      "referral_target": { "kind": "process", "name": "case_underwriting", "reason": "RC > Bs. 210.000 fuera de la cobertura incidental Estándar; cualquier excepción se atiende por Case Underwriting." },
+      "note": "El límite no aplica bajo producto enlatado (configuración propia) — por eso la condición exige is_enlatado == false.",
+      "source_quote": "Como cobertura incidental, el límite máximo asegurado para Responsabilidad Civil no puede superar los Bs. 210.000, excepto cuando se otorgada bajo algún producto enlatado",
+      "overflow_source_quote": "cualquier excepción debe atenderse por Case Underwriting",
+      "source": { "section": "3.1.4.b", "pdf_page": 15, "printed_page": 8, "version": "3.0" },
+      "_origin": { "artifact": "rules.json", "source_id": "R-018" }
+    },
+    {
+      "id": "standard.ap_limit",
+      "type": "referral",
+      "process": "standard",
+      "order": 45,
+      "title": "Límite de Accidentes Personales a Ocupantes — Estándar (máx Bs. 140.000/persona)",
+      "needs_facts": ["has_ap", "ap_capital_por_persona"],
+      "evaluate": { "and": [ { "==": [ { "var": "has_ap" }, true ] }, { ">": [ { "var": "ap_capital_por_persona" }, { "var": "@tables.limits.ap_max_capital_por_persona_bob" } ] } ] },
+      "outcome": "refer_line",
+      "referral_target": { "kind": "line", "name": "seguros_personales", "reason": "Capital de AP por persona mayor al máximo de Automotores: revisar por la línea del negocio correspondiente (no asegurable bajo Automotores)." },
+      "note": "El tope de 8 ocupantes y la prima por ocupantes adicionales (RUAT>8 en perfil Estándar) están en TBL-AP-OCUPANTES (R-022); aquí se modela el desborde de capital por persona.",
+      "source_quote": "El capital asegurado máximo es de Bs.140.000 por tripulante o pasajero",
+      "overflow_source_quote": "límite mayor de AP → revisar por la línea del negocio correspondiente (no asegurable bajo Automotores)",
+      "source": { "section": "3.1.4.c", "pdf_page": 15, "printed_page": 8, "version": "3.0" },
+      "_origin": { "artifact": "rules.json", "source_id": "R-022" }
+    }
+  ]
+}

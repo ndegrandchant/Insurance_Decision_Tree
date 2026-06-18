@@ -1,0 +1,102 @@
+{
+  "_material_class": "parameters (role-typed) + S2 decision tables",
+  "_note": "crawlable/ tables. Role-typed per node_schema.md §S2. Values are verbatim from representation/underwriting_manual/tables.json + the T-ELIG-ESTANDAR exclusion quotes; provenance carried. Scalars under 'limits' resolve as @tables.limits.<key>; allowlists as @tables.<id>.values; bracket_map tables are consumed by bracket_lookup, never inlined into a condition.",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "Every manual source.version below is the literal '3.0' stamped on the page headers/info-table; the cover/changelog say '4.0'. Not resolved per node — see ledger." }
+  ],
+
+  "limits": {
+    "role": "scalar_group",
+    "keys": {
+      "valor_max_standard_bob": {
+        "value": 1050000, "unit": "BOB",
+        "source_quote": "Vehículos que tengan un Valor Asegurado igual o mayor a Bs. 1.050.000,00",
+        "source": { "section": "3.1.2", "pdf_page": 12, "printed_page": 5, "version": "3.0" },
+        "_origin": { "artifact": "decision_trees.json", "source_id": "X15" }
+      },
+      "valor_validacion_importador_bob": {
+        "value": 700000, "unit": "BOB",
+        "source_quote": "el valor supera los Bs. 700.000",
+        "source": { "section": "3.1.2", "pdf_page": 12, "printed_page": 5, "version": "3.0" },
+        "_origin": { "artifact": "decision_trees.json", "source_id": "X15" }
+      },
+      "moto_lujo_valor_max_bob": {
+        "value": 70000, "unit": "BOB",
+        "source_quote": "su valor asegurado no supere los Bs.70.000",
+        "source": { "section": "3.1.2", "pdf_page": 11, "printed_page": 4, "version": "3.0" },
+        "_origin": { "artifact": "decision_trees.json", "source_id": "X09" }
+      },
+      "capacidad_max_por_vehiculo_bob": {
+        "value": 3480000, "unit": "BOB",
+        "source_quote": "no se puede suscribir riesgos mayores a Bs. 3.480.000,00 por vehículo asegurado",
+        "source": { "section": "2.1", "pdf_page": 9, "printed_page": 2, "version": "3.0" },
+        "_origin": { "artifact": "rules.json", "source_id": "R-003" },
+        "provenance": "parameter_digest"
+      },
+      "rc_max_standard_bob": {
+        "value": 210000, "unit": "BOB",
+        "source_quote": "el límite máximo asegurado para Responsabilidad Civil no puede superar los Bs. 210.000, excepto cuando se otorgada bajo algún producto enlatado",
+        "source": { "section": "3.1.4.b", "pdf_page": 15, "printed_page": 8, "version": "3.0" },
+        "_origin": { "artifact": "rules.json", "source_id": "R-018" }
+      },
+      "rc_max_caseuw_bob": {
+        "value": 350000, "unit": "BOB",
+        "source_quote": "El límite máximo de Responsabilidad Civil asegurable bajo un análisis caso por caso no puede superar los Bs. 350.000.",
+        "source": { "section": "3.3.3", "pdf_page": 26, "printed_page": 19, "version": "3.0" },
+        "_origin": { "artifact": "rules.json", "source_id": "R-074" }
+      },
+      "ap_max_capital_por_persona_bob": {
+        "value": 140000, "unit": "BOB",
+        "source_quote": "El capital asegurado máximo es de Bs.140.000 por tripulante o pasajero",
+        "source": { "section": "3.1.4.c", "pdf_page": 15, "printed_page": 8, "version": "3.0" },
+        "_origin": { "artifact": "rules.json", "source_id": "R-022" }
+      }
+    }
+  },
+
+  "allowlist_importadores": {
+    "role": "allowlist",
+    "values": ["Toyosa", "SACI", "Andar Motors", "Ovando", "Taiyo Motors", "IMCRUZ"],
+    "source_quote": "validar que hayan sido importados y comercializados por: Toyosa, SACI, Andar Motors, Ovando, Taiyo Motors e IMCRUZ",
+    "source": { "section": "3.1.2", "pdf_page": 12, "printed_page": 5, "version": "3.0" },
+    "_origin": { "artifact": "decision_trees.json", "source_id": "X15.additional_check" },
+    "provenance": "verbatim_table"
+  },
+
+  "allowlist_marcas_antiguos": {
+    "role": "allowlist",
+    "values": ["Suzuki", "Toyota", "Nissan", "Mitsubishi", "Mazda", "Ford", "Volkswagen", "Honda"],
+    "source_quote": "solamente marcas Suzuki, Toyota. Nissan, Mitsubishi, Mazda, Ford, Volkswagen y Honda",
+    "source": { "section": "3.1.2", "pdf_page": 11, "printed_page": 4, "version": "3.0" },
+    "_origin": { "artifact": "decision_trees.json", "source_id": "X12.b" },
+    "provenance": "verbatim_table",
+    "note": "Puntuación verbatim de la fuente: 'Toyota. Nissan' (punto, no coma). Preservada en source_quote."
+  },
+
+  "TBL-FRANQ-MOTO": {
+    "role": "bracket_map",
+    "name": "Franquicia deducible mínima Moto Protección (Daños Propios y HMACC AMIT Terrorismo)",
+    "hit_policy": "unique",
+    "input": "valor_asegurado",
+    "_note": "S2 exemplar. Carried verbatim from representation TBL-FRANQ-MOTO. Source prints three rows; rows 2 and 3 ('Mayor a 35.000' open above, 'Mayor a 70.000' open above) OVERLAP for VA>70.000 with no stated precedence -> boundary_conflicts -> ledger. Inclusivity is made explicit on every row; nothing is silently a '<'.",
+    "rows": [
+      { "lower": 0, "upper": 35000, "lower_inclusive": true, "upper_inclusive": true,
+        "output": { "scl_lpz_tri_bob": 350, "resto_pais_bob": 350 },
+        "source_quote": "Hasta Bs. 35.000,00 | Bs. 350 | Bs. 350" },
+      { "lower": 35000, "upper": null, "lower_inclusive": false, "upper_inclusive": null,
+        "output": { "scl_lpz_tri_bob": 700, "resto_pais_bob": 350 },
+        "source_quote": "Mayor a Bs. 35.000,00 | Bs. 700 | Bs. 350" },
+      { "lower": 70000, "upper": null, "lower_inclusive": false, "upper_inclusive": null,
+        "output": { "scl_lpz_tri_bob": 1500, "resto_pais_bob": 1500 },
+        "source_quote": "Mayor a Bs. 70.000,00 | Bs. 1.500 | Bs. 1.500" }
+    ],
+    "boundary_conflicts": [
+      { "between_rows": [1, 2], "edge": 70000, "kind": "overlap",
+        "detail": "Para VA > 70.000 coinciden la fila 'Mayor a 35.000' y la fila 'Mayor a 70.000'; el manual no define precedencia.",
+        "ledger_ref": "rulings/RUL-FRANQ-MOTO-OVERLAP.md" }
+    ],
+    "source": { "section": "3.1.5.4.2", "pdf_page": 20, "printed_page": 13, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-FRANQ-MOTO" },
+    "provenance": "verbatim_table"
+  }
+}

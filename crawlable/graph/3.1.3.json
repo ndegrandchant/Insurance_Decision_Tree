@@ -1,0 +1,44 @@
+{
+  "_material_class": "core_decision_logic",
+  "_section": "2.1 Capacidad + 3.1.3 Autoridades de Suscripción — Estándar",
+  "_note": "Etapa de autoridad del proceso Estándar, encadenada por 'order' tras la elegibilidad (3.1.2): si ninguna exclusión dispara, el filtro cae a capacity(35) → authority(40) → terminal elegible(99). Capacidad = R-003 (Retención Local); autoridad = R-013 + matriz TBL-AUTH-ESTANDAR. Dentro de autoridad → avanza; excede → refer_authority.",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "source.version '3.0' literal; cover/changelog '4.0'." }
+  ],
+  "nodes": [
+    {
+      "id": "standard.capacity",
+      "type": "condition",
+      "process": "standard",
+      "order": 35,
+      "title": "Capacidad máxima por vehículo (Retención Local): Bs. 3.480.000",
+      "needs_facts": ["valor_asegurado"],
+      "evaluate": { ">": [ { "var": "valor_asegurado" }, { "var": "@tables.limits.capacidad_max_por_vehiculo_bob" } ] },
+      "outcome": "refer_authority",
+      "note": "R-003: no se puede suscribir > Bs. 3.480.000 por vehículo (limitado por la Retención Local). Exceder no es inelegibilidad de perfil: requiere escalar (facultativo/retención) → refer_authority.",
+      "source_quote": "no se puede suscribir riesgos mayores a Bs. 3.480.000,00 por vehículo asegurado",
+      "source": { "section": "2.1", "pdf_page": 9, "printed_page": 2, "version": "3.0" },
+      "_origin": { "artifact": "rules.json", "source_id": "R-003" }
+    },
+    {
+      "id": "standard.authority",
+      "type": "authority",
+      "process": "standard",
+      "order": 40,
+      "title": "Autoridad de Suscripción — Estándar (por valor y cantidad de vehículos)",
+      "needs_facts": ["suscriptor", "valor_asegurado", "cantidad_vehiculos"],
+      "matrix": "TBL-AUTH-ESTANDAR",
+      "lookup_by": "suscriptor",
+      "constraints": [
+        { "fact": "valor_asegurado", "op": "<=", "row_field": "max_valor_bob" },
+        { "fact": "cantidad_vehiculos", "op": "<=", "row_field": "max_vehiculos" }
+      ],
+      "exceeds_outcome": "refer_authority",
+      "unknown_key_outcome": "refer_authority",
+      "note": "Dentro de los límites del suscriptor (valor ≤ mayor vehículo y cantidad ≤ máximo, donde 'No aplica' = sin límite) → avanza a la terminal/tarificación. Excede → refer_authority (suscriptor de mayor autoridad). El tope absoluto Bs. 3.480.000 lo aplica standard.capacity.",
+      "source_quote": "La base de análisis en la línea de Automotores es por riesgo o valor comercial del vehículo asegurado y así están definidas las Autoridades de Suscripción.",
+      "source": { "section": "3.1.3", "pdf_page": 13, "printed_page": 6, "version": "3.0" },
+      "_origin": { "artifact": "rules.json", "source_id": "R-013" }
+    }
+  ]
+}

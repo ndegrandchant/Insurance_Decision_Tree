@@ -1,0 +1,1504 @@
+{
+ "rules.json": {
+  "R-001": {
+   "status": "reference",
+   "note": "reference.json (governance)"
+  },
+  "R-002": {
+   "status": "reference",
+   "note": "reference.json (governance)"
+  },
+  "R-003": {
+   "status": "converted",
+   "note": "node: standard/case_underwriting/licitaciones.capacity (R-003)"
+  },
+  "R-004": {
+   "status": "reference",
+   "note": "reference.json (product_config)"
+  },
+  "R-005": {
+   "status": "reference",
+   "note": "reference.json (product_config)"
+  },
+  "R-010": {
+   "status": "partial",
+   "note": "referenced by root.process_router; process partially built"
+  },
+  "R-011": {
+   "status": "reference",
+   "note": "reference.json (product_config)"
+  },
+  "R-012": {
+   "status": "converted",
+   "note": "tree: T-ELIG-ESTANDAR (graph/3.1.2.json)"
+  },
+  "R-013": {
+   "status": "converted",
+   "note": "node: standard.authority"
+  },
+  "R-014": {
+   "status": "reference",
+   "note": "reference.json (coverage_terms)"
+  },
+  "R-015": {
+   "status": "reference",
+   "note": "reference.json (clause_availability)"
+  },
+  "R-016": {
+   "status": "reference",
+   "note": "reference.json (clause_availability)"
+  },
+  "R-017": {
+   "status": "reference",
+   "note": "reference.json (coverage_terms)"
+  },
+  "R-018": {
+   "status": "converted",
+   "note": "node: standard.rc_limit (RC 210k Estándar -> Case UW)"
+  },
+  "R-019": {
+   "status": "converted",
+   "note": "table: TBL-RC-LIMITES"
+  },
+  "R-020": {
+   "status": "converted",
+   "note": "table: TBL-RC-LIMITES"
+  },
+  "R-021": {
+   "status": "reference",
+   "note": "reference.json (coverage_terms)"
+  },
+  "R-022": {
+   "status": "converted",
+   "note": "node: standard.ap_limit (AP >140k/persona -> Línea Seguros Personales)"
+  },
+  "R-023": {
+   "status": "converted",
+   "note": "table: TBL-EXTRATERRITORIALIDAD"
+  },
+  "R-024": {
+   "status": "reference",
+   "note": "reference.json (governance)"
+  },
+  "R-030": {
+   "status": "reference",
+   "note": "reference.json (tarificacion_crm)"
+  },
+  "R-031": {
+   "status": "converted",
+   "note": "table: TBL-RECARGO-HIB-ELEC"
+  },
+  "R-032": {
+   "status": "converted",
+   "note": "table: TBL-TAR-PNNIT-FLOTA"
+  },
+  "R-033": {
+   "status": "reference",
+   "note": "reference.json (tarificacion_crm)"
+  },
+  "R-034": {
+   "status": "converted",
+   "note": "table: TBL-DESCUENTOS"
+  },
+  "R-035": {
+   "status": "converted",
+   "note": "table: TBL-TAR-EMP-IND"
+  },
+  "R-036": {
+   "status": "converted",
+   "note": "table: TBL-TAR-EMP-FLOTA"
+  },
+  "R-037": {
+   "status": "converted",
+   "note": "table: TBL-TAR-PESADOS"
+  },
+  "R-038": {
+   "status": "converted",
+   "note": "table: TBL-TAR-MOTO"
+  },
+  "R-039": {
+   "status": "converted",
+   "note": "table: TBL-PRIMAS-MIN"
+  },
+  "R-040": {
+   "status": "converted",
+   "note": "table: TBL-PRIMAS-MIN-RC"
+  },
+  "R-041": {
+   "status": "converted",
+   "note": "table: TBL-FRANQ-MOTO"
+  },
+  "R-042": {
+   "status": "converted",
+   "note": "table: TBL-FRANQ-PN"
+  },
+  "R-043": {
+   "status": "converted",
+   "note": "table: TBL-FRANQ-EMPRESAS"
+  },
+  "R-044": {
+   "status": "converted",
+   "note": "table: TBL-FRANQ-RC"
+  },
+  "R-050": {
+   "status": "reference",
+   "note": "reference.json (info_requirement)"
+  },
+  "R-051": {
+   "status": "reference",
+   "note": "reference.json (info_requirement)"
+  },
+  "R-052": {
+   "status": "reference",
+   "note": "reference.json (info_requirement)"
+  },
+  "R-053": {
+   "status": "reference",
+   "note": "reference.json (info_requirement)"
+  },
+  "R-054": {
+   "status": "reference",
+   "note": "reference.json (procedural)"
+  },
+  "R-055": {
+   "status": "reference",
+   "note": "reference.json (procedural)"
+  },
+  "R-056": {
+   "status": "reference",
+   "note": "reference.json (procedural)"
+  },
+  "R-057": {
+   "status": "converted",
+   "note": "table: TBL-PAGO"
+  },
+  "R-060": {
+   "status": "partial",
+   "note": "referenced by root.process_router; process partially built"
+  },
+  "R-070": {
+   "status": "partial",
+   "note": "referenced by root.process_router; process partially built"
+  },
+  "R-071": {
+   "status": "converted",
+   "note": "tree: T-ELIG-CASEUW (graph/3.3.1.json)"
+  },
+  "R-072": {
+   "status": "converted",
+   "note": "node: case_underwriting.authority"
+  },
+  "R-073": {
+   "status": "reference",
+   "note": "reference.json (coverage_terms)"
+  },
+  "R-074": {
+   "status": "converted",
+   "note": "node: case_underwriting.rc_limit (RC 350k Case UW -> Línea RC)"
+  },
+  "R-075": {
+   "status": "reference",
+   "note": "reference.json (coverage_terms)"
+  },
+  "R-076": {
+   "status": "reference",
+   "note": "reference.json (formula)"
+  },
+  "R-077": {
+   "status": "reference",
+   "note": "reference.json (coverage_terms)"
+  },
+  "R-078": {
+   "status": "converted",
+   "note": "table: TBL-PESADOS-REF"
+  },
+  "R-079": {
+   "status": "reference",
+   "note": "reference.json (info_requirement)"
+  },
+  "R-080": {
+   "status": "partial",
+   "note": "referenced by root.process_router; process partially built"
+  },
+  "R-081": {
+   "status": "reference",
+   "note": "reference.json (masiva_process)"
+  },
+  "R-082": {
+   "status": "reference",
+   "note": "reference.json (masiva_process)"
+  },
+  "R-083": {
+   "status": "reference",
+   "note": "reference.json (masiva_process)"
+  },
+  "R-084": {
+   "status": "reference",
+   "note": "reference.json (masiva_process)"
+  },
+  "R-085": {
+   "status": "reference",
+   "note": "reference.json (masiva_process)"
+  },
+  "R-090": {
+   "status": "partial",
+   "note": "referenced by root.process_router; process partially built"
+  },
+  "R-092": {
+   "status": "converted",
+   "note": "node: licitaciones.authority"
+  },
+  "R-093": {
+   "status": "reference",
+   "note": "reference.json (licitaciones_process)"
+  },
+  "R-094": {
+   "status": "reference",
+   "note": "reference.json (licitaciones_process)"
+  },
+  "R-095": {
+   "status": "reference",
+   "note": "reference.json (licitaciones_process)"
+  },
+  "R-096": {
+   "status": "reference",
+   "note": "reference.json (licitaciones_process)"
+  },
+  "R-097": {
+   "status": "reference",
+   "note": "reference.json (licitaciones_process)"
+  },
+  "R-098": {
+   "status": "reference",
+   "note": "reference.json (licitaciones_process)"
+  },
+  "R-099": {
+   "status": "reference",
+   "note": "reference.json (licitaciones_process)"
+  },
+  "R-100": {
+   "status": "converted",
+   "note": "node: renovacion.* nodes (T-RENOVACION band tables + overlap conflict)"
+  },
+  "R-101": {
+   "status": "reference",
+   "note": "reference.json (renovacion_4x_policy)"
+  },
+  "R-102": {
+   "status": "reference",
+   "note": "reference.json (governance)"
+  },
+  "R-103": {
+   "status": "partial",
+   "note": "referenced by root.process_router; process partially built"
+  },
+  "R-104": {
+   "status": "reference",
+   "note": "reference.json (renovacion_4x_policy)"
+  },
+  "R-105": {
+   "status": "reference",
+   "note": "reference.json (procedural)"
+  },
+  "R-106": {
+   "status": "reference",
+   "note": "reference.json (coverage_terms)"
+  },
+  "R-107": {
+   "status": "reference",
+   "note": "reference.json (coverage_terms)"
+  },
+  "R-108": {
+   "status": "reference",
+   "note": "reference.json (coverage_terms)"
+  },
+  "R-109": {
+   "status": "reference",
+   "note": "reference.json (procedural)"
+  },
+  "R-110": {
+   "status": "converted",
+   "note": "table: TBL-ACCESORIOS"
+  },
+  "R-111": {
+   "status": "converted",
+   "note": "node: retroactividad.* nodes (T-RETROACTIVIDAD duración + siniestro overlay)"
+  },
+  "R-120": {
+   "status": "reference",
+   "note": "reference.json (governance)"
+  },
+  "R-121": {
+   "status": "reference",
+   "note": "reference.json (governance)"
+  },
+  "R-122": {
+   "status": "reference",
+   "note": "reference.json (governance)"
+  }
+ },
+ "decision_trees.json": {
+  "T-ELIG-ESTANDAR.gate_tipo_vehiculo": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X01": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X02": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X03": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X04": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X05": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X06": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X07": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X08": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X09": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X10": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X11": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X12": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X13": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X14": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X15": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X16": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X17": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X18": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X19": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X20": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X21": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X22": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.X23": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-ESTANDAR.default_outcome": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.gate": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C01": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C02": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C03": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C04": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C05": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C06": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C07": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C08": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C09": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C10": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.C11": {
+   "status": "converted",
+   "note": null
+  },
+  "T-ELIG-CASEUW.default_outcome": {
+   "status": "converted",
+   "note": null
+  },
+  "T-RENOVACION.branch[0]": {
+   "status": "converted",
+   "note": null
+  },
+  "T-RENOVACION.branch[1]": {
+   "status": "converted",
+   "note": null
+  },
+  "T-RENOVACION.branch[2]": {
+   "status": "converted",
+   "note": null
+  },
+  "T-RENOVACION.conflict_flag": {
+   "status": "converted",
+   "note": null
+  },
+  "T-RETROACTIVIDAD.root": {
+   "status": "converted",
+   "note": null
+  },
+  "T-RETROACTIVIDAD.overlay_condition": {
+   "status": "converted",
+   "note": null
+  }
+ },
+ "tables.json": {
+  "TBL-CAPACIDAD": {
+   "status": "partial",
+   "note": "valor en @tables.limits.capacidad_max_por_vehiculo_bob; tabla completa en Phase 1"
+  },
+  "TBL-AUTH-ESTANDAR": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-AUTH-CASEUW": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-AUTH-LICITACIONES": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-TAR-PNNIT-FLOTA": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-TAR-EMP-IND": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-TAR-EMP-FLOTA": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-TAR-PESADOS": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-TAR-MOTO": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-RECARGO-HIB-ELEC": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-DESCUENTOS": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-PRIMAS-MIN": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-PRIMAS-MIN-RC": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-FRANQ-MOTO": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-FRANQ-PN": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-FRANQ-EMPRESAS": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-FRANQ-RC": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-PAGO": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-PESADOS-REF": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-RENOV-MIN": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-AP-OCUPANTES": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-EXTRATERRITORIALIDAD": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-RC-LIMITES": {
+   "status": "converted",
+   "note": null
+  },
+  "TBL-ACCESORIOS": {
+   "status": "converted",
+   "note": null
+  }
+ },
+ "clause_registry.json": {
+  "base": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "1001": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "1002": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "1003": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "1004": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "1005": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "1006": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "1007": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2001": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2002": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2003": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2004": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2005": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2006": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2007": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2008": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2009": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2010": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2011": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2012": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2013": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2014": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2015": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2016": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2017": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2018": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2019": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2020": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2021": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2022": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2023": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2024": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2026": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2027": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2028": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2029": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2030": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2031": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2032": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2033": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2034": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2035": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2036": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2037": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2038": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2039": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2040": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2041": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2042": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2043": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2044": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2045": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2046": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2047": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2048": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2049": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2050": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2051": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2052": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2053": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2054": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2055": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2056": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2057": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2058": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2059": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2060": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2061": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2062": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2063": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2064": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2065": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2066": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2067": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2068": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2069": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2070": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2071": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2072": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2073": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2074": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2075": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2076": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2077": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2078": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2079": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2080": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2081": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2082": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2083": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2084": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2085": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2086": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2087": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2088": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2089": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2090": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2091": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2092": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2093": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2094": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2095": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2096": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2097": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2098": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2099": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2100": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2101": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2102": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2103": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2104": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2105": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2106": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2107": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2108": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2109": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2110": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2111": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2112": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2113": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2114": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2115": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2116": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2117": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2118": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2119": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2120": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2121": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2122": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2123": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2124": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2125": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2126": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2127": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2128": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2129": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2130": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2132": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2133": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2134": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2135": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2136": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2137": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2138": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2139": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2140": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2141": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2142": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2143": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2144": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2145": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "2147": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "XC-001": {
+   "status": "ledger",
+   "note": "RUL-2133-2140"
+  },
+  "XC-002": {
+   "status": "ledger",
+   "note": "RUL-2133-2140"
+  },
+  "XC-003": {
+   "status": "ledger",
+   "note": "RUL-CG-2023"
+  },
+  "XC-004": {
+   "status": "ledger",
+   "note": "RUL-2038-2112"
+  },
+  "XC-005": {
+   "status": "ledger",
+   "note": "RUL-2008"
+  },
+  "XC-006": {
+   "status": "ledger",
+   "note": "RUL-2018-PESO"
+  }
+ },
+ "base_policy.json": {
+  "prelacion_documental": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "definiciones": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "consideraciones_generales": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "obligaciones_del_asegurado": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "exclusiones_generales": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "invalidez_scale": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "seccion[1]": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "seccion[2]": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "seccion[3]": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "seccion[4]": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "seccion[5]": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "seccion[6]": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "seccion[7]": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  }
+ },
+ "cross_references": {
+  "man:0": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:1": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:2": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:3": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:4": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:5": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:6": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:7": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:8": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:9": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:10": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:11": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:12": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:13": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "man:14": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:0": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:1": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:2": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:3": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:4": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:5": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:6": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:7": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:8": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:9": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:10": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:11": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:12": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:13": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:14": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:15": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:16": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "cla:17": {
+   "status": "reference",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  }
+ },
+ "linkage.json": {
+  "link[0]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[1]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[2]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[3]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[4]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[5]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[6]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[7]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[8]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[9]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[10]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[11]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[12]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[13]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[14]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  },
+  "link[15]": {
+   "status": "converted",
+   "note": "captured (clause-side: clauses/base_policy/linkage/crossrefs)"
+  }
+ }
+}

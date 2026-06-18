@@ -1,0 +1,262 @@
+{
+  "_material_class": "parameters — rating/tariffs (§3.1.4–3.1.7, 3.3.x, 4.x), role-typed (S2)",
+  "_note": "Rating tables from representation/underwriting_manual/tables.json, role-typed per node_schema §S2. Roles: bracket_map (VA brackets, explicit inclusivity, flagged gaps→ledger); rate_table (matrix by plaza/tipo/autoridad, tasas as decimals); scalar_limit; reference (prose/rows_text tables kept verbatim for audit + human layer, parsed values where numeric). Tasas: '2,8%'→0.028, '4,20 %'→0.042. Decision logic over these (tariff selection) is rating-rule conversion (deferred this sub-batch). Provenance + verbatim preserved.",
+  "_doc_conflicts": [
+    { "ledger_ref": "rulings/RUL-MAN-VERSION.md", "note": "version '3.0' literal; cover/changelog '4.0'." }
+  ],
+
+  "TBL-TAR-MOTO": {
+    "role": "bracket_map",
+    "name": "Tarificación Moto Protección (por Valor Asegurado)",
+    "hit_policy": "unique",
+    "granularity": 0.01,
+    "input": "valor_asegurado",
+    "rows": [
+      { "lower": 0, "upper": 10500, "lower_inclusive": true, "upper_inclusive": true, "output": { "prima_bob": 525 }, "source_quote": "De Bs. 0,00 a Bs. 10.500,00 | Bs. 525,00" },
+      { "lower": 10500.01, "upper": 21000, "lower_inclusive": true, "upper_inclusive": true, "output": { "prima_bob": 896 }, "source_quote": "De Bs. 10.500,01 a Bs. 21.000,00 | Bs. 896,00" },
+      { "lower": 21001, "upper": 35000, "lower_inclusive": true, "upper_inclusive": true, "output": { "prima_bob": 1344 }, "source_quote": "De Bs. 21.001,00 a Bs. 35.000,00 | Bs. 1.344,00" },
+      { "lower": 35001, "upper": 70000, "lower_inclusive": true, "upper_inclusive": true, "output": { "tasa": 0.042 }, "source_quote": "De Bs. 35.001,00 a Bs. 70.000,00 | 4,20 %" }
+    ],
+    "boundary_conflicts": [
+      { "between_rows": [1, 2], "edge": 21000, "kind": "gap", "detail": "Tramo 2 termina en 21.000,00 y tramo 3 empieza en 21.001,00: 21.000,01–21.000,99 sin definir.", "ledger_ref": "rulings/RUL-BAND-EDGES.md" },
+      { "between_rows": [2, 3], "edge": 35000, "kind": "gap", "detail": "Tramo 3 termina en 35.000,00 y tramo 4 empieza en 35.001,00: 35.000,01–35.000,99 sin definir.", "ledger_ref": "rulings/RUL-BAND-EDGES.md" }
+    ],
+    "source": { "section": "3.1.5.3", "pdf_page": 19, "printed_page": 12, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-TAR-MOTO" },
+    "provenance": "verbatim_table"
+  },
+
+  "TBL-FRANQ-EMPRESAS": {
+    "role": "bracket_map",
+    "name": "Franquicia deducible mínima — Empresas (Daños Propios y HMACC AMIT Terrorismo), Demás Vehículos",
+    "hit_policy": "unique",
+    "input": "valor_asegurado",
+    "rows": [
+      { "lower": 0, "upper": 420000, "lower_inclusive": true, "upper_inclusive": true, "output": { "regla": "10% del valor del siniestro", "minimo_eje_central_bob": 1000, "minimo_resto_bob": 500 }, "source_quote": "Hasta Bs.420.000 | 10% del valor del siniestro, mínimo Bs. 1.000 para el eje central y mínimo Bs. 500 para el resto de las plazas de circulación." },
+      { "lower": 420000, "upper": 700000, "lower_inclusive": false, "upper_inclusive": true, "output": { "franquicia_bob": 1500 }, "source_quote": "Mayor a Bs. 420.000,00 hasta Bs. 700.000 | Bs. 1.500" }
+    ],
+    "special_rows": [
+      { "categoria": "vehiculos_lujo_mayores_420000", "output": { "franquicia_bob": 2100 }, "source_quote": "Vehículos de Lujo mayores a Bs. 420.000 | Bs. 2.100" },
+      { "categoria": "alquilados_petroleras_o_similares", "output": { "franquicia_bob": 1500 }, "source_quote": "Vehículos alquilados a Petroleras / similares | Bs. 1.500" },
+      { "categoria": "pesados_mayor_3tn", "output": { "franquicia_bob": 2100 }, "source_quote": "Pesados (mayor 3TN) | Bs. 2.100" },
+      { "categoria": "pesados_hasta_3tn", "output": { "franquicia_bob": 1500 }, "source_quote": "Pesados (hasta 3 TN) | Bs. 1.500" }
+    ],
+    "boundary_conflicts": [
+      { "between_rows": "special vs VA bracket", "edge": 420000, "kind": "precedence", "detail": "Para un vehículo de lujo > 420.000 coinciden la fila de tramo VA (1.500) y la categórica 'Vehículos de Lujo' (2.100); la fuente no fija precedencia entre tramo VA y categoría. Modelado: las categóricas (lujo/petroleras/pesados) son overrides más específicos, pero la precedencia no está en la fuente.", "ledger_ref": "rulings/RUL-BAND-EDGES.md" }
+    ],
+    "additional_verbatim": "Franquicia Deducible porcentual (Robo Parcial de Partes y Piezas): 20% del valor del siniestro, para cualquier riesgo suscrito. Los productos enlatados no usan estas franquicias (configuración propia). El suscriptor puede incrementarlas.",
+    "source": { "section": "3.1.5.4.2", "pdf_page": 21, "printed_page": 14, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-FRANQ-EMPRESAS" },
+    "provenance": "verbatim_table"
+  },
+
+  "TBL-TAR-PNNIT-FLOTA": {
+    "role": "rate_table",
+    "name": "Tasas — Personas Naturales con NIT (Flota)",
+    "lookup_key": "plaza",
+    "rows": [
+      { "plaza": "eje_troncal", "tasa_total": 0.028, "verbatim": "Eje Troncal | 2,8%" },
+      { "plaza": "fuera_del_eje", "tasa_total": 0.026, "verbatim": "Fuera del Eje | 2,6%" }
+    ],
+    "applicability_quote": "flota de mínimamente 3 vehículos (todos a nombre del tomador de la póliza, según RUAT o minuta de transferencia) o que suscriban un programa de seguros más completo, donde la prima de Automotores no sea mayor al 40% de la prima del programa (programa vigente o por emitirse)",
+    "source": { "section": "3.1.5.1.2", "pdf_page": 17, "printed_page": 10, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-TAR-PNNIT-FLOTA" },
+    "provenance": "verbatim_table"
+  },
+  "TBL-TAR-EMP-IND": {
+    "role": "rate_table",
+    "name": "Tasas mínimas (al contado) — Empresas (Individuales), vehículos livianos",
+    "lookup_key": "plaza",
+    "rows": [
+      { "plaza": "eje_troncal", "tasa_total": 0.03, "verbatim": "Eje Troncal | 3%" },
+      { "plaza": "fuera_del_eje", "tasa_total": 0.028, "verbatim": "Fuera del Eje | 2,8%" }
+    ],
+    "applicability_quote": "Asegurado con denominación S.A., SRL, S.A.M., R.L. u ONG; clientes de los segmentos Pyme y Commercial",
+    "source": { "section": "3.1.5.1.3", "pdf_page": 18, "printed_page": 11, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-TAR-EMP-IND" },
+    "provenance": "verbatim_table"
+  },
+  "TBL-TAR-EMP-FLOTA": {
+    "role": "rate_table",
+    "name": "Tasas mínimas (al contado) — Empresas (Flota), vehículos livianos",
+    "lookup_key": "plaza",
+    "rows": [
+      { "plaza": "la_paz_santa_cruz", "tasa": 0.024, "verbatim": "Plaza de Circulación La Paz y Santa Cruz | 2,40%" },
+      { "plaza": "demas_plazas", "tasa": 0.022, "verbatim": "Demás Plazas de Circulación | 2,20%" }
+    ],
+    "applicability_quote": "se considera una flota a partir del segundo vehículo… Estas tasas aplican solo para vehículos livianos correspondientes al Procedimiento de Suscripción Estándar (Automóviles, camionetas, vagonetas, Jeeps, Furgones, Furgonetas y minibuses)",
+    "source": { "section": "3.1.5.1.4", "pdf_page": 18, "printed_page": 11, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-TAR-EMP-FLOTA" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-RECARGO-HIB-ELEC": {
+    "role": "rate_table",
+    "name": "Recargos vehículos/motocicletas híbridos y eléctricos",
+    "lookup_key": "tipo",
+    "rows": [
+      { "tipo": "vehiculo_hibrido", "recargo": 0.10, "base": "sobre la tasa cotizada en CRM", "verbatim": "Vehículo híbrido | 10% | sobre la tasa cotizada en CRM" },
+      { "tipo": "vehiculo_electrico", "recargo": 0.20, "base": "sobre la tasa cotizada en CRM", "verbatim": "Vehículo eléctrico | 20% | sobre la tasa cotizada en CRM" },
+      { "tipo": "motocicleta_hibrida", "recargo": 0.10, "base": "sobre la prima cotizada en Moto Protección", "verbatim": "Motocicleta híbrida | 10%" },
+      { "tipo": "motocicleta_electrica", "recargo": 0.20, "base": "sobre la prima cotizada en Moto Protección", "verbatim": "Motocicleta eléctrica | 20%" }
+    ],
+    "applicability_quote": "importados por un concesionario representante de la marca en Bolivia… debido a la concentración de valores asegurados en las baterías",
+    "source": { "section": "3.1.5.1.1 y 3.1.5.3", "pdf_page": 16, "printed_page": 9, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-RECARGO-HIB-ELEC" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-DESCUENTOS": {
+    "role": "rate_table",
+    "name": "Autoridades de descuento sobre cotización CRM (emisiones nuevas)",
+    "lookup_key": "autoridad",
+    "rows": [
+      { "autoridad": "gerencia_nacional_negocios", "descuento_maximo_pct": null, "verbatim": "Gerencia Nacional de Negocios de Empresas y Personas & Pymes | sin límite (a las tasas cotizadas en el CRM)" },
+      { "autoridad": "gerencia_jefatura_sucursal", "descuento_maximo_pct": 0.20, "verbatim": "Gerencias o Jefaturas de Sucursal | hasta un 20% de descuento aplicable a la prima cotizada" },
+      { "autoridad": "subgerencia_jefatura_comercial", "descuento_maximo_pct": 0.10, "verbatim": "Subgerencias y jefaturas comerciales | hasta un 10% de descuento" }
+    ],
+    "enforcement_quote": "En caso de que el usuario solicite descuento del 10% o 20% y dicho descuento signifique que la prima final esté por debajo de la Prima o Tasa mínima, el CRM bloqueará la solicitud con un mensaje de rechazo.",
+    "note": "descuento_maximo_pct null = sin límite (Gerencia Nacional).",
+    "source": { "section": "3.1.5.1.2/EMISIONES NUEVAS", "pdf_page": 17, "printed_page": 10, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-DESCUENTOS" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-PRIMAS-MIN-RC": {
+    "role": "rate_table",
+    "name": "Primas mínimas — póliza solo con Responsabilidad Civil (livianos, Comercial/Consumer)",
+    "lookup_key": "plaza",
+    "rows": [
+      { "valor_asegurado_bob": 140000, "plaza": "santa_cruz_la_paz_trinidad", "prima_minima_bob": 1000, "verbatim": "Bs. 140.000,00 | Bs. 1.000 (Santa Cruz, La Paz, Trinidad)" },
+      { "valor_asegurado_bob": 140000, "plaza": "resto_pais", "prima_minima_bob": 850, "verbatim": "Bs. 140.000,00 | Bs. 850 (Resto del País)" }
+    ],
+    "source": { "section": "3.1.5.4.1", "pdf_page": 20, "printed_page": 13, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-PRIMAS-MIN-RC" },
+    "provenance": "verbatim_table"
+  },
+
+  "TBL-TAR-PESADOS": {
+    "role": "scalar_limit",
+    "name": "Tasa mínima — Vehículos pesados, Empresas (Individuales y Flota)",
+    "value": 0.028,
+    "unit": "tasa_total_contado",
+    "applicability_quote": "Cualquier Plaza de Circulación dentro del territorio boliviano",
+    "applicability_derived_from_R-037": "Asegurado con denominación S.A., SRL, S.A.M., R.L. u ONG; segmentos Pyme y Commercial — derivado de R-037, NO está en el texto de la tabla (TBL-TAR-PESADOS sólo imprime la fila de plaza/tasa).",
+    "note": "Texto fuente: 'se acuerda la tasa mínima de2,8% contado' [sic, sin espacio]. Lleva comentario de Word incrustado: 'Comentado [JR1]: No hay modificación, solo es aclaratorio.'",
+    "source": { "section": "3.1.5.2.1", "pdf_page": 19, "printed_page": 12, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-TAR-PESADOS" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-FRANQ-RC": {
+    "role": "scalar_limit",
+    "name": "Franquicia deducible fija — Responsabilidad Civil",
+    "value": 1000,
+    "unit": "BOB",
+    "source_quote": "Franquicia fija general por evento y/o reclamo | Bs. 1.000",
+    "rule_quote_R-044": "La franquicia deducible fija general por evento y/o reclamo es de Bs. 1.000. (oración verbatim de R-044, que también enuncia esta franquicia)",
+    "source": { "section": "3.1.5.4.2", "pdf_page": 21, "printed_page": 14, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-FRANQ-RC" },
+    "provenance": "parameter_digest"
+  },
+
+  "TBL-PRIMAS-MIN": {
+    "role": "reference",
+    "name": "Primas mínimas (al contado)",
+    "groups": [
+      { "grupo": "Pólizas Individuales — Personas Naturales y PN con NIT", "valor": "configuradas en el tarificador del CRM según la alternativa que elija el cliente (vehículos livianos)" },
+      { "grupo": "Pólizas Individuales — Empresas", "valores": { "livianos_eje_troncal_bob": 2450, "livianos_resto_bob": 2100, "pesados_bob": 2800 } },
+      { "grupo": "Pólizas Flota — Personas Naturales con NIT", "valores": { "livianos_eje_troncal_bob": 2800, "livianos_resto_bob": 2100 } },
+      { "grupo": "Pólizas Flota — Empresas (Proceso Estándar)", "valores": { "livianos_excl_motos_bob": 1750, "pesados_bob": 2450 } }
+    ],
+    "source": { "section": "3.1.5.4.1", "pdf_page": 19, "printed_page": 12, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-PRIMAS-MIN" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-FRANQ-PN": {
+    "role": "reference",
+    "name": "Franquicias deducibles — Personas Naturales y PN con NIT",
+    "rows_text": [
+      ["Robo Parcial de Partes y Piezas", "20% del valor del siniestro"],
+      ["Daños Propios y HAMCC AMITT [sic]", "10% del valor del siniestro para cualquier riesgo suscrito"],
+      ["Franquicias deducibles mínimas", "en función a la alternativa elegida por el cliente (CRM)"],
+      ["Vehículos híbridos y eléctricos", "recargo del 50% sobre la opción de franquicia deducible elegida en el CRM"]
+    ],
+    "note": "'HAMCC' aparece así en la fuente en esta línea (en el resto del manual: HMACC).",
+    "source": { "section": "3.1.5.4.2", "pdf_page": 21, "printed_page": 14, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-FRANQ-PN" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-AP-OCUPANTES": {
+    "role": "reference",
+    "name": "Accidentes Personales a Ocupantes — límites Procedimiento Estándar",
+    "rows_text": [
+      ["Máximo de tripulantes y pasajeros asegurados (livianos)", "8 (ocho), respaldados en el número de asientos según RUAT"],
+      ["Capital asegurado máximo por tripulante o pasajero (muerte e invalidez)", "Bs.140.000"],
+      ["Gastos médicos", "hasta el 20%"],
+      ["Ocupantes adicionales (si RUAT > 8 y el vehículo está en perfil Estándar)", "extra prima de Bs. 56 por ocupante por cada Bs. 35.000 de cobertura"]
+    ],
+    "source": { "section": "3.1.4.c", "pdf_page": 15, "printed_page": 8, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-AP-OCUPANTES" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-EXTRATERRITORIALIDAD": {
+    "role": "reference",
+    "name": "Extraterritorialidad — Estándar (livianos)",
+    "rows_text": [
+      ["Alcance", "países limítrofes, sin costo adicional, cobertura incidental"],
+      ["Límite de estadía por viaje", "30 días"],
+      ["Permanencia continua > 30 días", "extra prima de Bs. 420 por cada mes o fracción de mes adicional"],
+      ["Máximo", "hasta los 90 días como máximo"]
+    ],
+    "source": { "section": "3.1.4.d", "pdf_page": 16, "printed_page": 9, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-EXTRATERRITORIALIDAD" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-RC-LIMITES": {
+    "role": "reference",
+    "name": "Límites de Responsabilidad Civil por procedimiento",
+    "rows_text": [
+      ["RC incidental — Estándar (límite máximo asegurado)", "Bs. 210.000 (excepto productos enlatados; excepciones → Case Underwriting)"],
+      ["RC — Case Underwriting (límite máximo)", "Bs. 350.000 (límites mayores → Línea de Responsabilidad Civil)"],
+      ["RC por Perjuicios Económicos a Terceros (RC Consecuencial)", "límite máximo Bs. 35.000 dentro del límite de RC Extracontractual (no en adición); franquicia deducible temporal de 3 días recomendada"],
+      ["RC de Ocupantes", "límite máximo Bs. 35.000 dentro del límite de RC Extracontractual (no en adición); excepto vehículos pesados y motocicletas"]
+    ],
+    "note": "La fila Case UW proviene de pdf p.26 (3.3.3).",
+    "source": { "section": "3.1.4.b", "pdf_page": 15, "printed_page": 8, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-RC-LIMITES" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-ACCESORIOS": {
+    "role": "reference",
+    "name": "Accesorios",
+    "rows_text": [
+      ["Valor máximo asegurado del accesorio", "no puede superar el 30% del valor del vehículo asegurado"],
+      ["Tasa total anual aplicable", "8% (por ciento)"],
+      ["Condiciones", "inspección satisfactoria y accesorio asegurado al chasis"],
+      ["Excepción", "esta política no aplica al Procedimiento de Suscripción para Licitaciones"]
+    ],
+    "source": { "section": "4.10", "pdf_page": 40, "printed_page": 33, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-ACCESORIOS" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-PESADOS-REF": {
+    "role": "reference",
+    "name": "Referencias Case UW — Automotores pesados (>8 TN)",
+    "rows_text": [
+      ["Tasa Total Referencial", "4,00%"],
+      ["Franquicia Mínima", "Bs. 3.500"]
+    ],
+    "note": "Cualquier descuento sobre estas referencias debe estar técnica y comercialmente justificado.",
+    "source": { "section": "3.3.5", "pdf_page": 27, "printed_page": 20, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-PESADOS-REF" },
+    "provenance": "parameter_digest"
+  },
+  "TBL-PAGO": {
+    "role": "reference",
+    "name": "Forma de pago — Procedimiento Estándar",
+    "rows_text": [
+      ["Contado", "30 días de periodo de gracia (primera alternativa, siempre)"],
+      ["Crédito", "recargo por un 10%; cobro del 30% de cuota inicial y hasta 6 cuotas (con 30 días de periodo de gracia)"]
+    ],
+    "source": { "section": "3.1.7", "pdf_page": 24, "printed_page": 17, "version": "3.0" },
+    "_origin": { "artifact": "tables.json", "source_id": "TBL-PAGO" },
+    "provenance": "parameter_digest"
+  }
+}

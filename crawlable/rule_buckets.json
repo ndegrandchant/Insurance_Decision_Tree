@@ -1,0 +1,50 @@
+{
+  "_material_class": "rule-level conversion classification (authoritative; read by build_reference.py + coverage.py)",
+  "_note": "Every rule id in representation/underwriting_manual/rules.json is assigned exactly one bucket. node_converted = realized by an executable node (auto-detected via _origin too). tree_converted = realized by a converted decision tree. table_realized = the rule's normative content (values + applicability) lives in a converted table. partial_router = process-definition rule the router references but does not fully convert. deferred = converts in a later batch (carries phase). reference = non-branch normative content (governance / coverage terms / procedural / info / process descriptions / formula / CRM tarificación) captured verbatim in reference.json. Decisional content is in nodes/tables/trees; this file makes the rule-level accounting explicit and complete.",
+
+  "node_converted": {
+    "R-003": "standard/case_underwriting/licitaciones.capacity (R-003)",
+    "R-013": "standard.authority",
+    "R-072": "case_underwriting.authority",
+    "R-092": "licitaciones.authority",
+    "R-018": "standard.rc_limit (RC 210k Estándar -> Case UW)",
+    "R-022": "standard.ap_limit (AP >140k/persona -> Línea Seguros Personales)",
+    "R-074": "case_underwriting.rc_limit (RC 350k Case UW -> Línea RC)",
+    "R-100": "renovacion.* nodes (T-RENOVACION band tables + overlap conflict)",
+    "R-111": "retroactividad.* nodes (T-RETROACTIVIDAD duración + siniestro overlay)"
+  },
+  "tree_converted": {
+    "R-012": "T-ELIG-ESTANDAR (graph/3.1.2.json)",
+    "R-071": "T-ELIG-CASEUW (graph/3.3.1.json)"
+  },
+  "partial_router": ["R-010", "R-060", "R-070", "R-080", "R-090", "R-103"],
+  "deferred": {},
+  "table_realized": {
+    "R-019": "TBL-RC-LIMITES", "R-020": "TBL-RC-LIMITES", "R-023": "TBL-EXTRATERRITORIALIDAD",
+    "R-031": "TBL-RECARGO-HIB-ELEC", "R-032": "TBL-TAR-PNNIT-FLOTA", "R-034": "TBL-DESCUENTOS",
+    "R-035": "TBL-TAR-EMP-IND", "R-036": "TBL-TAR-EMP-FLOTA", "R-037": "TBL-TAR-PESADOS",
+    "R-038": "TBL-TAR-MOTO", "R-039": "TBL-PRIMAS-MIN", "R-040": "TBL-PRIMAS-MIN-RC",
+    "R-041": "TBL-FRANQ-MOTO", "R-042": "TBL-FRANQ-PN", "R-043": "TBL-FRANQ-EMPRESAS",
+    "R-044": "TBL-FRANQ-RC", "R-057": "TBL-PAGO", "R-078": "TBL-PESADOS-REF", "R-110": "TBL-ACCESORIOS"
+  },
+  "reference": {
+    "R-001": "governance", "R-002": "governance", "R-024": "governance", "R-102": "governance",
+    "R-120": "governance", "R-121": "governance", "R-122": "governance",
+    "R-004": "product_config", "R-005": "product_config", "R-011": "product_config",
+    "R-014": "coverage_terms", "R-017": "coverage_terms", "R-021": "coverage_terms",
+    "R-073": "coverage_terms", "R-075": "coverage_terms", "R-077": "coverage_terms",
+    "R-106": "coverage_terms", "R-107": "coverage_terms", "R-108": "coverage_terms",
+    "R-015": "clause_availability", "R-016": "clause_availability",
+    "R-050": "info_requirement", "R-051": "info_requirement", "R-052": "info_requirement",
+    "R-053": "info_requirement", "R-079": "info_requirement",
+    "R-054": "procedural", "R-055": "procedural", "R-056": "procedural", "R-105": "procedural",
+    "R-109": "procedural",
+    "R-030": "tarificacion_crm", "R-033": "tarificacion_crm", "R-076": "formula",
+    "R-081": "masiva_process", "R-082": "masiva_process", "R-083": "masiva_process",
+    "R-084": "masiva_process", "R-085": "masiva_process",
+    "R-093": "licitaciones_process", "R-094": "licitaciones_process", "R-095": "licitaciones_process",
+    "R-096": "licitaciones_process", "R-097": "licitaciones_process", "R-098": "licitaciones_process",
+    "R-099": "licitaciones_process",
+    "R-101": "renovacion_4x_policy", "R-104": "renovacion_4x_policy"
+  }
+}

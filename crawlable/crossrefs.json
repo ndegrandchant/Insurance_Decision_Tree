@@ -1,0 +1,318 @@
+{
+ "_material_class": "cross-references capture (reference — pointers to other docs/laws/systems)",
+ "_note": "Manual + clause cross-references (laws, manuals, anexos, systems). Captured for the human layer; not decision logic.",
+ "references": [
+  {
+   "side": "manual",
+   "id": "XR-M01",
+   "target": "Anexo 1: “Información mínima para cotizar Automotores livianos y Pesados”",
+   "type": "anexo del manual",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:0"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M02",
+   "target": "Anexo 02 / Anexo 2: “Planilla Solicitud de Renovaciones (para Automotores)”",
+   "type": "anexo del manual",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:1"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M03",
+   "target": "Manual de Normas y Políticas de Suscripción Ingeniería de Riesgos (Manual de Ingeniería de Riesgos, intranet)",
+   "type": "manual externo",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:2"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M04",
+   "target": "Manual de Automotores P&P - CRM",
+   "type": "manual externo",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:3"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M05",
+   "target": "CRM (Customer Relationship Management) — Tarificador",
+   "type": "sistema",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:4"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M06",
+   "target": "Plataforma FIDENS",
+   "type": "sistema",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:5"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M07",
+   "target": "RUAT (registro vehicular) / CRPVA / FRV (Formulario de Registro de Vehículos)",
+   "type": "registro/documento externo",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:6"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M08",
+   "target": "Formulario GCP (Información del Asegurado)",
+   "type": "formulario",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:7"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M09",
+   "target": "APS (Autoridad de Fiscalización y Control de Pensiones y Seguros) — registro de textos",
+   "type": "regulador",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:8"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M10",
+   "target": "Código de Comercio; Ley de Seguros; Código de Tránsito",
+   "type": "norma legal",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:9"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M11",
+   "target": "Condiciones Generales de la póliza (documento compañero: bundle de cláusulas generales)",
+   "type": "condicionado registrado",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:10"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M12",
+   "target": "Matriz de Consultas (licitaciones)",
+   "type": "herramienta interna",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:11"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M13",
+   "target": "Comité de Riesgos y Siniestros (CR&S)",
+   "type": "órgano interno",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:12"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M14",
+   "target": "Intranet — listado completo de textos registrados ante la APS",
+   "type": "repositorio interno",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:13"
+   }
+  },
+  {
+   "side": "manual",
+   "id": "XR-M15",
+   "target": "Cláusulas nombradas del condicionado (ver linkage.json para el mapeo a códigos APS)",
+   "type": "cláusulas registradas",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "man:14"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C01",
+   "target": "Código de Comercio",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:0"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C02",
+   "target": "Ley No. 365 de 23 de abril de 2013",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:1"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C03",
+   "target": "Ley N° 708 de 25 de junio de 2015 (Conciliación y Arbitraje); art. 61",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:2"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C04",
+   "target": "Artículo 569 del Código Civil",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:3"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C05",
+   "target": "Ley 1008 (definición de Droga)",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:4"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C06",
+   "target": "Ley de Seguros (Ley 1883)",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:5"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C07",
+   "target": "Código Nacional de Tránsito y su Reglamento",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:6"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C08",
+   "target": "SOAT (Seguro Obligatorio de Accidentes de Tránsito)",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:7"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C09",
+   "target": "DIPROVE (Dirección de Prevención de Robo de Vehículos)",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:8"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C10",
+   "target": "UFV (Unidades de Fomento de Vivienda) — conciliación APS hasta UFV100.000,00",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:9"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C11",
+   "target": "IITCUP (Instituto de Investigaciones Técnico Científicas)",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:10"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C12",
+   "target": "Manual de Normas de Evaluación y Calificación del Grado de Invalidez",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:11"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C13",
+   "target": "Licitación pública “CONTRATACION DE SEGUROS GENERALES YPFB 2020- 2021” GCC-EPNE-GAFC-30-20",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:12"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C14",
+   "target": "Ley N° 400 de 18 de septiembre de 2013 (armas/explosivos)",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:13"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C15",
+   "target": "Decreto Supremo N°5364 de 02 de abril de 2025 (Autorización Provisional para Conducir)",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:14"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C16",
+   "target": "Arancel Mínimo del Colegio Médico de Bolivia",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:15"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C17",
+   "target": "www.lbc.bo (listado de talleres por ciudad)",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:16"
+   }
+  },
+  {
+   "side": "clausula",
+   "id": "XR-C18",
+   "target": "Call Center 800-102727",
+   "_origin": {
+    "artifact": "cross_references",
+    "source_id": "cla:17"
+   }
+  }
+ ]
+}
