@@ -1,0 +1,1668 @@
+
+===== PAGE 1 =====
+MANUAL DE
+LINEAMIENTOS DE
+SUSCRIPCIÓN -
+AUTOMOTORES
+VERSIÓN 4.0
+
+===== PAGE 2 =====
+INFORMACIÓN DEL DOCUMENTO
+NOMBRE DEL DOCUMENTO: Manual de Lineamientos de Suscripción Automotores
+Fecha de Inicio de
+Código Nro. de Versión Fecha de Validación
+Vigencia
+MAN-015 3.0 02/06/2025 01/06/2020
+Áreas Involucradas
+Área Líder:
+Suscripción
+Áreas de Aplicación
+Comercial
+Operaciones
+Elaborado por:
+Fecha de
+Área Nombre
+Validación
+Suscripción Marco Rada 02/06/2024
+Revisado por:
+Fecha y Medio de
+Cargo Nombre
+Autorización
+Jefe Procesos Mónica Saavedra
+Gerente Nacional Suscripción Santiago Bustillos
+Aprobado por:
+Fecha y Medio de
+Cargo Nombre
+Autorización
+Gerente Nacional Suscripción Santiago Bustillos
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 3 =====
+TABLA DE IDENTIFICACIÓN DE CAMBIOS
+RESPECTO A LA VERSIÓN ANTERIOR
+NOMBRE DEL DOCUMENTO: Manual de Lineamientos de Suscripción Automotores
+VERSIÓN: 4.0
+Responsable Referencia
+Descripción Resumida de la Motivo de la
+Fecha solicitud de y/o
+Modificación Modificación
+cambios Paginas
+Modificación de tarificación Actualización Todo el
+02/09/2022 Marco Rada
+anual documento
+Modificaciones de forma Actualización Todo el
+25/08/2023 Marco Rada
+anual documento
+01/01/2025 Marco Rada Modificaciones y Actualizaciones: Actualización
+anual.
+• Punto 3.1.2. Página 3
+Perfil de Riesgo
+• Punto 3.1.3.
+Se actualizaron las Autoridades Página 5
+de Suscripción
+• Punto 3.1.5. Tarificación se
+incluyen personas naturales y Página 9
+naturales con NIT en
+Individuales y flota
+Se añaden valores de
+tarificación en Moto Protección
+• Punto 3.1.5.1. Página 9 Con formato: Sin Resaltar
+Vehículo livianos,
+Se modifica el porcentaje de los
+límites en daños propios
+• Punto 3.1.6
+Se quitó la tabla de plaza de Página 12
+circulación según tipo de
+vehículo
+Se añaden valores de
+Franquicias deducibles Mínimas
+en Moto Protección
+Se modificaron los valores de
+Franquicia deducible mínima
+para Empresas
+• Punto 3.3
+Se actualizaron las autoridades Página 17
+de suscripción
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 4 =====
+• Punto 4.1. Página 27
+Se complementa el segmento de
+“Consumer”
+• Punto 4.5. Con formato: Sin Resaltar
+Se quita el párrafo de Notas de Página 30
+Cobertura
+• Punto 5.1.
+Se hace referencia a las
+emisiones de póliza por las
+plataformas CRM y FIDENS
+• Se unifican lo anexos 1 y 2 como Con formato: Sin Resaltar
+“Anexo 1: Información mínima
+para cotizar Automotores livianos
+y Pesados”
+Los siguientes documentos y
+anexos se dieron de baja:
+• Formulario de Actualización
+Persona Jurídica
+• Anexo de Renovación
+Automática
+• Procedimiento para inspección
+pre riesgo automotores
+• Formulario inspección pre -
+riesgo
+• Formulario de Solicitud
+Inspección Colectivo
+• Manual Sistema Cotizador de
+Pólizas Automotor
+• Comunicado Implementación
+Producto LBC Auto
+• Formulario de Actualización
+Persona Natural
+• Instructivo de Notas de
+Cobertura
+• Manual de Autoinspección
+04/06/2025 Marco Rada • Cambio de moneda Modificaciones Página 6
+en la línea de
+negocio
+• Incremento de límites de Página 6
+suscripción.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 5 =====
+• Modificación en tarificación de Página 10
+vehículos híbridos.
+• Inclusión para el procedimiento
+de suscripción para Página 12
+motocicletas eléctricas e
+híbridas.
+• Inclusión del procedimiento de Página 13
+tarificación para pólizas con
+cobertura única de
+Responsabilidad Civil.
+• Modificación en franquicias Página 14
+Moto Protección.
+• Eliminación de forma de pago Página 17
+(12 cuotas).
+Página 21
+• Modificación de tasas
+referenciales para pesados
+Página 30
+• Modificación de primas
+mínimas para renovaciones.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 6 =====
+TABLA DE CONTENIDO
+1. INTRODUCCIÓN .................................................................................................................. 1
+1.1. ALCANCE .................................................................................................................... 1
+1.2. OBJETIVOS ESTRATÉGICOS ..................................................................................... 1
+2. LINEAMIENTOS GENERALES ............................................................................................ 2
+2.1. CAPACIDAD DE SUSCRIPCIÓN ................................................................................. 2
+2.2. PRODUCTOS ............................................................................................................... 2
+2.2.1. LBC | AUTO ................................................................................................................... 2
+2.2.2. PLAN PROTECCIÓN BREVET .................................................................................... 2
+2.2.3. PLAN MOTO PROTECCIÓN ........................................................................................ 3
+3. PROCESOS DE SUSCRIPCIÓN .......................................................................................... 3
+3.1. PROCESO DE SUSCRIPCIÓN ESTÁNDAR ................................................................ 3
+3.1.1. PRODUCTOS ............................................................................................................... 3
+3.1.2. PERFIL DE RIESGO ..................................................................................................... 3
+3.1.3. AUTORIDADES DE SUSCRIPCIÓN ............................................................................. 5
+3.1.4. TÉRMINOS Y CONDICIONES ...................................................................................... 7
+3.1.5. TARIFICACIÓN ............................................................................................................ 9
+3.1.5.1. VEHÍCULOS LIVIANOS ............................................................................................... 9
+3.1.5.2. PERSONAS NATURALES CON NIT (FLOTA) ........................................................... 10
+3.1.5.3. EMISIONES NUEVAS ................................................................................................ 10
+3.1.5.4. EMPRESAS (INDIVIDUALES) .................................................................................... 11
+3.1.5.5. EMPRESAS (FLOTA) ................................................................................................. 11
+3.1.6. PRIMAS Y FRANQUICIAS DEDUCIBLES MÍNIMAS .............................................................. 12
+3.1.7. INFORMACIÓN DE SUSCRIPCIÓN PARA COTIZAR RIESGOS Y EMITIR EN SISTEMA
+14
+3.1.8. FORMA DE PAGO ...................................................................................................... 17
+3.2. PROCESO DE SUSCRIPCIÓN AUTOMÁTICA .......................................................... 17
+3.3. PROCESO DE SUSCRIPCIÓN CASE UNDERWRITING ............................................ 17
+3.3.1. PERFIL DE RIESGO ................................................................................................... 17
+3.3.2. AUTORIDADES DE SUSCRIPCIÓN ........................................................................... 18
+3.3.3. TÉRMINOS Y CONDICIONES .................................................................................... 18
+3.3.4. TARIFICACIÓN .......................................................................................................... 19
+3.3.5. SUSCRIPCIÓN DE AUTOMOTORES PESADOS ....................................................... 19
+3.3.6. INFORMACIÓN DE SUSCRIPCIÓN PARA COTIZAR Y EMITIR EN SISTEMA. ......... 20
+3.4. PROCESO DE SUSCRIPCIÓN MASIVA .................................................................... 21
+3.4.1. PERFIL DE RIESGO ................................................................................................... 21
+3.4.2. VALIDACIÓN DE CONDICIONES .............................................................................. 21
+3.4.3. AUTORIDAD DE SUSCRIPCIÓN ............................................................................... 21
+3.4.4. ELABORACIÓN DE TEXTOS Y CONDICIONADOS .................................................. 21
+3.4.5. TARIFICACIÓN .......................................................................................................... 22
+3.5. PROCESO DE SUSCRIPCIÓN LICITACIONES ......................................................... 22
+3.5.1. PERFIL DE RIESGO ................................................................................................... 23
+3.5.2. AUTORIDADES DE SUSCRIPCIÓN Y TARIFICACIÓN ............................................. 23
+3.5.3. PROCEDIMIENTO DE SUSCRIPCIÓN DE LICITACIONES ....................................... 23
+3.5.4. ANÁLISIS DEL RIESGO ............................................................................................. 24
+3.5.5. TÉRMINOS Y CONDICIONES .................................................................................... 25
+3.5.6. ELABORACIÓN, AUTORIZACIÓN Y EMISIÓN DE TEXTOS (APLICA AL PROCESO DE
+SUSCRIPCIÓN LICITACIONES) ........................................................................................ 27
+
+===== PAGE 7 =====
+4. POLÍTICAS GENERALES DE SUSCRIPCIÓN .................................................................. 27
+4.1. POLÍTICA PARA LA RENOVACIÓN DE PÓLIZAS .................................................... 27
+4.2. RENUNCIA DE DEPRECIACIÓN PARA “0 KM” ........................................................ 29
+4.3. CONDICIONES PRE-ACORDADAS (SUSCRIPCIÓN FUERA DE LA COMPAÑÍA) ... 30
+4.4. SUSCRIPCIÓN FLOTAS DE AUTOMOTORES .......................................................... 30
+4.5. VIGENCIAS ................................................................................................................ 31
+4.6. AUXILIO MECÁNICO ................................................................................................. 31
+4.7. VALOR ASEGURADO ............................................................................................... 31
+4.8. FORMA DE INDEMNIZACIÓN .................................................................................... 32
+4.9. INSPECCIONES ......................................................................................................... 32
+4.10. ACCESORIOS ............................................................................................................ 33
+4.11. RETROACTIVIDAD .................................................................................................... 33
+5. ASPECTOS OPERATIVOS DE AUTOMOTORES ............................................................. 33
+5.1. EMISIÓN DE PÓLIZAS EN SISTEMAS (OPERACIONES) ......................................... 33
+5.2. SLIPS MODELOS Y CONDICIONADOS .................................................................... 34
+6. CONVENIOS ...................................................................................................................... 34
+
+===== PAGE 8 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 1
+1. INTRODUCCIÓN
+El Seguro Automotor forma parte de Seguros Generales y cubre daños y pérdidas de vehículos
+que se transportan por sus propios medios. Su principal exposición asegurada son los riesgos en
+vía pública. Este seguro cubre todos los hechos violentos, súbitos e imprevistos externos y ajenos
+a la intencionalidad del Asegurado, cuyas causas estén amparadas en el Contrato de Seguro.
+1.1. ALCANCE
+Este manual es de estricta aplicación y cumplimiento en todas las oficinas de La Boliviana Ciacruz
+de Seguros y Reaseguros S.A. a nivel nacional y en todas sus áreas (suscripción, comercial,
+operaciones, reclamos y cobranzas). Así también, es aplicable tanto a los negocios de cartera
+Wholesale, Consumers, Commercial, Pyme, Corporate y para todos los equipos de trabajo
+(Directas, Agentes, Brokers, y otros).
+Cualquier excepción y/o modificación respecto de estas Normas y Procedimientos de Suscripción
+deberá ser autorizada por algún integrante de la Gerencia Nacional de Suscripción.
+1.2. OBJETIVOS ESTRATÉGICOS
+El objetivo principal en la suscripción de la Línea de Automotores es obtener una cartera rentable
+y sostenible en el largo plazo.
+Para esto, fueron establecidos los siguientes objetivos específicos:
+• Alinear los procesos de Suscripción a la Estrategia Corporativa de la Compañía, mediante
+procedimientos específicos que se adecúen a los principales clientes y riesgos de la
+cartera.
+• Promover una suscripción ágil en la línea para penetrar el segmento masivo con costos
+operativos mínimos. La estrategia comercial de segmentación está dirigida al mercado
+masivo y el principal desafío para ingresar en este mercado es desarrollar un modelo
+operativo ágil y eficiente, que integre bajo esta óptica todos los procesos y procedimientos.
+• Operar segmentando los riesgos y aprovechando los nichos rentables. Existen riesgos
+que estadísticamente concentran la mayor siniestralidad en la línea y que deben ser
+suscritos bajo condiciones estrictas que compensen la exposición asumida. Por otro lado,
+existen también riesgos mucho menos expuestos donde la Compañía puede tomar una
+posición más agresiva.
+• Monitorear continuamente las tasas del ramo a través de los resultados de rentabilidad.
+• Rentabilizar el segmento Personas en la Línea de Automotores, a través de una estrategia
+de descreme de cartera que está implementada mediante diferenciación de tasas. Las
+nuevas tasas para aplicar parten del modelo de tarificación con base en la siniestralidad
+histórica de la cartera de los últimos 10 años y serán ajustadas continuamente según la
+siniestralidad observada cada mes.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 9 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 2
+2. LINEAMIENTOS GENERALES
+2.1. CAPACIDAD DE SUSCRIPCIÓN
+La máxima capacidad de suscripción en la línea de Automotores está limitada por la Retención
+Local de la Compañía. En este sentido, no se puede suscribir riesgos mayores a Bs. 3.480.000,00
+por vehículo asegurado.
+2.2. PRODUCTOS
+La línea de Automotores comercializa los siguientes productos principales:
+2.2.1. LBC | Auto
+Se trata de un producto flexible que puede ser suscrito para todos los clientes de la Compañía
+y todos los segmentos (individual, flotas, licitaciones, masivos, etc.). Cuenta con 7 Secciones
+Aseguradas, que podrían ser incluidas en la póliza en su totalidad o parcialmente:
+• Cobertura de Pérdida Total por Accidente. Cuando los costos de reparación sean mayores
+al 65% del valor asegurado.
+• Cobertura por Pérdida Total por Robo. Cuando transcurridos 30 días de su desaparición no
+se tenga indicios de su ubicación.
+• Cobertura de Daños Propios. Asegura pérdidas por accidentes (en movimiento o
+estacionados, daños por colisión).
+• Cobertura de HMACC AMITT. Cubre daños al vehículo por Huelgas, Motines, Asonada,
+Conmoción Civil (HMACC) y Actos Mal Intencionados de Terceros y Terrorismo (AMITT).
+• Cobertura de Robo Parcial de Partes y Piezas. Siempre y cuando se encuentren detalladas
+en la inspección de pre riesgo.
+• Cobertura de Responsabilidad Civil. Asegura los daños a terceros.
+• Cobertura de Accidentes Personales a Ocupantes de Vehículos. Asegura a los ocupantes
+del vehículo asegurado contra Muerte, Invalidez total y/o parcial permanente y Gastos
+Médicos por accidentes de tránsito.
+2.2.2. PLAN PROTECCIÓN BREVET
+Es un seguro diseñado para cubrir los vehículos declarados del Asegurado, que sean
+conducidos por personas nominadas por el contratante. No se cuenta con un producto
+específico, por lo que estas pólizas son emitidas bajo otros productos adaptados.
+Es un producto cotizado junto con la flota de vehículo de la empresa asegurada y que forma
+parte de un programa de seguros; o en su defecto, cotizado cuando se tenga algún acuerdo con
+la Concesionaria. Asimismo, se deberá conseguir información relevante que permita
+dimensionar la exposición que se tendrá (cantidad de vehículos en exposición; valores máximos,
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 10 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 3
+mínimos y promedios; información de siniestralidad; límites de indemnización por evento y en el
+agregado anual).
+2.2.3. PLAN MOTO PROTECCIÓN
+El Seguro Moto Protección es un producto enlatado con las siguientes coberturas principales:
+• Pérdida Total por Accidente al 100%. Cuando los costos de reparación sean mayores al
+65% del valor asegurado.
+• Pérdida Total por Robo al 80%. Cuando transcurridos 30 días de su desaparición no se
+tenga indicios de su ubicación.
+• Daños propios con Franquicia Deducible del 20% sobre el valor del siniestro, mínimo la
+franquicia que aplica de acuerdo a la Plaza de circulación o monto del Valor Asegurado.
+• Daño malicioso, vandalismo, motines con Franquicia Deducible del 20% sobre el valor del
+siniestro.
+• Responsabilidad Civil Con cobertura hasta Bs. 35.000.
+3. PROCESOS DE SUSCRIPCIÓN
+3.1. PROCESO DE SUSCRIPCIÓN ESTÁNDAR
+El procedimiento de Suscripción Estándar representa la vía rápida de atención a nuestros
+clientes, mediante productos no diferenciados que se enmarcan dentro el perfil de riesgo de la
+estrategia del negocio.
+Los clientes que pueden ser atendidos por este procedimiento de suscripción son clientes
+individuales (es decir un vehículo por póliza) o flotas de vehículos, a través de cualquiera de los
+canales comerciales.
+3.1.1. PRODUCTOS
+Los únicos productos que pueden ser comercializados por esta vía son: LBC | Auto (incluyendo
+los Planes enlatados) y Moto Protección.
+3.1.2. PERFIL DE RIESGO
+Los vehículos individuales o flotas de vehículos (según definición específica en el Apartado 4.4
+de las Condiciones Generales de este Manual) que pueden ser suscritos por este procedimiento
+son: automotores livianos, camionetas (pick-up), vagonetas y jeeps, motocicletas, minibuses de
+hasta 8 ocupantes sin modificación al diseño original y furgonetas que sean de uso particular y
+automotores pesados de bajo tonelaje para empresas (utilizados para la distribución de
+productos y transporte de material de construcción). Bajo este procedimiento estándar pueden
+ser suscritos, indistintamente, vehículos nuevos (0 km.) y usados.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 11 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 4
+Los siguientes vehículos están excluidos de este procedimiento de suscripción:
+• Automotores pesados con tonelajes mayores a 8 toneladas: Camiones, Tractocamiones y
+Volquetas para el segmento Comercial y Pyme.
+• Cualquier tipo de vehículo pesado para el segmento Consumer (Personas Naturales y
+Personas Naturales con NIT). Se aclara que los camiones son vehículos que tienen la
+cabina separada de la caja de carga y serán considerados como vehículos pesados,
+aunque el RUAT indique que se trata de una camioneta.
+• Cisternas, Tractores, Tráileres, Microbuses, Colectivos, Ómnibus, Chatas,
+Semirremolques, Remolques, Tolvas y Carrocerías de cualquier tonelaje.
+• Equipo pesado de Contratistas sin placas de circulación, que deben ser suscritos como
+Equipos de Contratistas en la Línea de Ingeniería.
+• Vehículos de competición, campo traviesa (Off-Road) y/o carreras.
+• Vehículos con modificaciones en su carrocería original.
+• Minibuses con modificaciones al diseño original para reducir o ampliar la capacidad de
+ocupantes. Se podrá levantar esta exclusión en caso de que se haya reducido la capacidad
+de ocupantes, siempre y cuando se otorgue cobertura de Accidentes Personales a
+Ocupantes solamente al conductor del vehículo (1 ocupante) o se elimine esta cobertura.
+• Vehículos sobre rieles.
+• Motocicletas con cilindrada superior a 400 cc. de competición, Street Legal y marcas de lujo
+(por ejemplo, motos BMW o DUCATTI). Sólo se podrá levantar esta exclusión bajo el límite
+de Autoridad de Subgerentes Comerciales y Gerentes de Sucursal, siempre que la
+motocicleta no participe en ningún tipo de competición, su valor asegurado no supere los
+Bs.70.000 y apliquen los términos/condiciones/tasas del producto Moto protección.
+• Vehículos de Rent a Car o alquiler en general, los vehículos que trabajan con contratos de
+alquiler con empresas petroleras deberán ser autorizados por procedimiento Case
+Underwriting.
+• Vehículos para uso de aprendizaje (Escuelas de Conducción).
+• Vehículos antiguos (con antigüedad mayor a 20 años). Sin embargo se podrá levantar la
+exclusión en los siguientes casos:
+a) Renovaciones: Cuando se aclare que la cobertura de Daños es base efectivo (partes
+genuinas sujeto a indemnización en efectivo), se otorgue la Cláusula de Elegibilidad
+de Talleres en lugar de Libre Elegibilidad y se incluya la Nota Aclaratoria sobre este
+tipo de vehículos. Estas pólizas podrán ser renovadas siempre y cuando los vehículos
+no tengan antigüedad mayor a los 40 años.
+b) Nuevas: Se podrá levantar la exclusión para pólizas nuevas de vehículos con
+antigüedad de 21 años hasta modelos 1990 solamente para las marcas Suzuki,
+Toyota. Nissan, Mitsubishi, Mazda, Ford, Volkswagen y Honda, aplicando la prima
+generada por el tarificador para vehículos de 20 años de antigüedad para pólizas de
+Personas y Empresas Unipersonales. Para Empresas se aplicará la tasa y prima
+mínima asignada a este segmento y el slip modelo para livianos y se aclare que la
+cobertura de Daños es base efectivo (partes genuinas sujeto a indemnización en
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 12 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 5
+efectivo), se otorgue la Cláusula de Elegibilidad de Talleres en lugar de Libre
+Elegibilidad y se incluya la Nota Aclaratoria sobre este tipo de vehículos.
+Nota: De acuerdo con lo estipulado en las Condiciones Generales de esta póliza y en caso de
+una pérdida cubierta, se aclara que la Aseguradora podrá solicitar al Asegurado una cotización
+para la reparación o reposición del siniestro. La Aseguradora deberá validar esta cotización
+con base en sus tablas de costos, en otras cotizaciones que pueda conseguir o, finalmente,
+en cotizaciones de vehículos o partes similares. Esta cotización validada será utilizada en la
+indemnización en efectivo de la pérdida.
+• Vehículos que, como parte de su actividad regular, circulen fuera del País. La
+extraterritorialidad ocasional no forma parte de esta exclusión.
+• Vehículos con capacidad original de más de 8 pasajeros.
+• Vehículos que tengan un Valor Asegurado igual o mayor a Bs. 1.050.000,00, para aquellos
+vehículos que superen los Bs. 700.000 se deberá validar que estos hayan sido importados
+y comercializados por las siguientes empresas: Toyosa, SACI, Andar Motors, Ovando, Taiyo
+Motors e IMCRUZ
+• Vehículos destinados para el servicio público (urbano o rural o internacional) de pasajeros.
+Se deberá verificar en el RUAT.
+• Vehículos descapotables con techo de lona.
+• Vehículos blindados.
+• Vehículos de Bomberos, de la Policía, del Ejército y ambulancias.
+• Vehículos en licitaciones del sector público/ privadas.
+• Vehículos con placa de circulación extranjera.
+• Vehículos de colocación masiva de seguros de automotores, como acuerdos con
+Concesionarios, Bancos, Entidades Financieras u otro canal de distribución que sea
+considerado masivo.
+• Vehículos a través de Pólizas de Brevet.
+3.1.3. AUTORIDADES DE SUSCRIPCIÓN
+La base de análisis en la línea de Automotores es por riesgo o valor comercial del vehículo
+asegurado y así están definidas las Autoridades de Suscripción.
+A partir de la capacidad de Retención y de la máxima autoridad de Suscripción, se han delegado
+autoridades de suscripción para este procedimiento, según la siguiente matriz (por valor máximo
+asegurado de cada vehículo y por cantidad de vehículos en una póliza).
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 13 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 6
+Cantidad máxima
+Valor Asegurado máximo
+Suscriptor de vehículos por
+por vehículo (BOB)
+Póliza
+Manuel Sauma No aplica 3.480.000,00
+Yasmin Rendón No aplica 3.480.000,00
+Santiago Bustillos No aplica 3.480.000,00
+José Carlos López 150 2.100.000,00
+Marco Rada 150 1.750.000,00
+Maribel Aruquipa 150 1.750.000,00
+Ricardo Velarde 150 1.750.000,00
+Vania Saucedo 150 1.750.000,00
+Paola Aguilar 150 1.750.000,00
+Lizeth Ríos 100 1.400.000,00
+Fernando Roca 20 1.750.000,00
+Juan Pablo Camacho 20 1.400.000,00
+Maria Alejandra Gil 20 1.400.000,00
+Gonzalo Galarza 20 1.400.000,00
+Verónica Suárez 20 1.400.000,00
+Roxana Vaca 20 1.400.000,00
+Daniel Tirado 20 1.400.000,00
+Edward Bellido 05 1.400.000,00
+Carmen Balderas 05 1.400.000,00
+Paola Rocha 20 1.400.000,00
+Vanessa García 20 1.400.000,00
+Katia Barreal 20 1.400.000,00
+Patricia Inchauste 20 1.400.000,00
+Carla Valle 20 1.400.000,00
+Sandra Terán 05 1.050.000,00
+Arnold Vaca 05 1.050.000,00
+Mariela Méndez 05 700.000,00
+Tatiana Ticona 05 700.000,00
+Geovanna Moruco 05 700.000,00
+Wildo Castellanos 05 700.000,00
+Ninoska Martinez 01 490.000,00
+Elizabeth Suarez 01 490.000,00
+José Mercado 01 490.000,00
+Natalia Jijena 01 490.000,00
+Manuel Sabag 01 490.000,00
+Ana Arauz 01 490.000,00
+Airton Garcia 01 490.000,00
+Julio Guerrero 01 490.000,00
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 14 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 7
+Daniel Porcel 01 490.000,00
+Diego Torrejón 01 490.000,00
+Wendy Revollo 01 490.000,00
+Diego Villagomez 01 490.000,00
+Juan Bustamante 01 490.000,00
+3.1.4. TÉRMINOS Y CONDICIONES
+Los términos y condiciones que pueden ser suscritos por el Procedimiento Estándar de
+Suscripción son, en general, todos los contenidos en los diferentes productos habilitados para
+este Procedimiento. Es posible, incluso, suscribir pólizas estándares de Automotores livianos
+con solamente una o algunas secciones del producto; por ejemplo, una póliza con la Sección
+de Responsabilidad Civil únicamente. En los productos enlatados solo se puede cotizar bajo las
+coberturas ya establecidas.
+Este procedimiento de Suscripción no tiene disponible ninguna de las siguientes cláusulas y
+anexos, a no ser que formen parte de los productos enlatados únicamente:
+• Cláusula de Renovación y Depreciación Anual para Pólizas Mayores a Un Año.
+• Cláusula de Participación de Utilidades.
+• Cláusula de Valor Admitido.
+• Anexos de Licitaciones: todos aquellos registrados para licitación.
+• Cláusulas Petroleras, a no ser que cuenten con la autorización del Gerente de Sucursal o
+de sus diferentes Sub-Gerencias y jefaturas y siempre y cuando se verifique la existencia
+de un contrato de servicios suscrito entre el Asegurado y alguna empresa petrolera. En
+dicha autorización deberá especificarse el nombre de la Empresa Petrolera a favor de
+quien serán emitidas las cláusulas y la inclusión del Anexo deberá figurar en Sistema, esto
+aplica para:
+a) Cláusula de No Subrogación (Petroleras).
+b) Cláusula de Cancelación (Petroleras).
+c) Cláusula de Asegurado Adicional (Petroleras).
+A continuación, se describe las políticas generales para los principales términos y condiciones
+que pueden ser otorgados bajo el Procedimiento Estándar.
+a) Responsabilidad Civil: La cobertura de Responsabilidad Civil Extracontractual no
+corresponde a la exposición principal de una póliza de Automotores. Aunque sí se puede
+suscribir una póliza solamente con esta cobertura solamente para vehículos livianos
+excluyendo motocicletas (revisar las primas mínimas fijadas en el Apartado 3.1.6. Primas y
+Franquicias deducibles mínimas
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 15 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 8
+b) Primas y Franquicias Deducibles Mínimas: en general, se debe incentivar al Asegurado
+a contratar una póliza completa que asegure la materia del seguro en su totalidad.
+Como cobertura incidental, el límite máximo asegurado para Responsabilidad Civil no
+puede superar los Bs. 210.000, excepto cuando se otorgada bajo algún producto enlatado
+(Productos enlatados, por ejemplo). Cualquier excepción en este límite, debe ser atendido
+por el Procedimiento de Suscripción Case Underwriting.
+La cobertura de Responsabilidad Civil por Perjuicios Económicos a Terceros (RC
+Consecuencial) asegura las pérdidas financieras ocasionadas a terceros, por las que
+resulte civilmente responsable el Asegurado. Esta extensión de la Responsabilidad Civil
+Extracontractual puede ser incluida en los productos de Automotores, habilitados para este
+Procedimiento, con un límite máximo de Bs. 35.000 que deben formar parte del límite
+asegurado para la RC Extracontractual (no en adición). Igualmente, se recomienda suscribir
+esta extensión de cobertura con una franquicia deducible temporal de 3 días.
+Por su parte, la Responsabilidad Civil de Ocupantes puede ser incluida en los productos de
+Automotores excepto para vehículos pesados y motocicletas, con un límite máximo de Bs.
+35.000 que deben formar parte del límite asegurado para la RC Extracontractual (no en
+adición).
+Las coberturas de Responsabilidad Civil por Contaminación y la Responsabilidad Civil del
+Transportador Carretero en Viaje Internacional o del CONOSUR corresponden a
+exposiciones de riesgo propias de la línea de Responsabilidad Civil y no pueden ser
+suscritas en ninguno de los productos de Automotores.
+c) Accidentes Personales: La cobertura de Accidentes Personales en los productos de
+Automotores asegura a los tripulantes y a los pasajeros del vehículo contra Muerte,
+Invalidez total y/o parcial permanente y Gastos Médicos por accidentes de tránsito.
+Bajo este Procedimiento, el número máximo de tripulantes y pasajeros asegurados para
+vehículos livianos bajo esta cobertura no puede exceder de 8 (ocho) respaldados en el
+número de asientos, según RUAT. El capital asegurado máximo es de Bs.140.000 por
+tripulante o pasajero para las coberturas de muerte e invalidez y gastos médicos de hasta
+el 20%. En caso de que en el RUAT figure que el vehículo tiene una capacidad mayor a las
+8 personas y que el vehículo corresponda dentro el perfil de riesgo del Procedimiento
+Estándar, se podrá otorgar cobertura a los ocupantes adicionales, aplicando un extra prima
+de Bs. 56 por ocupante por cada Bs. 35.000 de cobertura.
+En caso de requerirse una cobertura para Accidentes Personales con un límite mayor, el
+caso debe ser revisado por la línea del negocio correspondiente (ya que no se considera
+una cobertura asegurable bajo Automotores).
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 16 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 9
+d) Extraterritorialidad: El alcance territorial de las pólizas de Automotores de vehículos
+livianos, suscritas bajo este Procedimiento, se extiende a países limítrofes, sin un costo
+adicional y como una cobertura incidental (límite máximo de estadía por viaje de 30 días).
+El alcance de coberturas se encuentra descrito en la cláusula de extraterritorialidad que
+forma parte de la póliza.
+En caso de que el cliente requiera tener una permanencia continua superior a los 30 días,
+deberá cobrarse una extra prima de Bs. 420 por cada mes o fracción de mes adicional y
+solo podrán hacerlo hasta los 90 días como máximo.
+3.1.5. TARIFICACIÓN
+La política de Pricing en la línea de Automotores busca establecer tasas y primas que sean
+sostenibles en el largo plazo. Para esto, las primas técnicas de la línea de Automotores cubren
+los siniestros indemnizados y los gastos incurridos para atender esos siniestros, el costo de los
+servicios y beneficios adicionales ofrecidos en la línea, las comisiones de intermediación, los
+gastos internos de administración de la cartera y una rentabilidad esperada.
+El Procedimiento de Suscripción Estándar tiene las siguientes herramientas de tarificación
+disponibles:
+3.1.5.1. VEHÍCULOS LIVIANOS
+3.1.5.1.1. PERSONAS NATURALES Y PERSONAS NATURALES CON NIT
+(INDIVIDUALES)
+La actual política de tarificación está implementada a través de un motor de cálculo que está
+disponible en el CRM (Customer Relationship Management). Este Tarificador será aplicado
+de manera diferenciada para emisiones nuevas y para renovaciones que correspondan a las
+condiciones estándares, definidas en el perfil de riesgo (vehículos nuevos o usados), y que
+incluyan los siguientes límites máximos:
+• Pérdida Total por robo al 100%
+• Pérdida Total por Accidente al 100%
+• Daños Propios y HMACC AMIT al 90%
+• Robo Parcial al 80%
+• Límite máximo en Responsabilidad Civil de Bs.210.000,00 y
+• Accidentes Personales de Bs.70.000,00 (por persona)
+Para la suscripción de vehículos híbridos o eléctricos importados por un concesionario
+representante de la marca en Bolivia, se deberá realizar el recargo sobre la tasa cotizada en
+CRM debido a la concentración de valores asegurados en las baterías de estos vehículos,
+10% para vehículos híbridos y 20% para vehículos eléctricos. Asimismo, se deberán
+considerar las siguientes condiciones en el slip de cotización:
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 17 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 10
+• La presente póliza otorga cobertura para el cargador y el enchufe del vehículo
+asegurado, siempre y cuando formen parte de los valores asegurados y declarados
+en la póliza y en tanto se encuentren fijos dentro del vehículo encerrado.
+• Se aclara que la compañía se reserva el derecho de indemnizar en efectivo
+dependiendo el tipo de siniestro, siempre y cuando se trate de un evento cubierto en
+la Póliza.
+• Se excluyen daños internos. Por lo tanto, los riesgos de fuga térmica de las baterías
+están excluidas de la póliza.
+3.1.5.1.2. PERSONAS NATURALES CON NIT (FLOTA)
+Para las Personas Naturales con NIT que suscriban una flota de mínimamente 3 vehículos
+(todos a nombre del tomador de la póliza, según RUAT o minuta de transferencia) o que
+suscriban un programa de seguros más completo, donde la prima de Automotores no sea
+mayor al 40% de la prima del programa (programa vigente o por emitirse). Este grupo tendría
+disponible las siguientes condiciones:
+Tasa Total
+Eje Troncal 2,8%
+Fuera del Eje 2,6%
+El resto de las Personas Naturales con NIT pasarían como personas individuales en el
+Tarificador del CRM según el punto anterior.
+EMISIONES NUEVAS
+Todos los riesgos nuevos de este segmento deberán ser tarificados individualmente en el
+CRM, a partir de las siguientes variables.
+• Antigüedad del vehículo
+• Valor Asegurado
+• Marca
+• Plaza de circulación
+La Gerencia Nacional de Negocios de Empresas y Personas & Pymes tiene autoridad de
+otorgar descuentos sin límite a las tasas cotizadas en el CRM. Las Gerencias o Jefaturas de
+Sucursal podrán otorgar hasta un 20% de descuento aplicable a la prima cotizada. Las
+Subgerencias y jefaturas comerciales, hasta un 10% de descuento.
+En caso de que el usuario solicite descuento del 10% o 20% y dicho descuento signifique que
+la prima final esté por debajo de la Prima o Tasa mínima, el CRM bloqueará la solicitud con un
+mensaje de rechazo.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 18 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 11
+3.1.5.1.3. EMPRESAS (INDIVIDUALES)
+Para pólizas individuales de vehículos cuyo Asegurado cuente con la denominación S.A.
+(Sociedad Anónima), SRL (Sociedad de Responsabilidad Limitada), S.A.M. (Sociedad
+Anónima Mixta), R.L. (Responsabilidad Limitada) u ONG (Organismo No Gubernamental) y
+que corresponda a clientes de los segmentos Pyme y Commercial, se acuerda las siguientes
+tasas mínimas (al contado):
+Tasa Total
+Eje Troncal 3%
+Fuera del Eje 2,8%
+3.1.5.1.4. EMPRESAS (FLOTA)
+Para vehículos livianos, se considera una flota a partir del segundo vehículo a una póliza cuyo
+Asegurado cuente con la denominación S.A. (Sociedad Anónima), SRL (Sociedad de
+Responsabilidad Limitada), S.A.M. (Sociedad Anónima Mixta), R.L. (Responsabilidad
+Limitada) u ONG (Organismo No Gubernamental) y que corresponda a clientes de los
+segmentos Pyme y Commercial. Flotas en el Segmento Consumer para personas Individuales
+pueden ser suscritas bajo el Procedimiento Case Underwriting y según la Condición General
+específica de este Manual. Para estas flotas (Suscripción Estándar), se acuerda las siguientes
+tasas mínimas (al contado):
+• Plaza de Circulación La Paz y Santa Cruz: 2,40%
+• Demás Plazas de Circulación: 2,20%
+Estas tasas aplican solo para vehículos livianos correspondientes al Procedimiento de
+Suscripción Estándar (Automóviles, camionetas, vagonetas, Jeeps, Furgones, Furgonetas y
+minibuses).
+Se deja a mejor criterio del suscriptor autorizado, la aplicación de tasas, primas mínimas y
+franquicias mayores a las estipuladas como mínimas.
+Para complementar esta política de tarificación y como herramienta referencial, se cuenta con
+un detalle de la información mínima que se requiere para la tarificación de flotas presentado
+en el Anexo 1: “Información para Cotizar automotores Livianos y Pesados”
+3.1.5.2. VEHÍCULOS PESADOS
+3.1.5.2.1. EMPRESAS(INDIVIDUALES Y FLOTA)
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 19 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 12
+Para pólizas individuales o flota de vehículos cuyo Asegurado cuente con la denominación
+S.A. (Sociedad Anónima), SRL (Sociedad de Responsabilidad Limitada), S.A.M. (Sociedad
+Anónima Mixta), R.L. (Responsabilidad Limitada) u ONG (Organismo No Gubernamental) y
+que corresponda a clientes de los segmentos Pyme y Commercial, se acuerda la tasa mínima
+de2,8% contado para cualquiera de las Plazas de Circulación dentro del territorio boliviano y
+tomando en cuenta las limitaciones para suscripción estándar. Comentado [JR1]: No hay modificación, solo es
+aclaratorio.
+3.1.5.3. MOTO PROTECCIÓN
+La tarificación de los productos de Moto Protección está sujeta a las siguientes tablas:
+Valor Asegurado Tasa / Prima
+De Bs. 0,00 a Bs. 10.500,00 Bs. 525,00
+De Bs. 10.500,01 a Bs. 21.000,00 Bs. 896,00
+De Bs. 21.001,00 a Bs. 35.000,00 Bs. 1.344,00
+De Bs. 35.001,00 a Bs. 70.000,00 4,20 %
+Para la suscripción de motocicletas híbridas o eléctricas importadas por un concesionario
+representante de la marca en Bolivia, se deberá realizar el recargo sobre la prima cotizada en
+este producto debido a la concentración de valores asegurados en las baterías de estos
+vehículos, 10% para motocicletas híbridas y 20% para motocicletas eléctricas. Asimismo, se
+deberán considerar las siguientes condiciones en el slip de cotización:
+• La presente póliza otorga cobertura para el cargador y el enchufe del vehículo asegurado,
+siempre y cuando formen parte de los valores asegurados y declarados en la póliza y en
+tanto se encuentren fijos dentro del vehículo encerrado.
+• Se aclara que la compañía se reserva el derecho de indemnizar en efectivo dependiendo
+el tipo de siniestro, siempre y cuando se trate de un evento cubierto en la Póliza.
+• Se excluyen daños internos. Por lo tanto, los riesgos de fuga térmica de las baterías están
+excluidas de la póliza.
+3.1.5.4. PRIMAS Y FRANQUICIAS DEDUCIBLES MÍNIMAS
+3.1.5.4.1. PRIMAS MÍNIMAS (AL CONTADO)
+No obstante, las tasas mencionadas en el punto anterior fueron establecidas primas mínimas
+por plaza de circulación y por tipo de vehículo:
+Pólizas Individuales
+• Personas Naturales y Personas Naturales con NIT: Las primas mínimas para este
+segmento están configuradas en el tarificador del CRM según la alternativa que elija el
+cliente para vehículos livianos.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 20 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 13
+• Empresas: Vehículos livianos Bs.2.450 para el eje troncal y Bs. 2.100 para el resto de las
+plazas y para vehículos pesados Bs. 2.800
+Pólizas Flota:
+• Personas Naturales con NIT: Vehículos livianos Bs. 2.800 en el eje troncal y Bs. 2.100
+en el resto de las plazas.
+• Empresas: En caso de que el vehículo forme parte de una flota dentro del Proceso
+Estándar de Suscripción, la prima mínima a aplicar es de Bs. 1.750 para vehículos livianos
+(excluyendo motocicletas) y Bs. 2.450 para vehículos pesados.
+Responsabilidad Civil:
+Para pólizas de vehículos livianos correspondientes a los segmentos Comercial o
+Consumer, que contraten solamente la cobertura de Responsabilidad Civil, se acuerda el
+siguiente esquema de primas mínimas:
+Plaza de Circulación
+Valor Asegurado Santa Cruz, La
+Resto del País
+Paz, Trinidad
+Bs. 140.000,00 Bs. 1.000 Bs. 850
+3.1.5.4.2. FRANQUICIAS DEDUCIBLES
+La suscripción bajo el Procedimiento Estándar establece dos tipos de Franquicias Deducibles
+básicas para cualquier póliza. Una Franquicia Deducible mínima, determinada en BOB.
+• Moto protección
+Franquicia Deducible mínima (Sección de Daños Propios y HMACC AMIT Terrorismo) para
+Motocicletas:
+Plaza de Circulación
+Valor Asegurado Santa Cruz, La
+Resto del País
+Paz, Trinidad
+Hasta Bs. 35.000,00 Bs. 350 Bs. 350
+Mayor a Bs. 35.000,00 Bs. 700 Bs. 350
+Mayor a Bs. 70.000,00 Bs. 1.500 Bs. 1.500
+• Personas Naturales y Personas Naturales con NIT
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 21 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 14
+Franquicia Deducible porcentual para la Sección de Robo Parcial de Partes y Piezas de 20%
+del valor del siniestro y para las Secciones de Daños Propios y HAMCC AMITT 10% del valor
+del siniestro para cualquier riesgo suscrito. Las franquicias deducibles mínimas estarán en
+función a la alternativa elegida por el cliente.
+Para vehículos híbridos y eléctricos, se aplicará el recargo del 50% sobre la opción de
+franquicia deducible elegida en el CRM.
+• Empresas
+Franquicia Deducible mínima (Sección de Daños Propios y HMACC AMIT Terrorismo) para
+Demás Vehículos:
+Valor Asegurado Franquicia Deducible
+Hasta Bs.420.000 10% del valor del siniestro,
+mínimo Bs. 1.000 para el eje
+central y mínimo Bs. 500 para
+el resto de las plazas de
+circulación.
+Mayor a Bs. 420.000,00 hasta Bs. 700.000 Bs. 1.500
+Vehículos de Lujo mayores a Bs. 420.000 Bs. 2.100
+Vehículos alquilados a Petroleras / similares Bs. 1.500
+Pesados (mayor 3TN) Bs. 2.100
+Pesados (hasta 3 TN) Bs. 1.500
+Franquicia Deducible porcentual (Sección de Robo Parcial de Partes y Piezas): 20% del valor
+del siniestro, para cualquier riesgo suscrito.
+Estas son las Franquicias Deducibles básicas que deberán incluirse en cualquier póliza
+suscrita en LBC, bajo el Procedimiento de Suscripción Estándar. Si el suscriptor lo considera,
+se puede incrementarlas.
+Para los productos enlatados (Productos Enlatados, LBC Moto, etc.) no aplican estas
+Franquicias Deducibles básicas, porque ya incluyen una configuración propia y específica.
+• Responsabilidad Civil
+La franquicia deducible fija general por evento y/o reclamo es de Bs. 1.000.
+3.1.6. INFORMACIÓN DE SUSCRIPCIÓN PARA COTIZAR RIESGOS Y EMITIR EN
+SISTEMA
+Para Cotizaciones
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 22 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 15
+Para vehículos livianos:
+• Tipo de vehículo.
+• Marca, modelo y año.
+• Valor Comercial (o Asegurado).
+• Plaza de circulación.
+• Uso del vehículo.
+• Detalle de códigos Sise o códigos Osiris que correspondan al asegurado.
+• Anexo 02: Planilla Solicitud de Renovaciones (en caso de Renovación).
+• Slip con términos y condiciones.
+En caso de Vehículos Pesados, también se requiere analizar la siguiente información:
+• Descripción de la actividad del asegurado.
+• Detalle de la materia a transportar
+• Lugares de circulación
+• Frecuencia de viajes
+• Exposición fuera del territorio nacional y frecuencia.
+• Anexo 02: Planilla Solicitud de Renovaciones (en caso de Renovación).
+• Capacidad de carga en toneladas.
+En caso de motocicletas de lujo con valores asegurados superiores a los Bs.70.000:
+• Edad del conductor.
+• Si pertenece a algún club de motoqueros
+• Años de experiencia en conducción de motocicletas. -
+• Consultar si existen conductores adicionales del vehículo
+• Lugar de trabajo y cargo del conductor.
+• Frecuencia de uso de la motocicleta.
+• Rutas de circulación frecuente.
+• Anexo 02: Planilla Solicitud de Renovaciones (en caso de Renovación).
+• Uso de la motocicleta.
+Para Emisiones
+La información de suscripción, debidamente documentada en el archivo del cliente, sienta la
+base de análisis de los riesgos de Automotores. A continuación, se detalla la información básica
+que se debe recopilar para cada cliente y la información que deberá actualizarse para la
+renovación de estas pólizas. Esta información no es requerida para poder presentar una
+cotización al cliente.
+Riesgos Nuevos
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 23 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 16
+La suscripción de nuevos clientes debe estar respaldada por la siguiente documentación:
+• Información del Asegurado (Formulario GCP).
+• Detalle de Coberturas o Slip de Cotización con el detalle de Valores Asegurados.
+• Fotocopia del RUAT de cada vehículo (que contenga la siguiente información: N° de
+Chasis, N° de Motor, Color, Modelo, Año de Fabricación, Placa, Plazas). En el caso de
+vehículos 0 km que no cuenten con este documento al momento de la emisión o en las
+renovaciones donde el documento no figure el en file de la póliza, se otorgará un plazo de
+3 días para regularizar este documento, siempre que se presente en su lugar el FRV
+(Formulario de Registro de Vehículos), Consulta del RUAT vía internet obtenido con el
+número de Certificado de Registro de Propiedad de Vehículos Automotores (CRPVA) o la
+póliza de importación del vehículo; la excepción podrá ser otorgada por los diferentes
+niveles de suscripción y se incluirá una nota en la emisión de la póliza aclarando el plazo
+de regularización para dicho documento. Sin embargo, es responsabilidad tanto del
+ejecutivo comercial como del nivel de suscripción que aprueba la excepción, garantizar
+que en el expediente se regularice la documentación requerida.
+• Formulario de Inspección con fotografías o formulario de declaración jurada del o los
+vehículos a asegurar; salvo en los casos en que sólo se comercialice una póliza con la
+Cobertura única de Responsabilidad Civil y Accidentes Personales. Mayores detalles se
+presentan en el manual de ingeniería de riesgos publicado en la intranet: Manual de
+Normas y Políticas de Suscripción Ingeniería de Riesgos
+• Para efectos de vehículos 0 kilómetros nuevos, adquiridos en casas concesionarias
+autorizadas en el Estado Plurinacional de Bolivia, no será necesario efectuar la
+correspondiente inspección pre – riesgo, salvo que los mismos cuenten con accesorios
+adicionales originales de fábrica que el Asegurado desee que cuenten con la cobertura
+necesaria. En estos casos deberán presentar el Acta de Entrega debidamente firmada en
+caso de que el vehículo ya haya salido de la concesionaria; en caso de que el vehículo no
+cuente con Acta de Entrega al momento de la emisión, pero sí con el Acta de Pre Entrega,
+Factura Comercial o el Contrato de Compra-Venta se otorgará un plazo de 3 días para
+regularizar el Acta de Entrega; la excepción podrá ser otorgada por los diferentes niveles
+de suscripción y se incluirá una nota en la emisión de la póliza aclarando el plazo de
+regularización para dicho documento. Sin embargo, es responsabilidad tanto del ejecutivo
+comercial como del nivel de suscripción que aprueba la excepción, garantizar que en el
+expediente se regularice la documentación requerida.
+• Para vehículos pesados que acoplen chatas, semirremolques y/o similares se debe
+considerar los siguiente para la emisión:
+a) La emisión en sistema para este tipo de vehículos debe realizarse por órdenes
+separadas, toda vez que se deberán registrar las placas y números de chasis de
+manera independiente.
+b) La tasa y prima mínima autorizada aplica también a estos ítems acoplados.
+c) Se deberá contar con una inspección por separado para el tracto camión y para el
+o los ítems acoplados.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 24 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 17
+d) Se aclara que para las inspecciones de las chatas o semirremolques acoplados se
+podrán ingresar fotografías repetidas o en blanco cuando la app o Chatbot solicite
+las fotografías que el acoplado no cuente, como ser: parabrisas, radio, panel, etc.
+3.1.7. FORMA DE PAGO
+La primera alternativa en la forma de pago es siempre al contado, con 30 días de periodo de
+gracia.
+Para el pago al crédito (sujeto de recargo por un 10%) se dispone de la siguiente opción, como
+forma de pago.
+• El cobro del 30% de cuota inicial y hasta 6 cuotas (con 30 días de periodo de gracia).
+3.2. PROCESO DE SUSCRIPCIÓN AUTOMÁTICA
+El procedimiento de Suscripción Automática fue creado para agilizar el proceso operativo de
+emisión y renovación de pólizas. En este procedimiento no aplican autoridades de suscripción,
+ya que los productos ‘enlatados’ cuentan con términos y condiciones definidas para riesgos
+específicos.
+Los productos que forman parte de este procedimiento son los siguientes:
+• LBC | Auto (Producto para Personas)
+• LBC | Auto Por Kilometraje
+• LBC | Moto (Low Cost)
+3.3. PROCESO DE SUSCRIPCIÓN CASE UNDERWRITING
+La suscripción caso por caso o Case Underwriting requiere un conocimiento más profundo del
+riesgo a asegurar para justificar las desviaciones a las condiciones estándares, solicitadas por el
+cliente. A diferencia de la Suscripción Estándar, este procedimiento debe ser analizado
+considerando factores ajenos a la misma póliza, como ser: antigüedad del cliente, volumen del
+programa de seguros en la Compañía, rentabilidad de la cuenta y del programa y el interés
+comercial por la cuenta.
+Los clientes que pueden ser atendidos por este Procedimiento son: individuales, medianos o
+corporativos, incluyendo flotas de vehículos; a través de los canales Directas, Brokers, Agentes
+o Corporate.
+Los productos comercializados por esta vía son todos los disponibles en la línea.
+3.3.1. PERFIL DE RIESGO
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 25 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 18
+Bajo el Procedimiento Case Underwriting puede suscribirse cualquier tipo de vehículos,
+incluyendo vehículos pesados, a excepción de los explícitamente excluidos a continuación:
+• Equipo de pesado de Contratistas sin placas de circulación, que deben ser suscritos
+como Equipos de Contratistas en la Línea de Ingeniería.
+• Vehículos de competición, campo traviesa (Off-Road) y/o carreras.
+• Vehículos con modificaciones en su carrocería original.
+• Vehículos sobre rieles.
+• Vehículos de alquiler (Rent-A-Car). Esta exclusión no aplica a vehículos alquilados.
+• Vehículos para uso de aprendizaje (Escuelas de Conducción).
+• Vehículos que, como parte de su actividad regular, circulen fuera del País.
+• Vehículos destinados para el servicio público (urbano o rural o internacional) de
+pasajeros.
+• Vehículos de Bomberos, de la Policía, del Ejército.
+• Vehículos de licitaciones del sector público/ privadas.
+• Vehículos de colocación masiva de seguros de automotores, como acuerdos con
+Concesionarios, Bancos, Entidades Financieras u otro canal de distribución que sea
+considerado masivo (canal Wholesale).
+3.3.2. AUTORIDADES DE SUSCRIPCIÓN
+Las autoridades de suscripción del Procedimiento Case Underwriting se encuentran definidas
+en la siguiente matriz, según el valor comercial del vehículo asegurado.
+NÚMERO DE MAYOR VEHÍCULO
+SUSCRIPTOR
+VEHÍCULOS (EN BOB)
+Manuel Sauma No aplica 3.480.000,00
+Yasmin Rendón No aplica 3.480.000,00
+Santiago Bustillos No aplica 3.480.000,00
+José Carlos López 300 2.100.000,00
+Marco Rada 300 1.750.000,00
+Maribel Aruquipa 300 1.750.000,00
+Ricardo Velarde 300 1.750.000
+Paola Aguilar 300 1.750.000,00
+Vania Saucedo 300 1.750.000,00
+Lizeth Rios 100 1.400.000,00
+3.3.3. TÉRMINOS Y CONDICIONES
+Los términos y condiciones que pueden ser suscritos por este Procedimiento incluyen todas las
+condiciones habilitadas en sistemas.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 26 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 19
+A continuación, se describe las políticas particulares de este Procedimiento que se diferencian
+de la Suscripción Estándar. Estas diferencias, no aplican a productos cerrados, donde ya se
+tienen condiciones establecidas.
+Responsabilidad Civil
+El límite máximo de Responsabilidad Civil asegurable bajo un análisis caso por caso no puede
+superar los Bs. 350.000. Límites mayores en esta cobertura u otro tipo de extensiones,
+diferentes a las permitidas también para el caso Estándar, deben ser suscritas por la respectiva
+Línea de Responsabilidad Civil.
+Franquicia Deducible mínimo
+Cualquier desvío a los deducibles mínimos establecidos para el Procedimiento Estándar de
+Suscripción debe estar precedido de un análisis profundo a la siniestralidad histórica del caso y
+justificado comercialmente. El suscriptor debe asegurarse que los deducibles de una póliza no
+incrementen la frecuencia de reclamos y que, por lo tanto, se incrementen también los costos
+administrativos relacionados con su atención.
+Siniestralidad elevada
+En caso de que una póliza presente siniestralidad, ésta será evaluada a través del Índice de
+Siniestralidad o Loss Ratio:
+𝐼𝑛𝑑. 𝑆𝑖𝑛𝑖𝑒𝑠𝑡𝑟𝑎𝑙𝑖𝑑𝑎𝑑=
+(𝑆𝑖𝑛𝑖𝑒𝑠𝑡𝑟𝑎𝑙𝑖𝑑
+𝑃
+𝑎
+𝑟
+𝑑
+𝑜
+𝑃
+𝑑
+𝑎
+𝑢
+𝑔
+𝑐𝑐
+𝑎
+𝑖
+𝑑
+ó
+𝑎
+𝑛
++
+𝑑𝑒
+𝑆
+𝑃
+𝑖𝑛
+𝑟
+𝑖
+𝑖
+𝑒
+𝑚
+𝑠
+𝑎
+𝑡𝑟
+𝑠
+𝑎
+𝑁
+𝑙𝑖
+𝑒
+𝑑
+𝑡
+𝑎
+𝑎
+𝑑
+𝑠
+𝑒𝑛 𝑅𝑒𝑠𝑒𝑟𝑣𝑎)
+∗100
+La suscripción de este tipo de riesgos debe ser justificada por una rentabilidad positiva en el
+programa o mediante acciones específicas para corregir la siniestralidad futura esperada.
+3.3.4. TARIFICACIÓN
+La tarificación en el Procedimiento de Suscripción Case Underwriting no se encuentra sujeta de
+Tasas o Primas mínimas y se basa en la experiencia del Suscriptor con límite autorizado.
+3.3.5. SUSCRIPCIÓN DE AUTOMOTORES PESADOS
+Bajo este grupo de Automotores se encuentran Camiones, Tractocamiones, Cisternas,
+Tractores, Tráileres, Volquetas, Microbuses, Colectivos, Omnibuses, Chatas, Semi-remolques,
+Remolques, Tolvas y Carrocerías; concentra vehículos con un tonelaje mayor a los 8 TN. La
+exposición de este grupo es mucho mayor que en los otros tipos de vehículos por su mayor
+concentración en valores asegurados y por la posibilidad de producir daños y lesiones a terceros
+de mayor cuantía.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 27 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 20
+El objetivo estratégico de la Compañía no incluye a este segmento del mercado por la
+experiencia de Siniestralidad experimentada, aunque no sea una exclusión absoluta del área.
+La consideración de este tipo de riesgos en la cartera de la Compañía debe estar justificada
+comercialmente.
+El análisis de suscripción para considerar este tipo de excepciones en nuestra política debe
+complementarse con los siguientes factores:
+• Exposición en Países limítrofes. A los costos usuales de indemnizar una pérdida en este
+tipo de pólizas, se suman los gastos de atención en países donde la Compañía no tiene una
+oficina de representación para realizar cualquier tipo de trámites legales o judiciales.
+Igualmente, las disposiciones legales de otros países exponen a nuestros asegurados a otro
+tipo de riesgos no considerados en la suscripción regular de pólizas de Automotores.
+• Mayor exposición operativa en vía pública. A diferencia de los otros tipos de automóviles
+asegurados en pólizas de Automotores, donde su uso es doméstico y su exposición de riesgo
+es esporádica, los automotores pesados constituyen herramientas de trabajos, cuya
+inversión debe ser compensada con un uso continuo para alcanzar los retornos esperados.
+En este sentido, este tipo de vehículos suele operar en sus respectivas tareas continuamente
+(en algunos casos, 24 horas al día).
+• Materia transportada. Otra diferencia importante de los riesgos comúnmente suscritos en
+estas pólizas es que los Vehículos Pesados operan transportando mercadería o pasajeros,
+que aumentan la exposición de riesgo. Los principales tipos de vehículos que concentran
+esta exposición son los camiones cisterna u otro tipo de vehículos que transporten
+hidrocarburos, ya que su alta inflamabilidad puede ocasionar pérdidas totales en un accidente
+menor; y los buses de pasajeros, por la mayor exposición en la cobertura de Accidentes
+Personales.
+Después de un ejercicio de tarificación, fueron establecidas las siguientes tasas y deducibles
+referenciales para este tipo de riesgos. Cualquier descuento sobre estas referencias deberán
+estar técnica y comercialmente justificadas.
+• Tasa Total Referencial: 4,00%
+• Franquicia Mínima: Bs. 3.500
+3.3.6. INFORMACIÓN DE SUSCRIPCIÓN PARA COTIZAR Y EMITIR EN SISTEMA.
+La información de suscripción del Procedimiento Case Underwriting es similar a la información
+estándar, previamente definida. Las justificaciones en las desviaciones al proceso estándar y
+las autorizaciones del Área de Suscripción de Automotores para cualquier desviación en la
+política deben estar formalmente documentadas en los archivos comerciales de cada cuenta.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 28 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 21
+3.4. PROCESO DE SUSCRIPCIÓN MASIVA
+El procedimiento de Suscripción Masiva se refiere a la agrupación de muchos clientes individuales
+en un solo programa de seguros, bajo mismos términos y condiciones. Este procedimiento es
+competencia exclusiva de la Gerencia de Suscripción, en coordinación con la Gerencia Nacional
+de Seguros Masivos.
+3.4.1. PERFIL DE RIESGO
+Bajo este procedimiento de suscripción se puede atender a Entidades Financieras u otros
+agrupadores con un vínculo de afinidad, como Concesionarias, Farmacias o Supermercados,
+entre otros. Este tipo de clientes son los que, usualmente, agrupan a un número significativo
+de clientes.
+3.4.2. VALIDACIÓN DE CONDICIONES
+En el caso de seguros colectivos, se emite pólizas madre con los términos y condiciones
+acordados con el Tomador.
+Sea estos productos masivos o colectivos, los riesgos asegurados son suscritos a través de
+pólizas individuales o de certificados de cobertura individual, respectivamente, que reflejan las
+condiciones acordadas y que especifican un período de vigencia específico.
+La validez de este procedimiento de suscripción, independientemente de la vigencia de la póliza,
+es anual y al aniversario de la póliza deberán ser evaluados y validados los términos y
+condiciones de ésta. La mencionada evaluación está a cargo de la Autoridad de Suscripción
+correspondiente y será analizada en función de la rentabilidad del programa, de las capacidades
+de reaseguro vigentes y de las políticas de suscripción en la línea. En caso de ser necesaria
+una modificación en las condiciones vigentes, se deberá coordinar con el área comercial un plan
+para efectivizar este ajuste. Los cambios realizados podrán tener efecto solamente en la nueva
+cartera que se suscriba a partir de la fecha, manteniendo mismas condiciones para la cartera
+vigente entonces, o podrán tener efecto en la cartera nueva y en la antigua también.
+3.4.3. AUTORIDAD DE SUSCRIPCIÓN
+La suscripción de Pólizas Colectivas, Masivas e Individuales por canales no tradicionales está
+restringida al Área de Suscripción solamente.
+La visión estratégica de la suscripción masiva es la de establecer lazos duraderos y sustentables
+con nuestros clientes, con base en un análisis de la cartera para disponer de mejores sustentos
+en la suscripción de la póliza.
+3.4.4. ELABORACIÓN DE TEXTOS Y CONDICIONADOS
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 29 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 22
+Es importante que este procedimiento de suscripción termine emitiendo pólizas con textos
+debidamente registrados y autorizados por la APS. Para esto, cada programa que se evalúe se
+concretizará en un slip con términos y condiciones claros que servirá de base para el proceso
+de negociación con el cliente y que finalmente será la base del Condicionado Particular emitido
+en la póliza madre.
+Después de negociar y acordar términos y condiciones finales en alguna cotización a través de
+este procedimiento, se cerrará el ciclo desde Suscripción con la formalización del modelo de
+póliza que respalde las condiciones negociadas (CCI, Formularios, CP, CG, Cláusulas y
+Anexos). Este modelo de texto comprende los textos completos de las Condiciones Particulares,
+Formularios y Certificados de Cobertura (según como hayan sido finalmente acordados en la
+negociación de la cuenta). El modelo se complementa con un listado del Condicionado General
+y de las Cláusulas de la póliza, que incluya el título y el código de registro con que hayan sido
+aprobados los textos en la APS. Este modelo se mantendrá hasta la emisión de la póliza (incluso
+en la impresión de preimpresos).
+3.4.5. TARIFICACIÓN
+Para esto, el análisis en este procedimiento de suscripción no se centra tanto en los términos y
+condiciones de la póliza sino en los resultados obtenidos (o esperados, en el caso de cuentas
+nuevas) para todos los jugadores.
+Sin embargo, la suscripción a través de este Procedimiento debe verificar que las coberturas
+aseguradas se encuentren plenamente respaldadas por algún mecanismo de transferencia de
+riesgos, ya sea por la Retención Local de la Compañía o por sus contratos automáticos de
+reaseguro, para no sobre exponer el Patrimonio ni la solvencia de la empresa.
+Las principales variables para considerar en la suscripción masiva de pólizas de Automotor son:
+• Crecimiento esperado de la cartera de clientes de la institución financiera o de la
+concesionaria y proyección de penetración de nuestras pólizas en esa cartera.
+• Análisis de la Cartera Actual de la entidad financiera o concesionaria para identificar un
+perfil del cliente final.
+• Gastos Administrativos, Costos Operativos y de Intermediación, que afecten la
+rentabilidad esperada.
+• Evolución de la rentabilidad de la póliza o rentabilidad estimada, en el caso de pólizas
+nuevas.
+3.5. PROCESO DE SUSCRIPCIÓN LICITACIONES
+Este procedimiento de suscripción está dirigido a los clientes Estatales que atiende la Compañía,
+a través de los canales Corporate y Directas.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 30 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 23
+3.5.1. PERFIL DE RIESGO
+La característica principal de este Procedimiento de Suscripción es que estas pólizas son
+contratadas a través de una licitación pública que normalmente incluye la Cláusula de Adhesión
+al Pliego, por lo que la Compañía no puede modificar términos de la propuesta.
+3.5.2. AUTORIDADES DE SUSCRIPCIÓN Y TARIFICACIÓN
+Las autoridades de suscripción definidas para este Procedimiento, según el número máximo de
+vehículos asegurados en una póliza y el valor comercial máximo del mayor vehículo, se definen
+a continuación:
+Número de Mayor Vehículo
+Suscriptor
+Vehículos (en BOB)
+Manuel Sauma No aplica 3.480.000,00
+Yasmin Rendón No aplica 3.480.000,00
+Santiago Bustillos No aplica 3.480.000,00
+José Carlos López 300 2.100.000,00
+Marco Rada 300 1.750.000,00
+Maribel Aruquipa 300 1.750.000,00
+Ricardo Velarde 300 1.750.000,00
+Paola Aguilar 300 1.750.000,00
+Vania Saucedo 300 1.750.000,00
+Lizeth Rios 10 700.000,00
+La tarificación de este tipo de riesgos está respaldada por el Tarificador de Flotas. Las
+cotizaciones finales deben estar validadas por una simulación de la rentabilidad esperada en la
+cuenta, a partir de las tasas propuestas, la siniestralidad esperada (según información histórica),
+gastos internos administrativos y cualquier costo adicional en el riesgo.
+3.5.3. PROCEDIMIENTO DE SUSCRIPCIÓN DE LICITACIONES
+Al momento de presentarse una Licitación se deberá seguir los siguientes pasos:
+• Área Comercial acudirá a la Matriz de Consultas para la revisión de Términos y
+Condiciones de los Slips previo al envío a Suscripción.
+• Suscripción revisará los Slips enviados por Comercial para confirmar/adicionar las
+consultas a la Reunión de Aclaración, considerando los tiempos establecidos en el
+cronograma de cada licitación.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 31 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 24
+• Área Comercial enviará las respuestas a las consultas realizadas junto con el cuadro de
+rentabilidad esperada (tasas/primas propuestas y siniestralidad) y el modelo de póliza a
+presentar para la evaluación por parte de Suscripción.
+• Suscripción enviará la aprobación de los slips según el ramo y las recomendaciones que
+sean necesarias, considerando los tiempos establecidos en el cronograma de cada
+licitación.
+3.5.4. ANÁLISIS DEL RIESGO
+Una vez publicado el pliego de licitación y como parte del proceso de análisis del riesgo, el Área
+Comercial debe coordinar la reunión de aclaración con el Suscriptor con autoridad suficiente
+para el riesgo con el propósito de identificar las características e implicancias del riesgo en
+cuestión.
+Las aclaraciones solicitadas en esta reunión se resumen básicamente en cinco grupos:
+• Inconsistencias y contradicciones en el pliego. Es probable que las especificaciones
+técnicas publicadas en el pliego de licitación incluyan condiciones contradictorias o que
+generen ambigüedades entre sí, que deben ser observadas en la reunión de aclaración
+y utilizadas para justificar la solicitud de enmienda del pliego hacia las condiciones
+estándares de suscripción.
+• Contradicciones con la norma y con la ley vigente. Algunas condiciones solicitadas
+en el pliego pueden contravenir la normativa vigente en el país (Código de Comercio,
+Ley de Seguros, Código de Tránsito, etc.). De igual manera que en el anterior grupo,
+este grupo de condiciones debe ser observado en la reunión de aclaración para solicitar
+una enmienda al pliego que se pretenda adecuar a las condiciones estándares de
+suscripción.
+• Información de Suscripción. La suscripción de Licitaciones, como cualquier otro
+procedimiento de suscripción, requiere de un profundo conocimiento de la exposición
+asegurada en cada riesgo. Para esto, la reunión de aclaraciones debe servir para
+solicitar al proponente toda la información de suscripción especificada en este Manual,
+que permita al Suscriptor autorizado para el riesgo entender las características y el
+estado del riesgo y poder estimar una siniestralidad esperada para la gestión.
+• Cláusulas y condiciones que no cuentan con un texto registrado. Algunas
+condiciones solicitadas en las especificaciones técnicas de los pliegos pueden resultar
+generales y sus alcances no quedan definidos ni entendidos en el pliego ni en los textos
+registrados en la Compañía. En estos casos, la reunión de aclaración debe servir para
+solicitar una explicación del alcance de esta condición y un texto propuesto para definirla;
+eventualmente, se puede aprovechar esta instancia para proponer una interpretación a
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 32 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 25
+la condición solicitada que se adecúe a las condiciones estándares de suscripción y
+respaldar un texto propuesto en la oferta de la Compañía con este acuerdo.
+• Condiciones sobreexpuestas. Es probable que un proceso de licitación incluya en sus
+especificaciones técnicas condiciones que expongan demasiado la cartera de riesgo de
+la Compañía; ya sea por la alta exposición del riesgo asumido o por la falta de un
+respaldo de transferencia de riesgos. Estas condiciones constituyen una dificultad a la
+Compañía para participar del proceso de licitación y, aunque las posibilidades de que
+sean eliminadas de las especificaciones son mínimas, se debe utilizar la reunión de
+aclaración para solicitar una enmienda en este sentido al pliego.
+Es importante la instancia de aclaraciones al pliego porque el acta de la reunión resultante de
+este proceso constituye un documento formal que forma parte del proceso de licitación. En este
+sentido, el representante de la Compañía en esta reunión debe comprender el propósito de las
+observaciones efectuadas y exigir de parte del licitante una respuesta puntual a las
+observaciones.
+El análisis de suscripción para este Procedimiento se complementa con la rentabilidad
+esperada para todo el programa de seguros de la licitación en cuestión, que deberá estar
+documentado como respaldo en el archivo del cliente. Entonces, el Área Comercial, como
+responsable principal del proceso de licitación, debe proponer al Suscriptor autorizado para el
+riesgo un cuadro con tasas y primas propuestas para todas las pólizas que componen el
+programa, incluyendo la siniestralidad y la rentabilidad esperada. Este cuadro constituye un
+insumo importante para el Suscriptor con límite autorizado en la aprobación final del riesgo.
+3.5.5. TÉRMINOS Y CONDICIONES
+Al igual que en el Procedimiento de Suscripción Masiva, los términos y condiciones en pólizas
+para clientes estatales deben estar respaldados por un mecanismo de transferencia de riesgos
+(Retención Neta, Contratos Automáticos de Reaseguro o un Contrato de Reaseguro
+Automático) para no sobre exponer el Patrimonio ni la solvencia de la empresa.
+Los términos y condiciones disponibles para estos productos son bastante flexibles,
+considerando la imposibilidad de modificar los términos de nuestra propuesta. En general,
+cualquier desviación a las condiciones estándares de suscripción (como fueron definidas en
+este Manual) debe estar justificada técnica y comercialmente por el suscriptor.
+Al no poder identificar las cláusulas en nuestro sistema que están restringidas para suscribir
+este tipo de riesgos, fueron definidas algunas condiciones que no pueden ser suscritas por este
+Procedimiento de Suscripción:
+• Valor Admitido u otra base de valoración de sumas aseguradas, diferente a los valores
+comerciales. Las sumas aseguradas en las pólizas de Motor deben ser los valores
+comerciales de los vehículos.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 33 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 26
+• Alcoholemia permitida mayor a 0,70 gramos por litro de sangre. Los riesgos ocurridos
+bajo efectos del alcohol constituyen una exclusión absoluta de las pólizas Motor.
+• Licencia de conducir vencidas por más de 90 días. Es condición de cobertura, para que
+la Compañía asuma cualquier riesgo asumido en la póliza, que el conductor del vehículo
+cuente con los permisos y certificados requeridos en el Código de Tránsito para conducir
+vehículos. Excepcionalmente, se puede acordar una caducidad en la renovación de
+estos permisos de hasta 90 días.
+• En el caso de Motocicletas y Vehículos Pesados, no se puede otorgar permisos
+especiales para manejar vehículos a velocidades mayores a las permitidas en el Código
+de Tránsito.
+• Servicio de Asistencia y/o Auxilio Mecánico (incluyendo chofer profesional) para
+vehículos pesados (con tonelajes mayor a 3.5 Toneladas) y/o motocicletas provisto
+directamente por La Boliviana Ciacruz. El servicio tercerizado contratado por La
+Boliviana Ciacruz, no incluye este tipo de servicios para dichos vehículos, por lo que, en
+caso de ser requeridos por el contratante, y siempre y cuando dentro de la flota se
+identifique vehículos pesados o motocicletas, el servicio de auxilio mecánico y/o
+asistencia deberá ser acordado contra reembolso a la presentación de una factura a
+nombre de LA BOLIVIANA CIACRUZ DE SEGUROS Y REASEGUROS S.A. (NIT:
+1007017028). De no ser posible proceder a reembolso, se deberá procurar gestionar a
+nivel de cada sucursal algún proveedor local de dichos servicios. Sin embargo, para las
+sucursales fuera del eje troncal, el servicio deberá ser siempre coordinado a nivel de la
+sucursal de acuerdo a la disponibilidad del mismo, al no contar con un proveedor.
+• Cobertura de AP para pasajeros u ocupantes en carrocería incluyendo cuando sean
+transportados en las cubetas de volquetas. Es decir, cualquier cobertura que exceda a
+la de los pasajeros en cabina o para los que está diseñado originalmente el vehículo.
+Este tipo de exposiciones, al ser coberturas propias de la actividad del asegurado y no
+necesariamente relacionadas a las variables que definen a la suscripción de
+automotores, deberán ser autorizadas únicamente por el Área Técnica de Seguros
+Personales o por la Gerencia Nacional de Suscripción o la Dirección de Negocios.
+En cuanto a la emisión de la póliza y ya que la condición de Adhesión al Pliego obliga a la
+Compañía a emitir la póliza (suscrita a través del Procedimiento de Suscripción para
+Licitaciones) según el pliego original, es probable que existan Cláusulas no registradas en la
+APS por la Compañía. Al igual que en el resto de los términos y condiciones de la póliza, el
+Suscriptor debe conocer el alcance de estas condiciones y autorizarlas (junto con el resto de la
+póliza).
+Para la presentación de la oferta de póliza, se deberá acordar con el cliente la sustitución de
+estas condiciones, en el Condicionado General (porque el Condicionado Particular sería una
+copia de las condiciones del pliego), por textos con títulos diferentes registrados en la Compañía,
+pero con un alcance de cobertura similar.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 34 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 27
+Si los términos y condiciones de la póliza corresponden a aclaraciones de cobertura, ya
+detalladas en el Condicionado General, o condiciones generales que no requieren de una mayor
+precisión en su alcance, pueden quedarse en la póliza como Aclaraciones de Cobertura (pero
+no como cláusulas, lo que implicaría que estén respaldadas por un texto autorizado por la APS
+en la póliza).
+En último caso y de ser necesario, las cláusulas de estas pólizas que no estén registradas por
+la Compañía y que deban ser presentadas junto con la póliza deberán ser registradas
+primeramente ante la APS, según el procedimiento establecido y en coordinación con el Área
+de Suscripción; y en caso de urgencia para la presentación de la póliza y si no fue concluido
+aún el proceso de registro ante la APS, se puede presentar estos textos (en proceso de registro)
+como Notas de Cobertura que deberán ser reemplazados por los textos definitivos a la
+finalización del registro.
+3.5.6. ELABORACIÓN, AUTORIZACIÓN Y EMISIÓN DE TEXTOS (Aplica al proceso
+de Suscripción Licitaciones)
+Como parte del procedimiento de suscripción para Licitaciones, es responsabilidad del equipo
+comercial asegurarse que todos los textos proporcionados para la presentación de ofertas, y
+posterior emisión de la póliza, contengan todas y cada una de las condiciones aprobadas por el
+suscriptor autorizado de la cuenta, incluyendo los textos autorizados como ser Condicionado
+General, Clausulas adicionales o Certificado Provisional de Cobertura redactadas como
+Condiciones Especiales.
+Con este propósito, el equipo de suscripción a cargo del registro de textos autorizados pone a
+disposición de todos los colaboradores involucrados en este proceso, el detalle en extenso de
+los condicionados generales y clausulas autorizadas. Todos estos documentos son
+constantemente actualizados por Suscripción (conforme se van registrando nuevos textos) y
+están bloqueados para su edición, mas no así para su descarga.
+El objetivo de esta política es que los mismos textos, que sean aprobados por el suscriptor
+autorizado de la cuenta para acompañar la propuesta en un proceso de Licitación, sean también
+impresos por el área de Operaciones en la emisión final de la póliza (en caso de adjudicación).
+Se debe considerar que en ninguna circunstancia se podrán alterar ni editar los textos
+autorizados, ya que la modificación de cualquier Condicionado y/o Clausula sin previa
+aprobación de la APS conlleva una sanción y/o multa.
+4. POLÍTICAS GENERALES DE SUSCRIPCIÓN
+4.1. POLÍTICA PARA LA RENOVACIÓN DE PÓLIZAS
+El proceso de renovación de una póliza representa el momento oportuno para evaluar el
+comportamiento de la cuenta a lo largo de su vigencia y, por ende, la coherencia entre los
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 35 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 28
+términos y condiciones de la póliza y la exposición del riesgo. En el Anexo 2: Planilla de
+Solicitud de Renovaciones para Automotores.
+Con el propósito de mejorar la fluidez en el proceso de atención e incrementar los índices de
+renovación actuales, un suscriptor con límites autorizados bajo la Matriz de Autoridades del
+Procedimiento Estándar de Suscripción podrá:
+Segmento “Comercial”
+Renovar automáticamente una póliza cuando el riesgo cumpla con las siguientes condiciones:
+1. El tipo de vehículo(s) asegurado(s) se enmarca dentro del perfil de riesgo definido en el
+Procedimiento Estándar de Suscripción, los límites asegurados están comprendidos
+dentro de las Autoridades de Suscripción Estándar y se cuenta con la aprobación de un
+Suscriptor con autoridad para estos límites en la renovación.
+2. Los términos y condiciones de renovación se mantienen igual a la última vigencia y no
+corresponden a ninguna exclusión de las Normas y Políticas de Suscripción vigentes.
+3. Si la siniestralidad histórica de la póliza es nula, podrá mantener su tasa vigente sin
+considerar las tasas mínimas.
+4. Si la siniestralidad histórica o última vigencia de la póliza es menor al 150%, el suscriptor
+con límites de suscripción estándar podrá decidir entre mantener su tasa o incrementar la
+misma de acuerdo a su criterio buscando rentabilizar la cuenta, en caso de que la
+siniestralidad supere en 150% el caso deberá ser revisado y autorizado por suscripción
+Case Underwriting.
+Se aclara que este procedimiento también podrá ser aplicado para el segmento Pyme cuando el
+Asegurado cuente con la denominación S.A. (Sociedad Anónima), SRL (Sociedad de
+Responsabilidad Limitada), S.A.M. (Sociedad Anónima Mixta), R.L. (Responsabilidad Limitada) u
+ONG (Organismo No Gubernamental)
+Segmento “Consumer”
+En cuanto a tasas de renovación, la política de renovaciones definida para el Segmento
+Consumer está diferenciada por cartera con y sin siniestralidad.
+1. Esta política aplica a renovaciones por cualquier canal y para cualquier póliza que
+corresponda a un riesgo con perfil de Suscripción Estándar (livianos, pesados, motocicletas,
+etc.) sin considerar antigüedad.
+• Siniestralidad histórica nula: hasta 10% de descuento, aplicable una sola vez por
+vehículo; esta tasa descontada se mantendría a las siguientes renovaciones, en
+tanto la siniestralidad histórica no suba del 60%. Sin embargo, prevalecerían las
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 36 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 29
+primas mínimas vigentes para cada caso (no aplica este descuento en tasa si
+supone bajar de la prima mínima).
+• Siniestralidad histórica hasta el 60%: mismas tasas.
+• Siniestralidad histórica entre el 60% y el 150%: recargo del 10% en tasas o tasas
+del Tarificador (el que sea mayor).
+• Siniestralidad histórica entre 150% y 250%: recargo del 50%.
+• Siniestralidad histórica mayor al 250%: Depuración (recargo exagerado).
+Tasas y primas mínimas para renovaciones de pólizas de vehículos livianos:
+En caso de que el usuario solicite descuento del 10% o 20% y dicho descuento signifique
+que la prima final esté por debajo de la Prima o Tasa mínima, el CRM bloqueará la solicitud
+con un mensaje de rechazo. Por lo tanto, las primas mínimas habilitadas para estos
+vehículos son:
+CIUDAD PRIMA MÍNIMA TASA MÍNIMA
+LA PAZ Bs. 3.300 2,8%
+SANTA CRUZ Bs. 3.500 3,0%
+COCHABAMABA Bs. 3.150 2,7%
+RESTO DEL PAÍS Bs. 2.800 2,2%
+2. Se aclara que estas son condiciones mínimas acordadas con el equipo comercial, por lo
+que, el suscriptor con límites locales podrá realizar recargos mayores según su criterio está
+disponible para renovaciones. También se encuentre vigente la revisión de casos
+excepcionales a través del procedimiento Case UW. Para renovaciones del producto VIP,
+se podrá renovar por procedimiento estándar manteniendo términos y condiciones siempre
+y cuando la póliza no haya registrado siniestralidad históricamente.
+3. Para las renovaciones de Pólizas individuales que corresponden a, para renovaciones de
+vehículos Pesados y motocicletas que de acuerdo con el Perfil corresponden a los límites
+de suscripción estándar, en caso de que la siniestralidad sea menor o igual al 50% ya sea
+en la Última vigencia o en su Histórico, pueden mantener las tasas de la última vigencia,
+desde el 51% hasta el 250% se deberá incrementar un 17% y a partir del 250% debe ser
+revisado a través de Case Underwriting.
+4.2. RENUNCIA DE DEPRECIACIÓN PARA “0 KM”
+La interpretación del Valor Real y de la aplicación de depreciación por uso no es totalmente clara
+al momento de indemnizar vehículos nuevos. Considerando que el impacto en el monto
+indemnizatorio no es significativo y con el propósito de ofrecer un diferenciador en el mercado,
+se ha acordado indemnizar este tipo de riesgos mediante su valor a nuevo asegurado, reduciendo
+impuestos y siempre y cuando los valores asegurados correspondan también a nuevo.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 37 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 30
+En este sentido, se estableció la inclusión de la siguiente aclaración en las Condiciones
+Particulares de toda la cartera asegurada en la Compañía que involucre vehículos “0 km.”, misma
+que ya viene por defecto en todas las nuevas Pólizas:
+“Se aclara y acuerda que, no obstante, lo establecido en contrario en las Condiciones Generales
+de la Póliza, las Pérdidas Totales para vehículos, que al momento de un siniestro tengan una
+antigüedad menor a un año y un recorrido menor a 15.000 (quince mil) kilómetros, serán
+indemnizadas según su precio de venta facturado descontando impuestos.
+Es condición precedente para la aplicación de esta condición que los Valores Asegurados de la
+póliza coincidan con esta base de indemnización”.
+4.3. CONDICIONES PRE-ACORDADAS (SUSCRIPCIÓN FUERA DE LA COMPAÑÍA)
+El análisis individual de riesgos forma parte de la política de suscripción en la Compañía. El fin
+de esta política es realizar una mejor selección de riesgos y desarrollar una cartera que se adecúe
+a los objetivos estratégicos fijados.
+Sin embargo, a veces se dificulta este análisis individual porque algunos canales demandan una
+suscripción bajo condiciones y tasas pre acordadas para facilitar y agilizar la comercialización de
+nuestros productos.
+En estos casos y cuando existan los justificativos comerciales y técnicos suficientes, algún
+integrante del área de Suscripción podrá aprobar condiciones pre acordadas para ciertos canales
+con tasas fijas. Esta aprobación deberá velar por la rentabilidad de la cartera y considerar
+vigencias anuales (para asegurar la revisión periódica de la cuenta).
+Dentro de estas condiciones se incluyen los productos armados para Brókers, que deberán ser
+revisados anualmente.
+4.4. SUSCRIPCIÓN FLOTAS DE AUTOMOTORES
+Se considera Flotas de Automotores a uno o más vehículos suscritos bajo una misma póliza
+dentro del Segmento Commercial (no Consumer), que no sean suscritos a través de un
+concesionario o de una institución financiera (Pólizas Colectivas). Este tipo de riesgos está
+contenido en este Manual bajo los Procedimientos de Suscripción Estándar, Case Underwriting,
+Suscripción Masiva y Licitaciones. En el Segmento Consumer, se considera Flotas de
+Automotores al grupo de mínimamente 4 vehículos suscritos bajo una misma póliza y cuyo
+propietario sea el mismo Asegurado (de acuerdo con el RUAT u otro respaldo del derecho
+propietario). La suscripción de este grupo (Flotas de Automotores en el segmento Consumer)
+está restringida al proceso de Suscripción Case Underwriting.
+La principal característica de este grupo es que su volumen permite, de alguna manera, aminorar
+la exposición a la anti selección de riesgos, asumiendo que un cliente aseguraría toda su flota de
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 38 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 31
+vehículos y no solamente aquellos que tienen una mayor exposición. La carga operativa en la
+suscripción de estas pólizas es menor a las individuales porque se emite una sola póliza y se
+renueva al grupo en conjunto. Esta mejor distribución del riesgo y mejor eficiencia operativa
+permiten aminorar costos respecto de las pólizas individuales de Automotores.
+El análisis de suscripción deberá ser complementado, respecto de otro tipo de pólizas, con un
+listado pormenorizado de los vehículos comprendidos en la flota y con un detalle de la
+siniestralidad histórica.
+La tarificación de este tipo de riesgos parte del Tarificador vigente en la línea para vehículos
+individuales y considera un descuento sobre estas tasas, respaldado por las justificaciones
+mencionadas en este mismo apartado. Las cotizaciones finales deben estar validadas por una
+simulación de la rentabilidad esperada en la cuenta, a partir de las tasas propuestas, la
+siniestralidad esperada (según información histórica), costos de intermediación de la cuenta y
+gastos internos administrativos.
+4.5. VIGENCIAS
+Las pólizas de Seguros Automotores no deben tener una vigencia superior, ni menor a 12 meses.
+Se aceptará casos especiales de duración menor a 12 meses solamente en los siguientes casos
+(Bajo la autorización del Área de Suscripción de Automotores):
+• Cuando el Cliente necesite de un tiempo menor para la unificación de vencimientos, con
+tarifas de corto plazo.
+• Para Flotas de Automotores, cuando la póliza cuente con el Anexo de Inclusiones y
+Exclusiones a prorrata y la vigencia de la inclusión sea igual al de la póliza madre.
+• Licitaciones donde se especifique vigencias menores a 12 meses en el pliego.
+4.6. AUXILIO MECÁNICO
+Los productos Automotores ofrecen a todos los asegurados el “Auxilio Mecánico Express”, un
+servicio sin costo adicional que brinda soluciones y apoyo de manera directa en situaciones de
+emergencia. Este servicio se encuentra respaldado por un convenio interinstitucional con un
+proveedor de la Compañía. Los alcances y aplicabilidad de este beneficio se encuentran
+establecidos en cada producto.
+4.7. VALOR ASEGURADO
+Es el valor que se anota en la póliza o sus anexos, según el caso, y que constituye la
+responsabilidad máxima de la Compañía (límite máximo de la indemnización a pagar por la
+compañía en cada siniestro en el seguro automotor). El valor asegurado debe adecuarse al valor
+del interés (vehículo) que se asegura en el momento del contrato.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 39 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 32
+El valor asegurado para las coberturas de Pérdida Total por Accidente (Sección I), de Pérdida
+Total por Robo (Sección II), de Daños Propios (Sección III) y de Robo Parcial de Partes y Piezas
+(Sección V) es el valor comercial (valor real de mercado de los bienes asegurados en el
+momento de ocurrir el siniestro), atribuido y declarado por el Tomador para el vehículo y sus
+accesorios (*). Las Coberturas de HMACC – AMITT (Sección IV), Cobertura de Responsabilidad
+Civil (Sección VI) y Cobertura de Accidentes Personales a Ocupantes de Vehículos (Sección VII)
+tienen límites separados e independientes, definidos también por el Tomador.
+(*) La base de indemnización de estas coberturas es mediante pago en efectivo o gestión de la
+Compañía para la reparación del vehículo asegurado o la adquisición de partes y piezas, según
+lo defina la Compañía.
+4.8. FORMA DE INDEMNIZACIÓN
+De acuerdo con los términos y condiciones de la póliza, la Compañía se reserva el derecho de
+indemnizar en efectivo las pérdidas sufridas o reponer los daños hasta el estado original del
+vehículo antes de ocurrido el siniestro. Es usual que se recurra el primer método por las
+dificultades que puedan existir en acceder a piezas y vehículos que no sean comercializados
+comúnmente en el mercado. En caso de que la Compañía decida llevar adelante la reparación
+de las pérdidas, ésta recurrirá a los talleres especializados con los que tenga convenios
+preestablecidos o a otros disponibles, en caso de que el Asegurado solicite un taller específico
+cuyo costo no exceda un 20% de los presupuestos de los talleres de la Compañía.
+4.9. INSPECCIONES
+Las inspecciones pre – riesgo son realizadas con el propósito de verificar el estado material del
+vehículo asegurado. Como política vigente de inspecciones automotor y según se detalla en el
+Manual de Ingeniería de riesgos, para la línea de automotores, según el riesgo, se han
+establecido procedimientos de inspección, en los que se pueden tener como resultado dos tipos
+de formularios:
+• Formulario de Inspección Pre – Riesgo, que es el documento extendido por la Compañía,
+aceptado y firmado por el Contratante y/o Representante en su momento, como una
+declaración formal que detalla y acredita el estado del riesgo (vehículo, partes y piezas,
+accesorios) mediante fotografías.
+• Formulario de Declaración Jurada, que es el documento que de igual manera se constituye
+en una declaración formal que detalla y acredita el estado del riesgo, pero que, a diferencia
+del anterior, no requiere fotografías.
+El Formulario de inspección o de declaración jurada forma parte inseparable de la Póliza y
+constituye un requisito de asegurabilidad para suscribir pólizas de Automotores.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 40 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 33
+El siguiente enlace tiene información más detallada sobre los procedimientos de inspección:
+Manual de Normas y Políticas de Suscripción Ingeniería de Riesgos
+4.10. ACCESORIOS
+Para incluir accesorios en el vehículo asegurado, bajo cualquier producto o procedimiento de
+suscripción, se debe verificar que se haya completado satisfactoriamente la inspección
+correspondiente y que éste se encuentre asegurado al chasis del vehículo. El valor máximo
+asegurado de este accesorio no puede superar el 30% del valor del vehículo asegurado.
+La tasa total anual aplicable para estos accesorios es del 8% (por ciento).
+Esta política no aplica al Procedimiento de Suscripción para Licitaciones.
+4.11. RETROACTIVIDAD
+Como política general, no se acepta la emisión de pólizas nuevas, renovaciones o inclusiones,
+con retroactividad mayor a 30 días (entre la fecha de expedición y el inicio de cobertura). Bajo el
+procedimiento de suscripción estándar, se podrán emitir/renovar o realizar inclusiones con
+retroactividad de hasta 30 días, siempre que:
+• Se verifique que la orden de renovación/emisión/inclusión haya sido dada oportunamente
+antes del inicio de vigencia, caso contrario será necesaria una nueva inspección del
+vehículo o la presentación de la declaración jurada; en la política relacionada a las
+Inspecciones Pre-Riesgo automotor, se presentan mayores detalles.
+• Se tenga conformidad del cliente de que no existen siniestros reportados a la fecha de
+expedición.
+En el caso de excepciones a esta política, donde el Asegurado solicita la emisión con
+retroactividad mayor, el caso deberá ser analizado por el procedimiento Case Underwriting y
+según el Procedimiento establecido desde el área de Operaciones.
+Si el cliente tuvo algún siniestro durante este periodo, debe solicitarse al Comité de Riesgos y
+siniestros la alternativa de cubrirlo, considerando el riesgo de posibles fraudes que representa,
+con el VoBo del CR&S se autorizará la retroactividad.
+5. ASPECTOS OPERATIVOS DE AUTOMOTORES
+5.1. EMISIÓN DE PÓLIZAS EN SISTEMAS (OPERACIONES)
+La emisión de pólizas en Sistemas, a través de Operaciones, constituye un mecanismo de control
+en la suscripción de estas pólizas. El objetivo principal de esta tarea es velar por el cumplimiento
+de las políticas y normas establecidas en este Manual.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
+
+===== PAGE 41 =====
+Versión 3.0
+Manual de Lineamientos de Suscripción Automotores
+Página 34
+En este sentido, el cumplimiento y seguimiento a las políticas y normas de suscripción
+establecidas en este Manual será respaldado por el Área de Operaciones a través de una
+verificación en el proceso de emisión de pólizas.
+Es importante mencionar que las pólizas automotor individual comercializadas por el área de P&P
+pueden ser emitidas directamente desde el CRM en la medida en que cumplan con todo lo
+expuesto en el presente documento, el procedimiento de emisión se encuentra descrito en el
+Manual de Automotores P&P - CRM
+Por otro lado, existen pólizas automotor individual comercializadas por el área de Masivos que
+pueden ser emitidas directamente desde Plataforma FIDENS en la medida en que cumplan con
+todo lo expuesto en el presente documento.
+5.2. SLIPS MODELOS Y CONDICIONADOS
+Las Solicitudes de Cotización constituyen un documento informativo que el área Comercial utiliza
+en negociaciones con el Cliente; el mismo contiene los términos y condiciones pactadas y la
+materia asegurable.
+Las condiciones generales reflejan el conjunto de principios básicos que establece la compañía
+aseguradora para regular todos los contratos de seguro que se emitan en todos los ramos
+ofrecidos dentro de los seguros generales. Recogen aspectos concretamente relativos al riesgo
+individualizado que se asegura. El listado completo de textos registrados actualmente ante la APS
+se encuentra disponible en Intranet para consultas.
+6. CONVENIOS
+La Compañía debe asegurarse de poder brindar todos los beneficios y coberturas ofrecidos en
+los productos comercializados en la Línea de Automotores. Existen, sin embargo, tres
+extensiones en estos productos que son atendidos por proveedores externos y que deben ser
+negociados a través de convenios específicos.
+El primer servicio ofrecido en estos productos es el de Auxilio Mecánico Express. Para mantener
+la oferta de este beneficio, la Compañía debe negociar periódicamente un contrato de servicios
+privado con alguna empresa local que se especialice en la provisión de los servicios ofertados en
+las diferentes extensiones de estos productos. Las condiciones de este contrato deben velar por
+la rentabilidad de la línea y por la buena calidad prestada en el servicio, ya que se trata de un
+servicio directo a nuestros clientes finales.
+El segundo tipo de servicio externo prestado en las líneas de Automotores es el de inspecciones
+de pre riesgo. El igual que en el anterior servicio, la Compañía debe negociar periódicamente un
+contrato de servicios para la realización de estas inspecciones que vele por la rentabilidad de la
+línea y por la calidad del servicio prestado.
+Uso Interno: Documento propiedad de La Boliviana Ciacruz.
+Prohibida su reproducción total o parcial sin autorización
