@@ -1,0 +1,966 @@
+[
+ {
+  "code_suffix": "2041",
+  "title": "CLÁUSULA DE BIENES FUERA DE CUSTODIA (ABUSO DE CONFIANZA)",
+  "text_file": "clause_texts/CG-2041.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": null,
+   "named_parties": [],
+   "effect_summary_es": "Extiende la póliza a cubrir los daños amparados al Vehículo Asegurado mientras se encuentre en poder de terceros que, por abuso de confianza y sin autorización del Asegurado, hayan utilizado el vehículo para fines no autorizados. Surte efecto siempre y cuando el asegurado tenga contratada la cobertura de daños al vehículo en cualquiera de sus modalidades.",
+   "parameters": [],
+   "conditions_precedent": [
+    "siempre y cuando el asegurado tenga contratada la cobertura de daños al vehículo en cualquiera de sus modalidades"
+   ],
+   "references": [
+    "Condiciones Generales de la Presente Póliza"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2042",
+  "title": "CLÁUSULA DE COBERTURA PARA MASCOTAS",
+  "text_file": "clause_texts/CG-2042.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": "Sección VI – Cobertura de Responsabilidad Civil, Cláusula 1 (Objeto y Alcances) y Sección VII – Cobertura de Accidentes Personales a Ocupantes de Vehículos, Cláusula 1 (Objeto y Alcance)",
+   "modifies_quote": "se acuerda la extensión de coberturas en las Secciones de Responsabilidad Civil y de Accidentes Personales para cubrir mascotas",
+   "usage_restriction_verbatim": null,
+   "named_parties": [],
+   "effect_summary_es": "Extiende la Sección VI para cubrir la responsabilidad civil del Asegurado por la muerte o daños físicos que requieran atención veterinaria de una mascota registrada en cualquier Alcaldía del país, en un accidente de tránsito que involucre al vehículo Asegurado, y la Sección VII para cubrir a una mascota dentro del vehículo al momento de un Accidente de Tránsito. Los límites y sub-límites se fijan en el Condicionado Particular; la extensión de la Sección VII está limitada a una sola ocurrencia al año y aplica en adición a las Sumas Aseguradas de esa Sección.",
+   "parameters": [
+    {
+     "name": "límite de ocurrencias",
+     "value_verbatim": "una sola ocurrencia al año",
+     "context_quote": "La indemnización por esta extensión está limitada hasta una sola ocurrencia al año"
+    }
+   ],
+   "conditions_precedent": [
+    "mascota registrada en cualquier Alcaldía del país, en circunstancias de un accidente de tránsito que involucre al vehículo Asegurado (Sección VI)",
+    "mascota que se encuentre dentro del vehículo Asegurado al momento de un Accidente de Tránsito (Sección VII)"
+   ],
+   "references": [
+    "Condiciones Generales",
+    "Sección VI – Cobertura de Responsabilidad Civil, Cláusula 1, Objeto y Alcances",
+    "Sección VII – Cobertura de Accidentes Personales a Ocupantes de Vehículos, Cláusula 1, Objeto y Alcance",
+    "Condicionado Particular / Condiciones Particulares de la Póliza"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2043",
+  "title": "CLÁUSULA DE COBERTURA POR INCENDIO Y/O RAYO Y/O EXPLOSIÓN",
+  "text_file": "clause_texts/CG-2043.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": "Secciones I (Cobertura de Pérdida Total por Accidente) y III (Cobertura de Daños Propios)",
+   "modifies_quote": "se acuerda la extensión de cobertura en las Secciones I (Cobertura de Pérdida Total por Accidente) y III (Cobertura de Daños Propios)",
+   "usage_restriction_verbatim": null,
+   "named_parties": [],
+   "effect_summary_es": "Extiende las Secciones I y III para amparar daños directos en el Vehículo Asegurado por Incendio, Rayo y Explosión, a no ser que hayan sido ocasionados deliberadamente por terceras personas.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales",
+    "Sección I (Cobertura de Pérdida Total por Accidente)",
+    "Sección III (Cobertura de Daños Propios)"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2044",
+  "title": "CLÁUSULA DE COBERTURA POR RIESGOS DE LA NATURALEZA",
+  "text_file": "clause_texts/CG-2044.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": "Secciones I (Cobertura de Pérdida Total por Accidente) y III (Cobertura de Daños Propios)",
+   "modifies_quote": "se acuerda la extensión de cobertura en las Secciones I (Cobertura de Pérdida Total por Accidente) y III (Cobertura de Daños Propios)",
+   "usage_restriction_verbatim": null,
+   "named_parties": [],
+   "effect_summary_es": "Extiende las Secciones I y III para amparar daños directos en el Vehículo Asegurado por Terremoto, Temblor, Erupción Volcánica, Vientos Huracanados, Ciclones, Tornados, Inundaciones, Riadas, Crecidas intempestivas del caudal de ríos, Deslizamiento de Tierras, Granizo y Nieve.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales",
+    "Sección I (Cobertura de Pérdida Total por Accidente)",
+    "Sección III (Cobertura de Daños Propios)"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2045",
+  "title": "CLÁUSULA DE ELEGIBILIDAD DE TALLERES",
+  "text_file": "clause_texts/CG-2045.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": null,
+   "named_parties": [],
+   "effect_summary_es": "En siniestros cubiertos que requieran reparación, el Asegurado podrá elegir el taller de la lista por ciudad de la página Web (www.lbc.bo); si opta por un taller no nombrado en el listado asume un deducible diferenciado del 20% sobre el costo de reparación, adicional a la franquicia deducible que aplique al evento. Las ciudades no nombradas en el listado están exentas de esta condición, con libre elección de taller.",
+   "parameters": [
+    {
+     "name": "deducible diferenciado",
+     "value_verbatim": "20% sobre el costo de reparación",
+     "context_quote": "asumiendo un deducible diferenciado del 20% sobre el costo de reparación (adicional a la franquicia deducible que aplique al evento)"
+    }
+   ],
+   "conditions_precedent": [
+    "En caso de que el Asegurado opte por un taller diferente, no nombrado en el listado por Ciudad de nuestra página Web, podrá hacerlo, asumiendo un deducible diferenciado del 20% sobre el costo de reparación"
+   ],
+   "references": [
+    "Condiciones Generales de la póliza",
+    "lista por ciudad en la página Web (www.lbc.bo)"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2046",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE AJUSTADORES",
+  "text_file": "clause_texts/CG-2046.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": null,
+   "named_parties": [],
+   "effect_summary_es": "En caso de un eventual accidente, el Asegurado tendrá el derecho de nombrar libremente a la persona natural o jurídica, legalmente autorizada y especializada, que efectúe el Ajuste del siniestro. No obstante, la compañía se reserva el derecho de aceptar o rechazar el ajuste realizado.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2047",
+  "title": "CLÁUSULA DE MODIFICACIÓN DEL PORCENTAJE PARA DECLARACIÓN DE PÉRDIDAS TOTALES",
+  "text_file": "clause_texts/CG-2047.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": "el porcentaje establecido para declarar Pérdidas Totales en: Sección I, Cláusula 1 (Definición); Sección III, Cláusula 3 (Indemnización); Sección IV (HMACC AMIT), Cláusula 2 (Indemnización); Sección V, Cláusulas 3 y 4",
+   "modifies_quote": "se acuerda la modificación en el porcentaje establecido para declarar Pérdidas Totales",
+   "usage_restriction_verbatim": null,
+   "named_parties": [],
+   "effect_summary_es": "Sustituye el porcentaje para declarar Pérdidas Totales: en lugar del 65% del Valor Comercial (Sección I), se aplica el porcentaje definido en las Condiciones Particulares para esta Cláusula, aplicándose el mismo criterio a las reglas de indemnización de las Secciones III, IV y V (incluida la reposición de partes o piezas en Robo Parcial cuando el costo de reparación supere ese porcentaje del valor de reposición a nueva).",
+   "parameters": [
+    {
+     "name": "porcentaje (sustituido)",
+     "value_verbatim": "65% del Valor Comercial",
+     "context_quote": "En lugar del 65% del Valor Comercial, se define la destrucción completa del vehículo Asegurado cuando su costo de reparación estimado supere el porcentaje definido en las Condiciones Particulares"
+    }
+   ],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales",
+    "Condiciones Particulares",
+    "Sección I – Cobertura de Pérdida Total por Accidente, Cláusula 1, Definición",
+    "Sección III – Cobertura de Daños Propios, Cláusula 3, Indemnización",
+    "Sección IV – Cobertura de HMACC AMIT, Cláusula 2, Indemnización",
+    "Sección V – Cobertura de Robo Parcial de Partes y Piezas, Cláusula 3, Daños Parciales a Consecuencia de Robo",
+    "Sección V – Cobertura de Robo Parcial de Partes y Piezas, Cláusula 4, Indemnización"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2048",
+  "title": "CLÁUSULA DE PARTES GENUINAS (para Uso de Licitación).",
+  "text_file": "clause_texts/CG-2048.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "para Uso de Licitación",
+   "named_parties": [],
+   "effect_summary_es": "Cuando las partes establezcan que la indemnización no se pague en efectivo y corresponda reposición porque el costo de reparación supera el 65% del valor de reposición a nueva, la Compañía gestionará el reemplazo con Repuestos Originales de Fábrica (pudiendo importarlos en lugar de comprarlos al distribuidor local), siempre que la pieza repuesta haya tenido la misma condición. Si el asegurado no acepta la importación se indemniza en base a la pro forma obtenida descontando impuestos y deducible; el plazo de entrega no es responsabilidad de la Compañía y ésta no está obligada a adquirir repuestos locales si la diferencia supera el 20% sobre los precios de importación.",
+   "parameters": [
+    {
+     "name": "porcentaje (umbral de reposición)",
+     "value_verbatim": "65% del valor de reposición a nueva",
+     "context_quote": "debido a que el costo de reparación del daño supera el 65% del valor de reposición a nueva"
+    },
+    {
+     "name": "porcentaje (diferencia precio local vs importación)",
+     "value_verbatim": "20% sobre los precios de importación",
+     "context_quote": "si estos tienen una diferencia mayor al 20% sobre los precios de importación de los mismos"
+    }
+   ],
+   "conditions_precedent": [
+    "en caso de que las partes establezcan que el pago de la indemnización del seguro no se efectúe en efectivo",
+    "cuando corresponda la reposición de las piezas debido a que el costo de reparación del daño supera el 65% del valor de reposición a nueva",
+    "siempre y cuando la pieza a ser repuesta haya tenido la misma condición"
+   ],
+   "references": [],
+   "anomalies": [
+    "Ambigüedad de sujeto en 'la Compañía indemnizará en base a la pro forma obtenida... y no tendrá el derecho de quedarse con la parte y/o pieza dañada': gramaticalmente el sujeto inmediato es la Compañía, aunque podría referirse al asegurado."
+   ]
+  }
+ },
+ {
+  "code_suffix": "2049",
+  "title": "Anexo Billete Motor",
+  "text_file": "clause_texts/CG-2049.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "anexo",
+   "effect_type": [
+    "define_beneficio_adicional",
+    "instrumento_financiero_o_pago"
+   ],
+   "modifies_target": "el pago de la franquicia en las secciones de Daños Propios o de Robo Parcial",
+   "modifies_quote": "descontar, en caso de ocurrencia de un hecho eventualmente cubierto por las secciones de Daños Propios o de Robo Parcial, respectivamente, el pago de su franquicia",
+   "usage_restriction_verbatim": null,
+   "named_parties": [],
+   "effect_summary_es": "Otorga el beneficio Billete Motor por no haber registrado siniestros durante la anterior vigencia anual: permite descontar el pago de la franquicia en hechos cubiertos por Daños Propios o Robo Parcial contra entrega del original del Anexo. Valor nominal de $us. 100.- para La Paz, Trinidad y Santa Cruz y $us. 50.- para el resto del país; acumulable sin límite de cantidad, aplica solo a la póliza vigente al ocurrir el siniestro y exige todas las cuotas vigentes.",
+   "parameters": [
+    {
+     "name": "valor nominal",
+     "value_verbatim": "$us. 100.- (cien dólares)",
+     "context_quote": "El presente Anexo tiene un valor nominal de $us. 100.- (cien dólares) para las ciudades de La Paz, Trinidad y Santa Cruz"
+    },
+    {
+     "name": "valor nominal",
+     "value_verbatim": "$us. 50.- (cincuenta dólares)",
+     "context_quote": "y de $us. 50.- (cincuenta dólares) para las ciudades del resto del país"
+    }
+   ],
+   "conditions_precedent": [
+    "por no haber registrado siniestros durante la anterior vigencia anual",
+    "contra la entrega del original de éste Anexo",
+    "aplica únicamente a la póliza vigente al momento de ocurrencia del siniestro",
+    "La presente póliza deberá tener todas sus cuotas vigentes a la fecha de ocurrencia del siniestro"
+   ],
+   "references": [
+    "secciones de Daños Propios o de Robo Parcial"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2051",
+  "title": "CLÁUSULA DE PARTICIPACIÓN DE UTILIDADES PARA USO EXCLUSIVO EN LICITACIONES",
+  "text_file": "clause_texts/CG-2051__print_p99.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "define_beneficio_adicional",
+    "instrumento_financiero_o_pago"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "PARA USO EXCLUSIVO EN LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "El Asegurado participará de las utilidades que genere la póliza en el porcentaje acordado en las Condiciones Particulares, según la ecuación: Participación de Utilidades = (Producción – Comisiones Pagadas – Siniestralidad Neta – Gasto Administrativo de acuerdo a sistema contable de la compañía) * % de Rentabilidad Acordado.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales",
+    "Condiciones Particulares"
+   ],
+   "anomalies": [
+    "Existen variantes: dos archivos de impresión (pp. 99, 223); se leyó el de la página más baja (p. 99)."
+   ]
+  }
+ },
+ {
+  "code_suffix": "2052",
+  "title": "CLÁUSULA DE COBERTURA AUTOMÁTICA PARA NUEVAS ADQUISICIONES Y/O INCORPORACIONES TIPO B PARA USO EXCLUSIVO EN LICITACIONES",
+  "text_file": "clause_texts/CG-2052.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": "la Póliza Principal (extensión automática a cualquier nuevo vehículo que forme parte de los bienes del Asegurado)",
+   "modifies_quote": "Ésta se extiende a cubrir en los términos. Exclusiones, cláusulas y condiciones contenidas en las Póliza Principal. Cualquier nuevo vehículo que forme parte de los bienes del Asegurado",
+   "usage_restriction_verbatim": "PARA USO EXCLUSIVO EN LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Extiende la Póliza Principal a cubrir cualquier nuevo vehículo del Asegurado mediante el pago de la prima adicional a las mismas tasas a prorrata, debiendo el Asegurado declarar por escrito la adquisición dentro de los días estipulados en las Condiciones Particulares; sin ese aviso la Compañía no responde por daño o pérdida del vehículo incorporado. Responsabilidad Civil y Accidentes Personales a Ocupantes hasta los límites de la Póliza principal y las demás coberturas hasta el valor comercial a la fecha de inclusión; no cubre vehículos en reparación o mantenimiento (por daños resultantes de esos trabajos), bienes que no sean de propiedad del Asegurado en depósito, ni inclusiones que representen agravación sustancial del riesgo.",
+   "parameters": [
+    {
+     "name": "extra_prima",
+     "value_verbatim": "Mediante el pago de la prima adicional respectiva",
+     "context_quote": "Mediante el pago de la prima adicional respectiva, calculada sobre el valor de tales nuevos vehículos a las mismas tasas a prorrata por el tiempo que falte para el vencimiento de la Póliza."
+    }
+   ],
+   "conditions_precedent": [
+    "El Asegurado se compromete a declarar a la Compañía por escrito y a más tardar dentro de los días estipulados en las Condiciones Particulares de la póliza, la adquisición o recepción del nuevo vehículo, el valor y la fecha de inclusión",
+    "a pagar la prima adicional correspondiente por el tiempo entre la fecha de inclusión del nuevo vehículo y la terminación del seguro contratado originalmente"
+   ],
+   "references": [
+    "Condiciones Generales y Particulares de la póliza Principal",
+    "Póliza Principal"
+   ],
+   "anomalies": [
+    "Texto con errores de OCR/tipeo: puntos en lugar de comas ('se extiende a cubrir en los términos. Exclusiones, cláusulas y condiciones'), ''los danos' por 'los daños', 'causados 0 sean' ('0' por 'o'), 'do la PóIiza' por 'de la Póliza', 'Ias inclusiones' por 'las inclusiones'."
+   ]
+  }
+ },
+ {
+  "code_suffix": "2053",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE TALLERES TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "text_file": "clause_texts/CG-2053.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "PARA USO EXCLUSIVO EN LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "En caso de un eventual siniestro cubierto por las coberturas de la presente póliza, el asegurado tendrá la facultad de elegir libremente el Taller para el arreglo o reparación del vehículo asegurado, sin condicionamiento alguno.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2054",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA EN CASO DE NO PORTAR LICENCIA DE CONDUCIR PARA USO EXCLUSIVO EN LICITACIONES.",
+  "text_file": "clause_texts/CG-2054.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "PARA USO EXCLUSIVO EN LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Extiende la póliza a cubrir los riesgos amparados que se produzcan cuando el vehículo asegurado esté conducido por una persona que cuente con licencia de conducir pero que al momento del evento no porte la licencia.",
+   "parameters": [],
+   "conditions_precedent": [
+    "el vehículo asegurado este conducido por una persona que cuente con licencia de conducir pero que al momento del evento no porte la licencia"
+   ],
+   "references": [
+    "Condiciones Generales de la Presente Póliza"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2055",
+  "title": "CLÁUSULA DE GASTOS DE INVESTIGACIÓN Y SALVAMENTO TIPO B - PARA USO EXCLUSIVO EN LICITACIONES",
+  "text_file": "clause_texts/CG-2055.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "PARA USO EXCLUSIVO EN LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Extiende la cobertura, dentro de los límites del contrato, a los gastos de investigación y salvamento de la materia asegurada (hasta el límite establecido en las Condiciones Particulares) y al deterioro que sufra al salvarla, abonando la Compañía los gastos justificados de traslado hasta el límite establecido; comprende también los daños causados por las medidas necesarias para extinguir o limitar el accidente, con exclusión de los gastos que ocasione la aplicación de dichas medidas. El Asegurado debe emplear, tan pronto se suscite el accidente, todos los medios a su alcance para salvar y conservar la materia asegurada.",
+   "parameters": [],
+   "conditions_precedent": [
+    "Tan pronto como se suscite el accidente, el Asegurado debe emplear todos los medios que estén a su alcance para salvar y conservar la materia asegurada"
+   ],
+   "references": [
+    "Condiciones Generales",
+    "Condiciones Particulares"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2056",
+  "title": "CLÁUSULA DE SERVICIO DE ASISTENCIA JURÍDICA EN CASO DE SINIESTRO TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "text_file": "clause_texts/CG-2056__print_p105.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "define_beneficio_adicional"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "PARA USO EXCLUSIVO EN LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Extiende la póliza a brindar el servicio de asistencia jurídica en caso de siniestro cubierto por la compañía, incluyendo asistencia a audiencias de tránsito y ante otras autoridades con jurisdicción en el accidente, preparación y elaboración de memoriales, asistencia en audiencias de conciliación y presentación de fianzas judiciales hasta el límite del Valor Asegurado en Responsabilidad Civil.",
+   "parameters": [],
+   "conditions_precedent": [
+    "en caso de siniestro cubierto por la compañía"
+   ],
+   "references": [
+    "Condiciones Generales de la Presente Póliza"
+   ],
+   "anomalies": [
+    "Existen variantes: tres archivos de impresión (pp. 105, 178, 229); se leyó el de la página más baja (p. 105)."
+   ]
+  }
+ },
+ {
+  "code_suffix": "2057",
+  "title": "CLÁUSULA DE REHABILITACIÓN AUTOMÁTICA DE LA SUMA ASEGURADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2057.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": "la suma asegurada (rehabilitación automática tras pérdida indemnizada)",
+   "modifies_quote": "cuando por efecto de una pérdida indemnizada por la compañía, queda reducida la suma asegurada, ésta será automáticamente rehabilitada al valor inicial de contratado el seguro",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Cuando por efecto de una pérdida indemnizada por la compañía quede reducida la suma asegurada, ésta será automáticamente rehabilitada al valor inicial de contratado el seguro, incluyendo la cobertura de Robo Parcial.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales",
+    "cobertura de Robo Parcial"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2058",
+  "title": "CLÁUSULA DE TRÁNSITO EN VÍAS NO AUTORIZADAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2058.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Extiende la póliza a cubrir los riesgos amparados que ocurran cuando el o los vehículos asegurados circulen o estén estacionados en vías prohibidas o no habilitadas para la circulación vehicular, incluyendo el traslado en transbordadores y/o pontones o medios adecuados por vías o cursos de agua que interrumpan rutas o caminos usuales, lechos de ríos, e incluye daños a partes del vehículo a consecuencia de ingreso de agua, aplicable a todas las coberturas.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales de la Presente Póliza"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2059",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA COPIA LEGALIZADA DE LA DENUNCIA (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2059__print_p108.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": "obligación de presentar la Copia Legalizada de la Denuncia emitida por la Autoridad Competente",
+   "modifies_quote": "el asegurado queda liberado de presentar la Copia Legalizada de la Denuncia emitida por la Autoridad Competente",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Libera al asegurado de presentar la Copia Legalizada de la Denuncia únicamente cuando los daños emergentes del accidente no superen el monto del Condicionado Particular y el conductor no haya cometido infracción al Código y/o Reglamento de Tránsito; si superan el monto y no se presenta la copia con los porcentajes de responsabilidad, la Compañía podrá deslindar toda responsabilidad sobre el siniestro. No aplica a las Secciones de Pérdida Total por Accidente, Pérdida total por robo y Responsabilidad Civil, donde la presentación es obligatoria independientemente del monto.",
+   "parameters": [],
+   "conditions_precedent": [
+    "únicamente cuando los daños emergentes del accidente ocurrido, no supere el monto establecido en el Condicionado Particular",
+    "el Conductor del Vehículo no haya cometido ninguna infracción al Código y/o Reglamento de Tránsito"
+   ],
+   "references": [
+    "Condiciones Generales de la Póliza",
+    "Condicionado Particular",
+    "Código y/o Reglamento de Tránsito",
+    "Secciones de Pérdida Total por Accidente, Pérdida total por robo y Responsabilidad Civil"
+   ],
+   "anomalies": [
+    "Existen variantes: dos archivos de impresión (pp. 108, 233); se leyó el de la página más baja (p. 108)."
+   ]
+  }
+ },
+ {
+  "code_suffix": "2060",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA DENUNCIA DE DIPROVE (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2060.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": "obligación de presentar la Denuncia de DIPROVE",
+   "modifies_quote": "el asegurado queda liberado de presentar la Denuncia de DIPROVE",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [
+    "DIPROVE"
+   ],
+   "effect_summary_es": "Libera al asegurado de presentar la Denuncia de DIPROVE, la cual será presentada únicamente en caso de Pérdida Total por Accidente, Pérdida Total por Robo y Responsabilidad Civil. La Cláusula no está sujeta al pago de prima adicional.",
+   "parameters": [
+    {
+     "name": "extra_prima",
+     "value_verbatim": "no está sujeta al pago de prima adicional",
+     "context_quote": "La presente Cláusula no está sujeta al pago de prima adicional"
+    }
+   ],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales de la Póliza",
+    "Pérdida Total por Accidente, Pérdida Total por Robo y Responsabilidad Civil"
+   ],
+   "anomalies": [
+    "Frase de cierre duplicada: la fórmula 'todos los demás términos... permanecen sin modificación' aparece dos veces seguidas."
+   ]
+  }
+ },
+ {
+  "code_suffix": "2061",
+  "title": "CLÁUSULA DE COBERTURA POR DAÑOS A CAUSA DE LA NATURALEZA EN GENERAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2061.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura",
+    "aclaracion"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Deja expresa constancia de la cobertura por daños a causa de la naturaleza en general, incluyendo caída de árboles y postes por cualquier causa.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales de la póliza",
+    "Condiciones Particulares"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2062",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2062__print_p111.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": "Cobertura de Robo Parcial",
+   "modifies_quote": "la Cobertura de Robo Parcial cubre entre otros, los accesorios detallados en las Condiciones Particulares",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Establece que la Cobertura de Robo Parcial cubre, entre otros, los accesorios detallados en las Condiciones Particulares, incluyendo mas no limitando a: equipos de comunicación, equipos de sonido, tapacubos, tapas o tasas de llantas en general, limpiaparabrisas, pisos interiores, fundas o cobertores de llantas, mascarillas y paneles.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Particulares"
+   ],
+   "anomalies": [
+    "Existen variantes: dos archivos de impresión (pp. 111, 236); se leyó el de la página más baja (p. 111).",
+    "'tapas o tasas de llantas' — 'tasas' probablemente errata por 'tazas'."
+   ]
+  }
+ },
+ {
+  "code_suffix": "2063",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2063__print_p112.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Extiende la cobertura a los riesgos amparados que resulten de infracciones al Reglamento y Código de Tránsito cometidas por trabajadores en planilla del asegurado o personas designadas para conducir el vehículo, incluyendo caducidad de licencia hasta tres meses y dolo del conductor, estando legalmente habilitado en la categoría correspondiente y desempeñando funciones propias del giro social las 24 horas del día. Requiere que el vehículo sea de propiedad de una persona jurídica; no cubre la reincidencia del chofer (causal de rechazo), excluye sanciones penales, la Aseguradora puede repetir contra los responsables y su responsabilidad queda limitada a los valores asegurados de las Condiciones Particulares, incluido el límite de Responsabilidad Civil.",
+   "parameters": [
+    {
+     "name": "plazo",
+     "value_verbatim": "hasta tres meses",
+     "context_quote": "incluyendo caducidad de licencia hasta tres meses"
+    },
+    {
+     "name": "horario",
+     "value_verbatim": "las 24 horas del día",
+     "context_quote": "estén desempeñando funciones propias del giro social de la empresa asegurada las 24 horas del día"
+    }
+   ],
+   "conditions_precedent": [
+    "Que el vehículo sea de propiedad de una persona jurídica",
+    "trabajadores que figuren en la planilla del asegurado o cualquier persona que haya sido designada por el asegurado para la conducción del vehículo",
+    "este legalmente habilitado en la categoría que corresponda al vehículo conducido",
+    "estén desempeñando funciones propias del giro social de la empresa asegurada las 24 horas del día"
+   ],
+   "references": [
+    "Condiciones Generales y Particulares de la Póliza",
+    "Disposiciones del Reglamento y Código de Tránsito",
+    "cobertura de Responsabilidad Civil"
+   ],
+   "anomalies": [
+    "Existen variantes: dos archivos de impresión (pp. 112, 238); se leyó el de la página más baja (p. 112).",
+    "Sintaxis enredada: 'incluyendo caducidad de licencia hasta tres meses y dolo del conductor y este legalmente habilitado en la categoría...' — 'este' probablemente por 'esté'; la redacción no deja claro cómo se acumulan las condiciones."
+   ]
+  }
+ },
+ {
+  "code_suffix": "2064",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE VIGENCIA A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2064.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_condicion_administrativa"
+   ],
+   "modifies_target": "la vigencia del contrato (ampliación a prorrata)",
+   "modifies_quote": "se deja expresa constancia del acuerdo de ampliación del contrato a prorrata hasta el plazo estipulado en el Condicionado Particular",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Deja constancia del acuerdo de ampliación del contrato a prorrata hasta el plazo estipulado en el Condicionado Particular, bajo los mismos términos y condiciones de la suscripción original, en uno o varios actos, a mejor conveniencia del Contratante.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales de la póliza",
+    "Condicionado Particular"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2065",
+  "title": "CLÁUSULA RESCISIÓN DEL CONTRATO A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2065.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_condicion_administrativa"
+   ],
+   "modifies_target": "la prima a ser devuelta por el período no corrido de la vigencia en caso de rescisión",
+   "modifies_quote": "la prima a ser devuelta por el período no corrido de la vigencia, será calculada a prorrata temporis",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "En caso de rescisión de contrato por parte del Contratante, la prima a ser devuelta por el período no corrido de la vigencia será calculada a prorrata temporis.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2066",
+  "title": "CLÁUSULA DE NO INSTALACIÓN DE DISPOSITIVOS DE SEGURIDAD (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2066.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "aclaracion",
+    "modifica_condicion_administrativa"
+   ],
+   "modifies_target": "condicionamiento de la cobertura a la instalación de dispositivos de seguridad",
+   "modifies_quote": "se aclara que la cobertura de la póliza no estará sujeta ni condicionada a la instalación de dispositivos de seguridad",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Aclara que la cobertura de la póliza no estará sujeta ni condicionada a la instalación de dispositivos de seguridad.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales de la Póliza"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2067",
+  "title": "CLÁUSULA DE REPOSICIÓN DE PARTES Y/O PIEZAS EN ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2067.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura",
+    "aclaracion"
+   ],
+   "modifies_target": "cobertura de Robo Parcial (reposición de partes y piezas)",
+   "modifies_quote": "se aclara y acuerda la reposición sin limitaciones de partes y piezas para la cobertura de Robo Parcial",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Aclara y acuerda la reposición sin limitaciones de partes y piezas para la cobertura de Robo Parcial, considerando inclusive el robo de más de una llanta por evento y/o reclamo.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales de la póliza",
+    "cobertura de Robo Parcial",
+    "Condiciones Particulares"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2068",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA EXCLUSIÓN DE BOLSAS DE AIRE (AIR BAGS) (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2068.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": "la exclusión de Bolsas de Aire (Air Bags)",
+   "modifies_quote": "la exclusión de Bolsas de Aire (Air Bags) queda eliminada",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Elimina la exclusión de Bolsas de Aire (Air Bags). Asimismo, cubre daños a consecuencia de accidentes de tránsito, robo y/o intento de robo.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2070",
+  "title": "CLÁUSULA DE REPARACIONES Y/O RECONSTRUCCIONES INMEDIATAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2070.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": null,
+   "modifies_quote": null,
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "En caso de un siniestro amparado, el Asegurado, si así lo quisiera y previo aviso a la Compañía, puede empezar inmediatamente los trabajos de reparación y/o reconstrucción del vehículo asegurado dañado, quedando dicho trabajo sujeto a la inspección y/o supervisión de la Compañía cuando ella lo considere conveniente. El asegurado deberá proceder como si no tuviera seguro y cuidar su economía.",
+   "parameters": [],
+   "conditions_precedent": [
+    "previo aviso a la Compañía",
+    "dicho trabajo estará sujeto a la inspección y/o supervisión de la Compañía, cuando ella lo considere conveniente",
+    "El asegurado deberá proceder como si no tuviera seguro y cuidar su economía"
+   ],
+   "references": [
+    "Condiciones Generales de la póliza"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2071",
+  "title": "CLÁUSULA DE DAÑO ESTRUCTURAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2071.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": "criterio de pérdida total dentro de la cobertura de pérdida total por accidente",
+   "modifies_quote": "independientemente a la relación porcentual del costo de reparación, será considerada como pérdida total",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Se considerará daño estructural cuando, dentro de la cobertura de pérdida total por accidente, el vehículo sufra un daño estructural que no permita su normal funcionamiento o cuya reparación no fuese recomendada, caso en el cual será considerada pérdida total independientemente de la relación porcentual del costo de reparación; en caso de discrepancia será resuelta mediante peritaje. La Cláusula no está sujeta al pago de prima adicional.",
+   "parameters": [
+    {
+     "name": "extra_prima",
+     "value_verbatim": "no está sujeta al pago de prima adicional",
+     "context_quote": "La presente Cláusula no está sujeta al pago de prima adicional"
+    }
+   ],
+   "conditions_precedent": [
+    "daño estructural que no permita el normal funcionamiento del vehículo o la reparación no fuese recomendada",
+    "en caso de discrepancia será resuelta mediante peritaje"
+   ],
+   "references": [
+    "cobertura de pérdida total por accidente"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2072",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA PRIMA GANADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2072.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_condicion_administrativa",
+    "aclaracion"
+   ],
+   "modifies_target": "la condición de Prima Ganada",
+   "modifies_quote": "la condición de Prima Ganada queda sin efecto",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Aclara y acuerda que la condición de Prima Ganada queda sin efecto.",
+   "parameters": [],
+   "conditions_precedent": [],
+   "references": [
+    "Condiciones Generales de la póliza",
+    "Condiciones Particulares"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2073",
+  "title": "CLÁUSULA DE REDUCCIÓN DEL PLAZO PARA PRONUNCIARSE (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2073.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": "el plazo para pronunciarse sobre el derecho del asegurado o beneficiario",
+   "modifies_quote": "el plazo para pronunciarse sobre el derecho del asegurado o beneficiario una vez recibidas la información y evidencias requeridas por la aseguradora, se reduce de 30 días a los días estipulados en el condicionado particular del contrato de seguro",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Reduce el plazo para pronunciarse sobre el derecho del asegurado o beneficiario, una vez recibidas la información y evidencias requeridas por la aseguradora, de 30 días a los días estipulados en el condicionado particular del contrato de seguro.",
+   "parameters": [
+    {
+     "name": "plazo (original)",
+     "value_verbatim": "30 días",
+     "context_quote": "se reduce de 30 días a los días estipulados en el condicionado particular del contrato de seguro"
+    }
+   ],
+   "conditions_precedent": [
+    "una vez recibidas la información y evidencias requeridas por la aseguradora"
+   ],
+   "references": [
+    "Condiciones Generales de la Presente Póliza",
+    "condicionado particular del contrato de seguro"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2074",
+  "title": "CLÁUSULA DE REDUCCIÓN PARA EL PAGO DEL SINIESTRO (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2074.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "modifica_procedimiento"
+   ],
+   "modifies_target": "Condiciones Generales de la Presente Póliza",
+   "modifies_quote": "no obstante lo que establezcan en contrario las Condiciones Generales de la Presente Póliza",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Establecido el derecho del Asegurado y aceptado formalmente el monto de la indemnización, la Aseguradora pagará su obligación dentro del plazo estipulado en el Condicionado Particular, no debiendo ser este mayor al plazo establecido en el Artículo 1034 del Código de Comercio.",
+   "parameters": [
+    {
+     "name": "plazo de pago",
+     "value_verbatim": "dentro del plazo estipulado en el Condicionado Particular, no debiendo ser este mayor al plazo establecido en el Artículo 1034 del Código de Comercio",
+     "context_quote": "la Aseguradora pagará su obligación dentro del plazo estipulado en el Condicionado Particular, no debiendo ser este mayor al plazo establecido en el Artículo 1034 del Código de Comercio"
+    }
+   ],
+   "conditions_precedent": [
+    "establecido el derecho del Asegurado y aceptado formalmente el monto de la indemnización"
+   ],
+   "references": [
+    "Artículo 1034 del Código de Comercio",
+    "Condicionado Particular"
+   ],
+   "anomalies": []
+  }
+ },
+ {
+  "code_suffix": "2075",
+  "title": "CLÁUSULA DE MEDIOS PROPIOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "text_file": "clause_texts/CG-2075.txt",
+  "derived_classification": {
+   "_derived": true,
+   "_note": "Campos derivados del texto verbatim por lectura asistida; el texto en text_file(s) es canónico.",
+   "category": "clausula",
+   "effect_type": [
+    "extiende_cobertura"
+   ],
+   "modifies_target": "Condiciones Generales de la Presente Póliza",
+   "modifies_quote": "no obstante lo que señalen en contrario las Condiciones Generales de la Presente Póliza, la misma se extiende a cubrir los daños amparados al vehículo asegurado",
+   "usage_restriction_verbatim": "USO EXCLUSIVO PARA LICITACIONES",
+   "named_parties": [],
+   "effect_summary_es": "Extiende la póliza a cubrir los daños amparados al vehículo asegurado cuando no se encuentre circulando por sus propios medios, sino sobre camión, plataforma de ferrocarril u otro similar. Surte efecto siempre y cuando el asegurado tenga contratada la cobertura de daños al vehículo en cualquiera de sus modalidades.",
+   "parameters": [],
+   "conditions_precedent": [
+    "Esta Cláusula surte efecto, siempre y cuando el asegurado tenga contratada la cobertura de daños al vehículo en cualquiera de sus modalidades"
+   ],
+   "references": [],
+   "anomalies": []
+  }
+ }
+]

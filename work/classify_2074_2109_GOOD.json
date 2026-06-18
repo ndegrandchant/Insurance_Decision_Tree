@@ -1,0 +1,958 @@
+[
+ {
+  "code_suffix": "2074",
+  "category": "clausula",
+  "effect_type": [
+   "modifica_procedimiento"
+  ],
+  "modifies_target": "Condiciones Generales de la Presente Póliza",
+  "modifies_quote": "no obstante lo que establezcan en contrario las Condiciones Generales de la Presente Póliza",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Establecido el derecho del Asegurado y aceptado formalmente el monto de la indemnización, la Aseguradora pagará su obligación dentro del plazo estipulado en el Condicionado Particular, no debiendo ser este mayor al plazo establecido en el Artículo 1034 del Código de Comercio.",
+  "parameters": [
+   {
+    "name": "plazo de pago",
+    "value_verbatim": "dentro del plazo estipulado en el Condicionado Particular, no debiendo ser este mayor al plazo establecido en el Artículo 1034 del Código de Comercio",
+    "context_quote": "la Aseguradora pagará su obligación dentro del plazo estipulado en el Condicionado Particular, no debiendo ser este mayor al plazo establecido en el Artículo 1034 del Código de Comercio"
+   }
+  ],
+  "conditions_precedent": [
+   "establecido el derecho del Asegurado y aceptado formalmente el monto de la indemnización"
+  ],
+  "references": [
+   "Artículo 1034 del Código de Comercio",
+   "Condicionado Particular"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2075",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Presente Póliza",
+  "modifies_quote": "no obstante lo que señalen en contrario las Condiciones Generales de la Presente Póliza, la misma se extiende a cubrir los daños amparados al vehículo asegurado",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Extiende la póliza a cubrir los daños amparados al vehículo asegurado cuando no se encuentre circulando por sus propios medios, sino sobre camión, plataforma de ferrocarril u otro similar. Surte efecto siempre y cuando el asegurado tenga contratada la cobertura de daños al vehículo en cualquiera de sus modalidades.",
+  "parameters": [],
+  "conditions_precedent": [
+   "Esta Cláusula surte efecto, siempre y cuando el asegurado tenga contratada la cobertura de daños al vehículo en cualquiera de sus modalidades"
+  ],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2076",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Presente Póliza",
+  "modifies_quote": "no obstante lo que señalen en contrario las Condiciones Generales de la Presente Póliza, la misma se extiende a cubrir los daños amparados por la póliza",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Extiende la póliza a cubrir los daños amparados que se produzcan como consecuencia de que el vehículo asegurado se encuentre remolcando o arrastrando a otro o viceversa.",
+  "parameters": [],
+  "conditions_precedent": [],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2077",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Presente Póliza",
+  "modifies_quote": "no obstante lo que señalen en contrario las Condiciones Generales de la Presente Póliza, la misma se extiende a cubrir los gastos extraordinarios",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Extiende la póliza a cubrir los gastos extraordinarios en que se incurra como consecuencia de un siniestro amparado, hasta el límite establecido en el Condicionado Particular.",
+  "parameters": [
+   {
+    "name": "límite",
+    "value_verbatim": "hasta el límite establecido en el Condicionado Particular",
+    "context_quote": "cubrir los gastos extraordinarios en que se incurra como consecuencia de un siniestro amparado, hasta el límite establecido en el Condicionado Particular"
+   }
+  ],
+  "conditions_precedent": [
+   "gastos extraordinarios en que se incurra como consecuencia de un siniestro amparado"
+  ],
+  "references": [
+   "Condicionado Particular"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2078",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Presente Póliza",
+  "modifies_quote": "no obstante lo que señalen en contrario las Condiciones Generales de la Presente Póliza, la misma se extiende a cubrir los daños al vehículo asegurado",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Extiende la póliza a cubrir los daños al vehículo asegurado producidos por la carga transportada o a consecuencia de ella, estando el vehículo en circulación, así como a consecuencia de cargar o descargar la misma cuando el vehículo se encuentra detenido o estacionado.",
+  "parameters": [],
+  "conditions_precedent": [],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2079",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Póliza referida",
+  "modifies_quote": "no obstante lo estipulado en las Condiciones Generales de la Póliza referida, la presente otorga cobertura por los daños y/o pérdidas de los vehículos asegurados",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Otorga cobertura por daños y/o pérdidas de los vehículos asegurados ocasionados por confiscación, requisa, expropiación, incautación, decomiso o embargo, secuestro u ocupación o retención, medidas precautorias o cautelares, como los daños causados en su trabajo por cualquier autoridad legal de hecho y derecho, civiles, militares y/o cualquier persona y/o grupo de personas. No está sujeta al pago de prima adicional.",
+  "parameters": [
+   {
+    "name": "extra_prima",
+    "value_verbatim": "no está sujeta al pago de prima adicional",
+    "context_quote": "La presente Cláusula no está sujeta al pago de prima adicional, todos los demás términos, obligaciones y condiciones dentro del contrato de seguro permanecen sin modificación"
+   }
+  ],
+  "conditions_precedent": [],
+  "references": [],
+  "anomalies": [
+   "Redacción dudosa: 'como los daños causados en su trabajo por cualquier autoridad legal de hecho y derecho' — la expresión 'en su trabajo' resulta ambigua en contexto."
+  ]
+ },
+ {
+  "code_suffix": "2080",
+  "category": "clausula",
+  "effect_type": [
+   "modifica_condicion_administrativa",
+   "modifica_procedimiento"
+  ],
+  "modifies_target": "plazo de notificación estipulado en el Art. 1023 del Código de Comercio para rescisión del contrato por parte de la aseguradora (Condiciones Generales de la Póliza)",
+  "modifies_quote": "el plazo de notificación estipulado en el Art. 1023 del Código de Comercio en actual vigencia, queda ampliado a los días estipulados en el Condicionado Particular",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "En caso de rescisión del contrato de seguro por parte de la aseguradora, el plazo de notificación del Art. 1023 del Código de Comercio queda ampliado a los días estipulados en el Condicionado Particular; la notificación al Asegurado deberá ser por escrito en su domicilio. No está sujeta al pago de prima adicional.",
+  "parameters": [
+   {
+    "name": "plazo de notificación",
+    "value_verbatim": "queda ampliado a los días estipulados en el Condicionado Particular",
+    "context_quote": "el plazo de notificación estipulado en el Art. 1023 del Código de Comercio en actual vigencia, queda ampliado a los días estipulados en el Condicionado Particular"
+   },
+   {
+    "name": "extra_prima",
+    "value_verbatim": "no está sujeta al pago de prima adicional",
+    "context_quote": "La presente Cláusula no está sujeta al pago de prima adicional"
+   }
+  ],
+  "conditions_precedent": [
+   "Dicha notificación al Asegurado deberá ser por escrito en su domicilio"
+  ],
+  "references": [
+   "Art. 1023 del Código de Comercio",
+   "Condicionado Particular"
+  ],
+  "anomalies": [
+   "Existen múltiples archivos variantes para este código: CG-2080__print_p129.txt (leído, página 129) y CG-2080__print_p202.txt (no leído); el encabezado indica que la clasificación de la variación está en clause_registry.json."
+  ]
+ },
+ {
+  "code_suffix": "2081",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Póliza",
+  "modifies_quote": "no obstante lo establecido en las Condiciones Generales de la Póliza, la misma ampara los Gastos y/o Costos Jurídicos y/o judiciales y/o de Transacción y/o de Defensa",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "La póliza ampara los Gastos y/o Costos Jurídicos y/o judiciales y/o de Transacción y/o de Defensa, incluyendo pero no limitando a la presentación de fianzas Judiciales hasta el monto establecido en las condiciones Particulares. No está sujeta al pago de prima adicional.",
+  "parameters": [
+   {
+    "name": "monto",
+    "value_verbatim": "hasta el monto establecido en las condiciones Particulares",
+    "context_quote": "incluyendo pero no limitando a la presentación de fianzas Judiciales hasta el monto establecido en las condiciones Particulares"
+   },
+   {
+    "name": "extra_prima",
+    "value_verbatim": "no está sujeta al pago de prima adicional",
+    "context_quote": "La presente Cláusula no está sujeta al pago de prima adicional"
+   }
+  ],
+  "conditions_precedent": [],
+  "references": [
+   "condiciones Particulares"
+  ],
+  "anomalies": [
+   "Existen múltiples archivos variantes para este código: CG-2081__print_p130.txt (leído, página 130) y CG-2081__print_p256.txt (no leído); el encabezado indica que la clasificación de la variación está en clause_registry.json."
+  ]
+ },
+ {
+  "code_suffix": "2082",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condicionado General de la póliza",
+  "modifies_quote": "no obstante lo estipulado en el Condicionado General de la póliza, la misma otorga cobertura a los ocupantes del vehículo asegurado por inhalación e ingestión de gases tóxicos",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Otorga cobertura a los ocupantes del vehículo asegurado por inhalación e ingestión de gases tóxicos, siempre y cuando sea a causa de algún siniestro cubierto en la póliza.",
+  "parameters": [],
+  "conditions_precedent": [
+   "siempre y cuando sea a causa de algún siniestro cubierto en la póliza"
+  ],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2083",
+  "category": "clausula",
+  "effect_type": [
+   "define_beneficio_adicional",
+   "modifica_procedimiento",
+   "restringe_o_excluye"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "El o los Asegurados podrán elegir libremente, en caso de accidente, médicos, centros médicos y otros servicios auxiliares de la medicina, con reembolso hasta un máximo estipulado bajo la cobertura de Gastos médicos del Condicionado Particular. El alquiler de aparatos y/o prótesis externas se limita a un tiempo estipulado en el Condicionado Particular y es deducible de la cobertura de Gastos Médicos por accidente; la Compañía se libera de responsabilidad si los reclamos carecen de respaldo o no se relacionan con el diagnóstico.",
+  "parameters": [
+   {
+    "name": "monto de reembolso",
+    "value_verbatim": "hasta un máximo estipulado bajo la cobertura de Gastos médicos establecido en el Condicionado Particular",
+    "context_quote": "siendo el monto a reembolsar hasta un máximo estipulado bajo la cobertura de Gastos médicos establecido en el Condicionado Particular de la presente póliza"
+   },
+   {
+    "name": "plazo de alquiler de aparatos",
+    "value_verbatim": "se limita a un tiempo estipulado en el Condicionado Particular",
+    "context_quote": "el alquiler de aparatos y/o protesis externas como muletas, sillas de ruedas, collarines cervicales, fajas, inmovilizadores, vendas elásticas y cabestrillos, se limita a un tiempo estipulado en el Condicionado Particular"
+   }
+  ],
+  "conditions_precedent": [
+   "Será condición necesaria para proceder a reembolso, la orden del médico tratante en la que se requiera los mencionados aparatos y la factura por concepto de alquiler con el NIT y Razón Social de la Compañía",
+   "los reclamos no deben ser carentes de respaldo ni estar desvinculados del diagnóstico (de lo contrario la Compañía se liberará de toda responsabilidad indemnizatoria)"
+  ],
+  "references": [
+   "Condicionado Particular"
+  ],
+  "anomalies": [
+   "Ambigüedad: la factura de alquiler debe llevar 'el NIT y Razón Social de la Compañía'; no se aclara si 'la Compañía' es la aseguradora."
+  ]
+ },
+ {
+  "code_suffix": "2084",
+  "category": "clausula",
+  "effect_type": [
+   "modifica_procedimiento"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "El Asegurado y el Asegurador, de común acuerdo y para mejor conveniencia y minimización de pérdida, podrán hacer ofrecimientos transaccionales con el o los demandantes, sujeto a que las partes involucradas acrediten válidamente su desistimiento de demandas anteriores, presentes o futuras y renuncien a cualquier demanda posterior, inclusive penal; solo tal situación habilitará al Beneficiario a cobrar el monto transaccional acordado.",
+  "parameters": [],
+  "conditions_precedent": [
+   "sujeto a que con carácter previo y en su caso simultáneo, las partes involucradas en el proceso de demanda o contra demandas legales, acrediten válidamente su desistimiento sobre demandas anteriores, presentes o futuras y renuncien a cualquier demanda posterior, inclusive penal"
+  ],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2085",
+  "category": "clausula",
+  "effect_type": [
+   "subrogacion_o_beneficiario"
+  ],
+  "modifies_target": "condiciones generales de la póliza (derecho de subrogación)",
+  "modifies_quote": "no obstante lo que se diga en contrario en las condiciones generales de la póliza, la aseguradora renuncia al derecho de subrogación",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "La aseguradora renuncia al derecho de subrogación en contra del (de los) ejecutivo(s) y/o empleado(s) y/o cualquier persona natural o jurídica a quien el asegurado haya acordado tal relevación de responsabilidad, por escrito, en las condiciones particulares de la póliza, con anterioridad a cualquier pérdida.",
+  "parameters": [],
+  "conditions_precedent": [
+   "que el asegurado haya acordado tal relevación de responsabilidad, por escrito, en las condiciones particulares de la póliza, con anterioridad a cualquier perdida"
+  ],
+  "references": [
+   "condiciones particulares de la póliza"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2086",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [
+   "Policía Nacional"
+  ],
+  "effect_summary_es": "En caso de siniestro, la Compañía Aseguradora indemnizará aun cuando el Asegurado o el conductor designado que haya ocasionado el siniestro no cuente con la Licencia de Categoría “C”, siempre que cuente con cualquier categoría de licencia emitida por la Policía Nacional.",
+  "parameters": [],
+  "conditions_precedent": [
+   "el Conductor designado por el Asegurado o el Asegurado, debe contar con cualquier categoría de licencia emitida por la Policía Nacional"
+  ],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2087",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales",
+  "modifies_quote": "no obstante lo establecido en las Condiciones Generales, la presente Póliza cubre los daños producidos por el ingreso de agua",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "La póliza cubre los daños producidos por el ingreso de agua a partes mecánicas, electromecánicas, eléctricas y combinadas. No está sujeta al pago de prima adicional.",
+  "parameters": [
+   {
+    "name": "extra_prima",
+    "value_verbatim": "no está sujeta al pago de prima adicional",
+    "context_quote": "La presente Cláusula no está sujeta al pago de prima adicional, todos los demás términos y/o condiciones de la póliza de la cual la presente CLÁUSULA forma parte integrante e indivisible, se mantienen sin alteración"
+   }
+  ],
+  "conditions_precedent": [],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2088",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "cobertura de Pérdida Total por Robo",
+  "modifies_quote": "la cobertura de Pérdida Total por Robo se extenderá a cubrir los daños y/o pérdidas parciales ocurridas como consecuencia del Robo Total perpetrado",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "La cobertura de Pérdida Total por Robo se extiende a cubrir los daños y/o pérdidas parciales ocurridas como consecuencia del Robo Total perpetrado, aun en la eventualidad de haberse logrado el recupero del vehículo en el plazo que fuera. No está sujeta al pago de prima adicional.",
+  "parameters": [
+   {
+    "name": "extra_prima",
+    "value_verbatim": "no está sujeta al pago de prima adicional",
+    "context_quote": "La presente Cláusula no está sujeta al pago de prima adicional, todos los demás términos y condiciones permanecen sin modificación"
+   }
+  ],
+  "conditions_precedent": [],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2089",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Presente Póliza",
+  "modifies_quote": "no obstante lo que señalen en contrario las Condiciones Generales de la Presente Póliza, la misma se extiende a cubrir los riesgos amparados por la póliza",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Extiende la póliza a cubrir los riesgos amparados que se produzcan por la contravención al exceso de carga en el transporte, establecido en el Código y Reglamento de Tránsito.",
+  "parameters": [],
+  "conditions_precedent": [],
+  "references": [
+   "Código y Reglamento de Tránsito"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2090",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Presente Póliza",
+  "modifies_quote": "no obstante lo que señalen en contrario las Condiciones Generales de la Presente Póliza, la misma se extiende a cubrir los gastos de depósito o custodia del vehículo siniestrado",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Extiende la póliza a cubrir los gastos de depósito o custodia del vehículo siniestrado cuando se suscite un siniestro amparado y el vehículo se encuentre de viaje. La compañía además se hace cargo del pago de hospedajes y traslado de los ocupantes mediante reembolso de gastos según rendición de cuentas, con límite de hospedaje por ocupante estipulado en el Condicionado Particular y sin sobrepasar el número de ocupantes del CRPVA.",
+  "parameters": [
+   {
+    "name": "límite de gastos de hospedaje por ocupante",
+    "value_verbatim": "se encuentra estipulado en el Condicionado Particular",
+    "context_quote": "El límite de gastos de hospedaje por ocupante afectado se encuentra estipulado en el Condicionado Particular"
+   },
+   {
+    "name": "Nº de ocupantes",
+    "value_verbatim": "no sobrepasando el Nº de ocupantes los establecidos en el Certificado de Registro de Propiedad del Vehículo Automotor asegurado (CRPVA)",
+    "context_quote": "no sobrepasando el Nº de ocupantes los establecidos en el Certificado de Registro de Propiedad del Vehículo Automotor asegurado (CRPVA)"
+   }
+  ],
+  "conditions_precedent": [
+   "siempre y cuando se suscite un siniestro amparado por la cobertura del seguro, y el vehículo se encuentre de viaje",
+   "reembolso de gastos, de acuerdo a rendición de cuentas presentadas por el asegurado"
+  ],
+  "references": [
+   "Condicionado Particular",
+   "Certificado de Registro de Propiedad del Vehículo Automotor asegurado (CRPVA)"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2091",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "En caso de un eventual siniestro cubierto por la póliza, la Compañía se extiende a cubrir los gastos para el pago por permanencia en garajes y/o depósitos oficiales de tránsito, hasta la suma establecida en las Condiciones Particulares.",
+  "parameters": [
+   {
+    "name": "suma",
+    "value_verbatim": "hasta la suma establecida en las Condiciones Particulares de la presente Póliza",
+    "context_quote": "cubrir los gastos para el pago por permanencia en garajes y/o depósitos oficiales de tránsito, hasta la suma establecida en las Condiciones Particulares de la presente Póliza"
+   }
+  ],
+  "conditions_precedent": [
+   "en caso de un eventual siniestro cubierto por la presente póliza"
+  ],
+  "references": [
+   "Condiciones Particulares"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2092",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Presente Póliza",
+  "modifies_quote": "no obstante lo que señalen en contrario las Condiciones Generales de la Presente Póliza, la misma se extiende a cubrir los gastos por evacuación",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Extiende la póliza a cubrir los gastos por evacuación por cualquier medio de ocupantes del vehículo asegurado generados a raíz de un accidente cubierto, hasta el límite del condicionado particular para cada ocupante. La evacuación aérea surte efecto siempre y cuando el ocupante evacuado esté amparado por una de las coberturas de accidentes personales a ocupantes de vehículos.",
+  "parameters": [
+   {
+    "name": "límite por ocupante",
+    "value_verbatim": "hasta el límite establecido en el condicionado particular de la póliza de seguro para cada ocupante",
+    "context_quote": "que se generen a raíz de un accidente cubierto por el contrato de seguro y hasta el límite establecido en el condicionado particular de la póliza de seguro para cada ocupante"
+   }
+  ],
+  "conditions_precedent": [
+   "que se generen a raíz de un accidente cubierto por el contrato de seguro",
+   "La evacuación aérea surte efecto, siempre y cuando el ocupante evacuado, se encuentre amparado por una de las coberturas otorgadas por la cobertura de accidentes personales a ocupantes de vehículos"
+  ],
+  "references": [
+   "condicionado particular"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2093",
+  "category": "clausula",
+  "effect_type": [
+   "define_beneficio_adicional"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [
+   "LA BOLIVIANA CIACRUZ DE SEGUROS Y REASEGUROS S.A."
+  ],
+  "effect_summary_es": "La aseguradora brindará, a requerimiento del cliente, el servicio de Chofer Profesional solo para las ciudades de La Paz, Cochabamba, Santa Cruz y dentro del radio urbano, cuando el cliente se encuentre imposibilitado de conducir su vehículo por diversos motivos, transportándolo(s) a un único destino que se designe.",
+  "parameters": [],
+  "conditions_precedent": [
+   "a requerimiento del cliente",
+   "solo para las ciudades de La Paz, Cochabamba, Santa Cruz y dentro del radio urbano",
+   "en caso de encontrarse imposibilitado de poder conducir su vehículo por diversos motivos",
+   "transporte a un único destino que se designe"
+  ],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2094",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Extiende la póliza a cubrir los daños amparados cuando el conductor del vehículo se encuentre bajo los efectos no previstos de drogas y/o fármacos medicinales medicados, siempre que la posología del medicamento no prohíba la conducción del vehículo y esté de acuerdo a lo establecido por las normas y prácticas de tránsito.",
+  "parameters": [],
+  "conditions_precedent": [
+   "efectos no previstos de drogas y/o fármacos medicinales medicados",
+   "siempre que la posología del medicamento no prohíba la conducción del vehículo y esté de acuerdo a lo establecido por las normas y prácticas de tránsito"
+  ],
+  "references": [
+   "normas y prácticas de tránsito"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2095",
+  "category": "clausula",
+  "effect_type": [
+   "modifica_condicion_administrativa"
+  ],
+  "modifies_target": "periodo de Discrepancias en la Póliza establecido en el condicionado General",
+  "modifies_quote": "ampliando el periodo de Discrepancias en la Póliza de los 15 días calendario establecidos en el condicionado General, al plazo establecido en el Condicionado Particular",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Si el Contratante encuentra que la Póliza no concuerda con lo convenido o propuesto, puede pedir la rectificación de manera formal y por escrito, ampliándose el periodo de Discrepancias en la Póliza de los 15 días calendario del condicionado General al plazo establecido en el Condicionado Particular, contados a partir de la recepción de las pólizas.",
+  "parameters": [
+   {
+    "name": "periodo de discrepancias (condicionado General)",
+    "value_verbatim": "15 días calendario",
+    "context_quote": "ampliando el periodo de Discrepancias en la Póliza de los 15 días calendario establecidos en el condicionado General"
+   },
+   {
+    "name": "plazo ampliado",
+    "value_verbatim": "al plazo establecido en el Condicionado Particular contados a partir de la recepción de las pólizas",
+    "context_quote": "al plazo establecido en el Condicionado Particular contados a partir de la recepción de las pólizas"
+   }
+  ],
+  "conditions_precedent": [
+   "puede pedir la rectificación correspondiente de manera formal y por escrito"
+  ],
+  "references": [
+   "condicionado General",
+   "Condicionado Particular"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2096",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": "limitación de la Sección VII Cobertura de Accidentes Personales a Ocupantes del Vehículo, expuesta en la “Cláusula 1, Objeto y Alcance”",
+  "modifies_quote": "se levanta la limitación de la Sección VII Cobertura de Accidentes Personales a Ocupantes del Vehículo, expuesta en la “Cláusula 1, Objeto y Alcance”",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Levanta la limitación de la Sección VII Cobertura de Accidentes Personales a Ocupantes del Vehículo expuesta en la “Cláusula 1, Objeto y Alcance”, otorgando cobertura a los ocupantes del vehículo hasta la cantidad de pasajeros establecida en el RUAT o la capacidad de asientos del vehículo.",
+  "parameters": [
+   {
+    "name": "límite de ocupantes",
+    "value_verbatim": "hasta la cantidad de pasajeros establecida en el RUAT o la capacidad de asientos del vehículo",
+    "context_quote": "otorgando cobertura a los ocupantes del vehículo hasta la cantidad de pasajeros establecida en el RUAT o la capacidad de asientos del vehículo"
+   }
+  ],
+  "conditions_precedent": [],
+  "references": [
+   "Sección VII Cobertura de Accidentes Personales a Ocupantes del Vehículo",
+   "“Cláusula 1, Objeto y Alcance”",
+   "RUAT"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2097",
+  "category": "clausula",
+  "effect_type": [
+   "instrumento_financiero_o_pago"
+  ],
+  "modifies_target": "Condiciones Generales de la presente Póliza",
+  "modifies_quote": "no obstante, lo que señalen en contrario las Condiciones Generales de la presente Póliza y siempre y cuando así lo especifique sus Condiciones Particulares",
+  "usage_restriction": null,
+  "named_parties": [],
+  "effect_summary_es": "La Prima adeudada a la Compañía será pagada por el Asegurado en cuotas mensuales similares a lo largo de la vigencia de la póliza y conforme con el plan de pagos especificado en las Condiciones Particulares, siempre y cuando éstas así lo especifiquen.",
+  "parameters": [
+   {
+    "name": "forma de pago de la prima",
+    "value_verbatim": "en cuotas mensuales similares a lo largo de la vigencia de la póliza",
+    "context_quote": "la Prima adeudada a la Compañía será pagada por el Asegurado en cuotas mensuales similares a lo largo de la vigencia de la póliza y conforme con el plan de pagos especificado en las mismas Condiciones Particulares"
+   }
+  ],
+  "conditions_precedent": [
+   "siempre y cuando así lo especifique sus Condiciones Particulares"
+  ],
+  "references": [
+   "Condiciones Particulares"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2098",
+  "category": "anexo",
+  "effect_type": [
+   "extiende_cobertura",
+   "define_beneficio_adicional"
+  ],
+  "modifies_target": "Condiciones Generales, Cláusulas y Anexos de la presente Póliza",
+  "modifies_quote": "se acuerda la adhesión de las Condiciones Generales, Cláusulas y Anexos de la presente Póliza a las Especificaciones Técnicas de la licitación pública “CONTRATACION DE SEGUROS GENERALES YPFB 2020- 2021” GCC-EPNE-GAFC-30-20",
+  "usage_restriction": "PARA LA PÓLIZA DE SEGURO DE AUTOMOTORES DE YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS",
+  "named_parties": [
+   "YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS",
+   "YPFB"
+  ],
+  "effect_summary_es": "Adhiere las Condiciones Generales, Cláusulas y Anexos de la Póliza a las Especificaciones Técnicas de la licitación pública “CONTRATACION DE SEGUROS GENERALES YPFB 2020- 2021” GCC-EPNE-GAFC-30-20, mediante Condiciones Especiales que incluyen: no aplicación del arancel médico, libre elegibilidad de galenos y centros médicos, no exclusiones a gastos médicos hasta el límite del capital contratado, atención particular o a domicilio, rehabilitación automática de la suma asegurada incluyendo robo parcial, alcoholemia dentro de márgenes permisibles, auto reemplazo del vehículo para YPFB, repuestos y partes genuinas, cobertura de accesorios, riesgos de la naturaleza, gastos extraordinarios hasta $us. 10,000.00 por evento, maniobras de carga y descarga, asistencia 24 hrs., transporte de ocupantes, asistencia mecánica, hospedaje y traslado en viaje, repatriación de fallecidos y asistencia jurídica.",
+  "parameters": [
+   {
+    "name": "límite (gastos médicos)",
+    "value_verbatim": "hasta el límite del capital contratado",
+    "context_quote": "reconstrucción o reparación dentaria o cualquier otro requerido a consecuencia del evento, hasta el límite del capital contratado"
+   },
+   {
+    "name": "plazo (auto reemplazo)",
+    "value_verbatim": "10 días",
+    "context_quote": "aplicable en caso de que la reparación del vehículo exceda 10 días y hasta la reparación total o reposición"
+   },
+   {
+    "name": "periodo de carencia (auto reemplazo)",
+    "value_verbatim": "10 días",
+    "context_quote": "reemplazo que debe ser aplicable luego de un periodo de carencia de 10 días y hasta la reparación total o reposición"
+   },
+   {
+    "name": "costo (auto reemplazo)",
+    "value_verbatim": "sin costo alguno para YPFB",
+    "context_quote": "hasta la reparación total o reposición, sin costo alguno para YPFB"
+   },
+   {
+    "name": "límite (gastos extraordinarios)",
+    "value_verbatim": "$us. 10,000.00 por evento",
+    "context_quote": "incluyendo pero no limitando: pago a grúas y/o depósitos y/o garajes de tránsito, hasta $us. 10,000.00 por evento"
+   },
+   {
+    "name": "horario de asistencia",
+    "value_verbatim": "las 24 hrs.",
+    "context_quote": "Asistencia al vehículo y a los ocupantes del mismo en caso de emergencia, las 24 hrs. durante toda la vigencia del seguro en todo el territorio nacional"
+   }
+  ],
+  "conditions_precedent": [
+   "auto reemplazo aplicable en caso de que la reparación del vehículo exceda 10 días",
+   "auto reemplazo aplicable luego de un periodo de carencia de 10 días y hasta la reparación total o reposición"
+  ],
+  "references": [
+   "Especificaciones Técnicas de la licitación pública “CONTRATACION DE SEGUROS GENERALES YPFB 2020- 2021”",
+   "GCC-EPNE-GAFC-30-20"
+  ],
+  "anomalies": [
+   "Viñeta aparentemente truncada: 'Asistencia al vehículo y a los ocupantes del mismo en caso de emergencia, las 24 hrs. durante toda la vigencia del seguro en todo el territorio nacional, incluyendo pero no limitando.' termina sin enumerar nada.",
+   "Posible omisión de preposición: 'Transporte de ocupantes de los vehículos centros médicos en caso de accidente' (parece faltar 'a')."
+  ]
+ },
+ {
+  "code_suffix": "2099",
+  "category": "anexo",
+  "effect_type": [
+   "aclaracion",
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Póliza (extensión de cobertura de todas sus Secciones)",
+  "modifies_quote": "No obstante lo estipulado en las Condiciones Generales de la Póliza, se aclara y acuerda la extensión de cobertura de todas sus Secciones",
+  "usage_restriction": "PARA LA PÓLIZA DE SEGURO DE AUTOMOTORES DE YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS",
+  "named_parties": [
+   "YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS"
+  ],
+  "effect_summary_es": "Aclara y acuerda la extensión de cobertura de todas las Secciones de la Póliza para amparar daños y/o pérdidas de los Vehículos Asegurados mientras sean trasladados sobre plataformas de Otros Medios Transportadores, incluyendo los daños durante el transporte, los daños por la Carga, Descarga y/o Trasbordo, y/o cuando estén siendo remolcados por otros vehículos (propios y/o ajenos).",
+  "parameters": [],
+  "conditions_precedent": [],
+  "references": [
+   "Condiciones Particulares"
+  ],
+  "anomalies": [
+   "El anexo contiene un único numeral '1. De Traslados sobre Plataformas de Otro Medio Transportador' sin numerales posteriores, pese a anunciar 'las siguientes Coberturas'; posible lista incompleta."
+  ]
+ },
+ {
+  "code_suffix": "2100",
+  "category": "clausula",
+  "effect_type": [
+   "define_beneficio_adicional",
+   "restringe_o_excluye"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": null,
+  "named_parties": [
+   "La Boliviana Ciacruz de Seguros y Reaseguros S.A."
+  ],
+  "effect_summary_es": "Otorga al Asegurado el beneficio de Indemnización por las Cuotas al crédito de la prima cuando, por un accidente cubierto por las Secciones III Daños Propios o IV HMACC-AMITT, el vehículo no pueda ser utilizado por sus propios medios, haciéndose responsable la Aseguradora por las Cuotas Mensuales de Financiamiento tras un periodo de carencia de 20 días hábiles y hasta un máximo de USD 1.000 por evento. El beneficio queda excluido para Pérdida Total por Accidente y Robo, Robo Parcial, Responsabilidad Civil y Accidentes Personales, y cuando el asegurado presente mora en el pago de su prima al crédito.",
+  "parameters": [
+   {
+    "name": "periodo de carencia",
+    "value_verbatim": "20 (veinte) días hábiles",
+    "context_quote": "posterior al periodo de carencia de 20 (veinte) días hábiles contados a partir del día siguiente a la orden de reparación"
+   },
+   {
+    "name": "límite",
+    "value_verbatim": "USD 1.000 por evento",
+    "context_quote": "hasta que el vehículo sea utilizable por sus propios medios nuevamente pero sin superar un máximo de USD 1.000 por evento"
+   }
+  ],
+  "conditions_precedent": [
+   "póliza contratada con la forma de pago al crédito",
+   "accidente cubierto por las Secciones III Daños Propios o IV HMACC-AMITT a consecuencia del cual el vehículo no puede ser utilizado por sus propios medios",
+   "periodo de carencia de 20 (veinte) días hábiles computables a partir del día siguiente en que la Compañía, habiendo aceptado el siniestro, otorga la orden de reparación al Taller",
+   "el periodo de carencia no entra en vigencia mientras la Compañía no determine las causalidades del siniestro, realice la investigación, determine la aceptación del accidente, ni se encuentre en la etapa de cuantificación de los daños",
+   "que el asegurado no presente mora en el pago de su prima al crédito",
+   "ausencia de faltas y contravenciones a las normas de tránsito y de las causalidades liberatorias descritas en las Condiciones Generales"
+  ],
+  "references": [
+   "Secciones III Daños Propios o IV HMACC-AMITT",
+   "Cronograma de Pagos al crédito vigente en esta Póliza",
+   "Condiciones Generales de la póliza",
+   "cláusula de Ausencia de Control"
+  ],
+  "anomalies": [
+   "Existen múltiples archivos variantes para este código: CG-2100__print_p147.txt (leído, páginas 147-148) y CG-2100__print_p272.txt (no leído); el encabezado indica que la clasificación de la variación está en clause_registry.json.",
+   "Redacción con concordancia anómala: 'aclarando que el texto de la cláusula de Ausencia de Control queda excluida de las faltas y contravenciones mencionadas anteriormente'."
+  ]
+ },
+ {
+  "code_suffix": "2101",
+  "category": "clausula",
+  "effect_type": [
+   "modifica_procedimiento"
+  ],
+  "modifies_target": "Condiciones Generales de la póliza",
+  "modifies_quote": "No obstante lo establecido en las Condiciones Generales de la póliza, mediante la presente Cláusula queda convenido y establecido",
+  "usage_restriction": "USO EXCLUSIVO PARA LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "En caso de siniestro amparado, el Asegurado, previo aviso a la Compañía, puede empezar inmediatamente los trabajos de reparación y/o reconstrucción del vehículo dañado, incluyendo la compra de repuestos urgentes hasta el monto del condicionado particular cuando el vehículo se encontrara de viaje y dichos repuestos sean imprescindibles para su funcionamiento, sujeto a inspección y/o supervisión de la Compañía cuando ella lo considere conveniente. El asegurado deberá proceder como si no tuviera seguro y cuidar su economía.",
+  "parameters": [
+   {
+    "name": "monto (repuestos urgentes)",
+    "value_verbatim": "hasta el monto establecido en el condicionado particular",
+    "context_quote": "incluyendo la compra de repuestos urgentes hasta el monto establecido en el condicionado particular en caso de que el vehículo se encontrara de viaje"
+   }
+  ],
+  "conditions_precedent": [
+   "previo aviso a la Compañía",
+   "compra de repuestos urgentes en caso de que el vehículo se encontrara de viaje y sean imprescindibles dichos repuestos para el funcionamiento del vehículo",
+   "dicho trabajo estará sujeto a la inspección y/o supervisión de la Compañía, cuando ella lo considere conveniente",
+   "El asegurado deberá proceder como si no tuviera seguro y cuidar su economía"
+  ],
+  "references": [
+   "condicionado particular"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2102",
+  "category": "anexo",
+  "effect_type": [
+   "instrumento_financiero_o_pago",
+   "modifica_condicion_administrativa"
+  ],
+  "modifies_target": "forma de pago de la Póliza",
+  "modifies_quote": "se acuerda y establece la forma de pago de la Póliza en cuestión",
+  "usage_restriction": null,
+  "named_parties": [],
+  "effect_summary_es": "Establece la forma de pago de la prima de la Póliza (moneda, cuotas, montos y fechas de vencimiento). El incumplimiento del pago de la prima en los términos y plazos del Anexo produce la terminación del contrato transcurridos 31 días desde la fecha de vencimiento del pago, facultando a la Aseguradora a la resolución de la póliza conforme al Artículo 569 del Código Civil.",
+  "parameters": [
+   {
+    "name": "plazo de terminación por impago",
+    "value_verbatim": "31 días",
+    "context_quote": "esta terminación se producirá transcurridos 31 días desde la fecha de vencimiento del pago de la prima"
+   },
+   {
+    "name": "hora de inicio/fin de vigencia",
+    "value_verbatim": "12:01 Hrs.",
+    "context_quote": "Vigencia: Desde las 12:01 Hrs. del día / Hasta las 12:01 Hrs. del día"
+   }
+  ],
+  "conditions_precedent": [],
+  "references": [
+   "Artículo 569 del Código Civil"
+  ],
+  "anomalies": [
+   "Documento tipo formulario con campos en blanco: Ramo, Póliza No, Certificado No, Vigencia, Contratante, Dirección, Teléfono, Código de Cliente, NIT, Fecha expedición, Intermediario, Moneda y tabla 'No. De Cuota Monto Fecha Vencimiento' sin valores.",
+   "Placeholders de impresión presentes: '{se imprime cuando corresponda}' y variables 'PN: PRIMA_NETA VC: VALOR_COMISION PC: PORCENT_COMISION'."
+  ]
+ },
+ {
+  "code_suffix": "2103",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": "PARA USO EXCLUSIVO EN LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "En caso de un eventual siniestro, la póliza otorga cobertura por riesgos políticos en general y solo a título enunciativo, ampliada a cubrir pérdidas o daños causados por o a consecuencia de motines, huelgas, conmoción civil, disturbios laborales, disturbios sociales, lockout, daño malicioso, sabotaje y vandalismo, asonada, terrorismo, invasión, insurrección, guerra, revolución, sublevación, rebelión o hechos tipificados legalmente como delitos contra la seguridad del estado, siempre que el asegurado no sea el causante o haya participado en forma activa o directa.",
+  "parameters": [],
+  "conditions_precedent": [
+   "siempre que el asegurado no sea el causante o haya participado en forma activa o directa de cualquiera de los actos citados"
+  ],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2104",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura",
+   "define_beneficio_adicional"
+  ],
+  "modifies_target": "beneficio de uso de Remolque, grúa o transporte del vehículo (cobertura en exceso del porcentaje estipulado en el condicionado general y/o clausulas y/o anexos)",
+  "modifies_quote": "hasta el límite establecido en el condicionado particular de la presente póliza, en exceso del porcentaje estipulado en el condicionado general y/o clausulas y/o anexos, por siniestro y/o vehículo",
+  "usage_restriction": "PARA USO EXCLUSIVO EN LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "En caso de un eventual siniestro, la póliza otorga cobertura para el uso de Remolque, grúa o transporte del vehículo en caso de falla mecánica de cualquier tipo (grúa y/u otros), hasta el límite establecido en el condicionado particular, en exceso del porcentaje estipulado en el condicionado general y/o cláusulas y/o anexos, por siniestro y/o vehículo.",
+  "parameters": [
+   {
+    "name": "límite",
+    "value_verbatim": "hasta el límite establecido en el condicionado particular de la presente póliza, en exceso del porcentaje estipulado en el condicionado general y/o clausulas y/o anexos, por siniestro y/o vehículo",
+    "context_quote": "otorga cobertura para el uso de Remolque, grúa o transporte del vehículo en caso de falla mecánica de cualquier tipo (grúa y/u otros) hasta el límite establecido en el condicionado particular de la presente póliza, en exceso del porcentaje estipulado en el condicionado general y/o clausulas y/o anexos, por siniestro y/o vehículo"
+   }
+  ],
+  "conditions_precedent": [
+   "en caso de falla mecánica de cualquier tipo (grúa y/u otros)"
+  ],
+  "references": [
+   "condicionado particular",
+   "condicionado general y/o clausulas y/o anexos"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2105",
+  "category": "clausula",
+  "effect_type": [
+   "extiende_cobertura",
+   "define_beneficio_adicional"
+  ],
+  "modifies_target": "cobertura en exceso del porcentaje estipulado en el condicionado general y/o clausulas y/o anexos",
+  "modifies_quote": "hasta el límite establecido en el condicionado particular en exceso del porcentaje estipulado en el condicionado general y/o clausulas y/o anexos, por siniestro y/o vehículo",
+  "usage_restriction": "PARA USO EXCLUSIVO EN LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "En caso de un eventual siniestro, la póliza otorga cobertura por la estadía y desplazamiento por la inmovilización y/o robo del vehículo cuando el evento ocurra a más de 25 km. del domicilio y la reparación dure más de 48 hrs., hasta ellímite establecido en el condicionado particular en exceso del porcentaje estipulado en el condicionado general y/o cláusulas y/o anexos, por siniestro y/o vehículo.",
+  "parameters": [
+   {
+    "name": "distancia mínima del domicilio",
+    "value_verbatim": "más de 25 km.",
+    "context_quote": "en caso de que el evento ocurra a más de 25 km. de su domicilio"
+   },
+   {
+    "name": "duración mínima de la reparación",
+    "value_verbatim": "más de 48 hrs.",
+    "context_quote": "y la reparación dure más de 48 hrs."
+   },
+   {
+    "name": "límite",
+    "value_verbatim": "hasta el límite establecido en el condicionado particular en exceso del porcentaje estipulado en el condicionado general y/o clausulas y/o anexos, por siniestro y/o vehículo",
+    "context_quote": "hasta el límite establecido en el condicionado particular en exceso del porcentaje estipulado en el condicionado general y/o clausulas y/o anexos, por siniestro y/o vehículo"
+   }
+  ],
+  "conditions_precedent": [
+   "en caso de que el evento ocurra a más de 25 km. de su domicilio y la reparación dure más de 48 hrs."
+  ],
+  "references": [
+   "condicionado particular",
+   "condicionado general y/o clausulas y/o anexos"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2106",
+  "category": "clausula",
+  "effect_type": [
+   "define_beneficio_adicional",
+   "extiende_cobertura"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": "PARA USO EXCLUSIVO EN LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "La póliza extiende a brindar el servicio de localización y envío de piezas de recambio necesarias para la reparación cuando no fuera posible su obtención.",
+  "parameters": [],
+  "conditions_precedent": [
+   "cuando no fuera posible su obtención"
+  ],
+  "references": [],
+  "anomalies": [
+   "Redacción con omisión menor: 'extiende a brindar el servicio localización y envío de piezas' (parece faltar 'de'); no cambia el sentido."
+  ]
+ },
+ {
+  "code_suffix": "2107",
+  "category": "clausula",
+  "effect_type": [
+   "define_beneficio_adicional",
+   "extiende_cobertura"
+  ],
+  "modifies_target": "Condiciones Generales de la Presente Póliza",
+  "modifies_quote": "no obstante, lo que señalen en contrario las Condiciones Generales de la Presente Póliza, la misma se extiende a brindar el servicio asistencia Jurídica",
+  "usage_restriction": "PARA USO EXCLUSIVO EN LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Extiende la póliza a brindar el servicio de asistencia jurídica en caso de siniestro cubierto por la compañía, incluyendo asistencia a audiencias de tránsito, ante otras autoridades con jurisdicción en el accidente, audiencias de conciliación y de reconstrucción del accidente, preparación y presentación de memoriales, y presentación de fianzas judiciales hasta el límite del Valor Asegurado en Responsabilidad Civil.",
+  "parameters": [
+   {
+    "name": "límite de fianzas judiciales",
+    "value_verbatim": "hasta el límite del Valor Asegurado en Responsabilidad Civil",
+    "context_quote": "Presentación de Fianzas Judiciales hasta el límite del Valor Asegurado en Responsabilidad Civil"
+   }
+  ],
+  "conditions_precedent": [
+   "en caso de siniestro cubierto por la compañía"
+  ],
+  "references": [
+   "Valor Asegurado en Responsabilidad Civil"
+  ],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2108",
+  "category": "clausula",
+  "effect_type": [
+   "define_beneficio_adicional",
+   "extiende_cobertura"
+  ],
+  "modifies_target": "beneficio de auxilio mecánico otorgado en la presente póliza",
+  "modifies_quote": "como parte del beneficio de auxilio mecánico otorgado en la presente póliza",
+  "usage_restriction": "PARA USO EXCLUSIVO EN LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "La Aseguradora extiende a otorgar a sus asegurados, en situaciones de emergencia, el Beneficio de Transmisión de Mensajes Urgentes como parte del beneficio de auxilio mecánico otorgado en la póliza.",
+  "parameters": [],
+  "conditions_precedent": [
+   "en situaciones de emergencia"
+  ],
+  "references": [],
+  "anomalies": []
+ },
+ {
+  "code_suffix": "2109",
+  "category": "clausula",
+  "effect_type": [
+   "modifica_procedimiento",
+   "define_beneficio_adicional"
+  ],
+  "modifies_target": null,
+  "modifies_quote": null,
+  "usage_restriction": "PARA USO EXCLUSIVO EN LICITACIONES",
+  "named_parties": [],
+  "effect_summary_es": "Cuando las partes establezcan que el pago de la indemnización no se efectúe en efectivo y corresponda la reposición de piezas porque el costo de reparación del daño supera el 65% del valor de reposición a nueva, la compañía gestionará el reemplazo de piezas y/o partes dañadas con Repuestos Originales de Fábrica, sin depreciación alguna, siempre que la pieza repuesta haya tenido la misma condición, con adquisición preferentemente en proveedores locales designados por el Contratante. Si el proveedor no cuenta con stock, la compañía indemnizará en efectivo según la proforma del proveedor o adquirirá los repuestos en el mercado local previa aceptación del contratante, pudiendo presentar cotizaciones adicionales siempre que no demoren la reparación.",
+  "parameters": [
+   {
+    "name": "umbral para reposición de piezas",
+    "value_verbatim": "supera el 65% del valor de reposición a nueva",
+    "context_quote": "cuando corresponda la reposición de las piezas debido a que el costo de reparación del daño supera el 65% del valor de reposición a nueva"
+   },
+   {
+    "name": "depreciación",
+    "value_verbatim": "no están sujetas a depreciación alguna",
+    "context_quote": "los repuestos, partes y piezas nuevas y genuinas no están sujetas a depreciación alguna"
+   }
+  ],
+  "conditions_precedent": [
+   "en caso de que las partes establezcan que el pago de la indemnización del seguro no se efectúe en efectivo",
+   "cuando corresponda la reposición de las piezas debido a que el costo de reparación del daño supera el 65% del valor de reposición a nueva",
+   "siempre y cuando la pieza a ser repuesta haya tenido la misma condición",
+   "la adquisición deberá ser preferentemente en proveedores locales y designados por el Contratante",
+   "previa aceptación del contratante (para la adquisición en el mercado local)"
+  ],
+  "references": [],
+  "anomalies": []
+ }
+]

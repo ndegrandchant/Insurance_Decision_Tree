@@ -1,0 +1,3303 @@
+[
+ {
+  "code": "101 - 910547 - 2017 09 400",
+  "code_normalized": "101910547201709400",
+  "code_suffix": "base",
+  "title": "PÓLIZA DE SEGURO DE AUTOMOTORES LBC-AUTO (INDIVIDUAL / FLOTA) CONDICIONES GENERALES",
+  "prints": [
+   {
+    "order_in_bundle": 1,
+    "pdf_pages": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21
+    ],
+    "body_sha1": "4eaad5c5de33520135128612f9b0e640e3a46daa"
+   }
+  ],
+  "text_file": "clause_texts/CG-base.txt"
+ },
+ {
+  "code": "101 - 910547 - 2017 09 400 1001",
+  "code_normalized": "1019105472017094001001",
+  "code_suffix": "1001",
+  "title": "SECCIÓN I COBERTURA DE PÉRDIDA TOTAL POR ACCIDENTE",
+  "prints": [
+   {
+    "order_in_bundle": 2,
+    "pdf_pages": [
+     22,
+     23
+    ],
+    "body_sha1": "1e5981ac0554b7e027e6490d2ac63551d8159382"
+   }
+  ],
+  "text_file": "clause_texts/CG-1001.txt"
+ },
+ {
+  "code": "101 - 910547 - 2017 09 400 1002",
+  "code_normalized": "1019105472017094001002",
+  "code_suffix": "1002",
+  "title": "SECCIÓN II COBERTURA DE PÉRDIDA TOTAL POR ROBO",
+  "prints": [
+   {
+    "order_in_bundle": 3,
+    "pdf_pages": [
+     25,
+     26
+    ],
+    "body_sha1": "10de257b166cdf192988f50db8eb2d61e0f53934"
+   }
+  ],
+  "text_file": "clause_texts/CG-1002.txt"
+ },
+ {
+  "code": "101 - 910547 - 2017 09 400 1003",
+  "code_normalized": "1019105472017094001003",
+  "code_suffix": "1003",
+  "title": "SECCIÓN III COBERTURA DE DAÑOS PROPIOS",
+  "prints": [
+   {
+    "order_in_bundle": 4,
+    "pdf_pages": [
+     27,
+     28,
+     29
+    ],
+    "body_sha1": "e741f8c459c9b44e3d8dd4634d6bfdabe66d2963"
+   }
+  ],
+  "text_file": "clause_texts/CG-1003.txt"
+ },
+ {
+  "code": "101 - 910547 - 2017 09 400 1004",
+  "code_normalized": "1019105472017094001004",
+  "code_suffix": "1004",
+  "title": "SECCIÓN IV COBERTURA DE HMACC-AMITT",
+  "prints": [
+   {
+    "order_in_bundle": 5,
+    "pdf_pages": [
+     29,
+     30,
+     31,
+     32,
+     33,
+     34
+    ],
+    "body_sha1": "97937a298f2b1c1d8f016f6971d272c297ac79c6"
+   }
+  ],
+  "text_file": "clause_texts/CG-1004.txt"
+ },
+ {
+  "code": "101 - 910547 - 2017 09 400 1005",
+  "code_normalized": "1019105472017094001005",
+  "code_suffix": "1005",
+  "title": "SECCIÓN V COBERTURA DE ROBO PARCIAL DE PARTES Y PIEZAS",
+  "prints": [
+   {
+    "order_in_bundle": 6,
+    "pdf_pages": [
+     35,
+     36,
+     37
+    ],
+    "body_sha1": "7a5b11b610198a5297dbd13fa30fe222a23db005"
+   }
+  ],
+  "text_file": "clause_texts/CG-1005.txt"
+ },
+ {
+  "code": "101 - 910547 - 2017 09 400 1006",
+  "code_normalized": "1019105472017094001006",
+  "code_suffix": "1006",
+  "title": "SECCIÓN VI COBERTURA DE RESPONSABILIDAD CIVIL",
+  "prints": [
+   {
+    "order_in_bundle": 7,
+    "pdf_pages": [
+     38,
+     39,
+     40
+    ],
+    "body_sha1": "26fc193c3a65f077ea1fb86beff9ca7050f8685a"
+   }
+  ],
+  "text_file": "clause_texts/CG-1006.txt"
+ },
+ {
+  "code": "101 - 910547 - 2017 09 400 1007",
+  "code_normalized": "1019105472017094001007",
+  "code_suffix": "1007",
+  "title": "SECCIÓN VII COBERTURA DE ACCIDENTES PERSONALES A OCUPANTES DE VEHÍCULOS",
+  "prints": [
+   {
+    "order_in_bundle": 8,
+    "pdf_pages": [
+     41,
+     42,
+     43
+    ],
+    "body_sha1": "dce4bfd0681f0c206038bcb832f9d5d89e499179"
+   }
+  ],
+  "text_file": "clause_texts/CG-1007.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2001",
+  "code_normalized": "1019105472017094002001",
+  "code_suffix": "2001",
+  "title": "CLÁUSULA DE ADHESIÓN AL PLIEGO",
+  "prints": [
+   {
+    "order_in_bundle": 33,
+    "pdf_pages": [
+     73
+    ],
+    "body_sha1": "693add081146e1015723a684b526ef198042d6b7"
+   }
+  ],
+  "text_file": "clause_texts/CG-2001.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2002",
+  "code_normalized": "1019105472017094002002",
+  "code_suffix": "2002",
+  "title": "CLÁUSULA DE ALCOHOLEMIA PERMITIDA",
+  "prints": [
+   {
+    "order_in_bundle": 9,
+    "pdf_pages": [
+     44
+    ],
+    "body_sha1": "2df3ea618dd7457d578d90c4d4f10a73b54e80ff"
+   }
+  ],
+  "text_file": "clause_texts/CG-2002.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2003",
+  "code_normalized": "1019105472017094002003",
+  "code_suffix": "2003",
+  "title": "CLÁUSULA DE AMPLIACIÓN AUTO REEMPLAZO",
+  "prints": [
+   {
+    "order_in_bundle": 34,
+    "pdf_pages": [
+     74,
+     75
+    ],
+    "body_sha1": "6e941ad0fd7304cc45caad70585c3dc30ea0bf74"
+   }
+  ],
+  "text_file": "clause_texts/CG-2003.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2004",
+  "code_normalized": "1019105472017094002004",
+  "code_suffix": "2004",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE AVISO DE SINIESTRO",
+  "prints": [
+   {
+    "order_in_bundle": 10,
+    "pdf_pages": [
+     45
+    ],
+    "body_sha1": "28056105a4a58373c21a3fe48dfd9479a7b150d2"
+   }
+  ],
+  "text_file": "clause_texts/CG-2004.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2005",
+  "code_normalized": "1019105472017094002005",
+  "code_suffix": "2005",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL BENEFICIO DE GASTOS DE VIAJE POR SINIESTRO",
+  "prints": [
+   {
+    "order_in_bundle": 11,
+    "pdf_pages": [
+     46
+    ],
+    "body_sha1": "46a92cc0e860874de24e1415ae55278a8fc6cb3f"
+   }
+  ],
+  "text_file": "clause_texts/CG-2005.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2006",
+  "code_normalized": "1019105472017094002006",
+  "code_suffix": "2006",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL LÍMITE DE GASTOS POR FLETE AÉREO, TRANSPORTES ESPECIALES Y/O GASTOS EXTRAORDINARIOS",
+  "prints": [
+   {
+    "order_in_bundle": 12,
+    "pdf_pages": [
+     47
+    ],
+    "body_sha1": "803be73dfbcbb20221b3707b5f09b15b429648d8"
+   }
+  ],
+  "text_file": "clause_texts/CG-2006.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2007",
+  "code_normalized": "1019105472017094002007",
+  "code_suffix": "2007",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE LÍMITE DE VELOCIDAD PERMITIDA",
+  "prints": [
+   {
+    "order_in_bundle": 41,
+    "pdf_pages": [
+     82
+    ],
+    "body_sha1": "1a3d18b0b4609bb00769e569c31fe0f61e859e29"
+   }
+  ],
+  "text_file": "clause_texts/CG-2007.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2008",
+  "code_normalized": "1019105472017094002008",
+  "code_suffix": "2008",
+  "title": "CLÁUSULA DE PAGO PARCIAL EN CASO DE SINIESTRO",
+  "prints": [
+   {
+    "order_in_bundle": 49,
+    "pdf_pages": [
+     90
+    ],
+    "body_sha1": "587a059afea791fdcf50af26b26687ab80a080bf"
+   }
+  ],
+  "text_file": "clause_texts/CG-2008.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2009",
+  "code_normalized": "1019105472017094002009",
+  "code_suffix": "2009",
+  "title": "CLÁUSULA DE ASEGURADO ADICIONAL (PETROLERAS)",
+  "prints": [
+   {
+    "order_in_bundle": 42,
+    "pdf_pages": [
+     83
+    ],
+    "body_sha1": "53732a59748d6d07da648d21d271e818319f8f4b"
+   }
+  ],
+  "text_file": "clause_texts/CG-2009.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2010",
+  "code_normalized": "1019105472017094002010",
+  "code_suffix": "2010",
+  "title": "CLÁUSULA DE NO SUBROGACIÓN (PETROLERAS)",
+  "prints": [
+   {
+    "order_in_bundle": 44,
+    "pdf_pages": [
+     85
+    ],
+    "body_sha1": "fee0fdabb6e1b765f03a313cebca13e2b4e2722e"
+   }
+  ],
+  "text_file": "clause_texts/CG-2010.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2011",
+  "code_normalized": "1019105472017094002011",
+  "code_suffix": "2011",
+  "title": "CLÁUSULA DE CANCELACIÓN (PETROLERAS)",
+  "prints": [
+   {
+    "order_in_bundle": 43,
+    "pdf_pages": [
+     84
+    ],
+    "body_sha1": "8fe6add148952ad467610b13f82b3a370fe343aa"
+   }
+  ],
+  "text_file": "clause_texts/CG-2011.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2012",
+  "code_normalized": "1019105472017094002012",
+  "code_suffix": "2012",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL (A SER UTILIZADA EN LEASING DE VEHÍCULOS)",
+  "prints": [
+   {
+    "order_in_bundle": 47,
+    "pdf_pages": [
+     88
+    ],
+    "body_sha1": "10377f27513326805e7108bb40cfd01c69064c15"
+   }
+  ],
+  "text_file": "clause_texts/CG-2012.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2013",
+  "code_normalized": "1019105472017094002013",
+  "code_suffix": "2013",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL",
+  "prints": [
+   {
+    "order_in_bundle": 46,
+    "pdf_pages": [
+     87
+    ],
+    "body_sha1": "28e24dddc3080e27b654ca0acb00a54ced9eef9d"
+   }
+  ],
+  "text_file": "clause_texts/CG-2013.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2014",
+  "code_normalized": "1019105472017094002014",
+  "code_suffix": "2014",
+  "title": "CLÁUSULA DE AUTORIZACIÓN A EXTRANJEROS",
+  "prints": [
+   {
+    "order_in_bundle": 23,
+    "pdf_pages": [
+     59
+    ],
+    "body_sha1": "b3360433c16bb72023166d1815d74b06b89cdfc9"
+   }
+  ],
+  "text_file": "clause_texts/CG-2014.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2015",
+  "code_normalized": "1019105472017094002015",
+  "code_suffix": "2015",
+  "title": "CLÁUSULA DE BENEFICIO ADICIONAL DE AMPLIACIÓN DE VIGENCIA A PRORRATA",
+  "prints": [
+   {
+    "order_in_bundle": 24,
+    "pdf_pages": [
+     60
+    ],
+    "body_sha1": "4f3c2066f6ae5b0ebd791f9f03e9cd4b27240ccf"
+   }
+  ],
+  "text_file": "clause_texts/CG-2015.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2016",
+  "code_normalized": "1019105472017094002016",
+  "code_suffix": "2016",
+  "title": "CLÁUSULA DE BENEFICIO ADICIONAL DE AUTO REMPLAZO",
+  "prints": [
+   {
+    "order_in_bundle": 25,
+    "pdf_pages": [
+     61,
+     62,
+     63
+    ],
+    "body_sha1": "3dcfb964e108c123ad9cc0abff43cc9789e0e869"
+   }
+  ],
+  "text_file": "clause_texts/CG-2016.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2017",
+  "code_normalized": "1019105472017094002017",
+  "code_suffix": "2017",
+  "title": "CLÁUSULA DE BENEFICIO DE CONDUCTOR PROFESIONAL",
+  "prints": [
+   {
+    "order_in_bundle": 16,
+    "pdf_pages": [
+     52
+    ],
+    "body_sha1": "32ff6b51394b5187e28cf8caeefe775131084011"
+   }
+  ],
+  "text_file": "clause_texts/CG-2017.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2018",
+  "code_normalized": "1019105472017094002018",
+  "code_suffix": "2018",
+  "title": "CLÁUSULA DEL BENEFICIO DE AUXILIO MECÁNICO EXPRESS",
+  "prints": [
+   {
+    "order_in_bundle": 26,
+    "pdf_pages": [
+     64,
+     65
+    ],
+    "body_sha1": "afe7511548f6717755639b91bf0aa064471bb336"
+   }
+  ],
+  "text_file": "clause_texts/CG-2018.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2019",
+  "code_normalized": "1019105472017094002019",
+  "code_suffix": "2019",
+  "title": "CLÁUSULA DE BENEFICIO ADICIONAL DE GASTOS DE VIAJE",
+  "prints": [
+   {
+    "order_in_bundle": 48,
+    "pdf_pages": [
+     89
+    ],
+    "body_sha1": "fdc46dd79fb5769591d2f094970a095dcc8b38f7"
+   }
+  ],
+  "text_file": "clause_texts/CG-2019.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2020",
+  "code_normalized": "1019105472017094002020",
+  "code_suffix": "2020",
+  "title": "CLÁUSULA PARA VEHÍCULOS ASEGURADOS QUE NO CIRCULEN POR SUS PROPIOS MEDIOS",
+  "prints": [
+   {
+    "order_in_bundle": 55,
+    "pdf_pages": [
+     96
+    ],
+    "body_sha1": "877cea3a440946e27b1d5944040549714b748c3e"
+   }
+  ],
+  "text_file": "clause_texts/CG-2020.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2021",
+  "code_normalized": "1019105472017094002021",
+  "code_suffix": "2021",
+  "title": "CLÁUSULA DE DAÑOS AL VEHÍCULO POR CARGA TRANSPORTADA",
+  "prints": [
+   {
+    "order_in_bundle": 18,
+    "pdf_pages": [
+     54
+    ],
+    "body_sha1": "d1caae68ad458663d4d3130c7f2c32dfffda26af"
+   }
+  ],
+  "text_file": "clause_texts/CG-2021.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2022",
+  "code_normalized": "1019105472017094002022",
+  "code_suffix": "2022",
+  "title": "CLÁUSULA DE DAÑOS POR REMOLQUE",
+  "prints": [
+   {
+    "order_in_bundle": 39,
+    "pdf_pages": [
+     80
+    ],
+    "body_sha1": "68f0f60e093fb639a8d04c2fbe63834249a2b346"
+   }
+  ],
+  "text_file": "clause_texts/CG-2022.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2023",
+  "code_normalized": "1019105472017094002023",
+  "code_suffix": "2023",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE EDAD MÁXIMA",
+  "prints": [
+   {
+    "order_in_bundle": 15,
+    "pdf_pages": [
+     51
+    ],
+    "body_sha1": "cc8a985d44145a1525dc5a08d85dfb134a9a05f8"
+   },
+   {
+    "order_in_bundle": 186,
+    "pdf_pages": [
+     237
+    ],
+    "body_sha1": "677e40c3732892974ec0a40e759594e3c255085e"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2023__print_p51.txt",
+   "clause_texts/CG-2023__print_p237.txt"
+  ],
+  "reprint_text_variation": "substantive",
+  "reprint_variation_note": "Las dos impresiones difieren en la condición operativa: p.51 exige licencia 'vigente al momento del evento'; p.237 exige que la licencia haya sido otorgada por la Autoridad Competente 'y la vigencia sea mayor al vencimiento de la póliza'. Mismo código APS con redacción registrada distinta.",
+  "conflict": true
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2024",
+  "code_normalized": "1019105472017094002024",
+  "code_suffix": "2024",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA DENUNCIA A TRÁNSITO",
+  "prints": [
+   {
+    "order_in_bundle": 17,
+    "pdf_pages": [
+     53
+    ],
+    "body_sha1": "d34eaf0a5f10531ce73a7934b719ceae46ef7275"
+   }
+  ],
+  "text_file": "clause_texts/CG-2024.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2026",
+  "code_normalized": "1019105472017094002026",
+  "code_suffix": "2026",
+  "title": "CLÁUSULA DE EXTENSIÓN DEL BENEFICIO ADICIONAL DE AMPLIACIÓN DE VIGENCIA A PRORRATA",
+  "prints": [
+   {
+    "order_in_bundle": 30,
+    "pdf_pages": [
+     69
+    ],
+    "body_sha1": "a1a1da3246400cb3924368a28325e73f8ab30530"
+   }
+  ],
+  "text_file": "clause_texts/CG-2026.txt"
+ },
+ {
+  "code": "101-910547-2017 09 400 2027",
+  "code_normalized": "1019105472017094002027",
+  "code_suffix": "2027",
+  "title": "CLÁUSULA DE COBERTURA ADICIONAL DE EXTRATERRITORIALIDAD",
+  "prints": [
+   {
+    "order_in_bundle": 107,
+    "pdf_pages": [
+     152,
+     153
+    ],
+    "body_sha1": "66fcc14ee91bb84975a2fee560987b6b577b7108"
+   }
+  ],
+  "text_file": "clause_texts/CG-2027.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2028",
+  "code_normalized": "1019105472017094002028",
+  "code_suffix": "2028",
+  "title": "CLÁUSULA DE GASTOS POR EVACUACIÓN PARA OCUPANTES",
+  "prints": [
+   {
+    "order_in_bundle": 35,
+    "pdf_pages": [
+     76
+    ],
+    "body_sha1": "8096b0e78d4ec65a8a29135f8bd679630bff0ec2"
+   }
+  ],
+  "text_file": "clause_texts/CG-2028.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2029",
+  "code_normalized": "1019105472017094002029",
+  "code_suffix": "2029",
+  "title": "CLÁUSULA DE INCLUSIONES Y EXCLUSIONES (ALTAS Y BAJAS- ADHESIONES Y SUPRESIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 22,
+    "pdf_pages": [
+     58
+    ],
+    "body_sha1": "914722924f978a8ffa489b6606e9699df9af2bd0"
+   }
+  ],
+  "text_file": "clause_texts/CG-2029.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2030",
+  "code_normalized": "1019105472017094002030",
+  "code_suffix": "2030",
+  "title": "CLÁUSULA DE LICENCIA DE CONDUCIR NO VIGENTE",
+  "prints": [
+   {
+    "order_in_bundle": 27,
+    "pdf_pages": [
+     66
+    ],
+    "body_sha1": "127f9d8072bf83d8e3b5c822fb8fc0c61dab8238"
+   },
+   {
+    "order_in_bundle": 120,
+    "pdf_pages": [
+     167
+    ],
+    "body_sha1": "d811e2a9b00fc6289071aa0dcb6fd1b3cdd4e116"
+   },
+   {
+    "order_in_bundle": 170,
+    "pdf_pages": [
+     219
+    ],
+    "body_sha1": "127f9d8072bf83d8e3b5c822fb8fc0c61dab8238"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2030__print_p66.txt",
+   "clause_texts/CG-2030__print_p167.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo en mayúsculas/minúsculas del bloque de firma."
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2031",
+  "code_normalized": "1019105472017094002031",
+  "code_suffix": "2031",
+  "title": "CLÁUSULA DE PERIODO DE GRACIA PARA EL PAGO DE PRIMAS",
+  "prints": [
+   {
+    "order_in_bundle": 28,
+    "pdf_pages": [
+     67
+    ],
+    "body_sha1": "f737f12450f0e0e46e27bde1b90fc9f2115e4e97"
+   }
+  ],
+  "text_file": "clause_texts/CG-2031.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2032",
+  "code_normalized": "1019105472017094002032",
+  "code_suffix": "2032",
+  "title": "CLÁUSULA DE RESPONSABILIDAD CIVIL POR PERJUICIOS ECONÓMICOS A TERCEROS",
+  "prints": [
+   {
+    "order_in_bundle": 14,
+    "pdf_pages": [
+     49,
+     50
+    ],
+    "body_sha1": "ee10780ff4dbd438ca61fb9162f3168e22e08d67"
+   }
+  ],
+  "text_file": "clause_texts/CG-2032.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2033",
+  "code_normalized": "1019105472017094002033",
+  "code_suffix": "2033",
+  "title": "CLÁUSULA DE RENOVACIÓN AUTOMÁTICA",
+  "prints": [
+   {
+    "order_in_bundle": 36,
+    "pdf_pages": [
+     77
+    ],
+    "body_sha1": "7542b1bfb88609799db190c1e9b2e3eee972e521"
+   }
+  ],
+  "text_file": "clause_texts/CG-2033.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2034",
+  "code_normalized": "1019105472017094002034",
+  "code_suffix": "2034",
+  "title": "CLÁUSULA DE RENOVACIÓN Y DEPRECIACIÓN ANUAL",
+  "prints": [
+   {
+    "order_in_bundle": 37,
+    "pdf_pages": [
+     78
+    ],
+    "body_sha1": "6671fc9cd7eaea567703d5f62128332238f2a1a6"
+   }
+  ],
+  "text_file": "clause_texts/CG-2034.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2035",
+  "code_normalized": "1019105472017094002035",
+  "code_suffix": "2035",
+  "title": "CLÁUSULA PARA CUBRIR RESPONSABILIDAD CIVIL A OCUPANTES",
+  "prints": [
+   {
+    "order_in_bundle": 29,
+    "pdf_pages": [
+     68
+    ],
+    "body_sha1": "a1b1e8df605214853d982392ae1abcd3ceccdc96"
+   }
+  ],
+  "text_file": "clause_texts/CG-2035.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2036",
+  "code_normalized": "1019105472017094002036",
+  "code_suffix": "2036",
+  "title": "CLAUSULA DE SUBROGACION DE DERECHOS – BCP",
+  "prints": [
+   {
+    "order_in_bundle": 32,
+    "pdf_pages": [
+     71,
+     72
+    ],
+    "body_sha1": "9f04f02f42859bcbc97fd3ffbc10c7c74e0aa90d"
+   },
+   {
+    "order_in_bundle": 121,
+    "pdf_pages": [
+     168
+    ],
+    "body_sha1": "33ab1ccbbd207ee05b5fee26edb50ee0f30725f6"
+   },
+   {
+    "order_in_bundle": 171,
+    "pdf_pages": [
+     220
+    ],
+    "body_sha1": "33ab1ccbbd207ee05b5fee26edb50ee0f30725f6"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2036__print_p71.txt",
+   "clause_texts/CG-2036__print_p168.txt"
+  ],
+  "reprint_text_variation": "form_template_variation",
+  "reprint_variation_note": "Misma redacción operativa; difieren los campos de formulario (marcadores \"XXXX\" vs campos en blanco/punteados) y la disposición del bloque de firmas."
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2037",
+  "code_normalized": "1019105472017094002037",
+  "code_suffix": "2037",
+  "title": "CLÁUSULA DE SUBROGACIÓN",
+  "prints": [
+   {
+    "order_in_bundle": 31,
+    "pdf_pages": [
+     70
+    ],
+    "body_sha1": "8072cd123b9d95b050606dc2c52fa3d8066a64df"
+   }
+  ],
+  "text_file": "clause_texts/CG-2037.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2038",
+  "code_normalized": "1019105472017094002038",
+  "code_suffix": "2038",
+  "title": "CLÁUSULA DE VALOR ADMITIDO",
+  "prints": [
+   {
+    "order_in_bundle": 38,
+    "pdf_pages": [
+     79
+    ],
+    "body_sha1": "23c231e1ced9fe4f664ba684e3d80987226dce9e"
+   }
+  ],
+  "text_file": "clause_texts/CG-2038.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2039",
+  "code_normalized": "1019105472017094002039",
+  "code_suffix": "2039",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL FAMILIAR",
+  "prints": [
+   {
+    "order_in_bundle": 51,
+    "pdf_pages": [
+     92
+    ],
+    "body_sha1": "2068547108ffd19b1b19f27d20533b245f526aa2"
+   }
+  ],
+  "text_file": "clause_texts/CG-2039.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2040",
+  "code_normalized": "1019105472017094002040",
+  "code_suffix": "2040",
+  "title": "CLÁUSULA DE BENEFICIO POR BONO DE TRANSPORTE",
+  "prints": [
+   {
+    "order_in_bundle": 52,
+    "pdf_pages": [
+     93
+    ],
+    "body_sha1": "d9d78f4859f25ef9112528e8450ce285dafe59e6"
+   }
+  ],
+  "text_file": "clause_texts/CG-2040.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2041",
+  "code_normalized": "1019105472017094002041",
+  "code_suffix": "2041",
+  "title": "CLÁUSULA DE BIENES FUERA DE CUSTODIA (ABUSO DE CONFIANZA)",
+  "prints": [
+   {
+    "order_in_bundle": 50,
+    "pdf_pages": [
+     91
+    ],
+    "body_sha1": "fec23b60733b73e9063a21717db931d5c1cf59a3"
+   }
+  ],
+  "text_file": "clause_texts/CG-2041.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2042",
+  "code_normalized": "1019105472017094002042",
+  "code_suffix": "2042",
+  "title": "CLÁUSULA DE COBERTURA PARA MASCOTAS",
+  "prints": [
+   {
+    "order_in_bundle": 53,
+    "pdf_pages": [
+     94
+    ],
+    "body_sha1": "aa28b4ef7db3c37889dddcd314dcac28165898de"
+   }
+  ],
+  "text_file": "clause_texts/CG-2042.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2043",
+  "code_normalized": "1019105472017094002043",
+  "code_suffix": "2043",
+  "title": "CLÁUSULA DE COBERTURA POR INCENDIO Y/O RAYO Y/O EXPLOSIÓN",
+  "prints": [
+   {
+    "order_in_bundle": 40,
+    "pdf_pages": [
+     81
+    ],
+    "body_sha1": "e5638c39b46380f140d41944973b0bb828ff4754"
+   }
+  ],
+  "text_file": "clause_texts/CG-2043.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2044",
+  "code_normalized": "1019105472017094002044",
+  "code_suffix": "2044",
+  "title": "CLÁUSULA DE COBERTURA POR RIESGOS DE LA NATURALEZA",
+  "prints": [
+   {
+    "order_in_bundle": 19,
+    "pdf_pages": [
+     55
+    ],
+    "body_sha1": "0597a253260b856b4cd58e6bf1628c6eda467cf2"
+   }
+  ],
+  "text_file": "clause_texts/CG-2044.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2045",
+  "code_normalized": "1019105472017094002045",
+  "code_suffix": "2045",
+  "title": "CLÁUSULA DE ELEGIBILIDAD DE TALLERES",
+  "prints": [
+   {
+    "order_in_bundle": 20,
+    "pdf_pages": [
+     56
+    ],
+    "body_sha1": "7f0ff2fc6aa7deab752f168d7004215147c79222"
+   }
+  ],
+  "text_file": "clause_texts/CG-2045.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2046",
+  "code_normalized": "1019105472017094002046",
+  "code_suffix": "2046",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE AJUSTADORES",
+  "prints": [
+   {
+    "order_in_bundle": 21,
+    "pdf_pages": [
+     57
+    ],
+    "body_sha1": "de954c2ba8f7a5d17f6061537e509bd0eace7865"
+   }
+  ],
+  "text_file": "clause_texts/CG-2046.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2047",
+  "code_normalized": "1019105472017094002047",
+  "code_suffix": "2047",
+  "title": "CLÁUSULA DE MODIFICACIÓN DEL PORCENTAJE PARA DECLARACIÓN DE PÉRDIDAS TOTALES",
+  "prints": [
+   {
+    "order_in_bundle": 54,
+    "pdf_pages": [
+     95
+    ],
+    "body_sha1": "80746bb221af24fd0bbdabcf4b76fed7907b7bb1"
+   }
+  ],
+  "text_file": "clause_texts/CG-2047.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2048",
+  "code_normalized": "1019105472017094002048",
+  "code_suffix": "2048",
+  "title": "CLÁUSULA DE PARTES GENUINAS (para Uso de Licitación).",
+  "prints": [
+   {
+    "order_in_bundle": 13,
+    "pdf_pages": [
+     48
+    ],
+    "body_sha1": "b44c82def2e5a895aa224f3a4f65cf3fe2df5fb4"
+   }
+  ],
+  "text_file": "clause_texts/CG-2048.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2049",
+  "code_normalized": "1019105472017094002049",
+  "code_suffix": "2049",
+  "title": "Anexo Billete Motor",
+  "prints": [
+   {
+    "order_in_bundle": 45,
+    "pdf_pages": [
+     86
+    ],
+    "body_sha1": "3638cf2f6b50ad8a226a88a57f8ddc4e90e68e66"
+   }
+  ],
+  "text_file": "clause_texts/CG-2049.txt"
+ },
+ {
+  "code": "101 -910547 - 2017 09 400 2050",
+  "code_normalized": "1019105472017094002050",
+  "code_suffix": "2050",
+  "title": "CLÁUSULA DE SUBROGACIÓN DE DERECHOS DE INDEMNIZACIÓN (PARA PÓLIZAS BANCO BISA S.A. / BISA LEASING S.A / ALMACENES INTERNACIONALES S.A. (RAISA))",
+  "prints": [
+   {
+    "order_in_bundle": 56,
+    "pdf_pages": [
+     97,
+     98
+    ],
+    "body_sha1": "2b739536504d22f75dc7ea030f06711e85bde0e2"
+   },
+   {
+    "order_in_bundle": 122,
+    "pdf_pages": [
+     169,
+     170
+    ],
+    "body_sha1": "73422ef4d48e408a16e91e61281600b9cbc6e5e2"
+   },
+   {
+    "order_in_bundle": 172,
+    "pdf_pages": [
+     221,
+     222
+    ],
+    "body_sha1": "467d909890b23834cc2cafbfa8805a326c8581ce"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2050__print_p97.txt",
+   "clause_texts/CG-2050__print_p169.txt",
+   "clause_texts/CG-2050__print_p221.txt"
+  ],
+  "reprint_text_variation": "form_template_variation",
+  "reprint_variation_note": "Misma redacción operativa; una impresión usa marcadores \"XX\" y otras instancian al subrogatario como \"BANCO BISA S.A.\"; difiere también el orden del bloque de firmas."
+ },
+ {
+  "code": "101-910547-2017 09 400 2051",
+  "code_normalized": "1019105472017094002051",
+  "code_suffix": "2051",
+  "title": "CLÁUSULA DE PARTICIPACIÓN DE UTILIDADES PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 57,
+    "pdf_pages": [
+     99
+    ],
+    "body_sha1": "926ea36ef2f24c3f0bd75ab68aa15ede465898e4"
+   },
+   {
+    "order_in_bundle": 124,
+    "pdf_pages": [
+     172
+    ],
+    "body_sha1": "926ea36ef2f24c3f0bd75ab68aa15ede465898e4"
+   },
+   {
+    "order_in_bundle": 173,
+    "pdf_pages": [
+     223
+    ],
+    "body_sha1": "10b9ce505e457121ed33f680e5b2fec076151d46"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2051__print_p99.txt",
+   "clause_texts/CG-2051__print_p223.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo en mayúsculas/minúsculas del bloque de firma."
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2052",
+  "code_normalized": "1019105472017094002052",
+  "code_suffix": "2052",
+  "title": "CLÁUSULA DE COBERTURA AUTOMÁTICA PARA NUEVAS ADQUISICIONES Y/O INCORPORACIONES TIPO B PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 58,
+    "pdf_pages": [
+     100,
+     101
+    ],
+    "body_sha1": "f58822ffd1068ffb40fa9f90edba648fa11196a3"
+   },
+   {
+    "order_in_bundle": 125,
+    "pdf_pages": [
+     173,
+     174
+    ],
+    "body_sha1": "f58822ffd1068ffb40fa9f90edba648fa11196a3"
+   },
+   {
+    "order_in_bundle": 174,
+    "pdf_pages": [
+     224,
+     225
+    ],
+    "body_sha1": "f58822ffd1068ffb40fa9f90edba648fa11196a3"
+   }
+  ],
+  "text_file": "clause_texts/CG-2052.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2053",
+  "code_normalized": "1019105472017094002053",
+  "code_suffix": "2053",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE TALLERES TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "prints": [
+   {
+    "order_in_bundle": 59,
+    "pdf_pages": [
+     102
+    ],
+    "body_sha1": "3b783730dd0dacc3d272ccff8e115d87e2b02d9b"
+   },
+   {
+    "order_in_bundle": 126,
+    "pdf_pages": [
+     175
+    ],
+    "body_sha1": "3b783730dd0dacc3d272ccff8e115d87e2b02d9b"
+   },
+   {
+    "order_in_bundle": 175,
+    "pdf_pages": [
+     226
+    ],
+    "body_sha1": "3b783730dd0dacc3d272ccff8e115d87e2b02d9b"
+   }
+  ],
+  "text_file": "clause_texts/CG-2053.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2054",
+  "code_normalized": "1019105472017094002054",
+  "code_suffix": "2054",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA EN CASO DE NO PORTAR LICENCIA DE CONDUCIR PARA USO EXCLUSIVO EN LICITACIONES.",
+  "prints": [
+   {
+    "order_in_bundle": 60,
+    "pdf_pages": [
+     103
+    ],
+    "body_sha1": "3317a33a34db437eaa0f90e6b52ae0c849b83e43"
+   },
+   {
+    "order_in_bundle": 127,
+    "pdf_pages": [
+     176
+    ],
+    "body_sha1": "3317a33a34db437eaa0f90e6b52ae0c849b83e43"
+   },
+   {
+    "order_in_bundle": 176,
+    "pdf_pages": [
+     227
+    ],
+    "body_sha1": "3317a33a34db437eaa0f90e6b52ae0c849b83e43"
+   }
+  ],
+  "text_file": "clause_texts/CG-2054.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2055",
+  "code_normalized": "1019105472017094002055",
+  "code_suffix": "2055",
+  "title": "CLÁUSULA DE GASTOS DE INVESTIGACIÓN Y SALVAMENTO TIPO B - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 61,
+    "pdf_pages": [
+     104
+    ],
+    "body_sha1": "a040818fca35acde3dca43fffb7817e2d9b57fde"
+   },
+   {
+    "order_in_bundle": 128,
+    "pdf_pages": [
+     177
+    ],
+    "body_sha1": "a040818fca35acde3dca43fffb7817e2d9b57fde"
+   },
+   {
+    "order_in_bundle": 177,
+    "pdf_pages": [
+     228
+    ],
+    "body_sha1": "a040818fca35acde3dca43fffb7817e2d9b57fde"
+   }
+  ],
+  "text_file": "clause_texts/CG-2055.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2056",
+  "code_normalized": "1019105472017094002056",
+  "code_suffix": "2056",
+  "title": "CLÁUSULA DE SERVICIO DE ASISTENCIA JURÍDICA EN CASO DE SINIESTRO TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "prints": [
+   {
+    "order_in_bundle": 62,
+    "pdf_pages": [
+     105
+    ],
+    "body_sha1": "ad7bbff0be6dcdc383cd5dd1f0df0e9b577f3714"
+   },
+   {
+    "order_in_bundle": 129,
+    "pdf_pages": [
+     178
+    ],
+    "body_sha1": "c7cf39f2d2d7f3a850a09b2c33a851ef3e0ec7fd"
+   },
+   {
+    "order_in_bundle": 178,
+    "pdf_pages": [
+     229
+    ],
+    "body_sha1": "4106d76b01f84ed0e9e42cf9591eba00e8e43b1e"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2056__print_p105.txt",
+   "clause_texts/CG-2056__print_p178.txt",
+   "clause_texts/CG-2056__print_p229.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo de espaciado/salto de línea."
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2057",
+  "code_normalized": "1019105472017094002057",
+  "code_suffix": "2057",
+  "title": "CLÁUSULA DE REHABILITACIÓN AUTOMÁTICA DE LA SUMA ASEGURADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 63,
+    "pdf_pages": [
+     106
+    ],
+    "body_sha1": "39789aed934d3a7e9f84283321bfdf9a03cb47fd"
+   },
+   {
+    "order_in_bundle": 130,
+    "pdf_pages": [
+     179
+    ],
+    "body_sha1": "39789aed934d3a7e9f84283321bfdf9a03cb47fd"
+   },
+   {
+    "order_in_bundle": 179,
+    "pdf_pages": [
+     230
+    ],
+    "body_sha1": "39789aed934d3a7e9f84283321bfdf9a03cb47fd"
+   },
+   {
+    "order_in_bundle": 180,
+    "pdf_pages": [
+     231
+    ],
+    "body_sha1": "39789aed934d3a7e9f84283321bfdf9a03cb47fd"
+   }
+  ],
+  "text_file": "clause_texts/CG-2057.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2058",
+  "code_normalized": "1019105472017094002058",
+  "code_suffix": "2058",
+  "title": "CLÁUSULA DE TRÁNSITO EN VÍAS NO AUTORIZADAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 64,
+    "pdf_pages": [
+     107
+    ],
+    "body_sha1": "e95fbc54e8edfa01e50912d9030281bcd53bac48"
+   },
+   {
+    "order_in_bundle": 131,
+    "pdf_pages": [
+     180
+    ],
+    "body_sha1": "e95fbc54e8edfa01e50912d9030281bcd53bac48"
+   },
+   {
+    "order_in_bundle": 181,
+    "pdf_pages": [
+     232
+    ],
+    "body_sha1": "e95fbc54e8edfa01e50912d9030281bcd53bac48"
+   }
+  ],
+  "text_file": "clause_texts/CG-2058.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2059",
+  "code_normalized": "1019105472017094002059",
+  "code_suffix": "2059",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA COPIA LEGALIZADA DE LA DENUNCIA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 65,
+    "pdf_pages": [
+     108
+    ],
+    "body_sha1": "47dc235e92019b306e25fa0c65a4b136ce7db298"
+   },
+   {
+    "order_in_bundle": 132,
+    "pdf_pages": [
+     181
+    ],
+    "body_sha1": "47dc235e92019b306e25fa0c65a4b136ce7db298"
+   },
+   {
+    "order_in_bundle": 182,
+    "pdf_pages": [
+     233
+    ],
+    "body_sha1": "a939c6166962608f5084b3f1a1bcff64bf5c4801"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2059__print_p108.txt",
+   "clause_texts/CG-2059__print_p233.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo de espaciado/salto de línea."
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2060",
+  "code_normalized": "1019105472017094002060",
+  "code_suffix": "2060",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA DENUNCIA DE DIPROVE (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 66,
+    "pdf_pages": [
+     109
+    ],
+    "body_sha1": "9abe2129bba904c310fe557dca9087cd9b212ba6"
+   },
+   {
+    "order_in_bundle": 133,
+    "pdf_pages": [
+     182
+    ],
+    "body_sha1": "9abe2129bba904c310fe557dca9087cd9b212ba6"
+   },
+   {
+    "order_in_bundle": 183,
+    "pdf_pages": [
+     234
+    ],
+    "body_sha1": "9abe2129bba904c310fe557dca9087cd9b212ba6"
+   }
+  ],
+  "text_file": "clause_texts/CG-2060.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2061",
+  "code_normalized": "1019105472017094002061",
+  "code_suffix": "2061",
+  "title": "CLÁUSULA DE COBERTURA POR DAÑOS A CAUSA DE LA NATURALEZA EN GENERAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 67,
+    "pdf_pages": [
+     110
+    ],
+    "body_sha1": "ebbde971fbcb18ce9de3641fe4cd72eafa23a2c3"
+   },
+   {
+    "order_in_bundle": 134,
+    "pdf_pages": [
+     183
+    ],
+    "body_sha1": "ebbde971fbcb18ce9de3641fe4cd72eafa23a2c3"
+   },
+   {
+    "order_in_bundle": 184,
+    "pdf_pages": [
+     235
+    ],
+    "body_sha1": "ebbde971fbcb18ce9de3641fe4cd72eafa23a2c3"
+   }
+  ],
+  "text_file": "clause_texts/CG-2061.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2062",
+  "code_normalized": "1019105472017094002062",
+  "code_suffix": "2062",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 68,
+    "pdf_pages": [
+     111
+    ],
+    "body_sha1": "9301f3d46922f05f0dda35fe9d65972a3cbceb20"
+   },
+   {
+    "order_in_bundle": 135,
+    "pdf_pages": [
+     184
+    ],
+    "body_sha1": "9301f3d46922f05f0dda35fe9d65972a3cbceb20"
+   },
+   {
+    "order_in_bundle": 185,
+    "pdf_pages": [
+     236
+    ],
+    "body_sha1": "6b53ca6bf5bbb13cfcc0795e75cda1b66ef358a3"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2062__print_p111.txt",
+   "clause_texts/CG-2062__print_p236.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo de espaciado/salto de línea."
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2063",
+  "code_normalized": "1019105472017094002063",
+  "code_suffix": "2063",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 69,
+    "pdf_pages": [
+     112
+    ],
+    "body_sha1": "2b51527c50716059bf7b41870d492361415dea0e"
+   },
+   {
+    "order_in_bundle": 136,
+    "pdf_pages": [
+     185
+    ],
+    "body_sha1": "2b51527c50716059bf7b41870d492361415dea0e"
+   },
+   {
+    "order_in_bundle": 187,
+    "pdf_pages": [
+     238
+    ],
+    "body_sha1": "8c3d852bdab7a42954ff6a93c1bc2277032ee6e0"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2063__print_p112.txt",
+   "clause_texts/CG-2063__print_p238.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo de espaciado/salto de línea."
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2064",
+  "code_normalized": "1019105472017094002064",
+  "code_suffix": "2064",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE VIGENCIA A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 70,
+    "pdf_pages": [
+     113
+    ],
+    "body_sha1": "b9fea82620700c5bd0d411c1df31b0ec9e1a7f3e"
+   },
+   {
+    "order_in_bundle": 137,
+    "pdf_pages": [
+     186
+    ],
+    "body_sha1": "b9fea82620700c5bd0d411c1df31b0ec9e1a7f3e"
+   },
+   {
+    "order_in_bundle": 188,
+    "pdf_pages": [
+     239
+    ],
+    "body_sha1": "b9fea82620700c5bd0d411c1df31b0ec9e1a7f3e"
+   }
+  ],
+  "text_file": "clause_texts/CG-2064.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2065",
+  "code_normalized": "1019105472017094002065",
+  "code_suffix": "2065",
+  "title": "CLÁUSULA RESCISIÓN DEL CONTRATO A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 71,
+    "pdf_pages": [
+     114
+    ],
+    "body_sha1": "a8f91f1ab55b993554698078d711d3cd7cb3ba4a"
+   },
+   {
+    "order_in_bundle": 138,
+    "pdf_pages": [
+     187
+    ],
+    "body_sha1": "a8f91f1ab55b993554698078d711d3cd7cb3ba4a"
+   },
+   {
+    "order_in_bundle": 189,
+    "pdf_pages": [
+     240
+    ],
+    "body_sha1": "a8f91f1ab55b993554698078d711d3cd7cb3ba4a"
+   }
+  ],
+  "text_file": "clause_texts/CG-2065.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2066",
+  "code_normalized": "1019105472017094002066",
+  "code_suffix": "2066",
+  "title": "CLÁUSULA DE NO INSTALACIÓN DE DISPOSITIVOS DE SEGURIDAD (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 72,
+    "pdf_pages": [
+     115
+    ],
+    "body_sha1": "b6bf20a7f33e6a3351143ecb86195b5dbd1db701"
+   },
+   {
+    "order_in_bundle": 139,
+    "pdf_pages": [
+     188
+    ],
+    "body_sha1": "b6bf20a7f33e6a3351143ecb86195b5dbd1db701"
+   },
+   {
+    "order_in_bundle": 190,
+    "pdf_pages": [
+     241
+    ],
+    "body_sha1": "b6bf20a7f33e6a3351143ecb86195b5dbd1db701"
+   }
+  ],
+  "text_file": "clause_texts/CG-2066.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2067",
+  "code_normalized": "1019105472017094002067",
+  "code_suffix": "2067",
+  "title": "CLÁUSULA DE REPOSICIÓN DE PARTES Y/O PIEZAS EN ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 73,
+    "pdf_pages": [
+     116
+    ],
+    "body_sha1": "0d67f1074ea4e8820f5f01d9da281f8325ae666b"
+   },
+   {
+    "order_in_bundle": 140,
+    "pdf_pages": [
+     189
+    ],
+    "body_sha1": "0d67f1074ea4e8820f5f01d9da281f8325ae666b"
+   },
+   {
+    "order_in_bundle": 191,
+    "pdf_pages": [
+     242
+    ],
+    "body_sha1": "0d67f1074ea4e8820f5f01d9da281f8325ae666b"
+   }
+  ],
+  "text_file": "clause_texts/CG-2067.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2068",
+  "code_normalized": "1019105472017094002068",
+  "code_suffix": "2068",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA EXCLUSIÓN DE BOLSAS DE AIRE (AIR BAGS) (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 74,
+    "pdf_pages": [
+     117
+    ],
+    "body_sha1": "07f0c00164faf8b0b34d4a9afe856e7aca057c26"
+   },
+   {
+    "order_in_bundle": 141,
+    "pdf_pages": [
+     190
+    ],
+    "body_sha1": "07f0c00164faf8b0b34d4a9afe856e7aca057c26"
+   },
+   {
+    "order_in_bundle": 192,
+    "pdf_pages": [
+     243
+    ],
+    "body_sha1": "07f0c00164faf8b0b34d4a9afe856e7aca057c26"
+   }
+  ],
+  "text_file": "clause_texts/CG-2068.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2069",
+  "code_normalized": "1019105472017094002069",
+  "code_suffix": "2069",
+  "title": "CLÁUSULA DE ROBO AL CONTENIDO (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 75,
+    "pdf_pages": [
+     118
+    ],
+    "body_sha1": "e4739218a054d5d1e93c2f18660201697417d559"
+   },
+   {
+    "order_in_bundle": 142,
+    "pdf_pages": [
+     191
+    ],
+    "body_sha1": "a8143c8e62c17e20847c15c1a6f0755f940392c4"
+   },
+   {
+    "order_in_bundle": 193,
+    "pdf_pages": [
+     244
+    ],
+    "body_sha1": "711a7be133742840b48ae6a26421766aa3188a9a"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2069__print_p118.txt",
+   "clause_texts/CG-2069__print_p191.txt",
+   "clause_texts/CG-2069__print_p244.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo de espaciado/salto de línea."
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2070",
+  "code_normalized": "1019105472017094002070",
+  "code_suffix": "2070",
+  "title": "CLÁUSULA DE REPARACIONES Y/O RECONSTRUCCIONES INMEDIATAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 76,
+    "pdf_pages": [
+     119
+    ],
+    "body_sha1": "d1fbea8be0de2499689741e9d6a931b196103a53"
+   },
+   {
+    "order_in_bundle": 143,
+    "pdf_pages": [
+     192
+    ],
+    "body_sha1": "d1fbea8be0de2499689741e9d6a931b196103a53"
+   },
+   {
+    "order_in_bundle": 194,
+    "pdf_pages": [
+     245
+    ],
+    "body_sha1": "d1fbea8be0de2499689741e9d6a931b196103a53"
+   }
+  ],
+  "text_file": "clause_texts/CG-2070.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2071",
+  "code_normalized": "1019105472017094002071",
+  "code_suffix": "2071",
+  "title": "CLÁUSULA DE DAÑO ESTRUCTURAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 77,
+    "pdf_pages": [
+     120
+    ],
+    "body_sha1": "90d0aab978632af8f35d3ad7eaa2d0dec94f7222"
+   },
+   {
+    "order_in_bundle": 144,
+    "pdf_pages": [
+     193
+    ],
+    "body_sha1": "90d0aab978632af8f35d3ad7eaa2d0dec94f7222"
+   },
+   {
+    "order_in_bundle": 195,
+    "pdf_pages": [
+     246
+    ],
+    "body_sha1": "90d0aab978632af8f35d3ad7eaa2d0dec94f7222"
+   }
+  ],
+  "text_file": "clause_texts/CG-2071.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2072",
+  "code_normalized": "1019105472017094002072",
+  "code_suffix": "2072",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA PRIMA GANADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 78,
+    "pdf_pages": [
+     121
+    ],
+    "body_sha1": "cfbf5b428cf590a203355720c8faff3ac63a666d"
+   },
+   {
+    "order_in_bundle": 145,
+    "pdf_pages": [
+     194
+    ],
+    "body_sha1": "cfbf5b428cf590a203355720c8faff3ac63a666d"
+   },
+   {
+    "order_in_bundle": 196,
+    "pdf_pages": [
+     247
+    ],
+    "body_sha1": "cfbf5b428cf590a203355720c8faff3ac63a666d"
+   }
+  ],
+  "text_file": "clause_texts/CG-2072.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2073",
+  "code_normalized": "1019105472017094002073",
+  "code_suffix": "2073",
+  "title": "CLÁUSULA DE REDUCCIÓN DEL PLAZO PARA PRONUNCIARSE (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 79,
+    "pdf_pages": [
+     122
+    ],
+    "body_sha1": "a9d5a2736511ce17bfb96f499d0e372bce46cf2b"
+   },
+   {
+    "order_in_bundle": 146,
+    "pdf_pages": [
+     195
+    ],
+    "body_sha1": "a9d5a2736511ce17bfb96f499d0e372bce46cf2b"
+   },
+   {
+    "order_in_bundle": 197,
+    "pdf_pages": [
+     248
+    ],
+    "body_sha1": "a9d5a2736511ce17bfb96f499d0e372bce46cf2b"
+   }
+  ],
+  "text_file": "clause_texts/CG-2073.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2074",
+  "code_normalized": "1019105472017094002074",
+  "code_suffix": "2074",
+  "title": "CLÁUSULA DE REDUCCIÓN PARA EL PAGO DEL SINIESTRO (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 80,
+    "pdf_pages": [
+     123
+    ],
+    "body_sha1": "f79bed4c2638d4a5e4584e171c16dbe45e3541aa"
+   },
+   {
+    "order_in_bundle": 147,
+    "pdf_pages": [
+     196
+    ],
+    "body_sha1": "f79bed4c2638d4a5e4584e171c16dbe45e3541aa"
+   },
+   {
+    "order_in_bundle": 198,
+    "pdf_pages": [
+     249
+    ],
+    "body_sha1": "f79bed4c2638d4a5e4584e171c16dbe45e3541aa"
+   }
+  ],
+  "text_file": "clause_texts/CG-2074.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2075",
+  "code_normalized": "1019105472017094002075",
+  "code_suffix": "2075",
+  "title": "CLÁUSULA DE MEDIOS PROPIOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 81,
+    "pdf_pages": [
+     124
+    ],
+    "body_sha1": "e6a5be0606930fd06db6f97f31df5d89517660e8"
+   },
+   {
+    "order_in_bundle": 148,
+    "pdf_pages": [
+     197
+    ],
+    "body_sha1": "e6a5be0606930fd06db6f97f31df5d89517660e8"
+   },
+   {
+    "order_in_bundle": 199,
+    "pdf_pages": [
+     250
+    ],
+    "body_sha1": "e6a5be0606930fd06db6f97f31df5d89517660e8"
+   }
+  ],
+  "text_file": "clause_texts/CG-2075.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2076",
+  "code_normalized": "1019105472017094002076",
+  "code_suffix": "2076",
+  "title": "CLÁUSULA DE DAÑOS POR REMOLQUE (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 82,
+    "pdf_pages": [
+     125
+    ],
+    "body_sha1": "921d0f55323ae8d748092538409a949524718b9c"
+   },
+   {
+    "order_in_bundle": 149,
+    "pdf_pages": [
+     198
+    ],
+    "body_sha1": "921d0f55323ae8d748092538409a949524718b9c"
+   },
+   {
+    "order_in_bundle": 200,
+    "pdf_pages": [
+     251
+    ],
+    "body_sha1": "921d0f55323ae8d748092538409a949524718b9c"
+   }
+  ],
+  "text_file": "clause_texts/CG-2076.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2077",
+  "code_normalized": "1019105472017094002077",
+  "code_suffix": "2077",
+  "title": "CLÁUSULA DE GASTOS EXTRAORDINARIOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 83,
+    "pdf_pages": [
+     126
+    ],
+    "body_sha1": "2f373b1a3bfb167820af16d868f76b7702535854"
+   },
+   {
+    "order_in_bundle": 150,
+    "pdf_pages": [
+     199
+    ],
+    "body_sha1": "2f373b1a3bfb167820af16d868f76b7702535854"
+   },
+   {
+    "order_in_bundle": 201,
+    "pdf_pages": [
+     252
+    ],
+    "body_sha1": "2f373b1a3bfb167820af16d868f76b7702535854"
+   }
+  ],
+  "text_file": "clause_texts/CG-2077.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2078",
+  "code_normalized": "1019105472017094002078",
+  "code_suffix": "2078",
+  "title": "CLÁUSULA DE DAÑOS AL VEHÍCULO POR CARGA TRANSPORTADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 84,
+    "pdf_pages": [
+     127
+    ],
+    "body_sha1": "68fd91cde7d55a1f15a32a597bfc66242c8ad89e"
+   },
+   {
+    "order_in_bundle": 151,
+    "pdf_pages": [
+     200
+    ],
+    "body_sha1": "68fd91cde7d55a1f15a32a597bfc66242c8ad89e"
+   },
+   {
+    "order_in_bundle": 202,
+    "pdf_pages": [
+     253
+    ],
+    "body_sha1": "68fd91cde7d55a1f15a32a597bfc66242c8ad89e"
+   }
+  ],
+  "text_file": "clause_texts/CG-2078.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2079",
+  "code_normalized": "1019105472017094002079",
+  "code_suffix": "2079",
+  "title": "CLÁUSULA DE DAÑOS Y ROBO DE LOS VEHÍCULOS ASEGURADOS, OCASIONADOS POR CONFISCACIÓN, REQUISA, EXPROPIACIÓN, INCAUTACIÓN, DECOMISO O EMBARGO, SECUESTRO U OCUPACIÓN O RETENCIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 85,
+    "pdf_pages": [
+     128
+    ],
+    "body_sha1": "6ab74e3dd1478377b8b8360cb8fd4a0ed3c12ff3"
+   },
+   {
+    "order_in_bundle": 152,
+    "pdf_pages": [
+     201
+    ],
+    "body_sha1": "6ab74e3dd1478377b8b8360cb8fd4a0ed3c12ff3"
+   },
+   {
+    "order_in_bundle": 203,
+    "pdf_pages": [
+     254
+    ],
+    "body_sha1": "6ab74e3dd1478377b8b8360cb8fd4a0ed3c12ff3"
+   }
+  ],
+  "text_file": "clause_texts/CG-2079.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2080",
+  "code_normalized": "1019105472017094002080",
+  "code_suffix": "2080",
+  "title": "CLÁUSULA DE AVISO DE CANCELACIÓN POR PARTE DE LA ASEGURADORA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 86,
+    "pdf_pages": [
+     129
+    ],
+    "body_sha1": "37048693947341a88b670e5e19e72b36126cd9b5"
+   },
+   {
+    "order_in_bundle": 153,
+    "pdf_pages": [
+     202
+    ],
+    "body_sha1": "d7a7388437debc5826529fc489b85a0d0a078a38"
+   },
+   {
+    "order_in_bundle": 204,
+    "pdf_pages": [
+     255
+    ],
+    "body_sha1": "d7a7388437debc5826529fc489b85a0d0a078a38"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2080__print_p129.txt",
+   "clause_texts/CG-2080__print_p202.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo de espaciado/salto de línea."
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2081",
+  "code_normalized": "1019105472017094002081",
+  "code_suffix": "2081",
+  "title": "CLÁUSULA DE GASTOS Y COSTOS JUDICIALES (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 87,
+    "pdf_pages": [
+     130
+    ],
+    "body_sha1": "65530238a5dda8dd1f01acc90d105b5c42248ca4"
+   },
+   {
+    "order_in_bundle": 154,
+    "pdf_pages": [
+     203
+    ],
+    "body_sha1": "65530238a5dda8dd1f01acc90d105b5c42248ca4"
+   },
+   {
+    "order_in_bundle": 205,
+    "pdf_pages": [
+     256
+    ],
+    "body_sha1": "6b4a7c99ee5121325d34e262898e44f4e7a43140"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2081__print_p130.txt",
+   "clause_texts/CG-2081__print_p256.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo de espaciado/salto de línea."
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2082",
+  "code_normalized": "1019105472017094002082",
+  "code_suffix": "2082",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA PARA LOS OCUPANTES DEL VEHÍCULO ASEGURADO POR INHALACIÓN E INGESTIÓN DE GASES TÓXICOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 88,
+    "pdf_pages": [
+     131
+    ],
+    "body_sha1": "6ea162d5d828dd28e1014b012f70e9e54182ddcc"
+   },
+   {
+    "order_in_bundle": 155,
+    "pdf_pages": [
+     204
+    ],
+    "body_sha1": "6ea162d5d828dd28e1014b012f70e9e54182ddcc"
+   },
+   {
+    "order_in_bundle": 206,
+    "pdf_pages": [
+     257
+    ],
+    "body_sha1": "6ea162d5d828dd28e1014b012f70e9e54182ddcc"
+   }
+  ],
+  "text_file": "clause_texts/CG-2082.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2083",
+  "code_normalized": "1019105472017094002083",
+  "code_suffix": "2083",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE MÉDICOS, CENTROS MÉDICOS Y OTROS SERVICIOS AUXILIARES DE LA MEDICINA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 89,
+    "pdf_pages": [
+     132
+    ],
+    "body_sha1": "ad671573120901371bf4b4f8fa555eceadf0b275"
+   },
+   {
+    "order_in_bundle": 156,
+    "pdf_pages": [
+     205
+    ],
+    "body_sha1": "ad671573120901371bf4b4f8fa555eceadf0b275"
+   },
+   {
+    "order_in_bundle": 207,
+    "pdf_pages": [
+     258
+    ],
+    "body_sha1": "ad671573120901371bf4b4f8fa555eceadf0b275"
+   }
+  ],
+  "text_file": "clause_texts/CG-2083.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2084",
+  "code_normalized": "1019105472017094002084",
+  "code_suffix": "2084",
+  "title": "CLÁUSULA DE TRANSACCIÓN SIN JUICIO (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 90,
+    "pdf_pages": [
+     133
+    ],
+    "body_sha1": "139a3575a195f7b8b38f033536cfb0642c86a2fd"
+   },
+   {
+    "order_in_bundle": 157,
+    "pdf_pages": [
+     206
+    ],
+    "body_sha1": "139a3575a195f7b8b38f033536cfb0642c86a2fd"
+   },
+   {
+    "order_in_bundle": 208,
+    "pdf_pages": [
+     259
+    ],
+    "body_sha1": "139a3575a195f7b8b38f033536cfb0642c86a2fd"
+   }
+  ],
+  "text_file": "clause_texts/CG-2084.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2085",
+  "code_normalized": "1019105472017094002085",
+  "code_suffix": "2085",
+  "title": "CLÁUSULA DE NO SUBROGACIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 91,
+    "pdf_pages": [
+     134
+    ],
+    "body_sha1": "8257ca00e6233a583bedf94640540d2b22bbe32d"
+   },
+   {
+    "order_in_bundle": 158,
+    "pdf_pages": [
+     207
+    ],
+    "body_sha1": "8257ca00e6233a583bedf94640540d2b22bbe32d"
+   },
+   {
+    "order_in_bundle": 209,
+    "pdf_pages": [
+     260
+    ],
+    "body_sha1": "8257ca00e6233a583bedf94640540d2b22bbe32d"
+   }
+  ],
+  "text_file": "clause_texts/CG-2085.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2086",
+  "code_normalized": "1019105472017094002086",
+  "code_suffix": "2086",
+  "title": "CLÁUSULA DE NO APLICACIÓN DE LA CATEGORÍA “C” (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 92,
+    "pdf_pages": [
+     135
+    ],
+    "body_sha1": "786e1c75a8880f14082847f0dabf72d81fe44ee0"
+   },
+   {
+    "order_in_bundle": 159,
+    "pdf_pages": [
+     208
+    ],
+    "body_sha1": "786e1c75a8880f14082847f0dabf72d81fe44ee0"
+   },
+   {
+    "order_in_bundle": 210,
+    "pdf_pages": [
+     261
+    ],
+    "body_sha1": "786e1c75a8880f14082847f0dabf72d81fe44ee0"
+   }
+  ],
+  "text_file": "clause_texts/CG-2086.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2087",
+  "code_normalized": "1019105472017094002087",
+  "code_suffix": "2087",
+  "title": "CLÁUSULA DE DAÑOS PRODUCIDOS POR EL INGRESO DE AGUA A PARTES MECÁNICAS, ELECTROMECÁNICAS, ELÉCTRICAS Y COMBINADAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 93,
+    "pdf_pages": [
+     136
+    ],
+    "body_sha1": "17daec9744f7d2ec4c4cd5670d0f6d82899689d5"
+   },
+   {
+    "order_in_bundle": 160,
+    "pdf_pages": [
+     209
+    ],
+    "body_sha1": "17daec9744f7d2ec4c4cd5670d0f6d82899689d5"
+   },
+   {
+    "order_in_bundle": 211,
+    "pdf_pages": [
+     262
+    ],
+    "body_sha1": "17daec9744f7d2ec4c4cd5670d0f6d82899689d5"
+   }
+  ],
+  "text_file": "clause_texts/CG-2087.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2088",
+  "code_normalized": "1019105472017094002088",
+  "code_suffix": "2088",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA PARA PERDIDA TOTAL POR ROBO (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 94,
+    "pdf_pages": [
+     137
+    ],
+    "body_sha1": "ac80188de0d759f4c0c5cd151d2014b29613c005"
+   },
+   {
+    "order_in_bundle": 161,
+    "pdf_pages": [
+     210
+    ],
+    "body_sha1": "ac80188de0d759f4c0c5cd151d2014b29613c005"
+   },
+   {
+    "order_in_bundle": 212,
+    "pdf_pages": [
+     263
+    ],
+    "body_sha1": "ac80188de0d759f4c0c5cd151d2014b29613c005"
+   }
+  ],
+  "text_file": "clause_texts/CG-2088.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2089",
+  "code_normalized": "1019105472017094002089",
+  "code_suffix": "2089",
+  "title": "CLÁUSULA DE EXCESO DE CARGA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 95,
+    "pdf_pages": [
+     138
+    ],
+    "body_sha1": "fa013c2de934fb089a185939551b62f180b117cb"
+   },
+   {
+    "order_in_bundle": 162,
+    "pdf_pages": [
+     211
+    ],
+    "body_sha1": "fa013c2de934fb089a185939551b62f180b117cb"
+   },
+   {
+    "order_in_bundle": 213,
+    "pdf_pages": [
+     264
+    ],
+    "body_sha1": "fa013c2de934fb089a185939551b62f180b117cb"
+   }
+  ],
+  "text_file": "clause_texts/CG-2089.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2090",
+  "code_normalized": "1019105472017094002090",
+  "code_suffix": "2090",
+  "title": "CLÁUSULA DE GASTOS DE VIAJE POR SINIESTRO (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 96,
+    "pdf_pages": [
+     139
+    ],
+    "body_sha1": "17d4c4f84007bfbd12f7e9a470c6d73515366386"
+   },
+   {
+    "order_in_bundle": 163,
+    "pdf_pages": [
+     212
+    ],
+    "body_sha1": "17d4c4f84007bfbd12f7e9a470c6d73515366386"
+   },
+   {
+    "order_in_bundle": 214,
+    "pdf_pages": [
+     265
+    ],
+    "body_sha1": "17d4c4f84007bfbd12f7e9a470c6d73515366386"
+   }
+  ],
+  "text_file": "clause_texts/CG-2090.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2091",
+  "code_normalized": "1019105472017094002091",
+  "code_suffix": "2091",
+  "title": "CLÁUSULA DE PAGO POR PERMANENCIA EN GARAJES (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 97,
+    "pdf_pages": [
+     140
+    ],
+    "body_sha1": "4d39737921f3209827abcff6f1da9279099415e9"
+   },
+   {
+    "order_in_bundle": 164,
+    "pdf_pages": [
+     213
+    ],
+    "body_sha1": "4d39737921f3209827abcff6f1da9279099415e9"
+   },
+   {
+    "order_in_bundle": 215,
+    "pdf_pages": [
+     266
+    ],
+    "body_sha1": "4d39737921f3209827abcff6f1da9279099415e9"
+   }
+  ],
+  "text_file": "clause_texts/CG-2091.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2092",
+  "code_normalized": "1019105472017094002092",
+  "code_suffix": "2092",
+  "title": "CLÁUSULA DE GASTOS DE EVACUACIÓN PARA OCUPANTES (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 98,
+    "pdf_pages": [
+     141
+    ],
+    "body_sha1": "e4c8f49f167d1598d0104e132bb68fe52f686719"
+   },
+   {
+    "order_in_bundle": 165,
+    "pdf_pages": [
+     214
+    ],
+    "body_sha1": "e4c8f49f167d1598d0104e132bb68fe52f686719"
+   },
+   {
+    "order_in_bundle": 216,
+    "pdf_pages": [
+     267
+    ],
+    "body_sha1": "e4c8f49f167d1598d0104e132bb68fe52f686719"
+   }
+  ],
+  "text_file": "clause_texts/CG-2092.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2093",
+  "code_normalized": "1019105472017094002093",
+  "code_suffix": "2093",
+  "title": "CLÁUSULA DE BENEFICIO DE CONDUCTOR PROFESIONAL “TIPO B” (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 99,
+    "pdf_pages": [
+     142
+    ],
+    "body_sha1": "fd810e1abaa8d8e1288b5ef20a1089df316f9259"
+   },
+   {
+    "order_in_bundle": 166,
+    "pdf_pages": [
+     215
+    ],
+    "body_sha1": "fd810e1abaa8d8e1288b5ef20a1089df316f9259"
+   },
+   {
+    "order_in_bundle": 217,
+    "pdf_pages": [
+     268
+    ],
+    "body_sha1": "fd810e1abaa8d8e1288b5ef20a1089df316f9259"
+   }
+  ],
+  "text_file": "clause_texts/CG-2093.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2094",
+  "code_normalized": "1019105472017094002094",
+  "code_suffix": "2094",
+  "title": "CLÁUSULA DE FÁRMACOS MEDICADOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 100,
+    "pdf_pages": [
+     143
+    ],
+    "body_sha1": "46273cc84b0cf433146fc74f58ecb77b8b0f0bdb"
+   },
+   {
+    "order_in_bundle": 167,
+    "pdf_pages": [
+     216
+    ],
+    "body_sha1": "46273cc84b0cf433146fc74f58ecb77b8b0f0bdb"
+   },
+   {
+    "order_in_bundle": 218,
+    "pdf_pages": [
+     269
+    ],
+    "body_sha1": "46273cc84b0cf433146fc74f58ecb77b8b0f0bdb"
+   }
+  ],
+  "text_file": "clause_texts/CG-2094.txt"
+ },
+ {
+  "code": "101 – 910547 - 2017 09 400 2095",
+  "code_normalized": "1019105472017094002095",
+  "code_suffix": "2095",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL PERIODO DE DISCREPANCIAS EN LA PÓLIZA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 101,
+    "pdf_pages": [
+     144
+    ],
+    "body_sha1": "f4bcf94c3927b4b66307e2149e6802f3189f09e1"
+   },
+   {
+    "order_in_bundle": 168,
+    "pdf_pages": [
+     217
+    ],
+    "body_sha1": "f4bcf94c3927b4b66307e2149e6802f3189f09e1"
+   },
+   {
+    "order_in_bundle": 219,
+    "pdf_pages": [
+     270
+    ],
+    "body_sha1": "f4bcf94c3927b4b66307e2149e6802f3189f09e1"
+   }
+  ],
+  "text_file": "clause_texts/CG-2095.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2096",
+  "code_normalized": "1019105472017094002096",
+  "code_suffix": "2096",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE LA COBERTURA DE ACCIDENTES PERSONALES A OCUPANTES POR VEHÍCULO (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 102,
+    "pdf_pages": [
+     145
+    ],
+    "body_sha1": "c7c565d7453e1b43e1cf189f99b08d07f3665ed9"
+   },
+   {
+    "order_in_bundle": 169,
+    "pdf_pages": [
+     218
+    ],
+    "body_sha1": "c7c565d7453e1b43e1cf189f99b08d07f3665ed9"
+   },
+   {
+    "order_in_bundle": 220,
+    "pdf_pages": [
+     271
+    ],
+    "body_sha1": "c7c565d7453e1b43e1cf189f99b08d07f3665ed9"
+   }
+  ],
+  "text_file": "clause_texts/CG-2096.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2097",
+  "code_normalized": "1019105472017094002097",
+  "code_suffix": "2097",
+  "title": "CLÁUSULA DE PAGO DE PRIMA EN CUOTAS MENSUALES",
+  "prints": [
+   {
+    "order_in_bundle": 103,
+    "pdf_pages": [
+     146
+    ],
+    "body_sha1": "d70c751e6297135bb8195da3b9978de4d3386125"
+   },
+   {
+    "order_in_bundle": 117,
+    "pdf_pages": [
+     164
+    ],
+    "body_sha1": "d70c751e6297135bb8195da3b9978de4d3386125"
+   }
+  ],
+  "text_file": "clause_texts/CG-2097.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2098",
+  "code_normalized": "1019105472017094002098",
+  "code_suffix": "2098",
+  "title": "ANEXO DE CONDICIONES ESPECIALES PARA LA PÓLIZA DE SEGURO DE AUTOMOTORES DE YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS",
+  "prints": [
+   {
+    "order_in_bundle": 105,
+    "pdf_pages": [
+     149,
+     150
+    ],
+    "body_sha1": "dc0eb2dc4be2325f2b4b1e184448fc228069e4d1"
+   },
+   {
+    "order_in_bundle": 108,
+    "pdf_pages": [
+     153,
+     154,
+     155
+    ],
+    "body_sha1": "dc0eb2dc4be2325f2b4b1e184448fc228069e4d1"
+   }
+  ],
+  "text_file": "clause_texts/CG-2098.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2099",
+  "code_normalized": "1019105472017094002099",
+  "code_suffix": "2099",
+  "title": "ANEXO ADICIONAL PARA LA PÓLIZA DE SEGURO DE AUTOMOTORES DE YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS",
+  "prints": [
+   {
+    "order_in_bundle": 123,
+    "pdf_pages": [
+     171
+    ],
+    "body_sha1": "665fa9da20c0199e5dd302652dcd530ce62d5ff5"
+   }
+  ],
+  "text_file": "clause_texts/CG-2099.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2100",
+  "code_normalized": "1019105472017094002100",
+  "code_suffix": "2100",
+  "title": "CLÁUSULA DE INDEMNIZACIÓN DE CUOTAS",
+  "prints": [
+   {
+    "order_in_bundle": 104,
+    "pdf_pages": [
+     147,
+     148
+    ],
+    "body_sha1": "aa4469bd7d74a8d1b24886fbf29f8887e880e597"
+   },
+   {
+    "order_in_bundle": 221,
+    "pdf_pages": [
+     272,
+     273
+    ],
+    "body_sha1": "838fa34e5198fe77113e265484c9925b6b47bbd1"
+   }
+  ],
+  "text_files": [
+   "clause_texts/CG-2100__print_p147.txt",
+   "clause_texts/CG-2100__print_p272.txt"
+  ],
+  "reprint_text_variation": "presentational",
+  "reprint_variation_note": "Diferencias solo de espaciado/salto de línea."
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2101",
+  "code_normalized": "1019105472017094002101",
+  "code_suffix": "2101",
+  "title": "CLÁUSULA DE REPARACIONES Y/O COMPRA DE REPUESTOS URGENTES (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 106,
+    "pdf_pages": [
+     151
+    ],
+    "body_sha1": "0ba9e988680e6177405a425104a0dc69f923ed76"
+   },
+   {
+    "order_in_bundle": 109,
+    "pdf_pages": [
+     156
+    ],
+    "body_sha1": "0ba9e988680e6177405a425104a0dc69f923ed76"
+   }
+  ],
+  "text_file": "clause_texts/CG-2101.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2102",
+  "code_normalized": "1019105472017094002102",
+  "code_suffix": "2102",
+  "title": "PÓLIZA DE SEGURO DE AUTOMOTORES LBC-AUTO (INDIVIDUAL / FLOTA) ANEXO DE LIQUIDACION DE COBRANZA",
+  "prints": [
+   {
+    "order_in_bundle": 224,
+    "pdf_pages": [
+     276
+    ],
+    "body_sha1": "55d74932dbb41d86a7860a55e9aa81ba06b135b4"
+   }
+  ],
+  "text_file": "clause_texts/CG-2102.txt"
+ },
+ {
+  "code": "101 – 910547 2017 09 400 2103",
+  "code_normalized": "1019105472017094002103",
+  "code_suffix": "2103",
+  "title": "CLÁUSULA DE COBERTURA POR DAÑOS A CAUSA DE RIESGOS POLITICOS EN GENERAL - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 110,
+    "pdf_pages": [
+     157
+    ],
+    "body_sha1": "d870cf451195647d3744b237ceb5359747fb0c44"
+   }
+  ],
+  "text_file": "clause_texts/CG-2103.txt"
+ },
+ {
+  "code": "101 – 910547 2017 09 400 2104",
+  "code_normalized": "1019105472017094002104",
+  "code_suffix": "2104",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL BENEFICIO DE USO DE REMOLQUE, GRUA O TRANSPORTE DEL VEHÍCULO - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 111,
+    "pdf_pages": [
+     158
+    ],
+    "body_sha1": "caa0f14b11b0acdfca817fcd623bbea2cc2443f6"
+   }
+  ],
+  "text_file": "clause_texts/CG-2104.txt"
+ },
+ {
+  "code": "101 – 910547 2017 09 400 2105",
+  "code_normalized": "1019105472017094002105",
+  "code_suffix": "2105",
+  "title": "CLÁUSULA DE COBERTURA POR ESTADÍA Y DESPLAZAMIENTO POR LA INMOVILIZACIÓN Y/O ROBO DEL VEHÍCULO - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 112,
+    "pdf_pages": [
+     159
+    ],
+    "body_sha1": "1c53efe4bfd09f9417af6ab281aa13060db8c80c"
+   }
+  ],
+  "text_file": "clause_texts/CG-2105.txt"
+ },
+ {
+  "code": "101 – 910547 2017 09 400 2106",
+  "code_normalized": "1019105472017094002106",
+  "code_suffix": "2106",
+  "title": "CLÁUSULA DE LOCALIZACIÓN Y ENVÍO DE PIEZAS DE RECAMBIO NECESARIAS PARA LA REPARACIÓN CUANDO NO FUERA POSIBLE SU OBTENCIÓN - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 113,
+    "pdf_pages": [
+     160
+    ],
+    "body_sha1": "3c4e6714e661937c2c0d0ef34212694be3140b4b"
+   }
+  ],
+  "text_file": "clause_texts/CG-2106.txt"
+ },
+ {
+  "code": "101 – 910547 2017 09 400 2107",
+  "code_normalized": "1019105472017094002107",
+  "code_suffix": "2107",
+  "title": "CLÁUSULA DE SERVICIO DE ASISTENCIA JURÍDICA EN CASO DE SINIESTRO TIPO C - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 114,
+    "pdf_pages": [
+     161
+    ],
+    "body_sha1": "d5efa6b740c2c0b6b481fe9f7d60b8d4ffef4447"
+   }
+  ],
+  "text_file": "clause_texts/CG-2107.txt"
+ },
+ {
+  "code": "101 – 910547 2017 09 400 2108",
+  "code_normalized": "1019105472017094002108",
+  "code_suffix": "2108",
+  "title": "CLÁUSULA DE TRANSMISIÓN DE MENSAJES URGENTES - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 115,
+    "pdf_pages": [
+     162
+    ],
+    "body_sha1": "7a9a9036501b5d1f8ca62ffd875122682c886dd5"
+   }
+  ],
+  "text_file": "clause_texts/CG-2108.txt"
+ },
+ {
+  "code": "101 – 910547 2017 09 400 2109",
+  "code_normalized": "1019105472017094002109",
+  "code_suffix": "2109",
+  "title": "CLÁUSULA DE REPUESTOS, PARTES Y PIEZAS NUEVAS Y GENUINAS - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 116,
+    "pdf_pages": [
+     163
+    ],
+    "body_sha1": "90d16149902031ea9a6e8fb32abdba6004b0d6f8"
+   }
+  ],
+  "text_file": "clause_texts/CG-2109.txt"
+ },
+ {
+  "code": "101 - 910547 - 2017 09 400 2110",
+  "code_normalized": "1019105472017094002110",
+  "code_suffix": "2110",
+  "title": "CLÁUSULA DE INDEMNIZACIÓN POR ROBO AL CONTENIDO",
+  "prints": [
+   {
+    "order_in_bundle": 118,
+    "pdf_pages": [
+     165
+    ],
+    "body_sha1": "bdb582be02c033ca776585c986480876105a35fb"
+   },
+   {
+    "order_in_bundle": 222,
+    "pdf_pages": [
+     274
+    ],
+    "body_sha1": "bdb582be02c033ca776585c986480876105a35fb"
+   }
+  ],
+  "text_file": "clause_texts/CG-2110.txt"
+ },
+ {
+  "code": "101 - 910547 - 2017 09 400 2111",
+  "code_normalized": "1019105472017094002111",
+  "code_suffix": "2111",
+  "title": "CLÁUSULA ADICIONAL DE PAGO DE PRIMA POR KILOMETRAJE RECORRIDO",
+  "prints": [
+   {
+    "order_in_bundle": 119,
+    "pdf_pages": [
+     166
+    ],
+    "body_sha1": "e72add3ad5173b2c3462411e118d2ff8c87ce865"
+   },
+   {
+    "order_in_bundle": 223,
+    "pdf_pages": [
+     275
+    ],
+    "body_sha1": "e72add3ad5173b2c3462411e118d2ff8c87ce865"
+   }
+  ],
+  "text_file": "clause_texts/CG-2111.txt"
+ },
+ {
+  "code": "101 -910547 – 2017 09 400 2112",
+  "code_normalized": "1019105472017094002112",
+  "code_suffix": "2112",
+  "title": "CLÁUSULA DE VALOR ADMITIDO – PARA USO EXCLUSIVO DE LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 229,
+    "pdf_pages": [
+     281
+    ],
+    "body_sha1": "e39dc5d8997b797a8510359e134d4e8e75a87b3b"
+   }
+  ],
+  "text_file": "clause_texts/CG-2112.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2113",
+  "code_normalized": "1019105472017094002113",
+  "code_suffix": "2113",
+  "title": "CLÁUSULA DE GASTOS DE ACELERACIÓN DE REPARACION EN CASO DE SINIESTRO - PARA USO EXCLUSIVO EN LICITACIONES. (Aplica a todas las Secciones)",
+  "prints": [
+   {
+    "order_in_bundle": 225,
+    "pdf_pages": [
+     277
+    ],
+    "body_sha1": "6ee847d48e3531bfa1d5cf7d8a8f83a2453ca265"
+   }
+  ],
+  "text_file": "clause_texts/CG-2113.txt",
+  "word_comments_artifacts": [
+   "Comentado [VS1]: P.PORTAFOLIO DINÁMICO SINIESTRO - PARA USO EXCLUSIVO EN LICITACIONES. (Aplica a todas las Secciones)"
+  ]
+ },
+ {
+  "code": "101 - 910547 – 2017 09 400 2114",
+  "code_normalized": "1019105472017094002114",
+  "code_suffix": "2114",
+  "title": "CLÁUSULA DE REHABILITACIÓN DE LA SUMA ASEGURADA",
+  "prints": [
+   {
+    "order_in_bundle": 226,
+    "pdf_pages": [
+     278
+    ],
+    "body_sha1": "bf95159fc760399d3fd385077644c54856d879e0"
+   }
+  ],
+  "text_file": "clause_texts/CG-2114.txt"
+ },
+ {
+  "code": "101 - 910547 – 2017 09 400 2115",
+  "code_normalized": "1019105472017094002115",
+  "code_suffix": "2115",
+  "title": "CLAUSULA DE PÉRDIDAS MIENTRAS EL VEHÍCULO SEA TRANSPORTADO SOBRE CAMIÓN",
+  "prints": [
+   {
+    "order_in_bundle": 227,
+    "pdf_pages": [
+     279
+    ],
+    "body_sha1": "d86ed39047639d4e5e428f0f92193bb05999b36f"
+   }
+  ],
+  "text_file": "clause_texts/CG-2115.txt"
+ },
+ {
+  "code": "101 - 910547 – 2017 09 400 2116",
+  "code_normalized": "1019105472017094002116",
+  "code_suffix": "2116",
+  "title": "CLAUSULA DE GASTOS POR PERMANENCIA Y/O CUSTODIA EN GARAJES Y/O DEPÓSITOS OFICIALES DE TRÁNSITO Y/O SALVAGUARDA Y/O TRANSPORTE Y/O TRASLADO",
+  "prints": [
+   {
+    "order_in_bundle": 228,
+    "pdf_pages": [
+     280
+    ],
+    "body_sha1": "0ff24256fb078c974376fe13c360f4f24767d224"
+   }
+  ],
+  "text_file": "clause_texts/CG-2116.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2117",
+  "code_normalized": "1019105472017094002117",
+  "code_suffix": "2117",
+  "title": "CLÁUSULA DE RESPONSABILIDAD CIVIL, POR PERSONA EN CASO DE FALLECIMIENTO (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 230,
+    "pdf_pages": [
+     282
+    ],
+    "body_sha1": "c8445b3ce67629aafb1f53df1061cd7d36754a89"
+   }
+  ],
+  "text_file": "clause_texts/CG-2117.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2118",
+  "code_normalized": "1019105472017094002118",
+  "code_suffix": "2118",
+  "title": "CLÁUSULA DE PERMISO PARA TRASLADO DE COMBUSTIBLE Y/O PRODUCTOS TÓXICOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 231,
+    "pdf_pages": [
+     283
+    ],
+    "body_sha1": "63f49b9b27602de613aa42057a5a0f025c34f6a2"
+   }
+  ],
+  "text_file": "clause_texts/CG-2118.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2119",
+  "code_normalized": "1019105472017094002119",
+  "code_suffix": "2119",
+  "title": "CLÁUSULA DE RENUNCIA AL DERECHO DE REPETIR CONTRA CONDUCTORES DE AMBULANCIAS POR CASOS DE EMERGENCIA (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 232,
+    "pdf_pages": [
+     284
+    ],
+    "body_sha1": "60bc8d14b4357244e29df9cc9ad7a161901f24fd"
+   }
+  ],
+  "text_file": "clause_texts/CG-2119.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2120",
+  "code_normalized": "1019105472017094002120",
+  "code_suffix": "2120",
+  "title": "CLÁUSULA DE COBERTURA 24 HORAS DEL DÍA Y 365 DÍAS DEL AÑO, SIN LIMITACIÓN Y/O RESTRICCIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 233,
+    "pdf_pages": [
+     285
+    ],
+    "body_sha1": "b718b82145f8c6d855a2d22e1e73b2e2d8bcc285"
+   }
+  ],
+  "text_file": "clause_texts/CG-2120.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2121",
+  "code_normalized": "1019105472017094002121",
+  "code_suffix": "2121",
+  "title": "CLÁUSULA DE TRANSPORTE Y/O REPATRIACIÓN DEL CONDUCTOR U OCUPANTE(S) ACCIDENTADOS Y/O FALLECIDO(S) (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 234,
+    "pdf_pages": [
+     286
+    ],
+    "body_sha1": "6c2ed7f1e7ac583e2892a13005be43aa35863b1e"
+   }
+  ],
+  "text_file": "clause_texts/CG-2121.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2122",
+  "code_normalized": "1019105472017094002122",
+  "code_suffix": "2122",
+  "title": "CLÁUSULA DE BENEFICIO ADICIONAL PAGO DE HOSPEDAJE Y/O TRASLADO O TRANSPORTE DE LOS OCUPANTES DEL VEHÍCULO A CENTROS MÉDICOS O A SU DOMICILIO EN CASO DE ACCIDENTE (USO EXCLUSIVO PARA LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 235,
+    "pdf_pages": [
+     287
+    ],
+    "body_sha1": "835865fa3140c4fc700b00ddbde4ecaff01b6ac0"
+   }
+  ],
+  "text_file": "clause_texts/CG-2122.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2123",
+  "code_normalized": "1019105472017094002123",
+  "code_suffix": "2123",
+  "title": "CLÁUSULA DE COBERTURA PARA TRANSPORTE DE PERSONAS EN CARROCERÍA PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 236,
+    "pdf_pages": [
+     288
+    ],
+    "body_sha1": "a7ac1a376bbc3db3ac403fd60a056f82bd4e0e49"
+   }
+  ],
+  "text_file": "clause_texts/CG-2123.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2124",
+  "code_normalized": "1019105472017094002124",
+  "code_suffix": "2124",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE COBERTURA PARA CUBRIR DAÑOS A LOS VIDRIOS DEL VEHÍCULO ASEGURADO A CONSECUENCIA DE CAMBIOS CLIMATOLÓGICOS - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 237,
+    "pdf_pages": [
+     289
+    ],
+    "body_sha1": "1ba515b4a182ece15a4a4497ff158334881de524"
+   }
+  ],
+  "text_file": "clause_texts/CG-2124.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2125",
+  "code_normalized": "1019105472017094002125",
+  "code_suffix": "2125",
+  "title": "CLÁUSULA DE CONSERVACIÓN DE TÉRMINOS Y CONDICIONES DE LA PÓLIZA PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 238,
+    "pdf_pages": [
+     290
+    ],
+    "body_sha1": "1a4abb8fdaa15fbfecd5b4b0832772d2617d70cc"
+   }
+  ],
+  "text_file": "clause_texts/CG-2125.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2126",
+  "code_normalized": "1019105472017094002126",
+  "code_suffix": "2126",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LOS REQUISITOS DE LA PRUEBA DE ALCOHOLEMIA Y DENUNCIA POLICIAL EN ÁREAS RURALES - PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 239,
+    "pdf_pages": [
+     291
+    ],
+    "body_sha1": "7c6cc6ec8eeb944cd9b4d114a2d4dfec53e45c46"
+   }
+  ],
+  "text_file": "clause_texts/CG-2126.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2127",
+  "code_normalized": "1019105472017094002127",
+  "code_suffix": "2127",
+  "title": "CLAUSULA DE BENEFICIO DE SERVICIOS COMPLEMENTARIOS DE ASISTENCIA AL VEHÍCULO Y OCUPANTES PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 240,
+    "pdf_pages": [
+     292,
+     293
+    ],
+    "body_sha1": "145b299cecc350290494c4b5dabf8a4b999cda6c"
+   }
+  ],
+  "text_file": "clause_texts/CG-2127.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2128",
+  "code_normalized": "1019105472017094002128",
+  "code_suffix": "2128",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA DENUNCIA A TRÁNSITO PARA USO EXCLUSIVO EN LICITACIONES",
+  "prints": [
+   {
+    "order_in_bundle": 241,
+    "pdf_pages": [
+     294
+    ],
+    "body_sha1": "746698f81c85cdb6b00ef159684893ae083dac3e"
+   }
+  ],
+  "text_file": "clause_texts/CG-2128.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2129",
+  "code_normalized": "1019105472017094002129",
+  "code_suffix": "2129",
+  "title": "CLÁUSULA DE PAGO DE HOSPEDAJE A LOS OCUPANTES POR FALLAS MECÁNICAS O ACCIDENTES",
+  "prints": [
+   {
+    "order_in_bundle": 242,
+    "pdf_pages": [
+     295
+    ],
+    "body_sha1": "bafc5fe78e50c7a499bfcd9b05fe57de829aee36"
+   }
+  ],
+  "text_file": "clause_texts/CG-2129.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2130",
+  "code_normalized": "1019105472017094002130",
+  "code_suffix": "2130",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL (Personas Naturales)",
+  "prints": [
+   {
+    "order_in_bundle": 243,
+    "pdf_pages": [
+     296
+    ],
+    "body_sha1": "7e10afa74bdb643e24d421eaa9d3a4c201f1b813"
+   }
+  ],
+  "text_file": "clause_texts/CG-2130.txt"
+ },
+ {
+  "code": "101-910547-2017 09 400 2132",
+  "code_normalized": "1019105472017094002132",
+  "code_suffix": "2132",
+  "title": "Cláusula de No Exclusión de Gastos Médicos (Para Uso Exclusivo en Licitaciones)",
+  "prints": [
+   {
+    "order_in_bundle": 244,
+    "pdf_pages": [
+     297
+    ],
+    "body_sha1": "8d0d1d6cba3c25e4122c753b3f6ca49431e1b9b3"
+   }
+  ],
+  "text_file": "clause_texts/CG-2132.txt"
+ },
+ {
+  "code": "101-910547-2017 09 400 2133",
+  "code_normalized": "1019105472017094002133",
+  "code_suffix": "2133",
+  "title": "Cláusula de No Aplicación de Aranceles Médicos (Para Uso Exclusivo en Licitaciones)",
+  "prints": [
+   {
+    "order_in_bundle": 245,
+    "pdf_pages": [
+     298
+    ],
+    "body_sha1": "d4fd0f3a12dd30a41c8f916fde091c3fc54452ee"
+   }
+  ],
+  "text_file": "clause_texts/CG-2133.txt"
+ },
+ {
+  "code": "101-910547-2017 09 400 2134",
+  "code_normalized": "1019105472017094002134",
+  "code_suffix": "2134",
+  "title": "Cláusula de Errores y/u Omisiones (Para Uso Exclusivo en Licitaciones)",
+  "prints": [
+   {
+    "order_in_bundle": 246,
+    "pdf_pages": [
+     299
+    ],
+    "body_sha1": "c10b0a93e87353b5b644f3015569b36d00c52a43"
+   }
+  ],
+  "text_file": "clause_texts/CG-2134.txt"
+ },
+ {
+  "code": "101-910547-2017 09 400 2135",
+  "code_normalized": "1019105472017094002135",
+  "code_suffix": "2135",
+  "title": "Cláusula Resolución del Contrato a Prorrata (Para Uso Exclusivo en Licitaciones)",
+  "prints": [
+   {
+    "order_in_bundle": 247,
+    "pdf_pages": [
+     300
+    ],
+    "body_sha1": "831ad73e1ae3587fe98fe9367660de2bc4de501a"
+   }
+  ],
+  "text_file": "clause_texts/CG-2135.txt"
+ },
+ {
+  "code": "101-910547-2017 09 400 2136",
+  "code_normalized": "1019105472017094002136",
+  "code_suffix": "2136",
+  "title": "Cláusula de Extensión de Cobertura en caso de Extravío de la Licencia de Conducir (Para uso exclusivo en Licitaciones)",
+  "prints": [
+   {
+    "order_in_bundle": 248,
+    "pdf_pages": [
+     300,
+     301
+    ],
+    "body_sha1": "53453d4a5eb09548c57d5ce1568ecbf0e7d6b5db"
+   }
+  ],
+  "text_file": "clause_texts/CG-2136.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2137",
+  "code_normalized": "1019105472017094002137",
+  "code_suffix": "2137",
+  "title": "Cláusula de Extensión de Cobertura Para Daños a los Vehículos Asegurados que Ingresen al Interior de Mina. (Para Uso Exclusivo En Licitaciones).",
+  "prints": [
+   {
+    "order_in_bundle": 249,
+    "pdf_pages": [
+     301,
+     302
+    ],
+    "body_sha1": "be9829954796faa922ee385af24aa7c4658d421e"
+   }
+  ],
+  "text_file": "clause_texts/CG-2137.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2138",
+  "code_normalized": "1019105472017094002138",
+  "code_suffix": "2138",
+  "title": "Cláusula de Cobertura para Daños por el Uso de Material Explosivo Y Sustancias Químicas (Para Uso Exclusivo En Licitaciones)",
+  "prints": [
+   {
+    "order_in_bundle": 250,
+    "pdf_pages": [
+     303
+    ],
+    "body_sha1": "3caf80b0fbda37128f975c7f1e5f9fe6d70eb43e"
+   }
+  ],
+  "text_file": "clause_texts/CG-2138.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2139",
+  "code_normalized": "1019105472017094002139",
+  "code_suffix": "2139",
+  "title": "Cláusula de Cobertura en Caso de Extravío de Licencia de Conducir (Para Uso Exclusivo en Licitaciones)",
+  "prints": [
+   {
+    "order_in_bundle": 251,
+    "pdf_pages": [
+     304
+    ],
+    "body_sha1": "6e4467c48914aae04eeb41fc0081e349f01a513a"
+   }
+  ],
+  "text_file": "clause_texts/CG-2139.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2140",
+  "code_normalized": "1019105472017094002140",
+  "code_suffix": "2140",
+  "title": "Cláusula de No Aplicación de Aranceles Médicos (Para Uso Exclusivo en Licitaciones)",
+  "prints": [
+   {
+    "order_in_bundle": 252,
+    "pdf_pages": [
+     305
+    ],
+    "body_sha1": "fa7c9eae07dfa19d16e088baed7cfd101d1fdf34"
+   }
+  ],
+  "text_file": "clause_texts/CG-2140.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2141",
+  "code_normalized": "1019105472017094002141",
+  "code_suffix": "2141",
+  "title": "Cláusula de Cobertura para Gastos Médicos (Para Uso Exclusivo en Licitaciones)",
+  "prints": [
+   {
+    "order_in_bundle": 253,
+    "pdf_pages": [
+     306
+    ],
+    "body_sha1": "72f2372f18c385a608d4f047aea9033eb6e1a774"
+   }
+  ],
+  "text_file": "clause_texts/CG-2141.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2142",
+  "code_normalized": "1019105472017094002142",
+  "code_suffix": "2142",
+  "title": "CLÁUSULA DE INDEMNIZACIÓN POR INGRESO EN TALLERES A CAUSA DE ACCIDENTES DE TRÁNSITO",
+  "prints": [
+   {
+    "order_in_bundle": 254,
+    "pdf_pages": [
+     307
+    ],
+    "body_sha1": "a815bb348bae049fd811d66ba6456f820e0f6fbe"
+   }
+  ],
+  "text_file": "clause_texts/CG-2142.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2143",
+  "code_normalized": "1019105472017094002143",
+  "code_suffix": "2143",
+  "title": "CLÁUSULA DE COBERTURA DE ASISTENCIA JURÍDICA A REEMBOLSO",
+  "prints": [
+   {
+    "order_in_bundle": 255,
+    "pdf_pages": [
+     308
+    ],
+    "body_sha1": "edeff776dd110dcef8e43cf1da1c5e52132e95d5"
+   }
+  ],
+  "text_file": "clause_texts/CG-2143.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2144",
+  "code_normalized": "1019105472017094002144",
+  "code_suffix": "2144",
+  "title": "CLÁUSULA VARIACIÓN DEL CAPITAL ASEGURADO A PRORRATA (PARA USO EXCLUSIVO EN LICITACIONES)",
+  "prints": [
+   {
+    "order_in_bundle": 256,
+    "pdf_pages": [
+     309
+    ],
+    "body_sha1": "2e6cb613a87d46bcccf717dbbaf84310a52fd24c"
+   }
+  ],
+  "text_file": "clause_texts/CG-2144.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2145",
+  "code_normalized": "1019105472017094002145",
+  "code_suffix": "2145",
+  "title": "CLÁUSULA DE RESCISIÓN, MODIFICACIÓN",
+  "prints": [
+   {
+    "order_in_bundle": 257,
+    "pdf_pages": [
+     310
+    ],
+    "body_sha1": "4c961a162329007cc8aa22c68da9baa59b74582d"
+   }
+  ],
+  "text_file": "clause_texts/CG-2145.txt"
+ },
+ {
+  "code": "101 – 910547 – 2017 09 400 2147",
+  "code_normalized": "1019105472017094002147",
+  "code_suffix": "2147",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE LA LIMITACIÓN DE EDAD MÍNIMA",
+  "prints": [
+   {
+    "order_in_bundle": 258,
+    "pdf_pages": [
+     311
+    ],
+    "body_sha1": "b0e568fcca01e3f24e099856de6118806f7d2572"
+   }
+  ],
+  "text_file": "clause_texts/CG-2147.txt"
+ }
+]

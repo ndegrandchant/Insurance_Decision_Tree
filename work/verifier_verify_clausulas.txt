@@ -1,0 +1,1 @@
+Base policy fully checked. Now document.json structure boundaries and code inventory.

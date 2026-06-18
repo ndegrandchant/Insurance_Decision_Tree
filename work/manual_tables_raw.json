@@ -1,0 +1,847 @@
+{
+ "13": [
+  [
+   [
+    "",
+    "",
+    "",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Manual de Lineamientos de Suscripción Automotores",
+    null,
+    "Versión 3.0",
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    "Página 6",
+    null
+   ]
+  ],
+  [
+   [
+    "Suscriptor",
+    "",
+    "Cantidad máxima",
+    "",
+    "Valor Asegurado máximo\npor vehículo (BOB)"
+   ],
+   [
+    null,
+    null,
+    "de vehículos por",
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    "Póliza",
+    null,
+    null
+   ],
+   [
+    "Manuel Sauma No aplica 3.480.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Yasmin Rendón No aplica 3.480.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Santiago Bustillos No aplica 3.480.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "José Carlos López 150 2.100.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Marco Rada 150 1.750.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Maribel Aruquipa 150 1.750.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Ricardo Velarde 150 1.750.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Vania Saucedo 150 1.750.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Paola Aguilar 150 1.750.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Lizeth Ríos 100 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Fernando Roca 20 1.750.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Juan Pablo Camacho 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Maria Alejandra Gil 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Gonzalo Galarza 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Verónica Suárez 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Roxana Vaca 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Daniel Tirado 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Edward Bellido 05 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Carmen Balderas 05 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Paola Rocha 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Vanessa García 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Katia Barreal 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Patricia Inchauste 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Carla Valle 20 1.400.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Sandra Terán 05 1.050.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Arnold Vaca 05 1.050.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Mariela Méndez 05 700.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Tatiana Ticona 05 700.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Geovanna Moruco 05 700.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Wildo Castellanos 05 700.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Ninoska Martinez 01 490.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Elizabeth Suarez 01 490.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "José Mercado 01 490.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Natalia Jijena 01 490.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Manuel Sabag 01 490.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Ana Arauz 01 490.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Airton Garcia 01 490.000,00",
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Julio Guerrero 01 490.000,00",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  [
+   [
+    "Valor Asegurado máximo"
+   ],
+   [
+    "por vehículo (BOB)"
+   ]
+  ]
+ ],
+ "14": [
+  [
+   [
+    "",
+    "",
+    "",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Manual de Lineamientos de Suscripción Automotores",
+    null,
+    "Versión 3.0",
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    "Página 7",
+    null
+   ]
+  ],
+  [
+   [
+    "Daniel Porcel 01 490.000,00"
+   ],
+   [
+    "Diego Torrejón 01 490.000,00"
+   ],
+   [
+    "Wendy Revollo 01 490.000,00"
+   ],
+   [
+    "Diego Villagomez 01 490.000,00"
+   ],
+   [
+    "Juan Bustamante 01 490.000,00"
+   ]
+  ]
+ ],
+ "19": [
+  [
+   [
+    "",
+    "",
+    "",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Manual de Lineamientos de Suscripción Automotores",
+    null,
+    "Versión 3.0",
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    "Página 12",
+    null
+   ]
+  ],
+  [
+   [
+    "Para pólizas individuales o flota de vehículos cuyo Asegurado cuente con la denominación"
+   ],
+   [
+    "S.A. (Sociedad Anónima), SRL (Sociedad de Responsabilidad Limitada), S.A.M. (Sociedad"
+   ],
+   [
+    "Anónima Mixta), R.L. (Responsabilidad Limitada) u ONG (Organismo No Gubernamental) y"
+   ],
+   [
+    "que corresponda a clientes de los segmentos Pyme y Commercial, se acuerda la tasa mínima"
+   ],
+   [
+    "de2,8% contado para cualquiera de las Plazas de Circulación dentro del territorio boliviano y"
+   ],
+   [
+    "tomando en cuenta las limitaciones para suscripción estándar."
+   ]
+  ],
+  [
+   [
+    "Valor Asegurado",
+    "Tasa / Prima"
+   ],
+   [
+    "De Bs. 0,00 a Bs. 10.500,00",
+    "Bs. 525,00"
+   ],
+   [
+    "De Bs. 10.500,01 a Bs. 21.000,00",
+    "Bs. 896,00"
+   ],
+   [
+    "De Bs. 21.001,00 a Bs. 35.000,00",
+    "Bs. 1.344,00"
+   ],
+   [
+    "De Bs. 35.001,00 a Bs. 70.000,00",
+    "4,20 %"
+   ]
+  ]
+ ],
+ "20": [
+  [
+   [
+    "",
+    "",
+    "",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Manual de Lineamientos de Suscripción Automotores",
+    null,
+    "Versión 3.0",
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    "Página 13",
+    null
+   ]
+  ],
+  [
+   [
+    "Valor Asegurado",
+    "",
+    "Plaza de Circulación",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Santa Cruz, La\nPaz, Trinidad",
+    null,
+    "Resto del País",
+    null
+   ],
+   [
+    "Bs. 140.000,00",
+    "Bs. 1.000",
+    null,
+    "Bs. 850",
+    null
+   ]
+  ],
+  [
+   [
+    "Valor Asegurado",
+    "",
+    "Plaza de Circulación",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Santa Cruz, La\nPaz, Trinidad",
+    null,
+    "Resto del País",
+    null
+   ],
+   [
+    "Hasta Bs. 35.000,00",
+    "Bs. 350",
+    null,
+    "Bs. 350",
+    null
+   ],
+   [
+    "Mayor a Bs. 35.000,00",
+    "Bs. 700",
+    null,
+    "Bs. 350",
+    null
+   ],
+   [
+    "Mayor a Bs. 70.000,00",
+    "Bs. 1.500",
+    null,
+    "Bs. 1.500",
+    null
+   ]
+  ]
+ ],
+ "21": [
+  [
+   [
+    "",
+    "",
+    "",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Manual de Lineamientos de Suscripción Automotores",
+    null,
+    "Versión 3.0",
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    "Página 14",
+    null
+   ]
+  ],
+  [
+   [
+    "",
+    "Valor Asegurado",
+    "",
+    "",
+    "Franquicia Deducible",
+    ""
+   ],
+   [
+    "Hasta Bs.420.000",
+    null,
+    null,
+    "10% del valor del siniestro,\nmínimo Bs. 1.000 para el eje\ncentral y mínimo Bs. 500 para\nel resto de las plazas de\ncirculación.",
+    null,
+    null
+   ],
+   [
+    "Mayor a Bs. 420.000,00 hasta Bs. 700.000",
+    null,
+    null,
+    "Bs. 1.500",
+    null,
+    null
+   ],
+   [
+    "Vehículos de Lujo mayores a Bs. 420.000",
+    null,
+    null,
+    "Bs. 2.100",
+    null,
+    null
+   ],
+   [
+    "Vehículos alquilados a Petroleras / similares",
+    null,
+    null,
+    "Bs. 1.500",
+    null,
+    null
+   ],
+   [
+    "Pesados (mayor 3TN)",
+    null,
+    null,
+    "Bs. 2.100",
+    null,
+    null
+   ],
+   [
+    "Pesados (hasta 3 TN)",
+    null,
+    null,
+    "Bs. 1.500",
+    null,
+    null
+   ]
+  ]
+ ],
+ "25": [
+  [
+   [
+    "",
+    "",
+    "",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Manual de Lineamientos de Suscripción Automotores",
+    null,
+    "Versión 3.0",
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    "Página 18",
+    null
+   ]
+  ],
+  [
+   [
+    "SUSCRIPTOR",
+    "",
+    ""
+   ],
+   [
+    null,
+    "NÚMERO DE",
+    "MAYOR VEHÍCULO"
+   ],
+   [
+    null,
+    "VEHÍCULOS",
+    "(EN BOB)"
+   ],
+   [
+    null,
+    "",
+    ""
+   ],
+   [
+    "Manuel Sauma No aplica 3.480.000,00",
+    null,
+    null
+   ],
+   [
+    "Yasmin Rendón No aplica 3.480.000,00",
+    null,
+    null
+   ],
+   [
+    "Santiago Bustillos No aplica 3.480.000,00",
+    null,
+    null
+   ],
+   [
+    "José Carlos López 300 2.100.000,00",
+    null,
+    null
+   ],
+   [
+    "Marco Rada 300 1.750.000,00",
+    null,
+    null
+   ],
+   [
+    "Maribel Aruquipa 300 1.750.000,00",
+    null,
+    null
+   ],
+   [
+    "Ricardo Velarde 300 1.750.000",
+    null,
+    null
+   ],
+   [
+    "Paola Aguilar 300 1.750.000,00",
+    null,
+    null
+   ],
+   [
+    "Vania Saucedo 300 1.750.000,00",
+    null,
+    null
+   ],
+   [
+    "Lizeth Rios 100 1.400.000,00",
+    null,
+    null
+   ]
+  ]
+ ],
+ "30": [
+  [
+   [
+    "",
+    "",
+    "",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Manual de Lineamientos de Suscripción Automotores",
+    null,
+    "Versión 3.0",
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    "Página 23",
+    null
+   ]
+  ],
+  [
+   [
+    "Suscriptor",
+    "",
+    ""
+   ],
+   [
+    null,
+    "Número de",
+    "Mayor Vehículo"
+   ],
+   [
+    null,
+    "Vehículos",
+    "(en BOB)"
+   ],
+   [
+    null,
+    "",
+    ""
+   ],
+   [
+    "Manuel Sauma No aplica 3.480.000,00",
+    null,
+    null
+   ],
+   [
+    "Yasmin Rendón No aplica 3.480.000,00",
+    null,
+    null
+   ],
+   [
+    "Santiago Bustillos No aplica 3.480.000,00",
+    null,
+    null
+   ],
+   [
+    "José Carlos López 300 2.100.000,00",
+    null,
+    null
+   ],
+   [
+    "Marco Rada 300 1.750.000,00",
+    null,
+    null
+   ],
+   [
+    "Maribel Aruquipa 300 1.750.000,00",
+    null,
+    null
+   ],
+   [
+    "Ricardo Velarde 300 1.750.000,00",
+    null,
+    null
+   ],
+   [
+    "Paola Aguilar 300 1.750.000,00",
+    null,
+    null
+   ],
+   [
+    "Vania Saucedo 300 1.750.000,00",
+    null,
+    null
+   ],
+   [
+    "Lizeth Rios 10 700.000,00",
+    null,
+    null
+   ]
+  ]
+ ],
+ "36": [
+  [
+   [
+    "",
+    "",
+    "",
+    null,
+    ""
+   ],
+   [
+    null,
+    "Manual de Lineamientos de Suscripción Automotores",
+    null,
+    "Versión 3.0",
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    "Página 29",
+    null
+   ]
+  ],
+  [
+   [
+    "CIUDAD",
+    "PRIMA MÍNIMA",
+    "TASA MÍNIMA"
+   ],
+   [
+    "LA PAZ",
+    "Bs. 3.300",
+    "2,8%"
+   ],
+   [
+    "SANTA CRUZ",
+    "Bs. 3.500",
+    "3,0%"
+   ],
+   [
+    "COCHABAMABA",
+    "Bs. 3.150",
+    "2,7%"
+   ],
+   [
+    "RESTO DEL PAÍS",
+    "Bs. 2.800",
+    "2,2%"
+   ]
+  ]
+ ]
+}

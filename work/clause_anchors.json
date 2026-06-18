@@ -1,0 +1,2042 @@
+[
+ {
+  "idx": 0,
+  "code_line": 8,
+  "title_start": 8,
+  "code_raw": "101 – 910547 – 2017 09 400",
+  "title": "",
+  "page": 1
+ },
+ {
+  "idx": 1,
+  "code_line": 17,
+  "title_start": 14,
+  "code_raw": "101 - 910547 - 2017 09 400",
+  "title": "PÓLIZA DE SEGURO DE AUTOMOTORES LBC-AUTO (INDIVIDUAL / FLOTA) CONDICIONES GENERALES",
+  "page": 2
+ },
+ {
+  "idx": 2,
+  "code_line": 785,
+  "title_start": 780,
+  "code_raw": "101 - 910547 - 2017 09 400 1001",
+  "title": "SECCIÓN I COBERTURA DE PÉRDIDA TOTAL POR ACCIDENTE",
+  "page": 22
+ },
+ {
+  "idx": 3,
+  "code_line": 874,
+  "title_start": 869,
+  "code_raw": "101 - 910547 - 2017 09 400 1002",
+  "title": "SECCIÓN II COBERTURA DE PÉRDIDA TOTAL POR ROBO",
+  "page": 25
+ },
+ {
+  "idx": 4,
+  "code_line": 959,
+  "title_start": 954,
+  "code_raw": "101 - 910547 - 2017 09 400 1003",
+  "title": "SECCIÓN III COBERTURA DE DAÑOS PROPIOS",
+  "page": 27
+ },
+ {
+  "idx": 5,
+  "code_line": 1060,
+  "title_start": 1058,
+  "code_raw": "101 - 910547 - 2017 09 400 1004",
+  "title": "SECCIÓN IV COBERTURA DE HMACC-AMITT",
+  "page": 29
+ },
+ {
+  "idx": 6,
+  "code_line": 1279,
+  "title_start": 1274,
+  "code_raw": "101 - 910547 - 2017 09 400 1005",
+  "title": "SECCIÓN V COBERTURA DE ROBO PARCIAL DE PARTES Y PIEZAS",
+  "page": 35
+ },
+ {
+  "idx": 7,
+  "code_line": 1389,
+  "title_start": 1384,
+  "code_raw": "101 - 910547 - 2017 09 400 1006",
+  "title": "SECCIÓN VI COBERTURA DE RESPONSABILIDAD CIVIL",
+  "page": 38
+ },
+ {
+  "idx": 8,
+  "code_line": 1501,
+  "title_start": 1495,
+  "code_raw": "101 - 910547 - 2017 09 400 1007",
+  "title": "SECCIÓN VII COBERTURA DE ACCIDENTES PERSONALES A OCUPANTES DE VEHÍCULOS",
+  "page": 41
+ },
+ {
+  "idx": 9,
+  "code_line": 1608,
+  "title_start": 1604,
+  "code_raw": "101 – 910547 – 2017 09 400 2002",
+  "title": "CLÁUSULA DE ALCOHOLEMIA PERMITIDA",
+  "page": 44
+ },
+ {
+  "idx": 10,
+  "code_line": 1623,
+  "title_start": 1619,
+  "code_raw": "101 – 910547 – 2017 09 400 2004",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE AVISO DE SINIESTRO",
+  "page": 45
+ },
+ {
+  "idx": 11,
+  "code_line": 1640,
+  "title_start": 1636,
+  "code_raw": "101 – 910547 – 2017 09 400 2005",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL BENEFICIO DE GASTOS DE VIAJE POR SINIESTRO",
+  "page": 46
+ },
+ {
+  "idx": 12,
+  "code_line": 1664,
+  "title_start": 1659,
+  "code_raw": "101 – 910547 – 2017 09 400 2006",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL LÍMITE DE GASTOS POR FLETE AÉREO, TRANSPORTES ESPECIALES Y/O GASTOS EXTRAORDINARIOS",
+  "page": 47
+ },
+ {
+  "idx": 13,
+  "code_line": 1684,
+  "title_start": 1684,
+  "code_raw": "101 – 910547 – 2017 09 400 2048",
+  "title": "",
+  "page": 48
+ },
+ {
+  "idx": 14,
+  "code_line": 1712,
+  "title_start": 1707,
+  "code_raw": "101 – 910547 – 2017 09 400 2032",
+  "title": "CLÁUSULA DE RESPONSABILIDAD CIVIL POR PERJUICIOS ECONÓMICOS A TERCEROS",
+  "page": 49
+ },
+ {
+  "idx": 15,
+  "code_line": 1759,
+  "title_start": 1755,
+  "code_raw": "101 – 910547 – 2017 09 400 2023",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE EDAD MÁXIMA",
+  "page": 51
+ },
+ {
+  "idx": 16,
+  "code_line": 1775,
+  "title_start": 1771,
+  "code_raw": "101 – 910547 – 2017 09 400 2017",
+  "title": "CLÁUSULA DE BENEFICIO DE CONDUCTOR PROFESIONAL",
+  "page": 52
+ },
+ {
+  "idx": 17,
+  "code_line": 1794,
+  "title_start": 1790,
+  "code_raw": "101 – 910547 – 2017 09 400 2024",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA DENUNCIA A TRÁNSITO",
+  "page": 53
+ },
+ {
+  "idx": 18,
+  "code_line": 1820,
+  "title_start": 1816,
+  "code_raw": "101 – 910547 – 2017 09 400 2021",
+  "title": "CLÁUSULA DE DAÑOS AL VEHÍCULO POR CARGA TRANSPORTADA",
+  "page": 54
+ },
+ {
+  "idx": 19,
+  "code_line": 1843,
+  "title_start": 1839,
+  "code_raw": "101 – 910547 – 2017 09 400 2044",
+  "title": "CLÁUSULA DE COBERTURA POR RIESGOS DE LA NATURALEZA",
+  "page": 55
+ },
+ {
+  "idx": 20,
+  "code_line": 1859,
+  "title_start": 1855,
+  "code_raw": "101 – 910547 – 2017 09 400 2045",
+  "title": "CLÁUSULA DE ELEGIBILIDAD DE TALLERES",
+  "page": 56
+ },
+ {
+  "idx": 21,
+  "code_line": 1879,
+  "title_start": 1875,
+  "code_raw": "101 – 910547 – 2017 09 400 2046",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE AJUSTADORES",
+  "page": 57
+ },
+ {
+  "idx": 22,
+  "code_line": 1893,
+  "title_start": 1888,
+  "code_raw": "101 – 910547 – 2017 09 400 2029",
+  "title": "CLÁUSULA DE INCLUSIONES Y EXCLUSIONES (ALTAS Y BAJAS- ADHESIONES Y SUPRESIONES)",
+  "page": 58
+ },
+ {
+  "idx": 23,
+  "code_line": 1919,
+  "title_start": 1915,
+  "code_raw": "101 – 910547 – 2017 09 400 2014",
+  "title": "CLÁUSULA DE AUTORIZACIÓN A EXTRANJEROS",
+  "page": 59
+ },
+ {
+  "idx": 24,
+  "code_line": 1944,
+  "title_start": 1939,
+  "code_raw": "101 – 910547 – 2017 09 400 2015",
+  "title": "CLÁUSULA DE BENEFICIO ADICIONAL DE AMPLIACIÓN DE VIGENCIA A PRORRATA",
+  "page": 60
+ },
+ {
+  "idx": 25,
+  "code_line": 1968,
+  "title_start": 1964,
+  "code_raw": "101 – 910547 – 2017 09 400 2016",
+  "title": "CLÁUSULA DE BENEFICIO ADICIONAL DE AUTO REMPLAZO",
+  "page": 61
+ },
+ {
+  "idx": 26,
+  "code_line": 2042,
+  "title_start": 2038,
+  "code_raw": "101 – 910547 – 2017 09 400 2018",
+  "title": "CLÁUSULA DEL BENEFICIO DE AUXILIO MECÁNICO EXPRESS",
+  "page": 64
+ },
+ {
+  "idx": 27,
+  "code_line": 2118,
+  "title_start": 2114,
+  "code_raw": "101 – 910547 – 2017 09 400 2030",
+  "title": "CLÁUSULA DE LICENCIA DE CONDUCIR NO VIGENTE",
+  "page": 66
+ },
+ {
+  "idx": 28,
+  "code_line": 2134,
+  "title_start": 2130,
+  "code_raw": "101 – 910547 – 2017 09 400 2031",
+  "title": "CLÁUSULA DE PERIODO DE GRACIA PARA EL PAGO DE PRIMAS",
+  "page": 67
+ },
+ {
+  "idx": 29,
+  "code_line": 2153,
+  "title_start": 2149,
+  "code_raw": "101 – 910547 – 2017 09 400 2035",
+  "title": "CLÁUSULA PARA CUBRIR RESPONSABILIDAD CIVIL A OCUPANTES",
+  "page": 68
+ },
+ {
+  "idx": 30,
+  "code_line": 2181,
+  "title_start": 2176,
+  "code_raw": "101 – 910547 – 2017 09 400 2026",
+  "title": "CLÁUSULA DE EXTENSIÓN DEL BENEFICIO ADICIONAL DE AMPLIACIÓN DE VIGENCIA A PRORRATA",
+  "page": 69
+ },
+ {
+  "idx": 31,
+  "code_line": 2201,
+  "title_start": 2197,
+  "code_raw": "101 – 910547 – 2017 09 400 2037",
+  "title": "CLÁUSULA DE SUBROGACIÓN",
+  "page": 70
+ },
+ {
+  "idx": 32,
+  "code_line": 2233,
+  "title_start": 2229,
+  "code_raw": "101 – 910547 – 2017 09 400 2036",
+  "title": "CLAUSULA DE SUBROGACION DE DERECHOS – BCP",
+  "page": 71
+ },
+ {
+  "idx": 33,
+  "code_line": 2288,
+  "title_start": 2284,
+  "code_raw": "101 – 910547 – 2017 09 400 2001",
+  "title": "CLÁUSULA DE ADHESIÓN AL PLIEGO",
+  "page": 73
+ },
+ {
+  "idx": 34,
+  "code_line": 2302,
+  "title_start": 2298,
+  "code_raw": "101 – 910547 – 2017 09 400 2003",
+  "title": "CLÁUSULA DE AMPLIACIÓN AUTO REEMPLAZO",
+  "page": 74
+ },
+ {
+  "idx": 35,
+  "code_line": 2375,
+  "title_start": 2371,
+  "code_raw": "101 – 910547 – 2017 09 400 2028",
+  "title": "CLÁUSULA DE GASTOS POR EVACUACIÓN PARA OCUPANTES",
+  "page": 76
+ },
+ {
+  "idx": 36,
+  "code_line": 2392,
+  "title_start": 2388,
+  "code_raw": "101 – 910547 – 2017 09 400 2033",
+  "title": "CLÁUSULA DE RENOVACIÓN AUTOMÁTICA",
+  "page": 77
+ },
+ {
+  "idx": 37,
+  "code_line": 2412,
+  "title_start": 2408,
+  "code_raw": "101 – 910547 – 2017 09 400 2034",
+  "title": "CLÁUSULA DE RENOVACIÓN Y DEPRECIACIÓN ANUAL",
+  "page": 78
+ },
+ {
+  "idx": 38,
+  "code_line": 2437,
+  "title_start": 2433,
+  "code_raw": "101 – 910547 – 2017 09 400 2038",
+  "title": "CLÁUSULA DE VALOR ADMITIDO",
+  "page": 79
+ },
+ {
+  "idx": 39,
+  "code_line": 2455,
+  "title_start": 2451,
+  "code_raw": "101 – 910547 – 2017 09 400 2022",
+  "title": "CLÁUSULA DE DAÑOS POR REMOLQUE",
+  "page": 80
+ },
+ {
+  "idx": 40,
+  "code_line": 2470,
+  "title_start": 2466,
+  "code_raw": "101 – 910547 – 2017 09 400 2043",
+  "title": "CLÁUSULA DE COBERTURA POR INCENDIO Y/O RAYO Y/O EXPLOSIÓN",
+  "page": 81
+ },
+ {
+  "idx": 41,
+  "code_line": 2485,
+  "title_start": 2481,
+  "code_raw": "101 – 910547 – 2017 09 400 2007",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE LÍMITE DE VELOCIDAD PERMITIDA",
+  "page": 82
+ },
+ {
+  "idx": 42,
+  "code_line": 2515,
+  "title_start": 2511,
+  "code_raw": "101 – 910547 – 2017 09 400 2009",
+  "title": "CLÁUSULA DE ASEGURADO ADICIONAL (PETROLERAS)",
+  "page": 83
+ },
+ {
+  "idx": 43,
+  "code_line": 2533,
+  "title_start": 2529,
+  "code_raw": "101 – 910547 – 2017 09 400 2011",
+  "title": "CLÁUSULA DE CANCELACIÓN (PETROLERAS)",
+  "page": 84
+ },
+ {
+  "idx": 44,
+  "code_line": 2546,
+  "title_start": 2542,
+  "code_raw": "101 – 910547 – 2017 09 400 2010",
+  "title": "CLÁUSULA DE NO SUBROGACIÓN (PETROLERAS)",
+  "page": 85
+ },
+ {
+  "idx": 45,
+  "code_line": 2567,
+  "title_start": 2567,
+  "code_raw": "101 – 910547 – 2017 09 400 2049",
+  "title": "",
+  "page": 86
+ },
+ {
+  "idx": 46,
+  "code_line": 2592,
+  "title_start": 2588,
+  "code_raw": "101 – 910547 – 2017 09 400 2013",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL",
+  "page": 87
+ },
+ {
+  "idx": 47,
+  "code_line": 2624,
+  "title_start": 2619,
+  "code_raw": "101 – 910547 – 2017 09 400 2012",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL (A SER UTILIZADA EN LEASING DE VEHÍCULOS)",
+  "page": 88
+ },
+ {
+  "idx": 48,
+  "code_line": 2654,
+  "title_start": 2650,
+  "code_raw": "101 – 910547 – 2017 09 400 2019",
+  "title": "CLÁUSULA DE BENEFICIO ADICIONAL DE GASTOS DE VIAJE",
+  "page": 89
+ },
+ {
+  "idx": 49,
+  "code_line": 2681,
+  "title_start": 2677,
+  "code_raw": "101 – 910547 – 2017 09 400 2008",
+  "title": "CLÁUSULA DE PAGO PARCIAL EN CASO DE SINIESTRO",
+  "page": 90
+ },
+ {
+  "idx": 50,
+  "code_line": 2714,
+  "title_start": 2710,
+  "code_raw": "101 – 910547 – 2017 09 400 2041",
+  "title": "CLÁUSULA DE BIENES FUERA DE CUSTODIA (ABUSO DE CONFIANZA)",
+  "page": 91
+ },
+ {
+  "idx": 51,
+  "code_line": 2732,
+  "title_start": 2728,
+  "code_raw": "101 – 910547 – 2017 09 400 2039",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL FAMILIAR",
+  "page": 92
+ },
+ {
+  "idx": 52,
+  "code_line": 2757,
+  "title_start": 2753,
+  "code_raw": "101 – 910547 – 2017 09 400 2040",
+  "title": "CLÁUSULA DE BENEFICIO POR BONO DE TRANSPORTE",
+  "page": 93
+ },
+ {
+  "idx": 53,
+  "code_line": 2779,
+  "title_start": 2775,
+  "code_raw": "101 – 910547 – 2017 09 400 2042",
+  "title": "CLÁUSULA DE COBERTURA PARA MASCOTAS",
+  "page": 94
+ },
+ {
+  "idx": 54,
+  "code_line": 2808,
+  "title_start": 2803,
+  "code_raw": "101 – 910547 – 2017 09 400 2047",
+  "title": "CLÁUSULA DE MODIFICACIÓN DEL PORCENTAJE PARA DECLARACIÓN DE PÉRDIDAS TOTALES",
+  "page": 95
+ },
+ {
+  "idx": 55,
+  "code_line": 2843,
+  "title_start": 2838,
+  "code_raw": "101 – 910547 – 2017 09 400 2020",
+  "title": "CLÁUSULA PARA VEHÍCULOS ASEGURADOS QUE NO CIRCULEN POR SUS PROPIOS MEDIOS",
+  "page": 96
+ },
+ {
+  "idx": 56,
+  "code_line": 2913,
+  "title_start": 2908,
+  "code_raw": "101-910547-2017 09 400 2051",
+  "title": "CLÁUSULA DE PARTICIPACIÓN DE UTILIDADES PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 99
+ },
+ {
+  "idx": 57,
+  "code_line": 2933,
+  "title_start": 2927,
+  "code_raw": "101 – 910547 – 2017 09 400 2052",
+  "title": "CLÁUSULA DE COBERTURA AUTOMÁTICA PARA NUEVAS ADQUISICIONES Y/O INCORPORACIONES TIPO B PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 100
+ },
+ {
+  "idx": 58,
+  "code_line": 2976,
+  "title_start": 2971,
+  "code_raw": "101 – 910547 – 2017 09 400 2053",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE TALLERES TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "page": 102
+ },
+ {
+  "idx": 59,
+  "code_line": 2992,
+  "title_start": 2986,
+  "code_raw": "101 – 910547 – 2017 09 400 2054",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA EN CASO DE NO PORTAR LICENCIA DE CONDUCIR PARA USO EXCLUSIVO EN LICITACIONES.",
+  "page": 103
+ },
+ {
+  "idx": 60,
+  "code_line": 3008,
+  "title_start": 3003,
+  "code_raw": "101 – 910547 – 2017 09 400 2055",
+  "title": "CLÁUSULA DE GASTOS DE INVESTIGACIÓN Y SALVAMENTO TIPO B - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 104
+ },
+ {
+  "idx": 61,
+  "code_line": 3033,
+  "title_start": 3027,
+  "code_raw": "101 – 910547 – 2017 09 400 2056",
+  "title": "CLÁUSULA DE SERVICIO DE ASISTENCIA JURÍDICA EN CASO DE SINIESTRO TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "page": 105
+ },
+ {
+  "idx": 62,
+  "code_line": 3053,
+  "title_start": 3048,
+  "code_raw": "101 – 910547 - 2017 09 400 2057",
+  "title": "CLÁUSULA DE REHABILITACIÓN AUTOMÁTICA DE LA SUMA ASEGURADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 106
+ },
+ {
+  "idx": 63,
+  "code_line": 3068,
+  "title_start": 3063,
+  "code_raw": "101 – 910547 - 2017 09 400 2058",
+  "title": "CLÁUSULA DE TRÁNSITO EN VÍAS NO AUTORIZADAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 107
+ },
+ {
+  "idx": 64,
+  "code_line": 3087,
+  "title_start": 3082,
+  "code_raw": "101 – 910547 - 2017 09 400 2059",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA COPIA LEGALIZADA DE LA DENUNCIA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 108
+ },
+ {
+  "idx": 65,
+  "code_line": 3113,
+  "title_start": 3108,
+  "code_raw": "101 – 910547 - 2017 09 400 2060",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA DENUNCIA DE DIPROVE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 109
+ },
+ {
+  "idx": 66,
+  "code_line": 3131,
+  "title_start": 3126,
+  "code_raw": "101 – 910547 - 2017 09 400 2061",
+  "title": "CLÁUSULA DE COBERTURA POR DAÑOS A CAUSA DE LA NATURALEZA EN GENERAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 110
+ },
+ {
+  "idx": 67,
+  "code_line": 3146,
+  "title_start": 3141,
+  "code_raw": "101 – 910547 - 2017 09 400 2062",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 111
+ },
+ {
+  "idx": 68,
+  "code_line": 3168,
+  "title_start": 3163,
+  "code_raw": "101 – 910547 - 2017 09 400 2063",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 112
+ },
+ {
+  "idx": 69,
+  "code_line": 3198,
+  "title_start": 3193,
+  "code_raw": "101 – 910547 - 2017 09 400 2064",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE VIGENCIA A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 113
+ },
+ {
+  "idx": 70,
+  "code_line": 3214,
+  "title_start": 3209,
+  "code_raw": "101 – 910547 - 2017 09 400 2065",
+  "title": "CLÁUSULA RESCISIÓN DEL CONTRATO A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 114
+ },
+ {
+  "idx": 71,
+  "code_line": 3229,
+  "title_start": 3224,
+  "code_raw": "101 – 910547 - 2017 09 400 2066",
+  "title": "CLÁUSULA DE NO INSTALACIÓN DE DISPOSITIVOS DE SEGURIDAD (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 115
+ },
+ {
+  "idx": 72,
+  "code_line": 3244,
+  "title_start": 3239,
+  "code_raw": "101 – 910547 - 2017 09 400 2067",
+  "title": "CLÁUSULA DE REPOSICIÓN DE PARTES Y/O PIEZAS EN ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 116
+ },
+ {
+  "idx": 73,
+  "code_line": 3259,
+  "title_start": 3254,
+  "code_raw": "101 – 910547 - 2017 09 400 2068",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA EXCLUSIÓN DE BOLSAS DE AIRE (AIR BAGS) (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 117
+ },
+ {
+  "idx": 74,
+  "code_line": 3273,
+  "title_start": 3269,
+  "code_raw": "101 – 910547 - 2017 09 400 2069",
+  "title": "CLÁUSULA DE ROBO AL CONTENIDO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 118
+ },
+ {
+  "idx": 75,
+  "code_line": 3303,
+  "title_start": 3298,
+  "code_raw": "101 – 910547 - 2017 09 400 2070",
+  "title": "CLÁUSULA DE REPARACIONES Y/O RECONSTRUCCIONES INMEDIATAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 119
+ },
+ {
+  "idx": 76,
+  "code_line": 3321,
+  "title_start": 3316,
+  "code_raw": "101 – 910547 - 2017 09 400 2071",
+  "title": "CLÁUSULA DE DAÑO ESTRUCTURAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 120
+ },
+ {
+  "idx": 77,
+  "code_line": 3339,
+  "title_start": 3334,
+  "code_raw": "101 – 910547 - 2017 09 400 2072",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA PRIMA GANADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 121
+ },
+ {
+  "idx": 78,
+  "code_line": 3353,
+  "title_start": 3348,
+  "code_raw": "101 – 910547 - 2017 09 400 2073",
+  "title": "CLÁUSULA DE REDUCCIÓN DEL PLAZO PARA PRONUNCIARSE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 122
+ },
+ {
+  "idx": 79,
+  "code_line": 3369,
+  "title_start": 3364,
+  "code_raw": "101 – 910547 - 2017 09 400 2074",
+  "title": "CLÁUSULA DE REDUCCIÓN PARA EL PAGO DEL SINIESTRO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 123
+ },
+ {
+  "idx": 80,
+  "code_line": 3386,
+  "title_start": 3381,
+  "code_raw": "101 – 910547 - 2017 09 400 2075",
+  "title": "CLÁUSULA DE MEDIOS PROPIOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 124
+ },
+ {
+  "idx": 81,
+  "code_line": 3404,
+  "title_start": 3399,
+  "code_raw": "101 – 910547 - 2017 09 400 2076",
+  "title": "CLÁUSULA DE DAÑOS POR REMOLQUE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 125
+ },
+ {
+  "idx": 82,
+  "code_line": 3420,
+  "title_start": 3415,
+  "code_raw": "101 – 910547 - 2017 09 400 2077",
+  "title": "CLÁUSULA DE GASTOS EXTRAORDINARIOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 126
+ },
+ {
+  "idx": 83,
+  "code_line": 3436,
+  "title_start": 3431,
+  "code_raw": "101 – 910547 - 2017 09 400 2078",
+  "title": "CLÁUSULA DE DAÑOS AL VEHÍCULO POR CARGA TRANSPORTADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 127
+ },
+ {
+  "idx": 84,
+  "code_line": 3455,
+  "title_start": 3448,
+  "code_raw": "101 – 910547 - 2017 09 400 2079",
+  "title": "CLÁUSULA DE DAÑOS Y ROBO DE LOS VEHÍCULOS ASEGURADOS, OCASIONADOS POR CONFISCACIÓN, REQUISA, EXPROPIACIÓN, INCAUTACIÓN, DECOMISO O EMBARGO, SECUESTRO U OCUPACIÓN O RETENCIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 128
+ },
+ {
+  "idx": 85,
+  "code_line": 3474,
+  "title_start": 3469,
+  "code_raw": "101 – 910547 - 2017 09 400 2080",
+  "title": "CLÁUSULA DE AVISO DE CANCELACIÓN POR PARTE DE LA ASEGURADORA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 129
+ },
+ {
+  "idx": 86,
+  "code_line": 3492,
+  "title_start": 3487,
+  "code_raw": "101 – 910547 - 2017 09 400 2081",
+  "title": "CLÁUSULA DE GASTOS Y COSTOS JUDICIALES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 130
+ },
+ {
+  "idx": 87,
+  "code_line": 3510,
+  "title_start": 3504,
+  "code_raw": "101 – 910547 - 2017 09 400 2082",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA PARA LOS OCUPANTES DEL VEHÍCULO ASEGURADO POR INHALACIÓN E INGESTIÓN DE GASES TÓXICOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 131
+ },
+ {
+  "idx": 88,
+  "code_line": 3525,
+  "title_start": 3520,
+  "code_raw": "101 – 910547 - 2017 09 400 2083",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE MÉDICOS, CENTROS MÉDICOS Y OTROS SERVICIOS AUXILIARES DE LA MEDICINA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 132
+ },
+ {
+  "idx": 89,
+  "code_line": 3551,
+  "title_start": 3546,
+  "code_raw": "101 – 910547 - 2017 09 400 2084",
+  "title": "CLÁUSULA DE TRANSACCIÓN SIN JUICIO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 133
+ },
+ {
+  "idx": 90,
+  "code_line": 3570,
+  "title_start": 3565,
+  "code_raw": "101 – 910547 - 2017 09 400 2085",
+  "title": "CLÁUSULA DE NO SUBROGACIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 134
+ },
+ {
+  "idx": 91,
+  "code_line": 3587,
+  "title_start": 3582,
+  "code_raw": "101 – 910547 - 2017 09 400 2086",
+  "title": "CLÁUSULA DE NO APLICACIÓN DE LA CATEGORÍA “C” (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 135
+ },
+ {
+  "idx": 92,
+  "code_line": 3605,
+  "title_start": 3599,
+  "code_raw": "101 – 910547 - 2017 09 400 2087",
+  "title": "CLÁUSULA DE DAÑOS PRODUCIDOS POR EL INGRESO DE AGUA A PARTES MECÁNICAS, ELECTROMECÁNICAS, ELÉCTRICAS Y COMBINADAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 136
+ },
+ {
+  "idx": 93,
+  "code_line": 3621,
+  "title_start": 3616,
+  "code_raw": "101 – 910547 - 2017 09 400 2088",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA PARA PERDIDA TOTAL POR ROBO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 137
+ },
+ {
+  "idx": 94,
+  "code_line": 3636,
+  "title_start": 3631,
+  "code_raw": "101 – 910547 - 2017 09 400 2089",
+  "title": "CLÁUSULA DE EXCESO DE CARGA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 138
+ },
+ {
+  "idx": 95,
+  "code_line": 3652,
+  "title_start": 3647,
+  "code_raw": "101 – 910547 - 2017 09 400 2090",
+  "title": "CLÁUSULA DE GASTOS DE VIAJE POR SINIESTRO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 139
+ },
+ {
+  "idx": 96,
+  "code_line": 3673,
+  "title_start": 3668,
+  "code_raw": "101 – 910547 - 2017 09 400 2091",
+  "title": "CLÁUSULA DE PAGO POR PERMANENCIA EN GARAJES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 140
+ },
+ {
+  "idx": 97,
+  "code_line": 3689,
+  "title_start": 3684,
+  "code_raw": "101 – 910547 - 2017 09 400 2092",
+  "title": "CLÁUSULA DE GASTOS DE EVACUACIÓN PARA OCUPANTES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 141
+ },
+ {
+  "idx": 98,
+  "code_line": 3708,
+  "title_start": 3703,
+  "code_raw": "101 – 910547 - 2017 09 400 2093",
+  "title": "CLÁUSULA DE BENEFICIO DE CONDUCTOR PROFESIONAL “TIPO B” (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 142
+ },
+ {
+  "idx": 99,
+  "code_line": 3726,
+  "title_start": 3721,
+  "code_raw": "101 – 910547 - 2017 09 400 2094",
+  "title": "CLÁUSULA DE FÁRMACOS MEDICADOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 143
+ },
+ {
+  "idx": 100,
+  "code_line": 3743,
+  "title_start": 3738,
+  "code_raw": "101 – 910547 - 2017 09 400 2095",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL PERIODO DE DISCREPANCIAS EN LA PÓLIZA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 144
+ },
+ {
+  "idx": 101,
+  "code_line": 3761,
+  "title_start": 3755,
+  "code_raw": "101 – 910547 – 2017 09 400 2096",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE LA COBERTURA DE ACCIDENTES PERSONALES A OCUPANTES POR VEHÍCULO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 145
+ },
+ {
+  "idx": 102,
+  "code_line": 3777,
+  "title_start": 3773,
+  "code_raw": "101 – 910547 – 2017 09 400 2097",
+  "title": "CLÁUSULA DE PAGO DE PRIMA EN CUOTAS MENSUALES",
+  "page": 146
+ },
+ {
+  "idx": 103,
+  "code_line": 3793,
+  "title_start": 3789,
+  "code_raw": "101 – 910547 – 2017 09 400 2100",
+  "title": "CLÁUSULA DE INDEMNIZACIÓN DE CUOTAS",
+  "page": 147
+ },
+ {
+  "idx": 104,
+  "code_line": 3835,
+  "title_start": 3830,
+  "code_raw": "101 – 910547 – 2017 09 400 2098",
+  "title": "ANEXO DE CONDICIONES ESPECIALES PARA LA PÓLIZA DE SEGURO DE AUTOMOTORES DE YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS",
+  "page": 149
+ },
+ {
+  "idx": 105,
+  "code_line": 3892,
+  "title_start": 3887,
+  "code_raw": "101 – 910547 – 2017 09 400 2101",
+  "title": "CLÁUSULA DE REPARACIONES Y/O COMPRA DE REPUESTOS URGENTES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 151
+ },
+ {
+  "idx": 106,
+  "code_line": 3912,
+  "title_start": 3908,
+  "code_raw": "101-910547-2017 09 400 2027",
+  "title": "CLÁUSULA DE COBERTURA ADICIONAL DE EXTRATERRITORIALIDAD",
+  "page": 152
+ },
+ {
+  "idx": 107,
+  "code_line": 3975,
+  "title_start": 3973,
+  "code_raw": "101 – 910547 – 2017 09 400 2098",
+  "title": "ANEXO DE CONDICIONES ESPECIALES PARA LA PÓLIZA DE SEGURO DE AUTOMOTORES DE YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS",
+  "page": 153
+ },
+ {
+  "idx": 108,
+  "code_line": 4036,
+  "title_start": 4031,
+  "code_raw": "101 – 910547 – 2017 09 400 2101",
+  "title": "CLÁUSULA DE REPARACIONES Y/O COMPRA DE REPUESTOS URGENTES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 156
+ },
+ {
+  "idx": 109,
+  "code_line": 4058,
+  "title_start": 4053,
+  "code_raw": "101 – 910547 2017 09 400 2103",
+  "title": "CLÁUSULA DE COBERTURA POR DAÑOS A CAUSA DE RIESGOS POLITICOS EN GENERAL - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 157
+ },
+ {
+  "idx": 110,
+  "code_line": 4077,
+  "title_start": 4072,
+  "code_raw": "101 – 910547 2017 09 400 2104",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL BENEFICIO DE USO DE REMOLQUE, GRUA O TRANSPORTE DEL VEHÍCULO - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 158
+ },
+ {
+  "idx": 111,
+  "code_line": 4094,
+  "title_start": 4089,
+  "code_raw": "101 – 910547 2017 09 400 2105",
+  "title": "CLÁUSULA DE COBERTURA POR ESTADÍA Y DESPLAZAMIENTO POR LA INMOVILIZACIÓN Y/O ROBO DEL VEHÍCULO - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 159
+ },
+ {
+  "idx": 112,
+  "code_line": 4112,
+  "title_start": 4106,
+  "code_raw": "101 – 910547 2017 09 400 2106",
+  "title": "CLÁUSULA DE LOCALIZACIÓN Y ENVÍO DE PIEZAS DE RECAMBIO NECESARIAS PARA LA REPARACIÓN CUANDO NO FUERA POSIBLE SU OBTENCIÓN - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 160
+ },
+ {
+  "idx": 113,
+  "code_line": 4127,
+  "title_start": 4122,
+  "code_raw": "101 – 910547 2017 09 400 2107",
+  "title": "CLÁUSULA DE SERVICIO DE ASISTENCIA JURÍDICA EN CASO DE SINIESTRO TIPO C - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 161
+ },
+ {
+  "idx": 114,
+  "code_line": 4150,
+  "title_start": 4145,
+  "code_raw": "101 – 910547 2017 09 400 2108",
+  "title": "CLÁUSULA DE TRANSMISIÓN DE MENSAJES URGENTES - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 162
+ },
+ {
+  "idx": 115,
+  "code_line": 4165,
+  "title_start": 4160,
+  "code_raw": "101 – 910547 2017 09 400 2109",
+  "title": "CLÁUSULA DE REPUESTOS, PARTES Y PIEZAS NUEVAS Y GENUINAS - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 163
+ },
+ {
+  "idx": 116,
+  "code_line": 4189,
+  "title_start": 4185,
+  "code_raw": "101 – 910547 – 2017 09 400 2097",
+  "title": "CLÁUSULA DE PAGO DE PRIMA EN CUOTAS MENSUALES",
+  "page": 164
+ },
+ {
+  "idx": 117,
+  "code_line": 4204,
+  "title_start": 4200,
+  "code_raw": "101 - 910547 - 2017 09 400 2110",
+  "title": "CLÁUSULA DE INDEMNIZACIÓN POR ROBO AL CONTENIDO",
+  "page": 165
+ },
+ {
+  "idx": 118,
+  "code_line": 4240,
+  "title_start": 4236,
+  "code_raw": "101 - 910547 - 2017 09 400 2111",
+  "title": "CLÁUSULA ADICIONAL DE PAGO DE PRIMA POR KILOMETRAJE RECORRIDO",
+  "page": 166
+ },
+ {
+  "idx": 119,
+  "code_line": 4270,
+  "title_start": 4266,
+  "code_raw": "101 – 910547 – 2017 09 400 2030",
+  "title": "CLÁUSULA DE LICENCIA DE CONDUCIR NO VIGENTE",
+  "page": 167
+ },
+ {
+  "idx": 120,
+  "code_line": 4285,
+  "title_start": 4281,
+  "code_raw": "101 – 910547 – 2017 09 400 2036",
+  "title": "CLAUSULA DE SUBROGACION DE DERECHOS – BCP",
+  "page": 168
+ },
+ {
+  "idx": 121,
+  "code_line": 4381,
+  "title_start": 4376,
+  "code_raw": "101 – 910547 – 2017 09 400 2099",
+  "title": "ANEXO ADICIONAL PARA LA PÓLIZA DE SEGURO DE AUTOMOTORES DE YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS",
+  "page": 171
+ },
+ {
+  "idx": 122,
+  "code_line": 4400,
+  "title_start": 4395,
+  "code_raw": "101-910547-2017 09 400 2051",
+  "title": "CLÁUSULA DE PARTICIPACIÓN DE UTILIDADES PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 172
+ },
+ {
+  "idx": 123,
+  "code_line": 4420,
+  "title_start": 4414,
+  "code_raw": "101 – 910547 – 2017 09 400 2052",
+  "title": "CLÁUSULA DE COBERTURA AUTOMÁTICA PARA NUEVAS ADQUISICIONES Y/O INCORPORACIONES TIPO B PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 173
+ },
+ {
+  "idx": 124,
+  "code_line": 4466,
+  "title_start": 4461,
+  "code_raw": "101 – 910547 – 2017 09 400 2053",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE TALLERES TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "page": 175
+ },
+ {
+  "idx": 125,
+  "code_line": 4481,
+  "title_start": 4476,
+  "code_raw": "101 – 910547 – 2017 09 400 2054",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA EN CASO DE NO PORTAR LICENCIA DE CONDUCIR PARA USO EXCLUSIVO EN LICITACIONES.",
+  "page": 176
+ },
+ {
+  "idx": 126,
+  "code_line": 4497,
+  "title_start": 4492,
+  "code_raw": "101 – 910547 – 2017 09 400 2055",
+  "title": "CLÁUSULA DE GASTOS DE INVESTIGACIÓN Y SALVAMENTO TIPO B - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 177
+ },
+ {
+  "idx": 127,
+  "code_line": 4523,
+  "title_start": 4517,
+  "code_raw": "101 – 910547 – 2017 09 400 2056",
+  "title": "CLÁUSULA DE SERVICIO DE ASISTENCIA JURÍDICA EN CASO DE SINIESTRO TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "page": 178
+ },
+ {
+  "idx": 128,
+  "code_line": 4543,
+  "title_start": 4538,
+  "code_raw": "101 – 910547 - 2017 09 400 2057",
+  "title": "CLÁUSULA DE REHABILITACIÓN AUTOMÁTICA DE LA SUMA ASEGURADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 179
+ },
+ {
+  "idx": 129,
+  "code_line": 4558,
+  "title_start": 4553,
+  "code_raw": "101 – 910547 - 2017 09 400 2058",
+  "title": "CLÁUSULA DE TRÁNSITO EN VÍAS NO AUTORIZADAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 180
+ },
+ {
+  "idx": 130,
+  "code_line": 4577,
+  "title_start": 4572,
+  "code_raw": "101 – 910547 - 2017 09 400 2059",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA COPIA LEGALIZADA DE LA DENUNCIA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 181
+ },
+ {
+  "idx": 131,
+  "code_line": 4603,
+  "title_start": 4598,
+  "code_raw": "101 – 910547 - 2017 09 400 2060",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA DENUNCIA DE DIPROVE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 182
+ },
+ {
+  "idx": 132,
+  "code_line": 4621,
+  "title_start": 4616,
+  "code_raw": "101 – 910547 - 2017 09 400 2061",
+  "title": "CLÁUSULA DE COBERTURA POR DAÑOS A CAUSA DE LA NATURALEZA EN GENERAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 183
+ },
+ {
+  "idx": 133,
+  "code_line": 4636,
+  "title_start": 4631,
+  "code_raw": "101 – 910547 - 2017 09 400 2062",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 184
+ },
+ {
+  "idx": 134,
+  "code_line": 4658,
+  "title_start": 4653,
+  "code_raw": "101 – 910547 - 2017 09 400 2063",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 185
+ },
+ {
+  "idx": 135,
+  "code_line": 4688,
+  "title_start": 4683,
+  "code_raw": "101 – 910547 - 2017 09 400 2064",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE VIGENCIA A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 186
+ },
+ {
+  "idx": 136,
+  "code_line": 4704,
+  "title_start": 4699,
+  "code_raw": "101 – 910547 - 2017 09 400 2065",
+  "title": "CLÁUSULA RESCISIÓN DEL CONTRATO A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 187
+ },
+ {
+  "idx": 137,
+  "code_line": 4719,
+  "title_start": 4714,
+  "code_raw": "101 – 910547 - 2017 09 400 2066",
+  "title": "CLÁUSULA DE NO INSTALACIÓN DE DISPOSITIVOS DE SEGURIDAD (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 188
+ },
+ {
+  "idx": 138,
+  "code_line": 4734,
+  "title_start": 4729,
+  "code_raw": "101 – 910547 - 2017 09 400 2067",
+  "title": "CLÁUSULA DE REPOSICIÓN DE PARTES Y/O PIEZAS EN ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 189
+ },
+ {
+  "idx": 139,
+  "code_line": 4749,
+  "title_start": 4744,
+  "code_raw": "101 – 910547 - 2017 09 400 2068",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA EXCLUSIÓN DE BOLSAS DE AIRE (AIR BAGS) (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 190
+ },
+ {
+  "idx": 140,
+  "code_line": 4763,
+  "title_start": 4759,
+  "code_raw": "101 – 910547 - 2017 09 400 2069",
+  "title": "CLÁUSULA DE ROBO AL CONTENIDO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 191
+ },
+ {
+  "idx": 141,
+  "code_line": 4794,
+  "title_start": 4789,
+  "code_raw": "101 – 910547 - 2017 09 400 2070",
+  "title": "CLÁUSULA DE REPARACIONES Y/O RECONSTRUCCIONES INMEDIATAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 192
+ },
+ {
+  "idx": 142,
+  "code_line": 4812,
+  "title_start": 4807,
+  "code_raw": "101 – 910547 - 2017 09 400 2071",
+  "title": "CLÁUSULA DE DAÑO ESTRUCTURAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 193
+ },
+ {
+  "idx": 143,
+  "code_line": 4830,
+  "title_start": 4825,
+  "code_raw": "101 – 910547 - 2017 09 400 2072",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA PRIMA GANADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 194
+ },
+ {
+  "idx": 144,
+  "code_line": 4844,
+  "title_start": 4839,
+  "code_raw": "101 – 910547 - 2017 09 400 2073",
+  "title": "CLÁUSULA DE REDUCCIÓN DEL PLAZO PARA PRONUNCIARSE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 195
+ },
+ {
+  "idx": 145,
+  "code_line": 4860,
+  "title_start": 4855,
+  "code_raw": "101 – 910547 - 2017 09 400 2074",
+  "title": "CLÁUSULA DE REDUCCIÓN PARA EL PAGO DEL SINIESTRO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 196
+ },
+ {
+  "idx": 146,
+  "code_line": 4877,
+  "title_start": 4872,
+  "code_raw": "101 – 910547 - 2017 09 400 2075",
+  "title": "CLÁUSULA DE MEDIOS PROPIOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 197
+ },
+ {
+  "idx": 147,
+  "code_line": 4895,
+  "title_start": 4890,
+  "code_raw": "101 – 910547 - 2017 09 400 2076",
+  "title": "CLÁUSULA DE DAÑOS POR REMOLQUE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 198
+ },
+ {
+  "idx": 148,
+  "code_line": 4911,
+  "title_start": 4906,
+  "code_raw": "101 – 910547 - 2017 09 400 2077",
+  "title": "CLÁUSULA DE GASTOS EXTRAORDINARIOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 199
+ },
+ {
+  "idx": 149,
+  "code_line": 4927,
+  "title_start": 4922,
+  "code_raw": "101 – 910547 - 2017 09 400 2078",
+  "title": "CLÁUSULA DE DAÑOS AL VEHÍCULO POR CARGA TRANSPORTADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 200
+ },
+ {
+  "idx": 150,
+  "code_line": 4946,
+  "title_start": 4939,
+  "code_raw": "101 – 910547 - 2017 09 400 2079",
+  "title": "CLÁUSULA DE DAÑOS Y ROBO DE LOS VEHÍCULOS ASEGURADOS, OCASIONADOS POR CONFISCACIÓN, REQUISA, EXPROPIACIÓN, INCAUTACIÓN, DECOMISO O EMBARGO, SECUESTRO U OCUPACIÓN O RETENCIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 201
+ },
+ {
+  "idx": 151,
+  "code_line": 4965,
+  "title_start": 4960,
+  "code_raw": "101 – 910547 - 2017 09 400 2080",
+  "title": "CLÁUSULA DE AVISO DE CANCELACIÓN POR PARTE DE LA ASEGURADORA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 202
+ },
+ {
+  "idx": 152,
+  "code_line": 4983,
+  "title_start": 4978,
+  "code_raw": "101 – 910547 - 2017 09 400 2081",
+  "title": "CLÁUSULA DE GASTOS Y COSTOS JUDICIALES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 203
+ },
+ {
+  "idx": 153,
+  "code_line": 5001,
+  "title_start": 4995,
+  "code_raw": "101 – 910547 - 2017 09 400 2082",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA PARA LOS OCUPANTES DEL VEHÍCULO ASEGURADO POR INHALACIÓN E INGESTIÓN DE GASES TÓXICOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 204
+ },
+ {
+  "idx": 154,
+  "code_line": 5016,
+  "title_start": 5011,
+  "code_raw": "101 – 910547 - 2017 09 400 2083",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE MÉDICOS, CENTROS MÉDICOS Y OTROS SERVICIOS AUXILIARES DE LA MEDICINA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 205
+ },
+ {
+  "idx": 155,
+  "code_line": 5042,
+  "title_start": 5037,
+  "code_raw": "101 – 910547 - 2017 09 400 2084",
+  "title": "CLÁUSULA DE TRANSACCIÓN SIN JUICIO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 206
+ },
+ {
+  "idx": 156,
+  "code_line": 5061,
+  "title_start": 5056,
+  "code_raw": "101 – 910547 - 2017 09 400 2085",
+  "title": "CLÁUSULA DE NO SUBROGACIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 207
+ },
+ {
+  "idx": 157,
+  "code_line": 5078,
+  "title_start": 5073,
+  "code_raw": "101 – 910547 - 2017 09 400 2086",
+  "title": "CLÁUSULA DE NO APLICACIÓN DE LA CATEGORÍA “C” (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 208
+ },
+ {
+  "idx": 158,
+  "code_line": 5096,
+  "title_start": 5090,
+  "code_raw": "101 – 910547 - 2017 09 400 2087",
+  "title": "CLÁUSULA DE DAÑOS PRODUCIDOS POR EL INGRESO DE AGUA A PARTES MECÁNICAS, ELECTROMECÁNICAS, ELÉCTRICAS Y COMBINADAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 209
+ },
+ {
+  "idx": 159,
+  "code_line": 5112,
+  "title_start": 5107,
+  "code_raw": "101 – 910547 - 2017 09 400 2088",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA PARA PERDIDA TOTAL POR ROBO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 210
+ },
+ {
+  "idx": 160,
+  "code_line": 5127,
+  "title_start": 5122,
+  "code_raw": "101 – 910547 - 2017 09 400 2089",
+  "title": "CLÁUSULA DE EXCESO DE CARGA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 211
+ },
+ {
+  "idx": 161,
+  "code_line": 5143,
+  "title_start": 5138,
+  "code_raw": "101 – 910547 - 2017 09 400 2090",
+  "title": "CLÁUSULA DE GASTOS DE VIAJE POR SINIESTRO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 212
+ },
+ {
+  "idx": 162,
+  "code_line": 5164,
+  "title_start": 5159,
+  "code_raw": "101 – 910547 - 2017 09 400 2091",
+  "title": "CLÁUSULA DE PAGO POR PERMANENCIA EN GARAJES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 213
+ },
+ {
+  "idx": 163,
+  "code_line": 5180,
+  "title_start": 5175,
+  "code_raw": "101 – 910547 - 2017 09 400 2092",
+  "title": "CLÁUSULA DE GASTOS DE EVACUACIÓN PARA OCUPANTES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 214
+ },
+ {
+  "idx": 164,
+  "code_line": 5199,
+  "title_start": 5194,
+  "code_raw": "101 – 910547 - 2017 09 400 2093",
+  "title": "CLÁUSULA DE BENEFICIO DE CONDUCTOR PROFESIONAL “TIPO B” (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 215
+ },
+ {
+  "idx": 165,
+  "code_line": 5217,
+  "title_start": 5212,
+  "code_raw": "101 – 910547 - 2017 09 400 2094",
+  "title": "CLÁUSULA DE FÁRMACOS MEDICADOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 216
+ },
+ {
+  "idx": 166,
+  "code_line": 5234,
+  "title_start": 5229,
+  "code_raw": "101 – 910547 - 2017 09 400 2095",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL PERIODO DE DISCREPANCIAS EN LA PÓLIZA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 217
+ },
+ {
+  "idx": 167,
+  "code_line": 5253,
+  "title_start": 5247,
+  "code_raw": "101 – 910547 – 2017 09 400 2096",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE LA COBERTURA DE ACCIDENTES PERSONALES A OCUPANTES POR VEHÍCULO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 218
+ },
+ {
+  "idx": 168,
+  "code_line": 5269,
+  "title_start": 5265,
+  "code_raw": "101 – 910547 – 2017 09 400 2030",
+  "title": "CLÁUSULA DE LICENCIA DE CONDUCIR NO VIGENTE",
+  "page": 219
+ },
+ {
+  "idx": 169,
+  "code_line": 5285,
+  "title_start": 5281,
+  "code_raw": "101 – 910547 – 2017 09 400 2036",
+  "title": "CLAUSULA DE SUBROGACION DE DERECHOS – BCP",
+  "page": 220
+ },
+ {
+  "idx": 170,
+  "code_line": 5378,
+  "title_start": 5373,
+  "code_raw": "101-910547-2017 09 400 2051",
+  "title": "CLÁUSULA DE PARTICIPACIÓN DE UTILIDADES PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 223
+ },
+ {
+  "idx": 171,
+  "code_line": 5398,
+  "title_start": 5392,
+  "code_raw": "101 – 910547 – 2017 09 400 2052",
+  "title": "CLÁUSULA DE COBERTURA AUTOMÁTICA PARA NUEVAS ADQUISICIONES Y/O INCORPORACIONES TIPO B PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 224
+ },
+ {
+  "idx": 172,
+  "code_line": 5445,
+  "title_start": 5440,
+  "code_raw": "101 – 910547 – 2017 09 400 2053",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE TALLERES TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "page": 226
+ },
+ {
+  "idx": 173,
+  "code_line": 5460,
+  "title_start": 5455,
+  "code_raw": "101 – 910547 – 2017 09 400 2054",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA EN CASO DE NO PORTAR LICENCIA DE CONDUCIR PARA USO EXCLUSIVO EN LICITACIONES.",
+  "page": 227
+ },
+ {
+  "idx": 174,
+  "code_line": 5476,
+  "title_start": 5471,
+  "code_raw": "101 – 910547 – 2017 09 400 2055",
+  "title": "CLÁUSULA DE GASTOS DE INVESTIGACIÓN Y SALVAMENTO TIPO B - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 228
+ },
+ {
+  "idx": 175,
+  "code_line": 5501,
+  "title_start": 5495,
+  "code_raw": "101 – 910547 – 2017 09 400 2056",
+  "title": "CLÁUSULA DE SERVICIO DE ASISTENCIA JURÍDICA EN CASO DE SINIESTRO TIPO B PARA USO EXCLUSIVO EN LICITACIONES.",
+  "page": 229
+ },
+ {
+  "idx": 176,
+  "code_line": 5521,
+  "title_start": 5516,
+  "code_raw": "101 – 910547 - 2017 09 400 2057",
+  "title": "CLÁUSULA DE REHABILITACIÓN AUTOMÁTICA DE LA SUMA ASEGURADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 230
+ },
+ {
+  "idx": 177,
+  "code_line": 5536,
+  "title_start": 5531,
+  "code_raw": "101 – 910547 - 2017 09 400 2057",
+  "title": "CLÁUSULA DE REHABILITACIÓN AUTOMÁTICA DE LA SUMA ASEGURADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 231
+ },
+ {
+  "idx": 178,
+  "code_line": 5551,
+  "title_start": 5546,
+  "code_raw": "101 – 910547 - 2017 09 400 2058",
+  "title": "CLÁUSULA DE TRÁNSITO EN VÍAS NO AUTORIZADAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 232
+ },
+ {
+  "idx": 179,
+  "code_line": 5569,
+  "title_start": 5564,
+  "code_raw": "101 – 910547 - 2017 09 400 2059",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA COPIA LEGALIZADA DE LA DENUNCIA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 233
+ },
+ {
+  "idx": 180,
+  "code_line": 5594,
+  "title_start": 5589,
+  "code_raw": "101 – 910547 - 2017 09 400 2060",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA DENUNCIA DE DIPROVE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 234
+ },
+ {
+  "idx": 181,
+  "code_line": 5612,
+  "title_start": 5607,
+  "code_raw": "101 – 910547 - 2017 09 400 2061",
+  "title": "CLÁUSULA DE COBERTURA POR DAÑOS A CAUSA DE LA NATURALEZA EN GENERAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 235
+ },
+ {
+  "idx": 182,
+  "code_line": 5627,
+  "title_start": 5622,
+  "code_raw": "101 – 910547 - 2017 09 400 2062",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 236
+ },
+ {
+  "idx": 183,
+  "code_line": 5648,
+  "title_start": 5644,
+  "code_raw": "101 – 910547 – 2017 09 400 2023",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE EDAD MÁXIMA",
+  "page": 237
+ },
+ {
+  "idx": 184,
+  "code_line": 5665,
+  "title_start": 5660,
+  "code_raw": "101 – 910547 - 2017 09 400 2063",
+  "title": "CLÁUSULA DE AUSENCIA DE CONTROL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 238
+ },
+ {
+  "idx": 185,
+  "code_line": 5694,
+  "title_start": 5689,
+  "code_raw": "101 – 910547 - 2017 09 400 2064",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE VIGENCIA A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 239
+ },
+ {
+  "idx": 186,
+  "code_line": 5710,
+  "title_start": 5705,
+  "code_raw": "101 – 910547 - 2017 09 400 2065",
+  "title": "CLÁUSULA RESCISIÓN DEL CONTRATO A PRORRATA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 240
+ },
+ {
+  "idx": 187,
+  "code_line": 5725,
+  "title_start": 5720,
+  "code_raw": "101 – 910547 - 2017 09 400 2066",
+  "title": "CLÁUSULA DE NO INSTALACIÓN DE DISPOSITIVOS DE SEGURIDAD (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 241
+ },
+ {
+  "idx": 188,
+  "code_line": 5740,
+  "title_start": 5735,
+  "code_raw": "101 – 910547 - 2017 09 400 2067",
+  "title": "CLÁUSULA DE REPOSICIÓN DE PARTES Y/O PIEZAS EN ROBO PARCIAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 242
+ },
+ {
+  "idx": 189,
+  "code_line": 5755,
+  "title_start": 5750,
+  "code_raw": "101 – 910547 - 2017 09 400 2068",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA EXCLUSIÓN DE BOLSAS DE AIRE (AIR BAGS) (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 243
+ },
+ {
+  "idx": 190,
+  "code_line": 5769,
+  "title_start": 5765,
+  "code_raw": "101 – 910547 - 2017 09 400 2069",
+  "title": "CLÁUSULA DE ROBO AL CONTENIDO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 244
+ },
+ {
+  "idx": 191,
+  "code_line": 5797,
+  "title_start": 5792,
+  "code_raw": "101 – 910547 - 2017 09 400 2070",
+  "title": "CLÁUSULA DE REPARACIONES Y/O RECONSTRUCCIONES INMEDIATAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 245
+ },
+ {
+  "idx": 192,
+  "code_line": 5815,
+  "title_start": 5810,
+  "code_raw": "101 – 910547 - 2017 09 400 2071",
+  "title": "CLÁUSULA DE DAÑO ESTRUCTURAL (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 246
+ },
+ {
+  "idx": 193,
+  "code_line": 5832,
+  "title_start": 5827,
+  "code_raw": "101 – 910547 - 2017 09 400 2072",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA PRIMA GANADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 247
+ },
+ {
+  "idx": 194,
+  "code_line": 5846,
+  "title_start": 5841,
+  "code_raw": "101 – 910547 - 2017 09 400 2073",
+  "title": "CLÁUSULA DE REDUCCIÓN DEL PLAZO PARA PRONUNCIARSE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 248
+ },
+ {
+  "idx": 195,
+  "code_line": 5862,
+  "title_start": 5857,
+  "code_raw": "101 – 910547 - 2017 09 400 2074",
+  "title": "CLÁUSULA DE REDUCCIÓN PARA EL PAGO DEL SINIESTRO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 249
+ },
+ {
+  "idx": 196,
+  "code_line": 5879,
+  "title_start": 5874,
+  "code_raw": "101 – 910547 - 2017 09 400 2075",
+  "title": "CLÁUSULA DE MEDIOS PROPIOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 250
+ },
+ {
+  "idx": 197,
+  "code_line": 5897,
+  "title_start": 5892,
+  "code_raw": "101 – 910547 - 2017 09 400 2076",
+  "title": "CLÁUSULA DE DAÑOS POR REMOLQUE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 251
+ },
+ {
+  "idx": 198,
+  "code_line": 5913,
+  "title_start": 5908,
+  "code_raw": "101 – 910547 - 2017 09 400 2077",
+  "title": "CLÁUSULA DE GASTOS EXTRAORDINARIOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 252
+ },
+ {
+  "idx": 199,
+  "code_line": 5929,
+  "title_start": 5924,
+  "code_raw": "101 – 910547 - 2017 09 400 2078",
+  "title": "CLÁUSULA DE DAÑOS AL VEHÍCULO POR CARGA TRANSPORTADA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 253
+ },
+ {
+  "idx": 200,
+  "code_line": 5948,
+  "title_start": 5941,
+  "code_raw": "101 – 910547 - 2017 09 400 2079",
+  "title": "CLÁUSULA DE DAÑOS Y ROBO DE LOS VEHÍCULOS ASEGURADOS, OCASIONADOS POR CONFISCACIÓN, REQUISA, EXPROPIACIÓN, INCAUTACIÓN, DECOMISO O EMBARGO, SECUESTRO U OCUPACIÓN O RETENCIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 254
+ },
+ {
+  "idx": 201,
+  "code_line": 5967,
+  "title_start": 5962,
+  "code_raw": "101 – 910547 - 2017 09 400 2080",
+  "title": "CLÁUSULA DE AVISO DE CANCELACIÓN POR PARTE DE LA ASEGURADORA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 255
+ },
+ {
+  "idx": 202,
+  "code_line": 5985,
+  "title_start": 5980,
+  "code_raw": "101 – 910547 - 2017 09 400 2081",
+  "title": "CLÁUSULA DE GASTOS Y COSTOS JUDICIALES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 256
+ },
+ {
+  "idx": 203,
+  "code_line": 6003,
+  "title_start": 5997,
+  "code_raw": "101 – 910547 - 2017 09 400 2082",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA PARA LOS OCUPANTES DEL VEHÍCULO ASEGURADO POR INHALACIÓN E INGESTIÓN DE GASES TÓXICOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 257
+ },
+ {
+  "idx": 204,
+  "code_line": 6018,
+  "title_start": 6013,
+  "code_raw": "101 – 910547 - 2017 09 400 2083",
+  "title": "CLÁUSULA DE LIBRE ELEGIBILIDAD DE MÉDICOS, CENTROS MÉDICOS Y OTROS SERVICIOS AUXILIARES DE LA MEDICINA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 258
+ },
+ {
+  "idx": 205,
+  "code_line": 6041,
+  "title_start": 6036,
+  "code_raw": "101 – 910547 - 2017 09 400 2084",
+  "title": "CLÁUSULA DE TRANSACCIÓN SIN JUICIO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 259
+ },
+ {
+  "idx": 206,
+  "code_line": 6059,
+  "title_start": 6054,
+  "code_raw": "101 – 910547 - 2017 09 400 2085",
+  "title": "CLÁUSULA DE NO SUBROGACIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 260
+ },
+ {
+  "idx": 207,
+  "code_line": 6075,
+  "title_start": 6070,
+  "code_raw": "101 – 910547 - 2017 09 400 2086",
+  "title": "CLÁUSULA DE NO APLICACIÓN DE LA CATEGORÍA “C” (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 261
+ },
+ {
+  "idx": 208,
+  "code_line": 6093,
+  "title_start": 6087,
+  "code_raw": "101 – 910547 - 2017 09 400 2087",
+  "title": "CLÁUSULA DE DAÑOS PRODUCIDOS POR EL INGRESO DE AGUA A PARTES MECÁNICAS, ELECTROMECÁNICAS, ELÉCTRICAS Y COMBINADAS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 262
+ },
+ {
+  "idx": 209,
+  "code_line": 6109,
+  "title_start": 6104,
+  "code_raw": "101 – 910547 - 2017 09 400 2088",
+  "title": "CLÁUSULA DE EXTENSIÓN DE COBERTURA PARA PERDIDA TOTAL POR ROBO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 263
+ },
+ {
+  "idx": 210,
+  "code_line": 6125,
+  "title_start": 6120,
+  "code_raw": "101 – 910547 - 2017 09 400 2089",
+  "title": "CLÁUSULA DE EXCESO DE CARGA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 264
+ },
+ {
+  "idx": 211,
+  "code_line": 6141,
+  "title_start": 6136,
+  "code_raw": "101 – 910547 - 2017 09 400 2090",
+  "title": "CLÁUSULA DE GASTOS DE VIAJE POR SINIESTRO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 265
+ },
+ {
+  "idx": 212,
+  "code_line": 6163,
+  "title_start": 6158,
+  "code_raw": "101 – 910547 - 2017 09 400 2091",
+  "title": "CLÁUSULA DE PAGO POR PERMANENCIA EN GARAJES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 266
+ },
+ {
+  "idx": 213,
+  "code_line": 6179,
+  "title_start": 6174,
+  "code_raw": "101 – 910547 - 2017 09 400 2092",
+  "title": "CLÁUSULA DE GASTOS DE EVACUACIÓN PARA OCUPANTES (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 267
+ },
+ {
+  "idx": 214,
+  "code_line": 6199,
+  "title_start": 6194,
+  "code_raw": "101 – 910547 - 2017 09 400 2093",
+  "title": "CLÁUSULA DE BENEFICIO DE CONDUCTOR PROFESIONAL “TIPO B” (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 268
+ },
+ {
+  "idx": 215,
+  "code_line": 6217,
+  "title_start": 6212,
+  "code_raw": "101 – 910547 - 2017 09 400 2094",
+  "title": "CLÁUSULA DE FÁRMACOS MEDICADOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 269
+ },
+ {
+  "idx": 216,
+  "code_line": 6234,
+  "title_start": 6229,
+  "code_raw": "101 – 910547 - 2017 09 400 2095",
+  "title": "CLÁUSULA DE AMPLIACIÓN DEL PERIODO DE DISCREPANCIAS EN LA PÓLIZA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 270
+ },
+ {
+  "idx": 217,
+  "code_line": 6252,
+  "title_start": 6246,
+  "code_raw": "101 – 910547 – 2017 09 400 2096",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE LA COBERTURA DE ACCIDENTES PERSONALES A OCUPANTES POR VEHÍCULO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 271
+ },
+ {
+  "idx": 218,
+  "code_line": 6268,
+  "title_start": 6264,
+  "code_raw": "101 – 910547 – 2017 09 400 2100",
+  "title": "CLÁUSULA DE INDEMNIZACIÓN DE CUOTAS",
+  "page": 272
+ },
+ {
+  "idx": 219,
+  "code_line": 6310,
+  "title_start": 6306,
+  "code_raw": "101 - 910547 - 2017 09 400 2110",
+  "title": "CLÁUSULA DE INDEMNIZACIÓN POR ROBO AL CONTENIDO",
+  "page": 274
+ },
+ {
+  "idx": 220,
+  "code_line": 6346,
+  "title_start": 6342,
+  "code_raw": "101 - 910547 - 2017 09 400 2111",
+  "title": "CLÁUSULA ADICIONAL DE PAGO DE PRIMA POR KILOMETRAJE RECORRIDO",
+  "page": 275
+ },
+ {
+  "idx": 221,
+  "code_line": 6377,
+  "title_start": 6372,
+  "code_raw": "101 – 910547 – 2017 09 400 2102",
+  "title": "PÓLIZA DE SEGURO DE AUTOMOTORES LBC-AUTO (INDIVIDUAL / FLOTA) ANEXO DE LIQUIDACION DE COBRANZA",
+  "page": 276
+ },
+ {
+  "idx": 222,
+  "code_line": 6413,
+  "title_start": 6413,
+  "code_raw": "101 – 910547 – 2017 09 400 2113",
+  "title": "",
+  "page": 277
+ },
+ {
+  "idx": 223,
+  "code_line": 6434,
+  "title_start": 6430,
+  "code_raw": "101 - 910547 – 2017 09 400 2114",
+  "title": "CLÁUSULA DE REHABILITACIÓN DE LA SUMA ASEGURADA",
+  "page": 278
+ },
+ {
+  "idx": 224,
+  "code_line": 6448,
+  "title_start": 6443,
+  "code_raw": "101 - 910547 – 2017 09 400 2115",
+  "title": "CLAUSULA DE PÉRDIDAS MIENTRAS EL VEHÍCULO SEA TRANSPORTADO SOBRE CAMIÓN",
+  "page": 279
+ },
+ {
+  "idx": 225,
+  "code_line": 6462,
+  "title_start": 6456,
+  "code_raw": "101 - 910547 – 2017 09 400 2116",
+  "title": "CLAUSULA DE GASTOS POR PERMANENCIA Y/O CUSTODIA EN GARAJES Y/O DEPÓSITOS OFICIALES DE TRÁNSITO Y/O SALVAGUARDA Y/O TRANSPORTE Y/O TRASLADO",
+  "page": 280
+ },
+ {
+  "idx": 226,
+  "code_line": 6475,
+  "title_start": 6471,
+  "code_raw": "101 -910547 – 2017 09 400 2112",
+  "title": "CLÁUSULA DE VALOR ADMITIDO – PARA USO EXCLUSIVO DE LICITACIONES",
+  "page": 281
+ },
+ {
+  "idx": 227,
+  "code_line": 6490,
+  "title_start": 6485,
+  "code_raw": "101 – 910547 – 2017 09 400 2117",
+  "title": "CLÁUSULA DE RESPONSABILIDAD CIVIL, POR PERSONA EN CASO DE FALLECIMIENTO (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 282
+ },
+ {
+  "idx": 228,
+  "code_line": 6507,
+  "title_start": 6502,
+  "code_raw": "101 – 910547 – 2017 09 400 2118",
+  "title": "CLÁUSULA DE PERMISO PARA TRASLADO DE COMBUSTIBLE Y/O PRODUCTOS TÓXICOS (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 283
+ },
+ {
+  "idx": 229,
+  "code_line": 6522,
+  "title_start": 6517,
+  "code_raw": "101 – 910547 – 2017 09 400 2119",
+  "title": "CLÁUSULA DE RENUNCIA AL DERECHO DE REPETIR CONTRA CONDUCTORES DE AMBULANCIAS POR CASOS DE EMERGENCIA (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 284
+ },
+ {
+  "idx": 230,
+  "code_line": 6537,
+  "title_start": 6532,
+  "code_raw": "101 – 910547 – 2017 09 400 2120",
+  "title": "CLÁUSULA DE COBERTURA 24 HORAS DEL DÍA Y 365 DÍAS DEL AÑO, SIN LIMITACIÓN Y/O RESTRICCIÓN (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 285
+ },
+ {
+  "idx": 231,
+  "code_line": 6552,
+  "title_start": 6547,
+  "code_raw": "101 – 910547 – 2017 09 400 2121",
+  "title": "CLÁUSULA DE TRANSPORTE Y/O REPATRIACIÓN DEL CONDUCTOR U OCUPANTE(S) ACCIDENTADOS Y/O FALLECIDO(S) (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 286
+ },
+ {
+  "idx": 232,
+  "code_line": 6572,
+  "title_start": 6566,
+  "code_raw": "101 – 910547 – 2017 09 400 2122",
+  "title": "CLÁUSULA DE BENEFICIO ADICIONAL PAGO DE HOSPEDAJE Y/O TRASLADO O TRANSPORTE DE LOS OCUPANTES DEL VEHÍCULO A CENTROS MÉDICOS O A SU DOMICILIO EN CASO DE ACCIDENTE (USO EXCLUSIVO PARA LICITACIONES)",
+  "page": 287
+ },
+ {
+  "idx": 233,
+  "code_line": 6588,
+  "title_start": 6583,
+  "code_raw": "101 – 910547 – 2017 09 400 2123",
+  "title": "CLÁUSULA DE COBERTURA PARA TRANSPORTE DE PERSONAS EN CARROCERÍA PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 288
+ },
+ {
+  "idx": 234,
+  "code_line": 6605,
+  "title_start": 6599,
+  "code_raw": "101 – 910547 – 2017 09 400 2124",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE COBERTURA PARA CUBRIR DAÑOS A LOS VIDRIOS DEL VEHÍCULO ASEGURADO A CONSECUENCIA DE CAMBIOS CLIMATOLÓGICOS - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 289
+ },
+ {
+  "idx": 235,
+  "code_line": 6620,
+  "title_start": 6615,
+  "code_raw": "101 – 910547 – 2017 09 400 2125",
+  "title": "CLÁUSULA DE CONSERVACIÓN DE TÉRMINOS Y CONDICIONES DE LA PÓLIZA PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 290
+ },
+ {
+  "idx": 236,
+  "code_line": 6640,
+  "title_start": 6634,
+  "code_raw": "101 – 910547 – 2017 09 400 2126",
+  "title": "CLÁUSULA DE ELIMINACIÓN DE LOS REQUISITOS DE LA PRUEBA DE ALCOHOLEMIA Y DENUNCIA POLICIAL EN ÁREAS RURALES - PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 291
+ },
+ {
+  "idx": 237,
+  "code_line": 6727,
+  "title_start": 6723,
+  "code_raw": "101 – 910547 – 2017 09 400 2128",
+  "title": "PARA USO EXCLUSIVO EN LICITACIONES",
+  "page": 294
+ },
+ {
+  "idx": 238,
+  "code_line": 6742,
+  "title_start": 6737,
+  "code_raw": "101 – 910547 – 2017 09 400 2129",
+  "title": "CLÁUSULA DE PAGO DE HOSPEDAJE A LOS OCUPANTES POR FALLAS MECÁNICAS O ACCIDENTES",
+  "page": 295
+ },
+ {
+  "idx": 239,
+  "code_line": 6762,
+  "title_start": 6762,
+  "code_raw": "101 – 910547 – 2017 09 400 2130",
+  "title": "",
+  "page": 296
+ },
+ {
+  "idx": 240,
+  "code_line": 6793,
+  "title_start": 6793,
+  "code_raw": "101-910547-2017 09 400 2132",
+  "title": "",
+  "page": 297
+ },
+ {
+  "idx": 241,
+  "code_line": 6813,
+  "title_start": 6813,
+  "code_raw": "101-910547-2017 09 400 2133",
+  "title": "",
+  "page": 298
+ },
+ {
+  "idx": 242,
+  "code_line": 6827,
+  "title_start": 6827,
+  "code_raw": "101-910547-2017 09 400 2134",
+  "title": "",
+  "page": 299
+ },
+ {
+  "idx": 243,
+  "code_line": 6854,
+  "title_start": 6854,
+  "code_raw": "101-910547-2017 09 400 2135",
+  "title": "",
+  "page": 300
+ },
+ {
+  "idx": 244,
+  "code_line": 6870,
+  "title_start": 6870,
+  "code_raw": "101-910547-2017 09 400 2136",
+  "title": "",
+  "page": 300
+ },
+ {
+  "idx": 245,
+  "code_line": 6885,
+  "title_start": 6885,
+  "code_raw": "101 – 910547 – 2017 09 400 2137",
+  "title": "",
+  "page": 301
+ },
+ {
+  "idx": 246,
+  "code_line": 6904,
+  "title_start": 6904,
+  "code_raw": "101 – 910547 – 2017 09 400 2138",
+  "title": "",
+  "page": 303
+ },
+ {
+  "idx": 247,
+  "code_line": 6923,
+  "title_start": 6923,
+  "code_raw": "101 – 910547 – 2017 09 400 2139",
+  "title": "",
+  "page": 304
+ },
+ {
+  "idx": 248,
+  "code_line": 6940,
+  "title_start": 6940,
+  "code_raw": "101 – 910547 – 2017 09 400 2140",
+  "title": "",
+  "page": 305
+ },
+ {
+  "idx": 249,
+  "code_line": 6958,
+  "title_start": 6958,
+  "code_raw": "101 – 910547 – 2017 09 400 2141",
+  "title": "",
+  "page": 306
+ },
+ {
+  "idx": 250,
+  "code_line": 6974,
+  "title_start": 6969,
+  "code_raw": "101 – 910547 – 2017 09 400 2142",
+  "title": "CLÁUSULA DE INDEMNIZACIÓN POR INGRESO EN TALLERES A CAUSA DE ACCIDENTES DE TRÁNSITO",
+  "page": 307
+ },
+ {
+  "idx": 251,
+  "code_line": 7014,
+  "title_start": 7010,
+  "code_raw": "101 – 910547 – 2017 09 400 2143",
+  "title": "CLÁUSULA DE COBERTURA DE ASISTENCIA JURÍDICA A REEMBOLSO",
+  "page": 308
+ },
+ {
+  "idx": 252,
+  "code_line": 7041,
+  "title_start": 7036,
+  "code_raw": "101 – 910547 – 2017 09 400 2144",
+  "title": "CLÁUSULA VARIACIÓN DEL CAPITAL ASEGURADO A PRORRATA (PARA USO EXCLUSIVO EN LICITACIONES)",
+  "page": 309
+ },
+ {
+  "idx": 253,
+  "code_line": 7057,
+  "title_start": 7053,
+  "code_raw": "101 – 910547 – 2017 09 400 2145",
+  "title": "CLÁUSULA DE RESCISIÓN, MODIFICACIÓN",
+  "page": 310
+ },
+ {
+  "idx": 254,
+  "code_line": 7071,
+  "title_start": 7067,
+  "code_raw": "101 – 910547 – 2017 09 400 2147",
+  "title": "CLÁUSULA DE AMPLIACIÓN DE LA LIMITACIÓN DE EDAD MÍNIMA",
+  "page": 311
+ }
+]
