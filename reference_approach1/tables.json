@@ -1,0 +1,1133 @@
+{
+  "allowlist_marcas_antiguos": {
+    "values": [
+      "Suzuki",
+      "Toyota",
+      "Nissan",
+      "Mitsubishi",
+      "Mazda",
+      "Ford",
+      "Volkswagen",
+      "Honda"
+    ],
+    "source": {
+      "section": "3.1.2",
+      "printed_page": 4,
+      "version": "4.0"
+    }
+  },
+  "allowlist_importadores": {
+    "values": [
+      "Toyosa",
+      "SACI",
+      "Andar Motors",
+      "Ovando",
+      "Taiyo Motors",
+      "IMCRUZ"
+    ],
+    "source": {
+      "section": "3.1.2",
+      "printed_page": 5,
+      "version": "4.0"
+    }
+  },
+  "limits": {
+    "moto_lujo_valor_max_bob": 70000,
+    "valor_validacion_importador_bob": 700000,
+    "valor_max_standard_bob": 1050000,
+    "source": {
+      "section": "4.4",
+      "printed_page": 30,
+      "version": "4.0"
+    },
+    "responsabilidad_civil_max_standard_bob": 210000,
+    "accidentes_personales_por_persona_bob": 70000,
+    "coverage_caps_pct": {
+      "perdida_total_robo": 1.0,
+      "perdida_total_accidente": 1.0,
+      "danos_propios_hmacc_amit": 0.9,
+      "robo_parcial": 0.8
+    },
+    "responsabilidad_civil_max_case_uw_bob": 350000,
+    "alcoholemia_max_gl": 0.7,
+    "licencia_vencida_max_dias": 90,
+    "renewal_case_uw_threshold": 1.5,
+    "_desc": "Siniestralidad histórica a partir de la cual la renovación Comercial/Pyme escala a Case UW.",
+    "accesorio_max_pct_valor_vehiculo": 0.3,
+    "retroactividad_max_dias_standard": 30,
+    "zero_km_max_age_years": 1,
+    "zero_km_max_km": 15000,
+    "consumer_fleet_min_vehiculos": 4
+  },
+  "rate_tables": {
+    "standard_pn_nit_flota": {
+      "_desc": "Personas Naturales con NIT, flota >=3 vehículos mismo tomador o programa donde la prima de Automotores <=40% del programa.",
+      "by_plaza": {
+        "eje_troncal": 0.028,
+        "fuera_del_eje": 0.026
+      },
+      "applies_when": "client_type == 'pn_con_nit' && (flota_size >= 3 || auto_share_of_program <= 0.40)",
+      "source": {
+        "section": "3.1.5.1.2",
+        "printed_page": 10,
+        "version": "4.0"
+      }
+    },
+    "standard_empresas_livianos_individual": {
+      "_desc": "Empresas (S.A./SRL/S.A.M./R.L./ONG), segmentos Pyme y Commercial, póliza individual liviano.",
+      "by_plaza": {
+        "eje_troncal": 0.03,
+        "fuera_del_eje": 0.028
+      },
+      "source": {
+        "section": "3.1.5.1.3",
+        "printed_page": 11,
+        "version": "4.0"
+      }
+    },
+    "standard_empresas_livianos_flota": {
+      "_desc": "Empresas, flota de livianos (desde el 2do vehículo).",
+      "by_plaza": {
+        "la_paz_santa_cruz": 0.024,
+        "demas_plazas": 0.022
+      },
+      "source": {
+        "section": "3.1.5.1.4",
+        "printed_page": 11,
+        "version": "4.0"
+      }
+    },
+    "standard_empresas_pesados": {
+      "_desc": "Empresas, pesados individual o flota, cualquier plaza.",
+      "tasa_total": 0.028,
+      "source": {
+        "section": "3.1.5.2.1",
+        "printed_page": "11-12",
+        "version": "4.0"
+      }
+    },
+    "moto_proteccion_bands": [
+      {
+        "min": 0,
+        "max": 10500,
+        "prima_bob": 525
+      },
+      {
+        "min": 10500.01,
+        "max": 21000,
+        "prima_bob": 896
+      },
+      {
+        "min": 21001,
+        "max": 35000,
+        "prima_bob": 1344
+      },
+      {
+        "min": 35001,
+        "max": 70000,
+        "tasa": 0.042
+      }
+    ],
+    "case_uw_pesados": {
+      "_desc": "Tasas y deducibles REFERENCIALES para automotores pesados >8TN bajo Case UW; descuentos deben justificarse técnica y comercialmente.",
+      "tasa_total_referencial": 0.04,
+      "source": {
+        "section": "3.3.5",
+        "printed_page": "19-20",
+        "version": "4.0"
+      }
+    },
+    "accesorios": {
+      "tasa_total_anual": 0.08,
+      "source": {
+        "section": "4.10",
+        "printed_page": 33,
+        "version": "4.0"
+      }
+    }
+  },
+  "deductible_tables": {
+    "moto_franquicia_minima_por_plaza": {
+      "_desc": "Franquicia deducible mínima (Daños Propios y HMACC AMIT Terrorismo) para motocicletas.",
+      "rows": [
+        {
+          "valor_max_bob": 35000,
+          "santa_cruz_la_paz_trinidad_bob": 350,
+          "resto_pais_bob": 350
+        },
+        {
+          "valor_min_bob": 35000,
+          "valor_max_bob": 70000,
+          "santa_cruz_la_paz_trinidad_bob": 700,
+          "resto_pais_bob": 350
+        },
+        {
+          "valor_min_bob": 70000,
+          "santa_cruz_la_paz_trinidad_bob": 1500,
+          "resto_pais_bob": 1500
+        }
+      ],
+      "source": {
+        "section": "3.1.5.4.2",
+        "printed_page": 13,
+        "version": "4.0"
+      }
+    },
+    "personas_naturales_franquicia_pct": {
+      "robo_parcial_partes_piezas_pct": 0.2,
+      "danos_propios_hmacc_pct": 0.1,
+      "_desc": "Mínimas; en función a la alternativa elegida por el cliente en CRM.",
+      "source": {
+        "section": "3.1.5.4.2",
+        "printed_page": 13,
+        "version": "4.0"
+      }
+    },
+    "empresas_franquicia_minima": {
+      "_desc": "Franquicia deducible mínima (Daños Propios y HMACC AMIT Terrorismo) demás vehículos.",
+      "rows": [
+        {
+          "valor_max_bob": 420000,
+          "regla": "10% del valor del siniestro",
+          "minimo_eje_central_bob": 1000,
+          "minimo_resto_bob": 500
+        },
+        {
+          "valor_min_bob": 420000,
+          "valor_max_bob": 700000,
+          "franquicia_bob": 1500
+        },
+        {
+          "categoria": "vehiculos_lujo_mayores_420000",
+          "franquicia_bob": 2100
+        },
+        {
+          "categoria": "alquilados_petroleras_o_similares",
+          "franquicia_bob": 1500
+        },
+        {
+          "categoria": "pesados_mayor_3tn",
+          "franquicia_bob": 2100
+        },
+        {
+          "categoria": "pesados_hasta_3tn",
+          "franquicia_bob": 1500
+        }
+      ],
+      "robo_parcial_partes_piezas_pct": 0.2,
+      "source": {
+        "section": "3.1.5.4.2",
+        "printed_page": 14,
+        "version": "4.0"
+      }
+    },
+    "responsabilidad_civil_franquicia_fija_bob": {
+      "value": 1000,
+      "_desc": "Franquicia deducible fija general por evento y/o reclamo (RC).",
+      "source": {
+        "section": "3.1.5.4.2",
+        "printed_page": 14,
+        "version": "4.0"
+      }
+    },
+    "case_uw_pesados_franquicia_minima_bob": {
+      "value": 3500,
+      "source": {
+        "section": "3.3.5",
+        "printed_page": 20,
+        "version": "4.0"
+      }
+    }
+  },
+  "rate_tables_rc_primas_minimas": {
+    "rc_only_livianos_comercial_consumer": {
+      "_desc": "Primas mínimas para livianos Comercial/Consumer que contraten SOLO Responsabilidad Civil.",
+      "rows": [
+        {
+          "valor_asegurado_bob": 140000,
+          "santa_cruz_la_paz_trinidad_bob": 1000,
+          "resto_pais_bob": 850
+        }
+      ],
+      "source": {
+        "section": "3.1.5.4.1",
+        "printed_page": 13,
+        "version": "4.0"
+      }
+    }
+  },
+  "primas_minimas": {
+    "_desc": "Primas mínimas al contado por segmento/tipo (BOB).",
+    "empresas_individual": {
+      "livianos_eje_troncal": 2450,
+      "livianos_resto": 2100,
+      "pesados": 2800
+    },
+    "pn_nit_flota": {
+      "livianos_eje_troncal": 2800,
+      "livianos_resto": 2100
+    },
+    "empresas_flota": {
+      "livianos_excl_motos": 1750,
+      "pesados": 2450
+    },
+    "personas_naturales_individual": null,
+    "_personas_naturales_note": "Configuradas en el tarificador del CRM según la alternativa del cliente; valor no publicado en el manual.",
+    "source": {
+      "section": "3.1.5.4.1",
+      "printed_page": "12-13",
+      "version": "4.0"
+    }
+  },
+  "surcharges": {
+    "hibrido_electrico_tasa": {
+      "hibrido": 0.1,
+      "electrico": 0.2,
+      "_desc": "Recargo sobre la tasa cotizada en CRM (livianos y motos).",
+      "source": {
+        "section": "3.1.5.1.1",
+        "printed_page": 9,
+        "version": "4.0"
+      }
+    },
+    "hibrido_electrico_franquicia": {
+      "value": 0.5,
+      "_desc": "Recargo del 50% sobre la franquicia deducible elegida en CRM para híbridos/eléctricos.",
+      "source": {
+        "section": "3.1.5.4.2",
+        "printed_page": 13,
+        "version": "4.0"
+      }
+    }
+  },
+  "discount_authority": {
+    "_desc": "Autoridad para otorgar descuentos sobre la tasa/prima cotizada en CRM; el CRM bloquea si la prima final cae por debajo de la mínima.",
+    "gerencia_nacional_negocios": "sin_limite",
+    "gerencia_jefatura_sucursal_max_pct": 0.2,
+    "subgerencia_jefatura_comercial_max_pct": 0.1,
+    "source": {
+      "section": "3.1.5.1.2",
+      "printed_page": 10,
+      "version": "4.0"
+    }
+  },
+  "renewal_surcharge_consumer": {
+    "_desc": "Bandas de ajuste de tasa en renovación Consumer por siniestralidad histórica (decimal).",
+    "bands": [
+      {
+        "loss_ratio_max": 0.0,
+        "ajuste": "descuento_hasta_0.10",
+        "once_per_vehicle": true,
+        "persiste_si_loss_ratio_menor": 0.6,
+        "no_baja_de_prima_minima": true
+      },
+      {
+        "loss_ratio_min": 0.0,
+        "loss_ratio_max": 0.6,
+        "ajuste": 0.0
+      },
+      {
+        "loss_ratio_min": 0.6,
+        "loss_ratio_max": 1.5,
+        "ajuste": "max(recargo_0.10, tasa_tarificador)"
+      },
+      {
+        "loss_ratio_min": 1.5,
+        "loss_ratio_max": 2.5,
+        "ajuste": 0.5
+      },
+      {
+        "loss_ratio_min": 2.5,
+        "ajuste": "depuracion"
+      }
+    ],
+    "source": {
+      "section": "4.1",
+      "printed_page": 28,
+      "version": "4.0"
+    }
+  },
+  "renewal_surcharge_pesados_motos": {
+    "_desc": "Bandas de ajuste de tasa en renovación de pesados/motos individuales por siniestralidad (última o histórica).",
+    "bands": [
+      {
+        "loss_ratio_max": 0.5,
+        "ajuste": 0.0,
+        "regla": "mantener tasas de la última vigencia"
+      },
+      {
+        "loss_ratio_min": 0.51,
+        "loss_ratio_max": 2.5,
+        "ajuste": 0.17
+      },
+      {
+        "loss_ratio_min": 2.5,
+        "ajuste": "refer_case_underwriting"
+      }
+    ],
+    "source": {
+      "section": "4.1",
+      "printed_page": 28,
+      "version": "4.0"
+    }
+  },
+  "renewal_primas_minimas_livianos": {
+    "_desc": "Tasas y primas mínimas para renovaciones de livianos por ciudad.",
+    "rows": [
+      {
+        "ciudad": "La Paz",
+        "prima_minima_bob": 3300,
+        "tasa_minima": 0.028
+      },
+      {
+        "ciudad": "Santa Cruz",
+        "prima_minima_bob": 3500,
+        "tasa_minima": 0.03
+      },
+      {
+        "ciudad": "Cochabamba",
+        "prima_minima_bob": 3150,
+        "tasa_minima": 0.027
+      },
+      {
+        "ciudad": "Resto del País",
+        "prima_minima_bob": 2800,
+        "tasa_minima": 0.022
+      }
+    ],
+    "source": {
+      "section": "4.1",
+      "printed_page": 29,
+      "version": "4.0"
+    }
+  },
+  "flota_definiciones": {
+    "commercial": "Uno o más vehículos bajo una misma póliza en el Segmento Commercial (no Consumer), no suscritos vía concesionario ni institución financiera.",
+    "consumer": "Grupo de mínimamente 4 vehículos bajo una misma póliza con el mismo propietario asegurado (RUAT u otro respaldo).",
+    "source": {
+      "section": "4.4",
+      "printed_page": 30,
+      "version": "4.0"
+    }
+  },
+  "vigencia_corto_plazo_casos": {
+    "values": [
+      "unificacion_de_vencimientos",
+      "flota_con_anexo_inclusiones_exclusiones_prorrata",
+      "licitacion_con_vigencia_menor_en_pliego"
+    ],
+    "_desc": "Casos en que se acepta vigencia < 12 meses bajo autorización del Área de Suscripción.",
+    "source": {
+      "section": "4.5",
+      "printed_page": 31,
+      "version": "4.0"
+    }
+  },
+  "productos_enlatados": {
+    "values": [
+      "LBC | Auto",
+      "LBC | Auto Por Kilometraje",
+      "LBC | Moto (Low Cost)"
+    ],
+    "_desc": "Productos del Proceso de Suscripción Automática (enlatados).",
+    "source": {
+      "section": "3.2",
+      "printed_page": 17,
+      "version": "4.0"
+    }
+  },
+  "authority_matrix": {
+    "rows": [
+      {
+        "suscriptor": "Manuel Sauma",
+        "process": "standard",
+        "max_vehiculos": null,
+        "max_valor_bob": 3480000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Yasmin Rendón",
+        "process": "standard",
+        "max_vehiculos": null,
+        "max_valor_bob": 3480000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Santiago Bustillos",
+        "process": "standard",
+        "max_vehiculos": null,
+        "max_valor_bob": 3480000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "José Carlos López",
+        "process": "standard",
+        "max_vehiculos": 150,
+        "max_valor_bob": 2100000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Marco Rada",
+        "process": "standard",
+        "max_vehiculos": 150,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Maribel Aruquipa",
+        "process": "standard",
+        "max_vehiculos": 150,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Ricardo Velarde",
+        "process": "standard",
+        "max_vehiculos": 150,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Vania Saucedo",
+        "process": "standard",
+        "max_vehiculos": 150,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Paola Aguilar",
+        "process": "standard",
+        "max_vehiculos": 150,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Lizeth Ríos",
+        "process": "standard",
+        "max_vehiculos": 100,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Fernando Roca",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Juan Pablo Camacho",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Maria Alejandra Gil",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Gonzalo Galarza",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Verónica Suárez",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Roxana Vaca",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Daniel Tirado",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Edward Bellido",
+        "process": "standard",
+        "max_vehiculos": 5,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Carmen Balderas",
+        "process": "standard",
+        "max_vehiculos": 5,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Paola Rocha",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Vanessa García",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Katia Barreal",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Patricia Inchauste",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Carla Valle",
+        "process": "standard",
+        "max_vehiculos": 20,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Sandra Terán",
+        "process": "standard",
+        "max_vehiculos": 5,
+        "max_valor_bob": 1050000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Arnold Vaca",
+        "process": "standard",
+        "max_vehiculos": 5,
+        "max_valor_bob": 1050000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Mariela Méndez",
+        "process": "standard",
+        "max_vehiculos": 5,
+        "max_valor_bob": 700000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Tatiana Ticona",
+        "process": "standard",
+        "max_vehiculos": 5,
+        "max_valor_bob": 700000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Geovanna Moruco",
+        "process": "standard",
+        "max_vehiculos": 5,
+        "max_valor_bob": 700000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Wildo Castellanos",
+        "process": "standard",
+        "max_vehiculos": 5,
+        "max_valor_bob": 700000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Ninoska Martinez",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Elizabeth Suarez",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "José Mercado",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Natalia Jijena",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Manuel Sabag",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Ana Arauz",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Airton Garcia",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Julio Guerrero",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 6,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Daniel Porcel",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 7,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Diego Torrejón",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 7,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Wendy Revollo",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 7,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Diego Villagomez",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 7,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Juan Bustamante",
+        "process": "standard",
+        "max_vehiculos": 1,
+        "max_valor_bob": 490000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 7,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Manuel Sauma",
+        "process": "case_underwriting",
+        "max_vehiculos": null,
+        "max_valor_bob": 3480000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 18,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Yasmin Rendón",
+        "process": "case_underwriting",
+        "max_vehiculos": null,
+        "max_valor_bob": 3480000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 18,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Santiago Bustillos",
+        "process": "case_underwriting",
+        "max_vehiculos": null,
+        "max_valor_bob": 3480000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 18,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "José Carlos López",
+        "process": "case_underwriting",
+        "max_vehiculos": 300,
+        "max_valor_bob": 2100000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 18,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Marco Rada",
+        "process": "case_underwriting",
+        "max_vehiculos": 300,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 18,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Maribel Aruquipa",
+        "process": "case_underwriting",
+        "max_vehiculos": 300,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 18,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Paola Aguilar",
+        "process": "case_underwriting",
+        "max_vehiculos": 300,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 18,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Vania Saucedo",
+        "process": "case_underwriting",
+        "max_vehiculos": 300,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 18,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Lizeth Rios",
+        "process": "case_underwriting",
+        "max_vehiculos": 100,
+        "max_valor_bob": 1400000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 18,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Manuel Sauma",
+        "process": "licitaciones",
+        "max_vehiculos": null,
+        "max_valor_bob": 3480000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Yasmin Rendón",
+        "process": "licitaciones",
+        "max_vehiculos": null,
+        "max_valor_bob": 3480000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Santiago Bustillos",
+        "process": "licitaciones",
+        "max_vehiculos": null,
+        "max_valor_bob": 3480000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "José Carlos López",
+        "process": "licitaciones",
+        "max_vehiculos": 300,
+        "max_valor_bob": 2100000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Marco Rada",
+        "process": "licitaciones",
+        "max_vehiculos": 300,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Maribel Aruquipa",
+        "process": "licitaciones",
+        "max_vehiculos": 300,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Ricardo Velarde",
+        "process": "licitaciones",
+        "max_vehiculos": 300,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Paola Aguilar",
+        "process": "licitaciones",
+        "max_vehiculos": 300,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Vania Saucedo",
+        "process": "licitaciones",
+        "max_vehiculos": 300,
+        "max_valor_bob": 1750000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      },
+      {
+        "suscriptor": "Lizeth Rios",
+        "process": "licitaciones",
+        "max_vehiculos": 10,
+        "max_valor_bob": 700000.0,
+        "source": {
+          "section": "3.1.3/3.3.2/3.5.2",
+          "printed_page": 23,
+          "version": "4.0"
+        }
+      }
+    ]
+  },
+  "capacity": {
+    "max_retencion_por_vehiculo_bob": 3480000,
+    "source": {
+      "section": "2.1",
+      "printed_page": 2,
+      "version": "4.0"
+    }
+  }
+}

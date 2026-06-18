@@ -1,0 +1,96 @@
+{
+  "_note": "Renewal policy (4.1). Standard-process renewals with loss-ratio-driven rate adjustments and escalation to Case UW above thresholds. Surcharge/discount bands are DATA in parameter_tables; nodes carry the branch logic. Percentages as decimals.",
+  "nodes": [
+    {
+      "id": "standard.renewal.comercial_pyme_auto",
+      "type": "condition",
+      "process": "standard",
+      "order": 10,
+      "title": "Renovación automática Comercial / Pyme (S.A./SRL/S.A.M./R.L./ONG)",
+      "needs_facts": ["segment", "client_type", "within_standard_profile", "within_standard_authority", "terms_unchanged", "siniestralidad_historica"],
+      "evaluate": "segment in ['comercial','pyme'] && within_standard_profile == true && within_standard_authority == true && terms_unchanged == true",
+      "branches": [
+        {"when": "siniestralidad_historica == 0", "outcome": "eligible", "reason": "Siniestralidad nula: puede mantener su tasa vigente sin considerar las tasas mínimas."},
+        {"when": "siniestralidad_historica < @tables.limits.renewal_case_uw_threshold", "outcome": "eligible", "reason": "Siniestralidad < 150%: el suscriptor estándar decide entre mantener o incrementar la tasa a su criterio."},
+        {"when": "siniestralidad_historica >= @tables.limits.renewal_case_uw_threshold", "outcome": "refer_process", "target": "case_underwriting", "reason": "Siniestralidad >= 150%: debe ser revisado y autorizado por Case Underwriting."}
+      ],
+      "note": "Requiere aprobación de un suscriptor con autoridad para estos límites y que los T&C no correspondan a ninguna exclusión vigente.",
+      "see_also": ["3.1.2", "3.1.3"],
+      "source": {"section": "4.1", "printed_page": "27-28", "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.renewal.consumer_loss_surcharge",
+      "type": "accumulator",
+      "process": "standard",
+      "order": 11,
+      "title": "Ajuste de tasa de renovación Consumer por siniestralidad histórica",
+      "needs_facts": ["segment", "siniestralidad_historica"],
+      "applies_when": "segment == 'consumer'",
+      "adjustment": {"target": "tasa", "type": "banded_by_loss_ratio", "table_ref": "@tables.renewal_surcharge_consumer"},
+      "note": "Aplica a renovaciones por cualquier canal con perfil Estándar, sin considerar antigüedad. El descuento por siniestralidad nula no puede bajar de la prima mínima vigente; >250% = depuración.",
+      "source": {"section": "4.1", "printed_page": 28, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.renewal.pesados_motos_individual",
+      "type": "accumulator",
+      "process": "standard",
+      "order": 12,
+      "title": "Ajuste de tasa de renovación de pesados / motocicletas (pólizas individuales)",
+      "needs_facts": ["vehicle_class", "siniestralidad_ultima_o_historica"],
+      "applies_when": "vehicle_class in ['pesado','motocicleta']",
+      "adjustment": {"target": "tasa", "type": "banded_by_loss_ratio", "table_ref": "@tables.renewal_surcharge_pesados_motos"},
+      "source": {"section": "4.1", "printed_page": 28, "version": "4.0"},
+      "needs_human_review": false
+    }
+  ],
+  "parameter_tables": {
+    "limits": {
+      "renewal_case_uw_threshold": 1.50,
+      "_desc": "Siniestralidad histórica a partir de la cual la renovación Comercial/Pyme escala a Case UW.",
+      "source": {"section": "4.1", "printed_page": 28, "version": "4.0"}
+    },
+    "renewal_surcharge_consumer": {
+      "_desc": "Bandas de ajuste de tasa en renovación Consumer por siniestralidad histórica (decimal).",
+      "bands": [
+        {"loss_ratio_max": 0.0, "ajuste": "descuento_hasta_0.10", "once_per_vehicle": true, "persiste_si_loss_ratio_menor": 0.60, "no_baja_de_prima_minima": true},
+        {"loss_ratio_min": 0.0, "loss_ratio_max": 0.60, "ajuste": 0.0},
+        {"loss_ratio_min": 0.60, "loss_ratio_max": 1.50, "ajuste": "max(recargo_0.10, tasa_tarificador)"},
+        {"loss_ratio_min": 1.50, "loss_ratio_max": 2.50, "ajuste": 0.50},
+        {"loss_ratio_min": 2.50, "ajuste": "depuracion"}
+      ],
+      "source": {"section": "4.1", "printed_page": 28, "version": "4.0"}
+    },
+    "renewal_surcharge_pesados_motos": {
+      "_desc": "Bandas de ajuste de tasa en renovación de pesados/motos individuales por siniestralidad (última o histórica).",
+      "bands": [
+        {"loss_ratio_max": 0.50, "ajuste": 0.0, "regla": "mantener tasas de la última vigencia"},
+        {"loss_ratio_min": 0.51, "loss_ratio_max": 2.50, "ajuste": 0.17},
+        {"loss_ratio_min": 2.50, "ajuste": "refer_case_underwriting"}
+      ],
+      "source": {"section": "4.1", "printed_page": 28, "version": "4.0"}
+    },
+    "renewal_primas_minimas_livianos": {
+      "_desc": "Tasas y primas mínimas para renovaciones de livianos por ciudad.",
+      "rows": [
+        {"ciudad": "La Paz", "prima_minima_bob": 3300, "tasa_minima": 0.028},
+        {"ciudad": "Santa Cruz", "prima_minima_bob": 3500, "tasa_minima": 0.030},
+        {"ciudad": "Cochabamba", "prima_minima_bob": 3150, "tasa_minima": 0.027},
+        {"ciudad": "Resto del País", "prima_minima_bob": 2800, "tasa_minima": 0.022}
+      ],
+      "source": {"section": "4.1", "printed_page": 29, "version": "4.0"}
+    }
+  },
+  "new_facts": {
+    "within_standard_profile": "El/los vehículo(s) se enmarca(n) en el perfil de riesgo del Procedimiento Estándar.",
+    "within_standard_authority": "Los límites asegurados están dentro de las Autoridades de Suscripción Estándar.",
+    "terms_unchanged": "Los T&C de renovación se mantienen igual a la última vigencia y no caen en ninguna exclusión vigente.",
+    "siniestralidad_historica": "Índice de siniestralidad histórica de la póliza (decimal, p.ej. 1.50 = 150%).",
+    "siniestralidad_ultima_o_historica": "Siniestralidad de la última vigencia o histórica, la que aplique (decimal)."
+  },
+  "gaps": [
+    "Renovación VIP: se permite renovar por estándar manteniendo T&C solo si la póliza no registró siniestralidad histórica; criterio binario, sin tabla.",
+    "El texto de 4.1 párrafo 3 (Consumer pesados/motos) está redactado de forma fragmentaria en el PDF; confirmar que los cortes 50%/51-250%/>250% y el recargo 17% son los vigentes."
+  ]
+}

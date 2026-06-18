@@ -1,0 +1,34 @@
+{
+  "_note": "Process router built from the intros of 2.2.x (products) and 3.1-3.5 (processes). The manual describes each process but never states an explicit top-level precedence when several could apply; order here is most-specific-first and the precedence is flagged for underwriter confirmation.",
+  "nodes": [
+    {
+      "id": "root.process_router",
+      "type": "router",
+      "process": null,
+      "title": "Selección del proceso de suscripción",
+      "needs_facts": ["product", "is_public_tender", "is_mass_grouping", "channel", "client_type", "requests_standard_deviation"],
+      "branches": [
+        {"when": "product in @tables.productos_enlatados", "outcome": "refer_process", "target": "automatica", "reason": "Productos enlatados con T&C predefinidos; no aplican autoridades de suscripción."},
+        {"when": "is_public_tender == true", "outcome": "refer_process", "target": "licitaciones", "reason": "Clientes Estatales / licitaciones del sector público o privadas (canales Corporate y Directas)."},
+        {"when": "is_mass_grouping == true || channel == 'wholesale'", "outcome": "refer_process", "target": "masiva", "reason": "Agrupación de muchos clientes individuales en un solo programa; acuerdos con Concesionarios/Bancos/Entidades Financieras."},
+        {"when": "requests_standard_deviation == true || client_type == 'consumer_fleet_4plus'", "outcome": "refer_process", "target": "case_underwriting", "reason": "Desviaciones a condiciones estándar / flotas Consumer / riesgos que requieren análisis caso por caso."},
+        {"when": "true", "outcome": "refer_process", "target": "standard", "reason": "Vía rápida por defecto: clientes individuales o flotas por cualquier canal, dentro del perfil de riesgo estándar."}
+      ],
+      "source": {"section": "3", "printed_page": "3-22", "version": "4.0"},
+      "needs_human_review": true,
+      "review_reason": "El manual define cada proceso pero no fija una precedencia explícita cuando varios podrían aplicar (p.ej. una flota estatal con producto enlatado). Confirmar el orden de evaluación y la condición exacta que envía un riesgo a Case Underwriting vs Estándar (hoy inferida de 'desviaciones a condiciones estándar')."
+    }
+  ],
+  "parameter_tables": {
+    "productos_enlatados": {
+      "values": ["LBC | Auto", "LBC | Auto Por Kilometraje", "LBC | Moto (Low Cost)"],
+      "_desc": "Productos del Proceso de Suscripción Automática (enlatados).",
+      "source": {"section": "3.2", "printed_page": 17, "version": "4.0"}
+    }
+  },
+  "new_facts": {
+    "product": "Producto comercial solicitado (p.ej. LBC | Auto, LBC | Moto).",
+    "requests_standard_deviation": "El cliente solicita desviaciones respecto a las condiciones estándar (gatilla análisis Case Underwriting)."
+  },
+  "gaps": []
+}

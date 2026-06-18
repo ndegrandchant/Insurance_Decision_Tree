@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Árboles de decisión — Manual de Suscripción Automotores (LBC)</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#ffffff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0;
+    --decision:#2563eb; --decision-bg:#eff6ff; --hub:#475569; --hub-bg:#f1f5f9;
+    --excl:#b45309; --excl-bg:#fffbeb; --lift:#0f766e; --lift-bg:#effdf9;
+    --route:#4338ca; --route-bg:#eef2ff; --band:#7c3aed; --band-bg:#f9f5ff;
+    --good:#15803d; --good-bg:#f0fdf4; --bad:#b91c1c; --bad-bg:#fef2f2;
+    --flag:#dc2626; --overlay:#9333ea; --edge:#94a3b8;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  .app{display:grid;grid-template-columns:280px 1fr;height:100vh}
+  /* sidebar */
+  .side{background:var(--panel);border-right:1px solid var(--line);overflow:auto;padding:16px}
+  .side h1{font-size:15px;margin:0 0 4px}
+  .side .sub{font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.4}
+  .treelist{list-style:none;margin:0;padding:0}
+  .treelist li{padding:11px 12px;border:1px solid var(--line);border-radius:9px;margin-bottom:9px;cursor:pointer;transition:.12s}
+  .treelist li:hover{border-color:#cbd5e1;background:#fafbfc}
+  .treelist li.active{border-color:var(--decision);background:var(--decision-bg);box-shadow:0 0 0 1px var(--decision) inset}
+  .treelist .tid{font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--decision)}
+  .treelist .tname{font-size:12.5px;margin-top:3px;line-height:1.35}
+  .treelist .tmeta{font-size:11px;color:var(--muted);margin-top:5px}
+  .legend{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+  .legend h2{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:0 0 9px}
+  .legend .row{display:flex;align-items:center;gap:8px;font-size:11.5px;margin-bottom:6px}
+  .swatch{width:14px;height:14px;border-radius:4px;border:1.5px solid}
+  /* main */
+  .main{display:flex;flex-direction:column;overflow:hidden}
+  .topbar{background:var(--panel);border-bottom:1px solid var(--line);padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .topbar .name{font-size:15px;font-weight:650}
+  .topbar .src{font:11.5px ui-monospace,Menlo,monospace;color:var(--muted);background:#f1f5f9;padding:2px 8px;border-radius:6px}
+  .tabs{margin-left:auto;display:flex;gap:4px;background:#f1f5f9;border-radius:8px;padding:3px}
+  .tabs button{border:0;background:transparent;padding:6px 14px;border-radius:6px;font-size:12.5px;cursor:pointer;color:var(--muted)}
+  .tabs button.active{background:var(--panel);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+  .zoom{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
+  .zoom button{width:26px;height:26px;border:1px solid var(--line);background:var(--panel);border-radius:6px;cursor:pointer;font-size:14px}
+  .banners{padding:10px 18px 0;display:flex;flex-direction:column;gap:8px}
+  .banner{font-size:12px;border-radius:8px;padding:9px 12px;line-height:1.45}
+  .banner.eval{background:#f8fafc;border:1px solid var(--line);color:#334155}
+  .banner.conflict{background:#fef2f2;border:1px solid #fecaca;color:#7f1d1d}
+  .banner.rule{background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a}
+  .banner b{font-weight:700}
+  .stage-wrap{flex:1;overflow:auto;position:relative}
+  .stage{position:relative;transform-origin:0 0}
+  .node{position:absolute;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);padding:9px 11px;font-size:12px;line-height:1.4;box-shadow:0 1px 3px rgba(15,23,42,.07);cursor:pointer;z-index:2}
+  .node:hover{box-shadow:0 3px 10px rgba(15,23,42,.16)}
+  .node.sel{box-shadow:0 0 0 2px var(--decision),0 3px 10px rgba(15,23,42,.18)}
+  .node .nh{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+  .node .knd{font:600 9.5px ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.04em}
+  .node .nid{font:600 10px ui-monospace,Menlo,monospace;color:var(--muted)}
+  .node .pg{margin-left:auto;font:10px ui-monospace,Menlo,monospace;color:var(--muted);background:#f1f5f9;padding:1px 6px;border-radius:5px}
+  .node .body{color:#1e293b}
+  .node .sub{color:var(--muted);font-size:11px;margin-top:5px;font-style:italic}
+  .node .badge{display:inline-block;margin-top:6px;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:6px}
+  .node .flagchip{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:10.5px;font-weight:600;color:var(--flag);background:#fff1f2;border:1px solid #fecdd2;padding:2px 7px;border-radius:6px}
+  .k-decision{border-color:var(--decision);background:var(--decision-bg)} .k-decision .knd{color:var(--decision)}
+  .k-hub{border-color:var(--hub);background:var(--hub-bg)} .k-hub .knd{color:var(--hub)}
+  .k-excl{border-color:var(--excl);background:var(--excl-bg)} .k-excl .knd{color:var(--excl)}
+  .k-lift{border-color:var(--lift);background:var(--lift-bg)} .k-lift .knd{color:var(--lift)}
+  .k-route{border-color:var(--route);background:var(--route-bg)} .k-route .knd{color:var(--route)}
+  .k-band{border-color:var(--band);background:var(--band-bg)} .k-band .knd{color:var(--band)}
+  .k-good{border-color:var(--good);background:var(--good-bg)} .k-good .knd{color:var(--good)}
+  .k-bad{border-color:var(--bad);background:var(--bad-bg)} .k-bad .knd{color:var(--bad)}
+  .k-flag{border-color:var(--flag);background:#fff1f2} .k-flag .knd{color:var(--flag)}
+  .badge.b-excl{background:#fef3c7;color:#92400e}.badge.b-good{background:#dcfce7;color:#166534}.badge.b-bad{background:#fee2e2;color:#991b1b}.badge.b-route{background:#e0e7ff;color:#3730a3}
+  svg.edges{position:absolute;left:0;top:0;overflow:visible;z-index:1}
+  .elabel{position:absolute;z-index:1;font-size:10.5px;background:var(--panel);border:1px solid var(--line);color:#475569;padding:1px 7px;border-radius:10px;transform:translate(-50%,-50%);white-space:nowrap;max-width:200px;overflow:hidden;text-overflow:ellipsis}
+  .elabel.warn{color:#9a3412;border-color:#fed7aa;background:#fff7ed}
+  /* json view */
+  .jsonwrap{flex:1;overflow:auto;padding:18px}
+  pre.json{margin:0;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;white-space:pre-wrap;word-break:break-word}
+  .j-key{color:#7c3aed}.j-str{color:#15803d}.j-num{color:#b45309}.j-bool{color:#2563eb}
+  /* detail drawer */
+  .drawer{position:fixed;top:0;right:0;width:430px;max-width:90vw;height:100vh;background:var(--panel);border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(15,23,42,.12);transform:translateX(100%);transition:.18s;z-index:50;display:flex;flex-direction:column}
+  .drawer.open{transform:none}
+  .drawer .dh{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+  .drawer .dh .knd{font:600 10px ui-monospace,Menlo,monospace;text-transform:uppercase;padding:2px 7px;border-radius:6px;background:#f1f5f9}
+  .drawer .dh button{margin-left:auto;border:0;background:#f1f5f9;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:15px}
+  .drawer .db{padding:16px;overflow:auto}
+  .drawer .db h3{font-size:12px;margin:0 0 6px;color:var(--ink)}
+  .drawer .db pre{font:11.5px/1.5 ui-monospace,Menlo,monospace;background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:12px;white-space:pre-wrap;word-break:break-word;margin:0}
+  .hint{padding:14px 18px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <h1>Árboles de decisión</h1>
+    <div class="sub">Manual de Lineamientos de Suscripción — Automotores (LBC). Vista de <code>decision_trees.json</code>. Cada nodo cita su página/sección de origen.</div>
+    <ul class="treelist" id="treelist"></ul>
+    <div class="legend">
+      <h2>Leyenda de nodos</h2>
+      <div class="row"><span class="swatch" style="border-color:var(--decision);background:var(--decision-bg)"></span>Decisión / pregunta (gate)</div>
+      <div class="row"><span class="swatch" style="border-color:var(--hub);background:var(--hub-bg)"></span>Conjunto de exclusiones</div>
+      <div class="row"><span class="swatch" style="border-color:var(--excl);background:var(--excl-bg)"></span>Exclusión</div>
+      <div class="row"><span class="swatch" style="border-color:var(--lift);background:var(--lift-bg)"></span>Levantamiento de exclusión</div>
+      <div class="row"><span class="swatch" style="border-color:var(--route);background:var(--route-bg)"></span>Ruta / verificación / chequeo</div>
+      <div class="row"><span class="swatch" style="border-color:var(--band);background:var(--band-bg)"></span>Banda (siniestralidad → acción)</div>
+      <div class="row"><span class="swatch" style="border-color:var(--good);background:var(--good-bg)"></span>Resultado: admitido / procede</div>
+      <div class="row"><span class="swatch" style="border-color:var(--bad);background:var(--bad-bg)"></span>Resultado: excluido / deriva</div>
+      <div class="row"><span class="swatch" style="border-color:var(--flag);background:#fff1f2"></span>⚑ Conflicto / ambigüedad de la fuente</div>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <span class="name" id="tName"></span>
+      <span class="src" id="tSrc"></span>
+      <div class="tabs">
+        <button id="tabGraph" class="active" onclick="setTab('graph')">Diagrama</button>
+        <button id="tabJson" onclick="setTab('json')">JSON</button>
+      </div>
+      <div class="zoom" id="zoomCtl">
+        <button onclick="zoom(-0.1)">−</button><span id="zlabel">100%</span><button onclick="zoom(0.1)">+</button><button onclick="zoomFit()" title="Ajustar">⤢</button>
+      </div>
+    </div>
+    <div class="banners" id="banners"></div>
+    <div class="stage-wrap" id="stageWrap"><div class="stage" id="stage"></div></div>
+    <div class="jsonwrap" id="jsonWrap" style="display:none"><pre class="json" id="jsonPre"></pre></div>
+    <div class="hint" id="hint">Haz clic en cualquier nodo para ver su objeto JSON de origen y citas completas.</div>
+  </main>
+</div>
+<div class="drawer" id="drawer">
+  <div class="dh"><span class="knd" id="dKnd"></span><strong id="dTitle"></strong><button onclick="closeDrawer()">×</button></div>
+  <div class="db"><h3>Objeto de origen (decision_trees.json)</h3><pre id="dJson"></pre></div>
+</div>
+
+<script>
+const DATA = {"_material_class": "core_decision_logic", "_schema_note": "Árboles construidos SOLO donde la fuente es genuinamente ramificada (ver decisions.md D2). Cada nodo cita la fuente. Los nodos \"excluded_unless\" reproducen las condiciones de levantamiento de exclusión textuales; donde la fuente no define orden de evaluación, el campo evaluation_order lo dice explícitamente.", "trees": [{"id": "T-ELIG-ESTANDAR", "name": "Elegibilidad de perfil de riesgo — Procedimiento de Suscripción Estándar", "source": {"pdf_page": 10, "printed_page": 3, "section": "3.1.2"}, "evaluation_order": "La fuente lista tipos admitidos y luego exclusiones; no define orden de evaluación entre exclusiones. Modelado: gate de tipo admitido → toda exclusión aplicable rechaza (o deriva), salvo condición de levantamiento.", "root": {"node": "gate_tipo_vehiculo", "question": "¿El vehículo es de un tipo admitido para el Procedimiento Estándar?", "admitted_types_quote": "automotores livianos, camionetas (pick-up), vagonetas y jeeps, motocicletas, minibuses de hasta 8 ocupantes sin modificación al diseño original y furgonetas que sean de uso particular y automotores pesados de bajo tonelaje para empresas (utilizados para la distribución de productos y transporte de material de construcción)", "note": "Nuevos (0 km.) y usados, indistintamente.", "if_no": {"outcome": "NO elegible por Estándar (evaluar otro procedimiento según su perfil)"}, "if_yes": {"next": "exclusiones"}}, "exclusiones": [{"id": "X01", "excluded": "Automotores pesados con tonelajes mayores a 8 toneladas: Camiones, Tractocamiones y Volquetas para el segmento Comercial y Pyme", "outcome": "excluido", "source_page": 11}, {"id": "X02", "excluded": "Cualquier tipo de vehículo pesado para el segmento Consumer (Personas Naturales y Personas Naturales con NIT)", "clarification_quote": "los camiones son vehículos que tienen la cabina separada de la caja de carga y serán considerados como vehículos pesados, aunque el RUAT indique que se trata de una camioneta", "outcome": "excluido", "source_page": 11}, {"id": "X03", "excluded": "Cisternas, Tractores, Tráileres, Microbuses, Colectivos, Ómnibus, Chatas, Semirremolques, Remolques, Tolvas y Carrocerías de cualquier tonelaje", "outcome": "excluido", "source_page": 11}, {"id": "X04", "excluded": "Equipo pesado de Contratistas sin placas de circulación", "outcome": "excluido; deben ser suscritos como Equipos de Contratistas en la Línea de Ingeniería", "source_page": 11}, {"id": "X05", "excluded": "Vehículos de competición, campo traviesa (Off-Road) y/o carreras", "outcome": "excluido", "source_page": 11}, {"id": "X06", "excluded": "Vehículos con modificaciones en su carrocería original", "outcome": "excluido", "source_page": 11}, {"id": "X07", "excluded": "Minibuses con modificaciones al diseño original para reducir o ampliar la capacidad de ocupantes", "lift_condition": {"if": "se haya REDUCIDO la capacidad de ocupantes", "and": "se otorgue cobertura de Accidentes Personales a Ocupantes solamente al conductor (1 ocupante) o se elimine esta cobertura", "then": "exclusión levantada"}, "source_page": 11}, {"id": "X08", "excluded": "Vehículos sobre rieles", "outcome": "excluido", "source_page": 11}, {"id": "X09", "excluded": "Motocicletas con cilindrada superior a 400 cc. de competición, Street Legal y marcas de lujo (por ejemplo, motos BMW o DUCATTI)", "lift_condition": {"authority": "límite de Autoridad de Subgerentes Comerciales y Gerentes de Sucursal", "conditions": ["la motocicleta no participe en ningún tipo de competición", "su valor asegurado no supere los Bs.70.000", "apliquen los términos/condiciones/tasas del producto Moto protección"], "then": "exclusión levantada"}, "source_page": 11}, {"id": "X10", "excluded": "Vehículos de Rent a Car o alquiler en general", "routing": {"case": "vehículos que trabajan con contratos de alquiler con empresas petroleras", "then": "deberán ser autorizados por procedimiento Case Underwriting"}, "source_page": 11}, {"id": "X11", "excluded": "Vehículos para uso de aprendizaje (Escuelas de Conducción)", "outcome": "excluido", "source_page": 11}, {"id": "X12", "excluded": "Vehículos antiguos (con antigüedad mayor a 20 años)", "lift_conditions": [{"case": "a) Renovaciones", "conditions": ["se aclare que la cobertura de Daños es base efectivo (partes genuinas sujeto a indemnización en efectivo)", "se otorgue la Cláusula de Elegibilidad de Talleres en lugar de Libre Elegibilidad", "se incluya la Nota Aclaratoria sobre este tipo de vehículos"], "limit": "renovables siempre que los vehículos no tengan antigüedad mayor a los 40 años"}, {"case": "b) Nuevas", "scope": "vehículos con antigüedad de 21 años hasta modelos 1990, solamente marcas Suzuki, Toyota. Nissan, Mitsubishi, Mazda, Ford, Volkswagen y Honda [puntuación verbatim]", "pricing": "Personas y Empresas Unipersonales: prima generada por el tarificador para vehículos de 20 años de antigüedad; Empresas: tasa y prima mínima asignada a este segmento y el slip modelo para livianos", "conditions": ["cobertura de Daños base efectivo", "Cláusula de Elegibilidad de Talleres en lugar de Libre Elegibilidad", "Nota Aclaratoria"]}], "related_note": "Nota de la fuente (p.12): la Aseguradora podrá solicitar cotización para la reparación/reposición y validarla con sus tablas de costos u otras cotizaciones; la cotización validada se usa en la indemnización en efectivo.", "source_page": 11}, {"id": "X13", "excluded": "Vehículos que, como parte de su actividad regular, circulen fuera del País", "clarification_quote": "La extraterritorialidad ocasional no forma parte de esta exclusión", "outcome": "excluido", "source_page": 12}, {"id": "X14", "excluded": "Vehículos con capacidad original de más de 8 pasajeros", "outcome": "excluido", "source_page": 12}, {"id": "X15", "excluded": "Vehículos que tengan un Valor Asegurado igual o mayor a Bs. 1.050.000,00", "additional_check": {"if": "el valor supera los Bs. 700.000", "then": "validar que hayan sido importados y comercializados por: Toyosa, SACI, Andar Motors, Ovando, Taiyo Motors e IMCRUZ"}, "outcome": "VA >= 1.050.000 excluido; 700.000 < VA < 1.050.000 condicionado a importador autorizado", "source_page": 12, "flag": "La fuente enlaza ambas condiciones en una sola viñeta; la lectura estructurada (>=1.050.000 excluye; >700.000 exige validación de importador) es derivada de la sintaxis."}, {"id": "X16", "excluded": "Vehículos destinados para el servicio público (urbano o rural o internacional) de pasajeros", "verification": "Se deberá verificar en el RUAT", "outcome": "excluido", "source_page": 12}, {"id": "X17", "excluded": "Vehículos descapotables con techo de lona", "outcome": "excluido", "source_page": 12}, {"id": "X18", "excluded": "Vehículos blindados", "outcome": "excluido", "source_page": 12}, {"id": "X19", "excluded": "Vehículos de Bomberos, de la Policía, del Ejército y ambulancias", "outcome": "excluido", "source_page": 12}, {"id": "X20", "excluded": "Vehículos en licitaciones del sector público/ privadas", "outcome": "excluido (corresponde al Procedimiento Licitaciones)", "source_page": 12}, {"id": "X21", "excluded": "Vehículos con placa de circulación extranjera", "outcome": "excluido", "source_page": 12}, {"id": "X22", "excluded": "Vehículos de colocación masiva de seguros de automotores, como acuerdos con Concesionarios, Bancos, Entidades Financieras u otro canal de distribución que sea considerado masivo", "outcome": "excluido (corresponde al Procedimiento Masivo)", "source_page": 12}, {"id": "X23", "excluded": "Vehículos a través de Pólizas de Brevet", "outcome": "excluido", "source_page": 12}], "default_outcome": "Si pasa el gate y ninguna exclusión aplica (o fue levantada): elegible por Procedimiento Estándar."}, {"id": "T-ELIG-CASEUW", "name": "Elegibilidad de perfil de riesgo — Case Underwriting", "source": {"pdf_page": 25, "printed_page": 18, "section": "3.3.1"}, "evaluation_order": "La fuente admite cualquier tipo de vehículo salvo lista explícita de exclusiones; sin orden definido entre ellas.", "root": {"node": "gate", "statement": "Puede suscribirse cualquier tipo de vehículos, incluyendo vehículos pesados, salvo las exclusiones siguientes."}, "exclusiones": [{"id": "C01", "excluded": "Equipo de pesado de Contratistas sin placas de circulación [redacción verbatim]", "outcome": "excluido; suscribir como Equipos de Contratistas en la Línea de Ingeniería"}, {"id": "C02", "excluded": "Vehículos de competición, campo traviesa (Off-Road) y/o carreras", "outcome": "excluido"}, {"id": "C03", "excluded": "Vehículos con modificaciones en su carrocería original", "outcome": "excluido"}, {"id": "C04", "excluded": "Vehículos sobre rieles", "outcome": "excluido"}, {"id": "C05", "excluded": "Vehículos de alquiler (Rent-A-Car)", "clarification_quote": "Esta exclusión no aplica a vehículos alquilados.", "outcome": "excluido", "flag": "La aclaración de la fuente es ambigua (excluye Rent-A-Car pero \"no aplica a vehículos alquilados\"); se transcribe sin interpretar."}, {"id": "C06", "excluded": "Vehículos para uso de aprendizaje (Escuelas de Conducción)", "outcome": "excluido"}, {"id": "C07", "excluded": "Vehículos que, como parte de su actividad regular, circulen fuera del País", "outcome": "excluido"}, {"id": "C08", "excluded": "Vehículos destinados para el servicio público (urbano o rural o internacional) de pasajeros", "outcome": "excluido"}, {"id": "C09", "excluded": "Vehículos de Bomberos, de la Policía, del Ejército", "outcome": "excluido", "note": "A diferencia del Estándar (X19), esta lista NO menciona ambulancias."}, {"id": "C10", "excluded": "Vehículos de licitaciones del sector público/ privadas", "outcome": "excluido"}, {"id": "C11", "excluded": "Vehículos de colocación masiva de seguros de automotores, como acuerdos con Concesionarios, Bancos, Entidades Financieras u otro canal de distribución que sea considerado masivo (canal Wholesale)", "outcome": "excluido"}], "default_outcome": "Si ninguna exclusión aplica: elegible por Case Underwriting."}, {"id": "T-RENOVACION", "name": "Renovación de pólizas — decisión por segmento y siniestralidad", "source": {"pdf_page": 34, "printed_page": 27, "section": "4.1"}, "branches": [{"segment": "Comercial (aplica también a Pyme cuando el Asegurado tenga denominación S.A., SRL, S.A.M., R.L. u ONG)", "source_pages": [35], "auto_renewal_conditions": ["1. El tipo de vehículo(s) se enmarca en el perfil de riesgo del Procedimiento Estándar, los límites asegurados están dentro de las Autoridades de Suscripción Estándar y se cuenta con la aprobación de un Suscriptor con autoridad para estos límites en la renovación", "2. Los términos y condiciones de renovación se mantienen igual a la última vigencia y no corresponden a ninguna exclusión de las Normas y Políticas de Suscripción vigentes"], "rate_decision": [{"if": "siniestralidad histórica de la póliza es nula", "then": "podrá mantener su tasa vigente sin considerar las tasas mínimas"}, {"if": "siniestralidad histórica o última vigencia es menor al 150%", "then": "el suscriptor con límites de suscripción estándar podrá decidir entre mantener su tasa o incrementarla según su criterio buscando rentabilizar la cuenta"}, {"if": "la siniestralidad supera el 150%", "then": "el caso deberá ser revisado y autorizado por suscripción Case Underwriting"}], "flag": "La fuente enumera estas decisiones como condiciones 3. y 4. del mismo listado de renovación automática; se transcriben como reglas de decisión de tasa."}, {"segment": "Consumer", "source_pages": [35, 36], "scope_quote": "aplica a renovaciones por cualquier canal y para cualquier póliza que corresponda a un riesgo con perfil de Suscripción Estándar (livianos, pesados, motocicletas, etc.) sin considerar antigüedad", "bands": [{"condition": "Siniestralidad histórica nula", "action": "hasta 10% de descuento, aplicable una sola vez por vehículo; esta tasa descontada se mantiene en siguientes renovaciones mientras la siniestralidad histórica no suba del 60%", "constraint": "prevalecen las primas mínimas vigentes (no aplica el descuento si supone bajar de la prima mínima)"}, {"condition": "Siniestralidad histórica hasta el 60%", "action": "mismas tasas"}, {"condition": "Siniestralidad histórica entre el 60% y el 150%", "action": "recargo del 10% en tasas o tasas del Tarificador (el que sea mayor)"}, {"condition": "Siniestralidad histórica entre 150% y 250%", "action": "recargo del 50%"}, {"condition": "Siniestralidad histórica mayor al 250%", "action": "Depuración (recargo exagerado)"}], "minimums_table_ref": "TBL-RENOV-MIN", "enforcement_quote": "En caso de que el usuario solicite descuento del 10% o 20% y dicho descuento signifique que la prima final esté por debajo de la Prima o Tasa mínima, el CRM bloqueará la solicitud con un mensaje de rechazo.", "additional": ["el suscriptor con límites locales podrá realizar recargos mayores según su criterio", "sigue vigente la revisión de casos excepcionales por Case UW", "renovaciones del producto VIP: por procedimiento estándar manteniendo términos y condiciones siempre y cuando la póliza no haya registrado siniestralidad históricamente"], "band_boundary_flag": "Los límites de banda (60%, 150%, 250%) aparecen en dos bandas adyacentes (\"hasta el 60%\" y \"entre el 60% y el 150%\", etc.); la fuente no precisa a qué banda pertenece el valor exacto de frontera. No se resuelve."}, {"segment": "Vehículos Pesados y motocicletas (pólizas individuales con perfil de límites de suscripción estándar)", "source_pages": [36], "bands": [{"condition": "siniestralidad menor o igual al 50% (en la Última vigencia o en su Histórico)", "action": "pueden mantener las tasas de la última vigencia"}, {"condition": "desde el 51% hasta el 250%", "action": "se deberá incrementar un 17%"}, {"condition": "a partir del 250%", "action": "debe ser revisado a través de Case Underwriting"}], "flag": "Dos imprecisiones de la fuente, no resueltas: (a) las bandas 1 y 2 dejan sin asignar los valores de siniestralidad en el intervalo abierto (50%, 51%) («menor o igual al 50%» / «desde el 51%»); (b) las bandas 2 y 3 comparten la frontera 250% («hasta el 250%» / «a partir del 250%»).", "placement_in_source": "Este esquema aparece como el punto numerado 3. DENTRO del bloque del Segmento “Consumer” (pdf p.36), no como sección independiente. Se modela como rama propia por su alcance material distinto, registrando aquí su ubicación real."}], "conflict_flag": "CONFLICTO INTERNO DE LA FUENTE (no resuelto): el alcance declarado de la política Consumer (punto 1, p.35: «cualquier póliza que corresponda a un riesgo con perfil de Suscripción Estándar (livianos, pesados, motocicletas, etc.)») se solapa con el esquema del punto 3 para Pesados y motocicletas (p.36), que fija bandas y recargos distintos (p.ej., siniestralidad 200%: recargo del 50% según las bandas Consumer vs incremento del 17% según el punto 3; siniestralidad 40%: «mismas tasas» vs «mantener tasas» — coincidente; 55%: «mismas tasas» vs «+17%» — contradictorio). La fuente no indica cuál esquema prevalece para pesados/motocicletas del segmento Consumer."}, {"id": "T-RETROACTIVIDAD", "name": "Retroactividad en emisión/renovación/inclusión", "source": {"pdf_page": 40, "printed_page": 33, "section": "4.11"}, "root": {"general_rule_verbatim": "Como política general, no se acepta la emisión de pólizas nuevas, renovaciones o inclusiones, con retroactividad mayor a 30 días (entre la fecha de expedición y el inicio de cobertura).", "question": "¿La retroactividad solicitada (entre fecha de expedición e inicio de cobertura) es de hasta 30 días?", "if_yes": {"case": "hasta 30 días (procedimiento estándar)", "requirements": ["verificar que la orden de renovación/emisión/inclusión haya sido dada oportunamente antes del inicio de vigencia; caso contrario será necesaria una nueva inspección del vehículo o la presentación de la declaración jurada", "conformidad del cliente de que no existen siniestros reportados a la fecha de expedición"], "outcome": "puede emitirse/renovarse/incluirse con retroactividad"}, "if_no": {"case": "mayor a 30 días (excepción a la política general)", "outcome": "el caso deberá ser analizado por el procedimiento Case Underwriting y según el Procedimiento establecido desde el área de Operaciones"}, "overlay_condition": {"condition": "si el cliente tuvo algún siniestro durante este periodo (aplicable en cualquiera de los dos casos anteriores; nótese que el caso ≤30 días exige conformidad de que NO existen siniestros reportados)", "outcome": "debe solicitarse al Comité de Riesgos y Siniestros la alternativa de cubrirlo, considerando el riesgo de posibles fraudes; con el VoBo del CR&S se autorizará la retroactividad", "note": "La fuente presenta este caso como párrafo aparte, no como tercera rama excluyente; se modela como condición superpuesta."}}}]};
+const TREES = DATA.trees;
+let cur = 0, tab = 'graph', scale = 1;
+
+/* ---------- helpers ---------- */
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+function el(html){const t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstChild;}
+
+/* ---------- adapters: tree JSON -> {nodes, edges, banners} ---------- */
+function adapt(tree){
+  if(tree.exclusiones) return adaptEligibility(tree);
+  if(tree.branches)    return adaptRenovacion(tree);
+  if(tree.root && tree.root.question) return adaptFlow(tree);
+  return {nodes:[],edges:[],banners:[]};
+}
+
+function node(id,col,kind,title,body,opts){opts=opts||{};return Object.assign({id,col,kind,title,body},opts);}
+
+function adaptEligibility(tree){
+  const nodes=[], edges=[], banners=[];
+  if(tree.evaluation_order) banners.push({cls:'eval',html:'<b>Orden de evaluación:</b> '+esc(tree.evaluation_order)});
+  const r=tree.root;
+  const isGate = !!r.question;
+  // root
+  const rootTitle = isGate ? r.question : r.statement;
+  nodes.push(node('root',0,'decision', isGate?'Gate de tipo de vehículo':'Admisión', rootTitle,
+    {sub: r.admitted_types_quote? 'Tipos admitidos: '+r.admitted_types_quote : (r.note||''), raw:r, pg:tree.source.pdf_page}));
+  let exclCol, exclParent;
+  if(isGate){
+    // No -> not eligible terminal
+    if(r.if_no){ nodes.push(node('noelig',1,'bad','Resultado','NO',{body:r.if_no.outcome,raw:r.if_no})); edges.push({from:'root',to:'noelig',label:'No'}); }
+    // hub
+    nodes.push(node('hub',1,'hub','Exclusiones','Cualquier exclusión que aplique ⇒ excluido (salvo levantamiento). Sin orden definido entre ellas.',{raw:{evaluation_order:tree.evaluation_order}}));
+    edges.push({from:'root',to:'hub',label:'Sí, tipo admitido'});
+    exclCol=2; exclParent='hub';
+  } else {
+    exclCol=1; exclParent='root';
+  }
+  // exclusions
+  tree.exclusiones.forEach(x=>{
+    const badge = x.outcome ? '<span class="badge b-excl">'+esc(x.outcome.split(';')[0])+'</span>' : '<span class="badge b-excl">excluido</span>';
+    nodes.push(node(x.id, exclCol, 'excl', x.id, x.excluded, {raw:x, pg:x.source_page, badgeHtml:badge, flag:x.flag||x.note||x.clarification_quote, hasFlag:!!x.flag}));
+    edges.push({from:exclParent,to:x.id,label:''});
+    const cc=exclCol+1;
+    if(x.lift_condition){
+      const lc=x.lift_condition; const txt=[lc.if&&('Si: '+lc.if),lc.and&&('Y: '+lc.and),lc.authority&&('Autoridad: '+lc.authority),lc.conditions&&('Condiciones: '+lc.conditions.join(' · ')),lc.then&&('⇒ '+lc.then)].filter(Boolean).join('  ');
+      nodes.push(node(x.id+'_lift',cc,'lift','Levantamiento',txt,{raw:lc}));
+      edges.push({from:x.id,to:x.id+'_lift',label:'salvo si'});
+    }
+    if(x.lift_conditions){
+      x.lift_conditions.forEach((lc,i)=>{
+        const txt=[lc.case,lc.scope&&('Alcance: '+lc.scope),lc.conditions&&('Cond.: '+lc.conditions.join(' · ')),lc.limit&&('Límite: '+lc.limit),lc.pricing&&('Tarif.: '+lc.pricing)].filter(Boolean).join('  ');
+        nodes.push(node(x.id+'_lift'+i,cc,'lift','Levantamiento',txt,{raw:lc}));
+        edges.push({from:x.id,to:x.id+'_lift'+i,label:'salvo'});
+      });
+    }
+    if(x.routing){ nodes.push(node(x.id+'_rt',cc,'route','Ruta',(x.routing.case||'')+' ⇒ '+(x.routing.then||''),{raw:x.routing})); edges.push({from:x.id,to:x.id+'_rt',label:'caso'}); }
+    if(x.additional_check){ nodes.push(node(x.id+'_ac',cc,'route','Chequeo',(x.additional_check.if||'')+' ⇒ '+(x.additional_check.then||''),{raw:x.additional_check})); edges.push({from:x.id,to:x.id+'_ac',label:'además'}); }
+    if(x.verification){ nodes.push(node(x.id+'_vf',cc,'route','Verificación',x.verification,{raw:{verification:x.verification}})); edges.push({from:x.id,to:x.id+'_vf',label:'verificar'}); }
+  });
+  // eligible terminal
+  nodes.push(node('elig',exclCol,'good','Resultado',tree.default_outcome,{raw:{default_outcome:tree.default_outcome}}));
+  edges.push({from:exclParent,to:'elig',label:'ninguna aplica',dashed:true});
+  return {nodes,edges,banners};
+}
+
+function adaptRenovacion(tree){
+  const nodes=[], edges=[], banners=[];
+  if(tree.conflict_flag) banners.push({cls:'conflict',html:'⚑ <b>Conflicto interno de la fuente:</b> '+esc(tree.conflict_flag)});
+  nodes.push(node('root',0,'decision','Renovación','Decisión por segmento y siniestralidad',{raw:{name:tree.name,source:tree.source}, pg:tree.source.pdf_page}));
+  tree.branches.forEach((b,bi)=>{
+    const sid='seg'+bi;
+    nodes.push(node(sid,1,'decision','Segmento',b.segment,{raw:b, pg:(b.source_pages||[]).join(','), sub:b.scope_quote||'', flag:b.flag||b.band_boundary_flag||b.placement_in_source, hasFlag:!!(b.flag||b.band_boundary_flag)}));
+    edges.push({from:'root',to:sid,label:''});
+    // auto-renewal conditions (Comercial)
+    if(b.auto_renewal_conditions){
+      nodes.push(node(sid+'_arc',2,'route','Renovación automática','Condiciones: '+b.auto_renewal_conditions.join('  ·  '),{raw:{auto_renewal_conditions:b.auto_renewal_conditions}}));
+      edges.push({from:sid,to:sid+'_arc',label:'requisitos'});
+    }
+    const rd=b.rate_decision||b.bands;
+    if(rd) rd.forEach((band,i)=>{
+      const cond=band.condition||band.if, act=band.action||band.then;
+      const bodyExtra=band.constraint?('  ['+band.constraint+']'):'';
+      nodes.push(node(sid+'_b'+i,2,'band','Banda',act+bodyExtra,{raw:band}));
+      edges.push({from:sid,to:sid+'_b'+i,label:cond});
+    });
+  });
+  // conflict node linking the two overlapping segments (Consumer=seg1, Pesados=seg2)
+  if(tree.conflict_flag && tree.branches.length>=3){
+    nodes.push(node('conf',3,'flag','⚑ Conflicto','Los esquemas de seg. Consumer y Pesados/motos se solapan con bandas distintas. La fuente no indica cuál prevalece.',{raw:{conflict_flag:tree.conflict_flag}}));
+    edges.push({from:'seg1',to:'conf',label:'solapa',dashed:true,warn:true});
+    edges.push({from:'seg2',to:'conf',label:'solapa',dashed:true,warn:true});
+  }
+  return {nodes,edges,banners};
+}
+
+function adaptFlow(tree){
+  const nodes=[], edges=[], banners=[];
+  const r=tree.root;
+  if(r.general_rule_verbatim) banners.push({cls:'rule',html:'<b>Regla general:</b> '+esc(r.general_rule_verbatim)});
+  nodes.push(node('root',0,'decision','Retroactividad', r.question,{raw:r, pg:tree.source.pdf_page}));
+  if(r.if_yes){
+    nodes.push(node('yes',1,'route', r.if_yes.case||'Sí','Requisitos: '+(r.if_yes.requirements||[]).join('  ·  '),{raw:r.if_yes}));
+    edges.push({from:'root',to:'yes',label:'Sí (≤30 días)'});
+    nodes.push(node('yesout',2,'good','Resultado',r.if_yes.outcome,{raw:{outcome:r.if_yes.outcome}}));
+    edges.push({from:'yes',to:'yesout',label:'cumple'});
+  }
+  if(r.if_no){
+    nodes.push(node('no',1,'bad', r.if_no.case||'No', r.if_no.outcome,{raw:r.if_no}));
+    edges.push({from:'root',to:'no',label:'No (>30 días)'});
+  }
+  if(r.overlay_condition){
+    const oc=r.overlay_condition;
+    nodes.push(node('ovl',1,'flag','⚑ Condición superpuesta', oc.condition,{raw:oc, flag:oc.note}));
+    edges.push({from:'root',to:'ovl',label:'si hubo siniestro',dashed:true,warn:true});
+    nodes.push(node('ovlout',2,'route','Resultado',oc.outcome,{raw:{outcome:oc.outcome}}));
+    edges.push({from:'ovl',to:'ovlout',label:'⇒'});
+  }
+  return {nodes,edges,banners};
+}
+
+/* ---------- node element ---------- */
+const KMAP={decision:'k-decision',hub:'k-hub',excl:'k-excl',lift:'k-lift',route:'k-route',band:'k-band',good:'k-good',bad:'k-bad',flag:'k-flag'};
+const KLAB={decision:'decisión',hub:'exclusiones',excl:'exclusión',lift:'levantamiento',route:'ruta',band:'banda',good:'resultado',bad:'resultado',flag:'conflicto'};
+function buildNodeEl(n){
+  const pg = n.pg!=null&&n.pg!==''? '<span class="pg">p.'+esc(n.pg)+'</span>':'';
+  const idl = (n.id&&/^[XC]\d/.test(n.id))? '<span class="nid">'+esc(n.id)+'</span>':'';
+  const badge = n.badgeHtml||'';
+  const flag = n.flag? '<div class="flagchip" title="'+esc(n.flag)+'">⚑ '+esc(n.hasFlag?'conflicto':'nota')+'</div>':'';
+  const sub = n.sub? '<div class="sub">'+esc(n.sub.length>180?n.sub.slice(0,180)+'…':n.sub)+'</div>':'';
+  const e = el('<div class="node '+KMAP[n.kind]+'" data-id="'+esc(n.id)+'">'
+    +'<div class="nh"><span class="knd">'+KLAB[n.kind]+'</span>'+idl+pg+'</div>'
+    +'<div class="title" style="font-weight:600;margin-bottom:3px">'+esc(n.title||'')+'</div>'
+    +'<div class="body">'+esc(n.body||'')+'</div>'+sub+badge+flag+'</div>');
+  e.style.width = ({decision:280,hub:250,excl:320,lift:300,route:300,band:300,good:240,bad:200,flag:330}[n.kind]||260)+'px';
+  e.addEventListener('click',ev=>{ev.stopPropagation();openDrawer(n,e);});
+  return e;
+}
+
+/* ---------- layout (HTML nodes + SVG edges) ---------- */
+function layout(stage, nodes, edges){
+  stage.innerHTML=''; const byId={}; nodes.forEach(n=>byId[n.id]=n);
+  nodes.forEach(n=>{ n.el=buildNodeEl(n); n.el.style.left='0px'; n.el.style.top='0px'; stage.appendChild(n.el); });
+  nodes.forEach(n=>{ const r=n.el.getBoundingClientRect(); n.w=r.width; n.h=r.height; });
+  const cols={}; nodes.forEach(n=>{(cols[n.col]=cols[n.col]||[]).push(n);});
+  const ckeys=Object.keys(cols).map(Number).sort((a,b)=>a-b);
+  const COLGAP=90,VGAP=16,PADX=24,PADY=24;
+  const colW={}; ckeys.forEach(c=>colW[c]=Math.max.apply(null,cols[c].map(n=>n.w)));
+  const colX={}; let x=PADX; ckeys.forEach(c=>{colX[c]=x; x+=colW[c]+COLGAP;});
+  ckeys.forEach(c=>{ let y=PADY; cols[c].forEach(n=>{ n.x=colX[c]; n.y=y; y+=n.h+VGAP; }); });
+  // parent-centering, right-to-left
+  for(let i=ckeys.length-2;i>=0;i--){
+    const c=ckeys[i]; let prevBottom=PADY-VGAP;
+    cols[c].forEach(n=>{
+      const kids=edges.filter(e=>e.from===n.id).map(e=>byId[e.to]).filter(k=>k&&k.col>c);
+      if(kids.length){ const cy=kids.reduce((s,k)=>s+(k.y+k.h/2),0)/kids.length; n.y=cy-n.h/2; }
+      if(n.y<prevBottom+VGAP) n.y=prevBottom+VGAP;
+      prevBottom=n.y+n.h;
+    });
+  }
+  let maxX=0,maxY=0;
+  nodes.forEach(n=>{ n.el.style.left=n.x+'px'; n.el.style.top=n.y+'px'; maxX=Math.max(maxX,n.x+n.w); maxY=Math.max(maxY,n.y+n.h); });
+  // svg edges
+  const W=maxX+PADX, H=maxY+PADY;
+  const svgNS='http://www.w3.org/2000/svg';
+  const svg=document.createElementNS(svgNS,'svg'); svg.setAttribute('class','edges'); svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.innerHTML='<defs><marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#94a3b8"/></marker>'
+    +'<marker id="arrw" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#ea580c"/></marker></defs>';
+  edges.forEach(e=>{
+    const s=byId[e.from], t=byId[e.to]; if(!s||!t) return;
+    const sx=s.x+s.w, sy=s.y+s.h/2, tx=t.x, ty=t.y+t.h/2, mx=Math.max(sx+24,(sx+tx)/2);
+    const p=document.createElementNS(svgNS,'path');
+    p.setAttribute('d','M'+sx+','+sy+' H'+mx+' V'+ty+' H'+tx);
+    p.setAttribute('fill','none'); p.setAttribute('stroke', e.warn?'#ea580c':'#94a3b8');
+    p.setAttribute('stroke-width', e.warn?'2':'1.5'); if(e.dashed) p.setAttribute('stroke-dasharray','5,4');
+    p.setAttribute('marker-end', e.warn?'url(#arrw)':'url(#arr)');
+    svg.appendChild(p);
+    if(e.label){ const lab=el('<div class="elabel'+(e.warn?' warn':'')+'">'+esc(e.label)+'</div>'); lab.style.left=mx+'px'; lab.style.top=((sy+ty)/2)+'px'; stage.appendChild(lab); }
+  });
+  stage.insertBefore(svg, stage.firstChild);
+  stage.style.width=W+'px'; stage.style.height=H+'px';
+  stage._w=W; stage._h=H;
+}
+
+/* ---------- render ---------- */
+function render(){
+  const tree=TREES[cur];
+  document.getElementById('tName').textContent=tree.name;
+  document.getElementById('tSrc').textContent='p.'+tree.source.pdf_page+(tree.source.printed_page?(' (impresa '+tree.source.printed_page+')'):'')+' · §'+tree.source.section+' · '+tree.id;
+  // sidebar active
+  [...document.querySelectorAll('#treelist li')].forEach((li,i)=>li.classList.toggle('active',i===cur));
+  const {nodes,edges,banners}=adapt(tree);
+  // banners
+  const bw=document.getElementById('banners'); bw.innerHTML='';
+  banners.forEach(b=>bw.appendChild(el('<div class="banner '+b.cls+'">'+b.html+'</div>')));
+  // graph — ensure stage is visible so getBoundingClientRect measures real heights
+  document.getElementById('stageWrap').style.display='block';
+  document.getElementById('jsonWrap').style.display='none';
+  layout(document.getElementById('stage'), nodes, edges);
+  // json
+  document.getElementById('jsonPre').innerHTML=highlight(JSON.stringify(tree,null,2));
+  scale=1; applyZoom(); setTab(tab);
+}
+function highlight(s){
+  return esc(s)
+    .replace(/("(\\.|[^"\\])*")(\s*:)/g,'<span class="j-key">$1</span>$3')
+    .replace(/:\s*("(\\.|[^"\\])*")/g,': <span class="j-str">$1</span>')
+    .replace(/\b(-?\d+\.?\d*)\b/g,'<span class="j-num">$1</span>')
+    .replace(/\b(true|false|null)\b/g,'<span class="j-bool">$1</span>');
+}
+function setTab(t){
+  tab=t;
+  document.getElementById('tabGraph').classList.toggle('active',t==='graph');
+  document.getElementById('tabJson').classList.toggle('active',t==='json');
+  document.getElementById('stageWrap').style.display=t==='graph'?'block':'none';
+  document.getElementById('jsonWrap').style.display=t==='json'?'block':'none';
+  document.getElementById('zoomCtl').style.visibility=t==='graph'?'visible':'hidden';
+  document.getElementById('hint').style.display=t==='graph'?'block':'none';
+}
+function zoom(d){ scale=Math.min(2,Math.max(0.4,scale+d)); applyZoom(); }
+function applyZoom(){ document.getElementById('stage').style.transform='scale('+scale+')'; document.getElementById('zlabel').textContent=Math.round(scale*100)+'%'; }
+function zoomFit(){ const w=document.getElementById('stageWrap').clientWidth-20, st=document.getElementById('stage'); scale=Math.min(1,w/(st._w||w)); applyZoom(); }
+function openDrawer(n,e){
+  document.querySelectorAll('.node.sel').forEach(x=>x.classList.remove('sel')); if(e) e.classList.add('sel');
+  document.getElementById('dKnd').textContent=KLAB[n.kind]||n.kind;
+  document.getElementById('dTitle').textContent=(n.title||'')+(n.id&&/^[XC]\d/.test(n.id)?(' · '+n.id):'');
+  document.getElementById('dJson').innerHTML=highlight(JSON.stringify(n.raw!=null?n.raw:{node:n.title,body:n.body},null,2));
+  document.getElementById('drawer').classList.add('open');
+}
+function closeDrawer(){ document.getElementById('drawer').classList.remove('open'); document.querySelectorAll('.node.sel').forEach(x=>x.classList.remove('sel')); }
+
+/* ---------- init ---------- */
+const tl=document.getElementById('treelist');
+TREES.forEach((t,i)=>{
+  tl.appendChild(el('<li onclick="select('+i+')"><div class="tid">'+esc(t.id)+'</div><div class="tname">'+esc(t.name)+'</div><div class="tmeta">p.'+t.source.pdf_page+' · §'+t.source.section+' · '+( (t.exclusiones&&(t.exclusiones.length+' exclusiones')) || (t.branches&&(t.branches.length+' ramas')) || 'flujo condicional')+'</div></li>'));
+});
+function select(i){ cur=i; render(); }
+window.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawer(); });
+select(0);
+</script>
+</body>
+</html>

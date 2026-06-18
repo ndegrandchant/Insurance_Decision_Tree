@@ -1,0 +1,219 @@
+{
+  "_note": "Hand-validated extraction of section 3.1.2 (PERFIL DE RIESGO, Standard process). Demonstrates every eligibility node type against the real text and serves as the few-shot example. Eligibility nodes compose as an ordered filter: if a node's `evaluate` is true it yields its outcome/exception; otherwise the crawler proceeds to the next (by `order`).",
+  "nodes": [
+    {
+      "id": "standard.elig.heavy_over_8tn",
+      "type": "referral",
+      "process": "standard",
+      "order": 10,
+      "title": "Pesados > 8 TN (Comercial y Pyme): camiones, tractocamiones, volquetas",
+      "needs_facts": ["vehicle_class", "tonnage_tn", "segment"],
+      "evaluate": "tonnage_tn > 8 && segment in ['comercial','pyme'] && vehicle_class in ['camion','tractocamion','volqueta']",
+      "referral_target": {"kind": "process", "name": "case_underwriting", "reason": "Pesados >8TN excluidos del Estándar; admisibles bajo Case UW (3.3.1)."},
+      "source": {"section": "3.1.2", "printed_page": 4, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.elig.consumer_heavy_any",
+      "type": "referral",
+      "process": "standard",
+      "order": 11,
+      "title": "Cualquier vehículo pesado para Consumer (Personas Naturales / con NIT)",
+      "needs_facts": ["segment", "vehicle_class", "is_heavy"],
+      "evaluate": "segment == 'consumer' && is_heavy == true",
+      "note": "Aclaración del manual: un camión (cabina separada de la caja) es pesado aunque el RUAT diga camioneta.",
+      "referral_target": {"kind": "process", "name": "case_underwriting", "reason": "Pesados Consumer fuera del Estándar."},
+      "source": {"section": "3.1.2", "printed_page": 4, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.elig.contractor_equipment_no_plates",
+      "type": "referral",
+      "process": "standard",
+      "order": 12,
+      "title": "Equipo pesado de Contratistas sin placas de circulación",
+      "needs_facts": ["is_contractor_equipment", "has_plates"],
+      "evaluate": "is_contractor_equipment == true && has_plates == false",
+      "referral_target": {"kind": "line", "name": "ingenieria", "reason": "Debe suscribirse como Equipos de Contratistas en la Línea de Ingeniería."},
+      "source": {"section": "3.1.2", "printed_page": 4, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.elig.minibus_modified",
+      "type": "condition",
+      "process": "standard",
+      "order": 20,
+      "title": "Minibuses con modificación al diseño original de capacidad",
+      "needs_facts": ["vehicle_class", "design_modified_capacity"],
+      "evaluate": "vehicle_class == 'minibus' && design_modified_capacity == true",
+      "exception": {
+        "liftable": true,
+        "authority_required": null,
+        "conditions": ["capacity_was_reduced == true", "ap_coverage in ['solo_conductor','ninguna']"],
+        "on_lift_outcome": "conditional_eligible",
+        "no_lift_outcome": "decline"
+      },
+      "source": {"section": "3.1.2", "printed_page": 4, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.elig.moto_luxury_over_400cc",
+      "type": "condition",
+      "process": "standard",
+      "order": 21,
+      "title": "Motocicletas > 400cc de competición / Street Legal / marcas de lujo",
+      "needs_facts": ["vehicle_class", "cilindrada_cc", "es_moto_lujo_o_competicion", "participa_competicion", "valor_asegurado"],
+      "evaluate": "vehicle_class == 'motocicleta' && cilindrada_cc > 400 && es_moto_lujo_o_competicion == true",
+      "exception": {
+        "liftable": true,
+        "authority_required": ["subgerente_comercial", "gerente_sucursal"],
+        "conditions": ["participa_competicion == false", "valor_asegurado <= @tables.limits.moto_lujo_valor_max_bob", "apply_terms == 'moto_proteccion'"],
+        "on_lift_outcome": "conditional_eligible",
+        "no_lift_outcome": "decline"
+      },
+      "source": {"section": "3.1.2", "printed_page": 4, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.elig.rent_a_car",
+      "type": "condition",
+      "process": "standard",
+      "order": 22,
+      "title": "Vehículos de Rent a Car / alquiler en general",
+      "needs_facts": ["is_rental", "rented_to_petroleum"],
+      "evaluate": "is_rental == true",
+      "branches": [
+        {"when": "rented_to_petroleum == true", "outcome": "refer_process", "target": "case_underwriting", "reason": "Alquiler a empresas petroleras se autoriza por Case UW."},
+        {"when": "rented_to_petroleum == false", "outcome": "decline"}
+      ],
+      "exception": {"liftable": false, "no_lift_outcome": "decline"},
+      "source": {"section": "3.1.2", "printed_page": 4, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.elig.antique_vehicle",
+      "type": "condition",
+      "process": "standard",
+      "order": 23,
+      "title": "Vehículos antiguos (antigüedad > 20 años)",
+      "needs_facts": ["vehicle_age_years", "is_renewal", "vehicle_brand", "model_year", "segment"],
+      "evaluate": "vehicle_age_years > 20",
+      "exception": {
+        "liftable": true,
+        "authority_required": null,
+        "cases": [
+          {
+            "case": "renovacion",
+            "applies_when": "is_renewal == true && vehicle_age_years <= 40",
+            "required_clauses": ["danos_base_efectivo", "elegibilidad_de_talleres", "nota_aclaratoria_vehiculos_antiguos"],
+            "on_lift_outcome": "conditional_eligible"
+          },
+          {
+            "case": "nueva",
+            "applies_when": "is_renewal == false && model_year >= 1990 && vehicle_brand in @tables.allowlist_marcas_antiguos",
+            "rating_rule": "prima_20_anios (Personas/Unipersonal) | tasa_y_prima_minima_empresas (Empresas)",
+            "required_clauses": ["danos_base_efectivo", "elegibilidad_de_talleres", "nota_aclaratoria_vehiculos_antiguos"],
+            "on_lift_outcome": "conditional_eligible"
+          }
+        ],
+        "no_lift_outcome": "decline"
+      },
+      "see_also": ["4.1", "4.8"],
+      "source": {"section": "3.1.2", "printed_page": 4, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.elig.high_value",
+      "type": "condition",
+      "process": "standard",
+      "order": 24,
+      "title": "Valor asegurado alto",
+      "needs_facts": ["valor_asegurado", "importer"],
+      "branches": [
+        {"when": "valor_asegurado >= @tables.limits.valor_max_standard_bob", "outcome": "decline", "reason": "≥ Bs 1.050.000 fuera del Estándar."},
+        {"when": "valor_asegurado > @tables.limits.valor_validacion_importador_bob && importer in @tables.allowlist_importadores", "outcome": "eligible"},
+        {"when": "valor_asegurado > @tables.limits.valor_validacion_importador_bob && importer not in @tables.allowlist_importadores", "outcome": "refer_authority", "reason": "Debe validarse importador autorizado."}
+      ],
+      "source": {"section": "3.1.2", "printed_page": 5, "version": "4.0"},
+      "needs_human_review": true,
+      "review_reason": "El tramo >700k exige 'validar' que el importador sea autorizado: es un paso de obtención de dato, no un rechazo. Confirmar el origen del dato 'importer' y el comportamiento si no se puede validar."
+    },
+    {
+      "id": "standard.elig.colocacion_masiva",
+      "type": "referral",
+      "process": "standard",
+      "order": 25,
+      "title": "Colocación masiva (Concesionarios, Bancos, Entidades Financieras, canal Wholesale)",
+      "needs_facts": ["is_mass_grouping", "channel"],
+      "evaluate": "is_mass_grouping == true || channel == 'wholesale'",
+      "referral_target": {"kind": "process", "name": "masiva", "reason": "Canales masivos se suscriben por el Proceso Masivo."},
+      "source": {"section": "3.1.2", "printed_page": 5, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.elig.public_tender",
+      "type": "referral",
+      "process": "standard",
+      "order": 26,
+      "title": "Vehículos en licitaciones del sector público / privadas",
+      "needs_facts": ["is_public_tender"],
+      "evaluate": "is_public_tender == true",
+      "referral_target": {"kind": "process", "name": "licitaciones", "reason": "Se suscriben por el Proceso de Licitaciones."},
+      "source": {"section": "3.1.2", "printed_page": 5, "version": "4.0"},
+      "needs_human_review": false
+    },
+    {
+      "id": "standard.elig.hard_exclusions",
+      "type": "gate",
+      "process": "standard",
+      "order": 30,
+      "title": "Exclusiones absolutas del Procedimiento Estándar",
+      "needs_facts": ["vehicle_attributes"],
+      "evaluate": "any_true(items)",
+      "items": [
+        "vehiculo_competicion_offroad_carreras",
+        "modificaciones_en_carroceria_original",
+        "vehiculos_sobre_rieles",
+        "uso_aprendizaje_escuela_conduccion",
+        "circula_fuera_del_pais_por_actividad_regular",
+        "capacidad_original_mayor_8_pasajeros",
+        "servicio_publico_pasajeros (verificar RUAT)",
+        "descapotable_techo_de_lona",
+        "vehiculo_blindado",
+        "bomberos_policia_ejercito_ambulancia",
+        "placa_de_circulacion_extranjera",
+        "poliza_de_brevet",
+        "cisterna_tractor_trailer_microbus_colectivo_omnibus_chata_semirremolque_remolque_tolva_carroceria (cualquier tonelaje)"
+      ],
+      "outcome": "decline",
+      "note": "La extraterritorialidad OCASIONAL no forma parte de la exclusión de circulación fuera del país.",
+      "source": {"section": "3.1.2", "printed_page": "4-5", "version": "4.0"},
+      "needs_human_review": false
+    }
+  ],
+  "parameter_tables": {
+    "allowlist_marcas_antiguos": {
+      "values": ["Suzuki", "Toyota", "Nissan", "Mitsubishi", "Mazda", "Ford", "Volkswagen", "Honda"],
+      "source": {"section": "3.1.2", "printed_page": 4, "version": "4.0"}
+    },
+    "allowlist_importadores": {
+      "values": ["Toyosa", "SACI", "Andar Motors", "Ovando", "Taiyo Motors", "IMCRUZ"],
+      "source": {"section": "3.1.2", "printed_page": 5, "version": "4.0"}
+    },
+    "limits": {
+      "moto_lujo_valor_max_bob": 70000,
+      "valor_validacion_importador_bob": 700000,
+      "valor_max_standard_bob": 1050000,
+      "source": {"section": "3.1.2", "printed_page": 5, "version": "4.0"}
+    }
+  },
+  "new_facts": {
+    "is_heavy": "Vehículo de tonelaje/clase pesada (camión, tractocamión, etc.).",
+    "design_modified_capacity": "El diseño original fue modificado para ampliar/reducir ocupantes.",
+    "es_moto_lujo_o_competicion": "Motocicleta de marca de lujo, Street Legal o de competición.",
+    "rented_to_petroleum": "Trabaja bajo contrato de alquiler con empresa petrolera."
+  },
+  "gaps": [
+    "Versión del documento ambigua: el encabezado dice 3.0 y la carátula/registro de cambios dice 4.0. Confirmar versión canónica antes de publicar el grafo."
+  ]
+}
