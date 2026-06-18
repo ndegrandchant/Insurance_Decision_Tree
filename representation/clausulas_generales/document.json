@@ -1,0 +1,133 @@
+{
+ "_material_class": "metadata",
+ "_note": "Identidad y mapa estructural del PDF 'AUTOMOTORES.:clausulas_generales.pdf'. Todo anclaje 'pdf_page' es página física del PDF (1-based). Este PDF no tiene numeración de página impresa propia.",
+ "source_file": "AUTOMOTORES.:clausulas_generales.pdf",
+ "pdf_pages_total": 311,
+ "document_nature": "Compilación (bundle) de textos registrados ante la APS para la Póliza de Seguro de Automotores LBC-AUTO (Individual / Flota) de La Boliviana Ciacruz de Seguros y Reaseguros S.A.: Condiciones Generales, siete Secciones de cobertura y un catálogo de Cláusulas/Anexos adicionales, varios de ellos impresos más de una vez en distintos bloques del archivo.",
+ "issuer": "La Boliviana Ciacruz de Seguros y Reaseguros S.A.",
+ "product": {
+  "name_verbatim": "Póliza de Seguro de Automotores LBC-Auto (Individual / Flota)",
+  "base_code_verbatim": "101 – 910547 – 2017 09 400",
+  "cover_page": 1
+ },
+ "code_system": {
+  "description": "Cada texto registrado lleva una línea 'Código Asignado' (variantes tipográficas: 'Código Asignado N°:', 'CÓDIGO ASIGNADO:', 'Código asignado:'). Estructura observada: <ramo?>101 – 910547 – 2017 09 400 [sufijo]. Sufijos: ninguno = Condiciones Generales; 1001–1007 = Secciones I–VII; 2001–2147 = cláusulas y anexos.",
+  "clause_suffix_range_present": "2001–2147",
+  "codes_not_present_in_bundle": [
+   2025,
+   2131,
+   2146
+  ],
+  "codes_not_present_note": "Sufijos faltantes dentro del rango observado. El bundle no explica los huecos; pueden corresponder a textos registrados no incluidos en esta compilación. No se infiere nada más."
+ },
+ "page_furniture": {
+  "page_header_template_verbatim": "Forma parte integrante de la Póliza: Certificado:\nEmitida a favor de:",
+  "note": "Encabezado repetido al inicio de cada página; removido de los textos verbatim en clause_texts/ (decisión D5 en decisions.md). Los bloques de firma ('LA BOLIVIANA CIACRUZ / DE SEGUROS Y REASEGUROS S.A. / FIRMAS AUTORIZADAS') se conservan dentro de los textos."
+ },
+ "structure_map": [
+  {
+   "pdf_pages": "1",
+   "content": "Carátula: Póliza de Seguro de Automotores LBC-Auto (Individual / Flota), Código Asignado N°: 101 – 910547 – 2017 09 400"
+  },
+  {
+   "pdf_pages": "2-21",
+   "content": "CONDICIONES GENERALES (código base, sin sufijo): prelación documental, Definiciones (19), Consideraciones Generales, Obligaciones del Asegurado en caso de siniestro, Exclusiones Generales (Básicas / de Orden Público / Otras / Contravenciones). Estructurado en base_policy.json"
+  },
+  {
+   "pdf_pages": "22-43",
+   "content": "SECCIONES I–VII (códigos 1001–1007): Pérdida Total por Accidente; Pérdida Total por Robo; Daños Propios; HMACC-AMITT; Robo Parcial de Partes y Piezas; Responsabilidad Civil; Accidentes Personales a Ocupantes. Estructurado en base_policy.json"
+  },
+  {
+   "pdf_pages": "44-98",
+   "content": "Catálogo de cláusulas de uso general y de uso restringido (códigos 2001–2050, orden no secuencial)"
+  },
+  {
+   "pdf_pages": "99-148",
+   "content": "Catálogo de cláusulas 'PARA USO EXCLUSIVO EN LICITACIONES' (códigos 2051–2097, 2100), primera impresión"
+  },
+  {
+   "pdf_pages": "149-165",
+   "content": "Anexos de licitación YPFB (2098: Condiciones Especiales — impreso dos veces, pp.149-150 y 153-155; 2099 aparece más adelante) intercalados con cláusulas 2101, 2027, 2103-2109, reimpresión de 2097, 2110"
+  },
+  {
+   "pdf_pages": "166-218",
+   "content": "2111 (kilometraje); reimpresiones de 2030, 2036, 2050; 2099 (Anexo Adicional YPFB, p.171); segunda impresión del catálogo de licitaciones (2051–2096)"
+  },
+  {
+   "pdf_pages": "219-271",
+   "content": "Tercera impresión parcial del catálogo de licitaciones (2030, 2036, 2050, 2051–2096) con 2023 intercalada en p.237 (texto DISTINTO al de p.51 — ver conflicts)"
+  },
+  {
+   "pdf_pages": "272-311",
+   "content": "Cola del bundle: 2100, 2110, 2111 reimpresas; 2102 (Anexo de Liquidación de Cobranza); 2112–2130, 2132–2145, 2147 (cláusulas más recientes, varias específicas de licitaciones/YPFB Refinación S.A.)"
+  }
+ ],
+ "repetition_analysis": {
+  "total_coded_text_blocks": 258,
+  "note_on_count": "258 bloques con línea de código fuera de la carátula (259 anclajes menos la carátula). 152 códigos distintos (base + 7 secciones + 144 cláusulas/anexos).",
+  "codes_printed_more_than_once": 57,
+  "reprints_textually_identical": 44,
+  "reprints_with_text_differences": 13,
+  "difference_classes": {
+   "presentational": [
+    "2030",
+    "2051",
+    "2056",
+    "2059",
+    "2062",
+    "2063",
+    "2069",
+    "2080",
+    "2081",
+    "2100"
+   ],
+   "form_template_variation": [
+    "2036",
+    "2050"
+   ],
+   "substantive": [
+    "2023"
+   ]
+  },
+  "classification_criteria": "presentational = solo mayúsculas/espaciado del bloque de firma o saltos de línea; form_template_variation = misma redacción operativa, difieren campos de formulario (XX/XXXX vs campos en blanco o instanciados, p.ej. 'BANCO BISA S.A.'); substantive = la redacción operativa difiere (condiciones distintas)."
+ },
+ "conflicts": [
+  {
+   "id": "CONF-CG-001",
+   "code_suffix": "2023",
+   "title": "CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE EDAD MÁXIMA",
+   "nature": "Mismo Código Asignado con dos redacciones operativas distintas en el bundle.",
+   "print_1": {
+    "pdf_page": 51,
+    "condition_verbatim": "siempre que cuente con la licencia de conducir otorgada por la Autoridad Competente vigente al momento del evento"
+   },
+   "print_2": {
+    "pdf_page": 237,
+    "condition_verbatim": "siempre que cuente con la licencia de conducir otorgada por la Autoridad Competente y la vigencia sea mayor al vencimiento de la póliza"
+   },
+   "treatment": "Ambos textos conservados (clause_texts/CG-2023__print_p51.txt y CG-2023__print_p237.txt). No se resuelve cuál prevalece: el bundle no lo indica."
+  }
+ ],
+ "source_artifacts": [
+  {
+   "type": "word_comment",
+   "where": "título de la cláusula 2113 (pdf p.277)",
+   "verbatim": "Comentado [VS1]: P.PORTAFOLIO DINÁMICO",
+   "note": "Comentario de autoría de Word incrustado en el PDF; removido del título, conservado aquí y en clause_registry.json."
+  },
+  {
+   "type": "code_line_typography",
+   "note": "La línea de código aparece con tres tipografías distintas ('Código Asignado:', 'CÓDIGO ASIGNADO:', 'Código asignado:') y con guiones variables (-, –). Los códigos se normalizaron solo para identidad; el campo 'code' de cada entrada conserva la forma cruda."
+  },
+  {
+   "type": "form_blanks",
+   "note": "Varios textos son formularios con campos en blanco o marcadores 'XX'/'XXXX' (2036, 2050, 2102, 2145). Se conservan tal cual."
+  }
+ ],
+ "files": {
+  "base_policy": "base_policy.json",
+  "clause_registry": "clause_registry.json",
+  "clause_texts_dir": "clause_texts/",
+  "cross_references": "cross_references.json"
+ }
+}

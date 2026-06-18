@@ -1,0 +1,119 @@
+{
+ "_material_class": "cross_reference",
+ "_note": "Referencias del bundle de cláusulas a normas y entidades externas (las referencias internas entre cláusulas y secciones están en clause_registry.json → derived_classification.references y en base_policy.json).",
+ "references": [
+  {
+   "id": "XR-C01",
+   "target": "Código de Comercio",
+   "articles_cited": [
+    "992 (Formulario Pre-Riesgo)",
+    "993 (errores/reticencia)",
+    "1000 (agravación)",
+    "1001 (agravación sustancial)",
+    "1018 (impago/suspensión; mod. Ley 365)",
+    "1023 (rescisión por voluntad unilateral)",
+    "1028 y 1031 (verificación del siniestro)",
+    "1030 (aviso de siniestro)",
+    "1034 (término de pago, 60 días)",
+    "1038 (dolo/malicia)",
+    "1056 (infraseguro)",
+    "1061 (no subrogación parientes)",
+    "1068 (transferencia del interés)",
+    "1091 (aviso RC, 3 días)"
+   ],
+   "where": "Condiciones Generales y varias cláusulas"
+  },
+  {
+   "id": "XR-C02",
+   "target": "Ley No. 365 de 23 de abril de 2013",
+   "context": "modificaciones al artículo 1018 del Código de Comercio (suspensión por impago)",
+   "where": "CG: GESTIÓN DE COBRANZA, PRIMA"
+  },
+  {
+   "id": "XR-C03",
+   "target": "Ley N° 708 de 25 de junio de 2015 (Conciliación y Arbitraje); art. 61",
+   "where": "CG: CLÁUSULA ARBITRAL"
+  },
+  {
+   "id": "XR-C04",
+   "target": "Artículo 569 del Código Civil",
+   "context": "resolución de la póliza a los 31 días de incumplimiento",
+   "where": "CG: PRIMA"
+  },
+  {
+   "id": "XR-C05",
+   "target": "Ley 1008 (definición de Droga)",
+   "where": "CG: Exclusiones Básicas, nota al pie pdf p.15"
+  },
+  {
+   "id": "XR-C06",
+   "target": "Ley de Seguros (Ley 1883)",
+   "where": "CG: DISPOSICIONES GENERALES"
+  },
+  {
+   "id": "XR-C07",
+   "target": "Código Nacional de Tránsito y su Reglamento",
+   "articles_cited": [
+    "41-46 (estacionamiento/parada)",
+    "113-114 (velocidades; citados en cláusula 2007)",
+    "168-190 (carga, explosivos, brevet; transcritos en Exclusiones/Contravenciones)"
+   ],
+   "where": "CG: CONTRAVENCIONES; cláusula 2007"
+  },
+  {
+   "id": "XR-C08",
+   "target": "SOAT (Seguro Obligatorio de Accidentes de Tránsito)",
+   "where": "Secciones VI y VII; cláusulas 2035, 2123"
+  },
+  {
+   "id": "XR-C09",
+   "target": "DIPROVE (Dirección de Prevención de Robo de Vehículos)",
+   "where": "Sección II (documentos); cláusulas 2060, 2126"
+  },
+  {
+   "id": "XR-C10",
+   "target": "UFV (Unidades de Fomento de Vivienda) — conciliación APS hasta UFV100.000,00",
+   "where": "CG: CLÁUSULA ARBITRAL"
+  },
+  {
+   "id": "XR-C11",
+   "target": "IITCUP (Instituto de Investigaciones Técnico Científicas)",
+   "where": "CG: PERITAJE"
+  },
+  {
+   "id": "XR-C12",
+   "target": "Manual de Normas de Evaluación y Calificación del Grado de Invalidez",
+   "where": "Sección VII, Cláusula 1"
+  },
+  {
+   "id": "XR-C13",
+   "target": "Licitación pública “CONTRATACION DE SEGUROS GENERALES YPFB 2020- 2021” GCC-EPNE-GAFC-30-20",
+   "where": "Anexos 2098/2099 (YPFB)"
+  },
+  {
+   "id": "XR-C14",
+   "target": "Ley N° 400 de 18 de septiembre de 2013 (armas/explosivos)",
+   "where": "cláusula 2138"
+  },
+  {
+   "id": "XR-C15",
+   "target": "Decreto Supremo N°5364 de 02 de abril de 2025 (Autorización Provisional para Conducir)",
+   "where": "cláusula 2147"
+  },
+  {
+   "id": "XR-C16",
+   "target": "Arancel Mínimo del Colegio Médico de Bolivia",
+   "where": "cláusula 2140"
+  },
+  {
+   "id": "XR-C17",
+   "target": "www.lbc.bo (listado de talleres por ciudad)",
+   "where": "cláusula 2045"
+  },
+  {
+   "id": "XR-C18",
+   "target": "Call Center 800-102727",
+   "where": "cláusula 2127"
+  }
+ ]
+}

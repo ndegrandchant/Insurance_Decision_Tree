@@ -1,0 +1,208 @@
+{
+ "_material_class": "cross_reference (inter-documento)",
+ "_note": "Mapeo entre menciones del manual de suscripción y los textos registrados del bundle de cláusulas. match: exact = título idéntico o inequívoco; partial = el manual usa un nombre aproximado; unmatched = no se encontró texto con ese título en el bundle. No se afirma equivalencia jurídica: solo correspondencia de título/objeto.",
+ "links": [
+  {
+   "manual_mention": "Cláusula de Renovación y Depreciación Anual para Pólizas Mayores a Un Año",
+   "manual_source": {
+    "pdf_page": 14,
+    "section": "3.1.4"
+   },
+   "manual_rule": "R-015",
+   "bundle_codes": [
+    "2034"
+   ],
+   "bundle_title": "CLÁUSULA DE RENOVACIÓN Y DEPRECIACIÓN ANUAL",
+   "match": "partial",
+   "note": "El título del bundle no incluye “para Pólizas Mayores a Un Año”."
+  },
+  {
+   "manual_mention": "Cláusula de Participación de Utilidades",
+   "manual_source": {
+    "pdf_page": 14,
+    "section": "3.1.4"
+   },
+   "manual_rule": "R-015",
+   "bundle_codes": [
+    "2051"
+   ],
+   "bundle_title": "CLÁUSULA DE PARTICIPACIÓN DE UTILIDADES PARA USO EXCLUSIVO EN LICITACIONES",
+   "match": "partial",
+   "note": "La única registrada en el bundle es la de uso exclusivo en licitaciones."
+  },
+  {
+   "manual_mention": "Cláusula de Valor Admitido",
+   "manual_source": {
+    "pdf_page": 14,
+    "section": "3.1.4"
+   },
+   "manual_rule": "R-015",
+   "bundle_codes": [
+    "2038",
+    "2112"
+   ],
+   "match": "exact",
+   "note": "Dos registros: 2038 (general) y 2112 (uso exclusivo licitaciones). El manual también prohíbe Valor Admitido en Licitaciones (R-097) pese a existir 2112 registrada para licitaciones — tensión no resuelta."
+  },
+  {
+   "manual_mention": "Cláusula de No Subrogación (Petroleras)",
+   "manual_source": {
+    "pdf_page": 14,
+    "section": "3.1.4"
+   },
+   "manual_rule": "R-016",
+   "bundle_codes": [
+    "2010"
+   ],
+   "match": "exact"
+  },
+  {
+   "manual_mention": "Cláusula de Cancelación (Petroleras)",
+   "manual_source": {
+    "pdf_page": 14,
+    "section": "3.1.4"
+   },
+   "manual_rule": "R-016",
+   "bundle_codes": [
+    "2011"
+   ],
+   "match": "exact"
+  },
+  {
+   "manual_mention": "Cláusula de Asegurado Adicional (Petroleras)",
+   "manual_source": {
+    "pdf_page": 14,
+    "section": "3.1.4"
+   },
+   "manual_rule": "R-016",
+   "bundle_codes": [
+    "2009"
+   ],
+   "match": "exact"
+  },
+  {
+   "manual_mention": "Cláusula de Elegibilidad de Talleres (en lugar de Libre Elegibilidad)",
+   "manual_source": {
+    "pdf_page": 11,
+    "section": "3.1.2 X12"
+   },
+   "bundle_codes": [
+    "2045"
+   ],
+   "bundle_title": "CLÁUSULA DE ELEGIBILIDAD DE TALLERES",
+   "match": "exact",
+   "note": "“Libre Elegibilidad” de talleres aparece como 2053 (TIPO B licitaciones); la libre elección está también en Sección III Cláusula 3 (límite +20%)."
+  },
+  {
+   "manual_mention": "Cláusula de Adhesión al Pliego",
+   "manual_source": {
+    "pdf_page": 30,
+    "section": "3.5.1"
+   },
+   "bundle_codes": [
+    "2001"
+   ],
+   "match": "exact"
+  },
+  {
+   "manual_mention": "cláusula de extraterritorialidad que forma parte de la póliza",
+   "manual_source": {
+    "pdf_page": 16,
+    "section": "3.1.4.d"
+   },
+   "bundle_codes": [
+    "2027"
+   ],
+   "bundle_title": "CLÁUSULA DE COBERTURA ADICIONAL DE EXTRATERRITORIALIDAD",
+   "match": "partial",
+   "note": "Coinciden los 30 días; el manual añade extra prima Bs. 420/mes hasta 90 días, que el texto 2027 no menciona (2027 excluye daños si la permanencia supera los 30 días). Tensión no resuelta."
+  },
+  {
+   "manual_mention": "Anexo de Inclusiones y Exclusiones a prorrata",
+   "manual_source": {
+    "pdf_page": 38,
+    "section": "4.5"
+   },
+   "bundle_codes": [
+    "2029"
+   ],
+   "bundle_title": "CLÁUSULA DE INCLUSIONES Y EXCLUSIONES (ALTAS Y BAJAS- ADHESIONES Y SUPRESIONES)",
+   "match": "partial"
+  },
+  {
+   "manual_mention": "“Auxilio Mecánico Express”",
+   "manual_source": {
+    "pdf_page": 38,
+    "section": "4.6"
+   },
+   "bundle_codes": [
+    "2018"
+   ],
+   "bundle_title": "CLÁUSULA DEL BENEFICIO DE AUXILIO MECÁNICO EXPRESS",
+   "match": "exact"
+  },
+  {
+   "manual_mention": "Anexo de Liquidación de Cobranza",
+   "manual_source": {
+    "pdf_page": null,
+    "section": "(citado en CG del bundle: PRIMA)",
+    "note": "mencionado en las Condiciones Generales del bundle, no en el manual"
+   },
+   "bundle_codes": [
+    "2102"
+   ],
+   "match": "exact"
+  },
+  {
+   "manual_mention": "productos enlatados: LBC | Auto (Producto para Personas), LBC | Auto Por Kilometraje, LBC | Moto (Low Cost)",
+   "manual_source": {
+    "pdf_page": 24,
+    "section": "3.2"
+   },
+   "bundle_codes": [
+    "2111"
+   ],
+   "bundle_title": "CLÁUSULA ADICIONAL DE PAGO DE PRIMA POR KILOMETRAJE RECORRIDO",
+   "match": "partial",
+   "note": "Solo “Por Kilometraje” tiene cláusula identificable en el bundle (2111). Los demás productos enlatados no tienen texto propio identificable en esta compilación."
+  },
+  {
+   "manual_mention": "Nota Aclaratoria sobre este tipo de vehículos (antiguos)",
+   "manual_source": {
+    "pdf_page": 11,
+    "section": "3.1.2 X12"
+   },
+   "bundle_codes": [],
+   "match": "unmatched",
+   "note": "No se encontró en el bundle un texto titulado “Nota Aclaratoria” para vehículos antiguos."
+  },
+  {
+   "manual_mention": "Cláusulas de licencia: el manual restringe licencias vencidas >90 días en licitaciones (R-097)",
+   "manual_source": {
+    "pdf_page": 33,
+    "section": "3.5.5"
+   },
+   "bundle_codes": [
+    "2030",
+    "2136",
+    "2139",
+    "2054",
+    "2059"
+   ],
+   "match": "related",
+   "note": "El bundle registra cláusulas que flexibilizan requisitos de licencia (2030 caduca hasta plazo del CP; 2054 no portar; 2136/2139 extravío). La compatibilidad con el límite de 90 días del manual queda como regla del manual, no de los textos."
+  },
+  {
+   "manual_mention": "alcoholemia: CG excluye >0.50 g/1000ml; manual prohíbe pactar >0,70 g/l en licitaciones; cláusula 2002 permite pactar dosaje en CP",
+   "manual_source": {
+    "pdf_page": 33,
+    "section": "3.5.5"
+   },
+   "bundle_codes": [
+    "2002"
+   ],
+   "match": "related",
+   "note": "Tres números conviven: 0.50 (exclusión CG), dosaje pactable en CP (2002), tope 0,70 para licitaciones (manual). Se registran los tres sin armonizar."
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+# Código Asignado: 101 – 910547 – 2017 09 400 2102
+# Título: PÓLIZA DE SEGURO DE AUTOMOTORES LBC-AUTO (INDIVIDUAL / FLOTA) ANEXO DE LIQUIDACION DE COBRANZA
+# Impresiones (páginas PDF): [276]
+
+COPIA PARA EL CLIENTE {se imprime cuando corresponda}
+Mediante el presente Anexo, se acuerda y establece la forma de pago de la Póliza en cuestión, de
+acuerdo con los siguientes términos y condiciones:
+Ramo:
+Póliza No: Certificado No:
+Vigencia: Desde las 12:01 Hrs. del día
+Hasta las 12:01 Hrs. del día
+Contratante:
+Dirección:
+Teléfono:
+Código de Cliente:
+NIT:
+Fecha expedición:
+{se imprime cuando corresponda}
+Intermediario:
+PN: PRIMA_NETA VC: VALOR_COMISION PC: PORCENT_COMISION
+FORMA DE PAGO:
+Moneda:
+No. De Cuota Monto Fecha Vencimiento
+El incumplimiento del pago de la prima, en los términos convenidos y plazos establecidos en el
+presente Anexo, producirá la terminación del contrato, esta terminación se producirá transcurridos 31
+días desde la fecha de vencimiento del pago de la prima, en los términos convenidos y plazos
+establecidos en el presente Anexo, facultando a la Aseguradora a la resolución de la póliza, conforme
+a lo establecido en el Artículo 569 del Código Civil.
+Todos los demás términos y/o condiciones de la Póliza permanecen en pleno vigor.
+LA BOLIVIANA CIACRUZ
+de Seguros y Reaseguros S.A.
+POR LA COMPAÑIA

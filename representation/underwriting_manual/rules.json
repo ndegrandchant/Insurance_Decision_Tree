@@ -1,0 +1,1473 @@
+{
+ "_material_class": "core_decision_logic",
+ "_schema_note": "Reglas atómicas del manual. id; source{pdf_page,printed_page,section}; type; applies_to; logic (lectura estructurada, derivada); quote_verbatim (texto disparador, español original); table_ref/tree_ref opcionales; flags/notes para ambigüedades. La numeración de sección citada es la del CUERPO del manual (ver INC-MAN-001).",
+ "rules": [
+  {
+   "id": "R-001",
+   "source": {
+    "pdf_page": 8,
+    "printed_page": 1,
+    "section": "1.1"
+   },
+   "type": "alcance",
+   "applies_to": "todo el manual",
+   "logic": {
+    "statement": "El manual es de estricta aplicación en todas las oficinas a nivel nacional y todas las áreas; aplica a Wholesale, Consumers, Commercial, Pyme, Corporate y a todos los equipos (Directas, Agentes, Brokers y otros)."
+   },
+   "quote_verbatim": "Este manual es de estricta aplicación y cumplimiento en todas las oficinas de La Boliviana Ciacruz de Seguros y Reaseguros S.A. a nivel nacional y en todas sus áreas"
+  },
+  {
+   "id": "R-002",
+   "source": {
+    "pdf_page": 8,
+    "printed_page": 1,
+    "section": "1.1"
+   },
+   "type": "autoridad_excepciones",
+   "applies_to": "todo el manual",
+   "logic": {
+    "if": "se requiere cualquier excepción y/o modificación a estas Normas y Procedimientos",
+    "then": "debe ser autorizada por algún integrante de la Gerencia Nacional de Suscripción"
+   },
+   "quote_verbatim": "Cualquier excepción y/o modificación respecto de estas Normas y Procedimientos de Suscripción deberá ser autorizada por algún integrante de la Gerencia Nacional de Suscripción."
+  },
+  {
+   "id": "R-003",
+   "source": {
+    "pdf_page": 9,
+    "printed_page": 2,
+    "section": "2.1"
+   },
+   "type": "capacidad",
+   "applies_to": "línea Automotores",
+   "logic": {
+    "constraint": "valor asegurado por vehículo <= Bs. 3.480.000,00 (limitado por la Retención Local)"
+   },
+   "quote_verbatim": "no se puede suscribir riesgos mayores a Bs. 3.480.000,00 por vehículo asegurado",
+   "table_ref": "TBL-CAPACIDAD"
+  },
+  {
+   "id": "R-004",
+   "source": {
+    "pdf_page": 10,
+    "printed_page": 3,
+    "section": "2.2.3"
+   },
+   "type": "configuracion_producto",
+   "applies_to": "Plan Moto Protección",
+   "logic": {
+    "coberturas_principales": [
+     "Pérdida Total por Accidente al 100% (costos de reparación mayores al 65% del valor asegurado)",
+     "Pérdida Total por Robo al 80% (transcurridos 30 días sin indicios)",
+     "Daños propios con Franquicia Deducible del 20% sobre el valor del siniestro, mínimo la franquicia según Plaza de circulación o monto del Valor Asegurado",
+     "Daño malicioso, vandalismo, motines con Franquicia Deducible del 20% sobre el valor del siniestro",
+     "Responsabilidad Civil con cobertura hasta Bs. 35.000"
+    ]
+   },
+   "quote_verbatim": "El Seguro Moto Protección es un producto enlatado con las siguientes coberturas principales",
+   "notes": "Configuración operativa del producto; descrita también en supplementary.json → products. Se incluye como regla porque fija parámetros normativos."
+  },
+  {
+   "id": "R-005",
+   "source": {
+    "pdf_page": 9,
+    "printed_page": 2,
+    "section": "2.2.2"
+   },
+   "type": "informacion_suscripcion",
+   "applies_to": "Plan Protección Brevet",
+   "logic": {
+    "requirement": "conseguir información relevante que permita dimensionar la exposición: cantidad de vehículos en exposición; valores máximos, mínimos y promedios; información de siniestralidad; límites de indemnización por evento y en el agregado anual",
+    "context": "producto cotizado junto con la flota de la empresa asegurada como parte de un programa de seguros, o con acuerdo con la Concesionaria; sin producto específico, se emite bajo otros productos adaptados"
+   },
+   "quote_verbatim": "se deberá conseguir información relevante que permita dimensionar la exposición que se tendrá (cantidad de vehículos en exposición; valores máximos, mínimos y promedios; información de siniestralidad; límites de indemnización por evento y en el agregado anual)"
+  },
+  {
+   "id": "R-010",
+   "source": {
+    "pdf_page": 10,
+    "printed_page": 3,
+    "section": "3.1"
+   },
+   "type": "definicion_procedimiento",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "statement": "Vía rápida con productos no diferenciados dentro del perfil de riesgo; clientes individuales (un vehículo por póliza) o flotas, por cualquier canal comercial."
+   },
+   "quote_verbatim": "El procedimiento de Suscripción Estándar representa la vía rápida de atención a nuestros clientes, mediante productos no diferenciados que se enmarcan dentro el perfil de riesgo de la estrategia del negocio."
+  },
+  {
+   "id": "R-011",
+   "source": {
+    "pdf_page": 10,
+    "printed_page": 3,
+    "section": "3.1.1"
+   },
+   "type": "productos_habilitados",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "allowed_products": [
+     "LBC | Auto (incluyendo los Planes enlatados)",
+     "Moto Protección"
+    ]
+   },
+   "quote_verbatim": "Los únicos productos que pueden ser comercializados por esta vía son: LBC | Auto (incluyendo los Planes enlatados) y Moto Protección."
+  },
+  {
+   "id": "R-012",
+   "source": {
+    "pdf_page": 10,
+    "printed_page": 3,
+    "section": "3.1.2"
+   },
+   "type": "perfil_riesgo/elegibilidad",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "allowed_vehicles": "automotores livianos, camionetas (pick-up), vagonetas y jeeps, motocicletas, minibuses de hasta 8 ocupantes sin modificación al diseño original y furgonetas de uso particular, y automotores pesados de bajo tonelaje para empresas (distribución de productos y transporte de material de construcción)",
+    "new_or_used": "indistintamente vehículos nuevos (0 km.) y usados"
+   },
+   "quote_verbatim": "Los vehículos individuales o flotas de vehículos (según definición específica en el Apartado 4.4…) que pueden ser suscritos por este procedimiento son: automotores livianos, camionetas (pick-up), vagonetas y jeeps, motocicletas, minibuses de hasta 8 ocupantes sin modificación al diseño original y furgonetas que sean de uso particular y automotores pesados de bajo tonelaje para empresas",
+   "tree_ref": "T-ELIG-ESTANDAR"
+  },
+  {
+   "id": "R-013",
+   "source": {
+    "pdf_page": 12,
+    "printed_page": 5,
+    "section": "3.1.3"
+   },
+   "type": "autoridades",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "basis": "por riesgo o valor comercial del vehículo asegurado",
+    "matrix": "por valor máximo asegurado de cada vehículo y por cantidad de vehículos en una póliza"
+   },
+   "quote_verbatim": "La base de análisis en la línea de Automotores es por riesgo o valor comercial del vehículo asegurado y así están definidas las Autoridades de Suscripción.",
+   "table_ref": "TBL-AUTH-ESTANDAR"
+  },
+  {
+   "id": "R-014",
+   "source": {
+    "pdf_page": 14,
+    "printed_page": 7,
+    "section": "3.1.4"
+   },
+   "type": "terminos_condiciones",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "statement": "Pueden suscribirse todos los términos contenidos en los productos habilitados; es posible suscribir pólizas con solo una o algunas secciones (p.ej. solo RC). En productos enlatados solo se cotiza bajo las coberturas ya establecidas."
+   },
+   "quote_verbatim": "Es posible, incluso, suscribir pólizas estándares de Automotores livianos con solamente una o algunas secciones del producto; por ejemplo, una póliza con la Sección de Responsabilidad Civil únicamente. En los productos enlatados solo se puede cotizar bajo las coberturas ya establecidas."
+  },
+  {
+   "id": "R-015",
+   "source": {
+    "pdf_page": 14,
+    "printed_page": 7,
+    "section": "3.1.4"
+   },
+   "type": "clausulas_no_disponibles",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "not_available": [
+     "Cláusula de Renovación y Depreciación Anual para Pólizas Mayores a Un Año",
+     "Cláusula de Participación de Utilidades",
+     "Cláusula de Valor Admitido",
+     "Anexos de Licitaciones: todos aquellos registrados para licitación",
+     "Cláusulas Petroleras (salvo excepción R-016)"
+    ],
+    "exception": "a no ser que formen parte de los productos enlatados únicamente"
+   },
+   "quote_verbatim": "Este procedimiento de Suscripción no tiene disponible ninguna de las siguientes cláusulas y anexos, a no ser que formen parte de los productos enlatados únicamente"
+  },
+  {
+   "id": "R-016",
+   "source": {
+    "pdf_page": 14,
+    "printed_page": 7,
+    "section": "3.1.4"
+   },
+   "type": "clausulas_petroleras_excepcion",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "if": "autorización del Gerente de Sucursal o de sus diferentes Sub-Gerencias y jefaturas Y existencia verificada de contrato de servicios entre el Asegurado y una empresa petrolera",
+    "then": "pueden otorgarse: a) Cláusula de No Subrogación (Petroleras); b) Cláusula de Cancelación (Petroleras); c) Cláusula de Asegurado Adicional (Petroleras)",
+    "requirements": [
+     "la autorización debe especificar el nombre de la Empresa Petrolera a favor de quien se emiten",
+     "la inclusión del Anexo debe figurar en Sistema"
+    ]
+   },
+   "quote_verbatim": "Cláusulas Petroleras, a no ser que cuenten con la autorización del Gerente de Sucursal o de sus diferentes Sub-Gerencias y jefaturas y siempre y cuando se verifique la existencia de un contrato de servicios suscrito entre el Asegurado y alguna empresa petrolera."
+  },
+  {
+   "id": "R-017",
+   "source": {
+    "pdf_page": 14,
+    "printed_page": 7,
+    "section": "3.1.4.a"
+   },
+   "type": "responsabilidad_civil",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "statement": "Puede suscribirse una póliza solo con cobertura de RC, solamente para vehículos livianos excluyendo motocicletas; la fuente remite a \"las primas mínimas fijadas en el Apartado 3.1.6. Primas y Franquicias deducibles mínimas\" (contenido = 3.1.5.4 del cuerpo)."
+   },
+   "quote_verbatim": "Aunque sí se puede suscribir una póliza solamente con esta cobertura solamente para vehículos livianos excluyendo motocicletas",
+   "flags": [
+    "La fuente remite a \"el Apartado 3.1.6. Primas y Franquicias deducibles mínimas\" — numeración estilo TOC; en la numeración del cuerpo ese contenido es 3.1.5.4 (ver INC-MAN-001). Se conserva el puntero al contenido y se registra la referencia verbatim de la fuente."
+   ]
+  },
+  {
+   "id": "R-018",
+   "source": {
+    "pdf_page": 15,
+    "printed_page": 8,
+    "section": "3.1.4.b"
+   },
+   "type": "limite_rc",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "constraint": "límite máximo asegurado para RC (cobertura incidental) <= Bs. 210.000",
+    "exception": "cuando se otorga bajo algún producto enlatado",
+    "overflow": "cualquier excepción debe atenderse por Case Underwriting"
+   },
+   "quote_verbatim": "Como cobertura incidental, el límite máximo asegurado para Responsabilidad Civil no puede superar los Bs. 210.000, excepto cuando se otorgada bajo algún producto enlatado",
+   "table_ref": "TBL-RC-LIMITES"
+  },
+  {
+   "id": "R-019",
+   "source": {
+    "pdf_page": 15,
+    "printed_page": 8,
+    "section": "3.1.4.b"
+   },
+   "type": "rc_consecuencial",
+   "applies_to": "productos Automotores habilitados Estándar",
+   "logic": {
+    "constraint": "RC por Perjuicios Económicos a Terceros (RC Consecuencial): límite máximo Bs. 35.000 formando parte del límite de RC Extracontractual (no en adición)",
+    "recommendation": "franquicia deducible temporal de 3 días"
+   },
+   "quote_verbatim": "puede ser incluida en los productos de Automotores… con un límite máximo de Bs. 35.000 que deben formar parte del límite asegurado para la RC Extracontractual (no en adición). Igualmente, se recomienda suscribir esta extensión de cobertura con una franquicia deducible temporal de 3 días."
+  },
+  {
+   "id": "R-020",
+   "source": {
+    "pdf_page": 15,
+    "printed_page": 8,
+    "section": "3.1.4.b"
+   },
+   "type": "rc_ocupantes",
+   "applies_to": "productos Automotores",
+   "logic": {
+    "constraint": "RC de Ocupantes: límite máximo Bs. 35.000 dentro del límite de RC Extracontractual (no en adición)",
+    "excluded_for": [
+     "vehículos pesados",
+     "motocicletas"
+    ]
+   },
+   "quote_verbatim": "la Responsabilidad Civil de Ocupantes puede ser incluida en los productos de Automotores excepto para vehículos pesados y motocicletas, con un límite máximo de Bs. 35.000"
+  },
+  {
+   "id": "R-021",
+   "source": {
+    "pdf_page": 15,
+    "printed_page": 8,
+    "section": "3.1.4.b"
+   },
+   "type": "rc_no_asegurable",
+   "applies_to": "todos los productos Automotores",
+   "logic": {
+    "prohibited": [
+     "Responsabilidad Civil por Contaminación",
+     "Responsabilidad Civil del Transportador Carretero en Viaje Internacional o del CONOSUR"
+    ],
+    "reason": "exposiciones propias de la línea de Responsabilidad Civil"
+   },
+   "quote_verbatim": "corresponden a exposiciones de riesgo propias de la línea de Responsabilidad Civil y no pueden ser suscritas en ninguno de los productos de Automotores."
+  },
+  {
+   "id": "R-022",
+   "source": {
+    "pdf_page": 15,
+    "printed_page": 8,
+    "section": "3.1.4.c"
+   },
+   "type": "accidentes_personales",
+   "applies_to": "Suscripción Estándar (livianos)",
+   "logic": {
+    "constraints": [
+     "máximo 8 tripulantes y pasajeros asegurados, respaldados en el número de asientos según RUAT",
+     "capital máximo Bs.140.000 por tripulante o pasajero (muerte e invalidez)",
+     "gastos médicos hasta el 20%"
+    ],
+    "if": "RUAT indica capacidad mayor a 8 personas y el vehículo está dentro del perfil Estándar",
+    "then": "puede otorgarse cobertura a los ocupantes adicionales con extra prima de Bs. 56 por ocupante por cada Bs. 35.000 de cobertura",
+    "overflow": "límite mayor de AP → revisar por la línea del negocio correspondiente (no asegurable bajo Automotores)"
+   },
+   "quote_verbatim": "el número máximo de tripulantes y pasajeros asegurados para vehículos livianos bajo esta cobertura no puede exceder de 8 (ocho) respaldados en el número de asientos, según RUAT. El capital asegurado máximo es de Bs.140.000 por tripulante o pasajero",
+   "table_ref": "TBL-AP-OCUPANTES"
+  },
+  {
+   "id": "R-023",
+   "source": {
+    "pdf_page": 16,
+    "printed_page": 9,
+    "section": "3.1.4.d"
+   },
+   "type": "extraterritorialidad",
+   "applies_to": "Suscripción Estándar (livianos)",
+   "logic": {
+    "default": "extensión a países limítrofes sin costo adicional, cobertura incidental, estadía máxima 30 días por viaje",
+    "if": "permanencia continua superior a 30 días",
+    "then": "extra prima de Bs. 420 por cada mes o fracción adicional",
+    "hard_max": "hasta los 90 días como máximo"
+   },
+   "quote_verbatim": "se extiende a países limítrofes, sin un costo adicional y como una cobertura incidental (límite máximo de estadía por viaje de 30 días)… deberá cobrarse una extra prima de Bs. 420 por cada mes o fracción de mes adicional y solo podrán hacerlo hasta los 90 días como máximo",
+   "table_ref": "TBL-EXTRATERRITORIALIDAD"
+  },
+  {
+   "id": "R-024",
+   "source": {
+    "pdf_page": 15,
+    "printed_page": 8,
+    "section": "3.1.4.b"
+   },
+   "type": "politica_comercial",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "duty": "en general, se debe incentivar al Asegurado a contratar una póliza completa que asegure la materia del seguro en su totalidad"
+   },
+   "quote_verbatim": "en general, se debe incentivar al Asegurado a contratar una póliza completa que asegure la materia del seguro en su totalidad."
+  },
+  {
+   "id": "R-030",
+   "source": {
+    "pdf_page": 16,
+    "printed_page": 9,
+    "section": "3.1.5.1.1"
+   },
+   "type": "tarificacion",
+   "applies_to": "PN y PN con NIT (individuales), livianos",
+   "logic": {
+    "mechanism": "motor de cálculo (Tarificador) en el CRM, diferenciado para emisiones nuevas y renovaciones",
+    "conditions_estandar_limites": [
+     "Pérdida Total por robo al 100%",
+     "Pérdida Total por Accidente al 100%",
+     "Daños Propios y HMACC AMIT al 90%",
+     "Robo Parcial al 80%",
+     "Límite máximo en Responsabilidad Civil de Bs.210.000,00",
+     "Accidentes Personales de Bs.70.000,00 (por persona)"
+    ]
+   },
+   "quote_verbatim": "La actual política de tarificación está implementada a través de un motor de cálculo que está disponible en el CRM"
+  },
+  {
+   "id": "R-031",
+   "source": {
+    "pdf_page": 16,
+    "printed_page": 9,
+    "section": "3.1.5.1.1"
+   },
+   "type": "recargo_hibridos_electricos",
+   "applies_to": "livianos PN/PN-NIT (CRM)",
+   "logic": {
+    "if": "vehículo híbrido o eléctrico importado por un concesionario representante de la marca en Bolivia",
+    "then": "recargo sobre la tasa cotizada en CRM: 10% híbridos, 20% eléctricos",
+    "slip_conditions": [
+     "cobertura para el cargador y el enchufe siempre que formen parte de los valores asegurados y declarados y estén fijos dentro del vehículo encerrado",
+     "la compañía se reserva el derecho de indemnizar en efectivo dependiendo el tipo de siniestro (evento cubierto)",
+     "se excluyen daños internos; los riesgos de fuga térmica de las baterías están excluidos"
+    ]
+   },
+   "quote_verbatim": "se deberá realizar el recargo sobre la tasa cotizada en CRM debido a la concentración de valores asegurados en las baterías de estos vehículos, 10% para vehículos híbridos y 20% para vehículos eléctricos",
+   "table_ref": "TBL-RECARGO-HIB-ELEC"
+  },
+  {
+   "id": "R-032",
+   "source": {
+    "pdf_page": 17,
+    "printed_page": 10,
+    "section": "3.1.5.1.2"
+   },
+   "type": "tarificacion",
+   "applies_to": "Personas Naturales con NIT (flota)",
+   "logic": {
+    "if": "flota de mínimamente 3 vehículos (todos a nombre del tomador según RUAT o minuta de transferencia) O programa de seguros donde la prima de Automotores no sea mayor al 40% de la prima del programa (vigente o por emitirse)",
+    "then": "tasas: Eje Troncal 2,8% / Fuera del Eje 2,6%",
+    "else": "el resto de PN con NIT pasan como personas individuales en el Tarificador del CRM"
+   },
+   "quote_verbatim": "Para las Personas Naturales con NIT que suscriban una flota de mínimamente 3 vehículos… Este grupo tendría disponible las siguientes condiciones",
+   "table_ref": "TBL-TAR-PNNIT-FLOTA"
+  },
+  {
+   "id": "R-033",
+   "source": {
+    "pdf_page": 17,
+    "printed_page": 10,
+    "section": "3.1.5.1.2"
+   },
+   "type": "tarificacion_emisiones_nuevas",
+   "applies_to": "este segmento",
+   "logic": {
+    "statement": "Todos los riesgos nuevos se tarifican individualmente en el CRM",
+    "variables": [
+     "Antigüedad del vehículo",
+     "Valor Asegurado",
+     "Marca",
+     "Plaza de circulación"
+    ]
+   },
+   "quote_verbatim": "Todos los riesgos nuevos de este segmento deberán ser tarificados individualmente en el CRM, a partir de las siguientes variables.",
+   "notes": "El encabezado \"EMISIONES NUEVAS\" aparece sin numeración dentro de 3.1.5.1.2."
+  },
+  {
+   "id": "R-034",
+   "source": {
+    "pdf_page": 17,
+    "printed_page": 10,
+    "section": "3.1.5.1.2"
+   },
+   "type": "descuentos",
+   "applies_to": "emisiones nuevas (CRM)",
+   "logic": {
+    "authorities": {
+     "Gerencia Nacional de Negocios de Empresas y Personas & Pymes": "descuentos sin límite a las tasas cotizadas",
+     "Gerencias o Jefaturas de Sucursal": "hasta 20% sobre la prima cotizada",
+     "Subgerencias y jefaturas comerciales": "hasta 10%"
+    },
+    "enforcement": "si el descuento de 10% o 20% deja la prima final por debajo de la Prima o Tasa mínima, el CRM bloquea la solicitud con mensaje de rechazo"
+   },
+   "quote_verbatim": "La Gerencia Nacional de Negocios de Empresas y Personas & Pymes tiene autoridad de otorgar descuentos sin límite a las tasas cotizadas en el CRM.",
+   "table_ref": "TBL-DESCUENTOS"
+  },
+  {
+   "id": "R-035",
+   "source": {
+    "pdf_page": 18,
+    "printed_page": 11,
+    "section": "3.1.5.1.3"
+   },
+   "type": "tarificacion",
+   "applies_to": "Empresas (individuales), livianos",
+   "logic": {
+    "if": "Asegurado con denominación S.A., SRL, S.A.M., R.L. u ONG; segmentos Pyme y Commercial; póliza individual",
+    "then": "tasas mínimas (al contado): Eje Troncal 3% / Fuera del Eje 2,8%"
+   },
+   "quote_verbatim": "se acuerda las siguientes tasas mínimas (al contado)",
+   "table_ref": "TBL-TAR-EMP-IND"
+  },
+  {
+   "id": "R-036",
+   "source": {
+    "pdf_page": 18,
+    "printed_page": 11,
+    "section": "3.1.5.1.4"
+   },
+   "type": "tarificacion",
+   "applies_to": "Empresas (flota), livianos",
+   "logic": {
+    "flota_definition": "a partir del segundo vehículo en una póliza (Empresas: S.A., SRL, S.A.M., R.L., ONG; Pyme y Commercial)",
+    "tasas": "La Paz y Santa Cruz 2,40% / demás plazas 2,20% (al contado)",
+    "scope": "solo vehículos livianos del Procedimiento Estándar (Automóviles, camionetas, vagonetas, Jeeps, Furgones, Furgonetas y minibuses)",
+    "discretion": "el suscriptor autorizado puede aplicar tasas, primas mínimas y franquicias mayores a las mínimas",
+    "related": "Flotas en el Segmento Consumer para personas Individuales pueden ser suscritas bajo el Procedimiento Case Underwriting (ver R-103, sección 4.4)"
+   },
+   "quote_verbatim": "se considera una flota a partir del segundo vehículo a una póliza cuyo Asegurado cuente con la denominación S.A. …",
+   "table_ref": "TBL-TAR-EMP-FLOTA"
+  },
+  {
+   "id": "R-037",
+   "source": {
+    "pdf_page": 19,
+    "printed_page": 12,
+    "section": "3.1.5.2.1"
+   },
+   "type": "tarificacion",
+   "applies_to": "Vehículos pesados — Empresas (individuales y flota)",
+   "logic": {
+    "if": "Asegurado S.A./SRL/S.A.M./R.L./ONG, segmentos Pyme y Commercial",
+    "then": "tasa mínima 2,8% contado para cualquier plaza dentro del territorio boliviano",
+    "constraint": "tomando en cuenta las limitaciones para suscripción estándar"
+   },
+   "quote_verbatim": "se acuerda la tasa mínima de2,8% contado para cualquiera de las Plazas de Circulación dentro del territorio boliviano",
+   "table_ref": "TBL-TAR-PESADOS",
+   "flags": [
+    "comentario de Word en la fuente: \"Comentado [JR1]: No hay modificación, solo es aclaratorio.\""
+   ]
+  },
+  {
+   "id": "R-038",
+   "source": {
+    "pdf_page": 19,
+    "printed_page": 12,
+    "section": "3.1.5.3"
+   },
+   "type": "tarificacion",
+   "applies_to": "Moto Protección",
+   "logic": {
+    "mechanism": "tabla por tramos de Valor Asegurado",
+    "surcharge": "motocicletas híbridas +10% / eléctricas +20% sobre la prima cotizada (importadas por concesionario representante); mismas condiciones de slip que R-031"
+   },
+   "quote_verbatim": "La tarificación de los productos de Moto Protección está sujeta a las siguientes tablas",
+   "table_ref": "TBL-TAR-MOTO"
+  },
+  {
+   "id": "R-039",
+   "source": {
+    "pdf_page": 19,
+    "printed_page": 12,
+    "section": "3.1.5.4.1"
+   },
+   "type": "primas_minimas",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "statement": "No obstante las tasas, se establecen primas mínimas por plaza de circulación y tipo de vehículo (ver tabla)."
+   },
+   "quote_verbatim": "No obstante, las tasas mencionadas en el punto anterior fueron establecidas primas mínimas por plaza de circulación y por tipo de vehículo",
+   "table_ref": "TBL-PRIMAS-MIN"
+  },
+  {
+   "id": "R-040",
+   "source": {
+    "pdf_page": 20,
+    "printed_page": 13,
+    "section": "3.1.5.4.1"
+   },
+   "type": "primas_minimas_rc",
+   "applies_to": "pólizas solo RC, livianos, segmentos Comercial o Consumer",
+   "logic": {
+    "scheme": "VA Bs. 140.000,00 → prima mínima Bs. 1.000 (Santa Cruz, La Paz, Trinidad) / Bs. 850 (resto del país)"
+   },
+   "quote_verbatim": "que contraten solamente la cobertura de Responsabilidad Civil, se acuerda el siguiente esquema de primas mínimas",
+   "table_ref": "TBL-PRIMAS-MIN-RC"
+  },
+  {
+   "id": "R-041",
+   "source": {
+    "pdf_page": 20,
+    "printed_page": 13,
+    "section": "3.1.5.4.2"
+   },
+   "type": "franquicias",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "statement": "Dos tipos de franquicias deducibles básicas para cualquier póliza; una franquicia deducible mínima determinada en BOB. Deben incluirse en cualquier póliza suscrita; el suscriptor puede incrementarlas. Los productos enlatados tienen configuración propia (no aplican estas franquicias)."
+   },
+   "quote_verbatim": "La suscripción bajo el Procedimiento Estándar establece dos tipos de Franquicias Deducibles básicas para cualquier póliza.",
+   "table_ref": "TBL-FRANQ-MOTO"
+  },
+  {
+   "id": "R-042",
+   "source": {
+    "pdf_page": 21,
+    "printed_page": 14,
+    "section": "3.1.5.4.2"
+   },
+   "type": "franquicias",
+   "applies_to": "Personas Naturales y PN con NIT",
+   "logic": {
+    "robo_parcial": "20% del valor del siniestro",
+    "danos_propios_hmacc": "10% del valor del siniestro",
+    "minimas": "según la alternativa elegida por el cliente (CRM)",
+    "hibridos_electricos": "recargo del 50% sobre la opción de franquicia elegida en el CRM"
+   },
+   "quote_verbatim": "Franquicia Deducible porcentual para la Sección de Robo Parcial de Partes y Piezas de 20% del valor del siniestro y para las Secciones de Daños Propios y HAMCC AMITT 10% del valor del siniestro",
+   "table_ref": "TBL-FRANQ-PN"
+  },
+  {
+   "id": "R-043",
+   "source": {
+    "pdf_page": 21,
+    "printed_page": 14,
+    "section": "3.1.5.4.2"
+   },
+   "type": "franquicias",
+   "applies_to": "Empresas",
+   "logic": {
+    "table": "por tramo de VA y tipo (ver TBL-FRANQ-EMPRESAS)",
+    "robo_parcial": "20% del valor del siniestro para cualquier riesgo"
+   },
+   "quote_verbatim": "Franquicia Deducible mínima (Sección de Daños Propios y HMACC AMIT Terrorismo) para Demás Vehículos",
+   "table_ref": "TBL-FRANQ-EMPRESAS"
+  },
+  {
+   "id": "R-044",
+   "source": {
+    "pdf_page": 21,
+    "printed_page": 14,
+    "section": "3.1.5.4.2"
+   },
+   "type": "franquicias",
+   "applies_to": "Responsabilidad Civil",
+   "logic": {
+    "value": "franquicia deducible fija general por evento y/o reclamo: Bs. 1.000"
+   },
+   "quote_verbatim": "La franquicia deducible fija general por evento y/o reclamo es de Bs. 1.000.",
+   "table_ref": "TBL-FRANQ-RC"
+  },
+  {
+   "id": "R-050",
+   "source": {
+    "pdf_page": 21,
+    "printed_page": 14,
+    "section": "3.1.6"
+   },
+   "type": "informacion_cotizacion",
+   "applies_to": "livianos",
+   "logic": {
+    "required": [
+     "Tipo de vehículo",
+     "Marca, modelo y año",
+     "Valor Comercial (o Asegurado)",
+     "Plaza de circulación",
+     "Uso del vehículo",
+     "Detalle de códigos Sise o códigos Osiris que correspondan al asegurado",
+     "Anexo 02: Planilla Solicitud de Renovaciones (en caso de Renovación)",
+     "Slip con términos y condiciones"
+    ]
+   },
+   "quote_verbatim": "Para vehículos livianos: • Tipo de vehículo. • Marca, modelo y año. …"
+  },
+  {
+   "id": "R-051",
+   "source": {
+    "pdf_page": 22,
+    "printed_page": 15,
+    "section": "3.1.6"
+   },
+   "type": "informacion_cotizacion",
+   "applies_to": "pesados (adicional)",
+   "logic": {
+    "required": [
+     "Descripción de la actividad del asegurado",
+     "Detalle de la materia a transportar",
+     "Lugares de circulación",
+     "Frecuencia de viajes",
+     "Exposición fuera del territorio nacional y frecuencia",
+     "Anexo 02 (renovaciones)",
+     "Capacidad de carga en toneladas"
+    ]
+   },
+   "quote_verbatim": "En caso de Vehículos Pesados, también se requiere analizar la siguiente información"
+  },
+  {
+   "id": "R-052",
+   "source": {
+    "pdf_page": 22,
+    "printed_page": 15,
+    "section": "3.1.6"
+   },
+   "type": "informacion_cotizacion",
+   "applies_to": "motocicletas de lujo con VA > Bs.70.000",
+   "logic": {
+    "required": [
+     "Edad del conductor",
+     "Si pertenece a algún club de motoqueros",
+     "Años de experiencia en conducción",
+     "Conductores adicionales",
+     "Lugar de trabajo y cargo del conductor",
+     "Frecuencia de uso",
+     "Rutas de circulación frecuente",
+     "Anexo 02 (renovaciones)",
+     "Uso de la motocicleta"
+    ]
+   },
+   "quote_verbatim": "En caso de motocicletas de lujo con valores asegurados superiores a los Bs.70.000"
+  },
+  {
+   "id": "R-053",
+   "source": {
+    "pdf_page": 22,
+    "printed_page": 15,
+    "section": "3.1.6"
+   },
+   "type": "informacion_emision",
+   "applies_to": "riesgos nuevos",
+   "logic": {
+    "required": [
+     "Información del Asegurado (Formulario GCP)",
+     "Detalle de Coberturas o Slip de Cotización con Valores Asegurados",
+     "Fotocopia del RUAT de cada vehículo (N° Chasis, N° Motor, Color, Modelo, Año, Placa, Plazas)",
+     "Formulario de Inspección con fotografías o formulario de declaración jurada (salvo póliza solo RC + AP)"
+    ],
+    "note": "Esta información no es requerida para presentar una cotización."
+   },
+   "quote_verbatim": "La suscripción de nuevos clientes debe estar respaldada por la siguiente documentación"
+  },
+  {
+   "id": "R-054",
+   "source": {
+    "pdf_page": 23,
+    "printed_page": 16,
+    "section": "3.1.6"
+   },
+   "type": "regularizacion_ruat",
+   "applies_to": "vehículos 0 km sin RUAT / renovaciones sin RUAT en file",
+   "logic": {
+    "if": "vehículo 0 km sin RUAT al momento de la emisión, o renovación donde el documento no figura en el file",
+    "then": "plazo de 3 días para regularizar, siempre que se presente en su lugar el FRV, la Consulta del RUAT vía internet (con número de CRPVA) o la póliza de importación",
+    "authority": "la excepción puede otorgarse por los diferentes niveles de suscripción; se incluye nota en la emisión con el plazo",
+    "responsibility": "del ejecutivo comercial y del nivel de suscripción que aprueba, garantizar la regularización en el expediente"
+   },
+   "quote_verbatim": "se otorgará un plazo de 3 días para regularizar este documento, siempre que se presente en su lugar el FRV (Formulario de Registro de Vehículos), Consulta del RUAT vía internet…"
+  },
+  {
+   "id": "R-055",
+   "source": {
+    "pdf_page": 23,
+    "printed_page": 16,
+    "section": "3.1.6"
+   },
+   "type": "inspeccion_0km",
+   "applies_to": "vehículos 0 km de concesionarias autorizadas en Bolivia",
+   "logic": {
+    "default": "no es necesaria la inspección pre-riesgo",
+    "exception": "salvo accesorios adicionales originales de fábrica que el Asegurado desee cubrir",
+    "document": "Acta de Entrega firmada si el vehículo ya salió de la concesionaria",
+    "if_missing": "con Acta de Pre Entrega, Factura Comercial o Contrato de Compra-Venta → plazo de 3 días para regularizar el Acta de Entrega; excepción por niveles de suscripción + nota en la emisión"
+   },
+   "quote_verbatim": "no será necesario efectuar la correspondiente inspección pre – riesgo, salvo que los mismos cuenten con accesorios adicionales originales de fábrica"
+  },
+  {
+   "id": "R-056",
+   "source": {
+    "pdf_page": 23,
+    "printed_page": 16,
+    "section": "3.1.6"
+   },
+   "type": "emision_pesados_acoplados",
+   "applies_to": "pesados que acoplen chatas, semirremolques y/o similares",
+   "logic": {
+    "requirements": [
+     "emisión en sistema por órdenes separadas (placas y chasis independientes)",
+     "la tasa y prima mínima autorizada aplica también a los ítems acoplados",
+     "inspección por separado para el tractocamión y los ítems acoplados",
+     "en inspecciones de acoplados pueden ingresarse fotografías repetidas o en blanco cuando la app o Chatbot pida fotos que el acoplado no tiene (parabrisas, radio, panel, etc.)"
+    ]
+   },
+   "quote_verbatim": "La emisión en sistema para este tipo de vehículos debe realizarse por órdenes separadas, toda vez que se deberán registrar las placas y números de chasis de manera independiente."
+  },
+  {
+   "id": "R-057",
+   "source": {
+    "pdf_page": 24,
+    "printed_page": 17,
+    "section": "3.1.7"
+   },
+   "type": "forma_pago",
+   "applies_to": "Suscripción Estándar",
+   "logic": {
+    "default": "contado, con 30 días de periodo de gracia (primera alternativa siempre)",
+    "credit": "pago al crédito sujeto a recargo por un 10%: 30% de cuota inicial y hasta 6 cuotas (con 30 días de periodo de gracia)"
+   },
+   "quote_verbatim": "La primera alternativa en la forma de pago es siempre al contado, con 30 días de periodo de gracia.",
+   "table_ref": "TBL-PAGO"
+  },
+  {
+   "id": "R-060",
+   "source": {
+    "pdf_page": 24,
+    "printed_page": 17,
+    "section": "3.2"
+   },
+   "type": "definicion_procedimiento",
+   "applies_to": "Suscripción Automática",
+   "logic": {
+    "statement": "Para agilizar emisión y renovación; NO aplican autoridades de suscripción (productos enlatados con términos definidos).",
+    "products": [
+     "LBC | Auto (Producto para Personas)",
+     "LBC | Auto Por Kilometraje",
+     "LBC | Moto (Low Cost)"
+    ]
+   },
+   "quote_verbatim": "En este procedimiento no aplican autoridades de suscripción, ya que los productos ‘enlatados’ cuentan con términos y condiciones definidas para riesgos específicos."
+  },
+  {
+   "id": "R-070",
+   "source": {
+    "pdf_page": 24,
+    "printed_page": 17,
+    "section": "3.3"
+   },
+   "type": "definicion_procedimiento",
+   "applies_to": "Case Underwriting",
+   "logic": {
+    "statement": "Suscripción caso por caso para desviaciones a condiciones estándar; análisis con factores ajenos a la póliza: antigüedad del cliente, volumen del programa, rentabilidad de la cuenta y del programa, interés comercial.",
+    "clients": "individuales, medianos o corporativos, incluyendo flotas; canales Directas, Brokers, Agentes o Corporate",
+    "products": "todos los disponibles en la línea"
+   },
+   "quote_verbatim": "este procedimiento debe ser analizado considerando factores ajenos a la misma póliza, como ser: antigüedad del cliente, volumen del programa de seguros en la Compañía, rentabilidad de la cuenta y del programa y el interés comercial por la cuenta."
+  },
+  {
+   "id": "R-071",
+   "source": {
+    "pdf_page": 25,
+    "printed_page": 18,
+    "section": "3.3.1"
+   },
+   "type": "perfil_riesgo/elegibilidad",
+   "applies_to": "Case Underwriting",
+   "logic": {
+    "allowed": "cualquier tipo de vehículos, incluyendo pesados",
+    "excluded": "lista explícita de 11 exclusiones (ver T-ELIG-CASEUW, C01–C11)"
+   },
+   "quote_verbatim": "Bajo el Procedimiento Case Underwriting puede suscribirse cualquier tipo de vehículos, incluyendo vehículos pesados, a excepción de los explícitamente excluidos a continuación",
+   "tree_ref": "T-ELIG-CASEUW"
+  },
+  {
+   "id": "R-072",
+   "source": {
+    "pdf_page": 25,
+    "printed_page": 18,
+    "section": "3.3.2"
+   },
+   "type": "autoridades",
+   "applies_to": "Case Underwriting",
+   "logic": {
+    "matrix": "según el valor comercial del vehículo asegurado"
+   },
+   "quote_verbatim": "Las autoridades de suscripción del Procedimiento Case Underwriting se encuentran definidas en la siguiente matriz, según el valor comercial del vehículo asegurado.",
+   "table_ref": "TBL-AUTH-CASEUW"
+  },
+  {
+   "id": "R-073",
+   "source": {
+    "pdf_page": 25,
+    "printed_page": 18,
+    "section": "3.3.3"
+   },
+   "type": "terminos_condiciones",
+   "applies_to": "Case Underwriting",
+   "logic": {
+    "statement": "Incluyen todas las condiciones habilitadas en sistemas; las políticas particulares siguientes no aplican a productos cerrados."
+   },
+   "quote_verbatim": "Los términos y condiciones que pueden ser suscritos por este Procedimiento incluyen todas las condiciones habilitadas en sistemas."
+  },
+  {
+   "id": "R-074",
+   "source": {
+    "pdf_page": 26,
+    "printed_page": 19,
+    "section": "3.3.3"
+   },
+   "type": "limite_rc",
+   "applies_to": "Case Underwriting",
+   "logic": {
+    "constraint": "límite máximo de RC <= Bs. 350.000",
+    "overflow": "límites mayores u otro tipo de extensiones, DIFERENTES A LAS PERMITIDAS TAMBIÉN PARA EL CASO ESTÁNDAR, deben ser suscritas por la respectiva Línea de Responsabilidad Civil"
+   },
+   "quote_verbatim": "El límite máximo de Responsabilidad Civil asegurable bajo un análisis caso por caso no puede superar los Bs. 350.000. Límites mayores en esta cobertura u otro tipo de extensiones, diferentes a las permitidas también para el caso Estándar, deben ser suscritas por la respectiva Línea de Responsabilidad Civil.",
+   "table_ref": "TBL-RC-LIMITES"
+  },
+  {
+   "id": "R-075",
+   "source": {
+    "pdf_page": 26,
+    "printed_page": 19,
+    "section": "3.3.3"
+   },
+   "type": "franquicias_desvios",
+   "applies_to": "Case Underwriting",
+   "logic": {
+    "if": "desvío a los deducibles mínimos del Estándar",
+    "then": "requiere análisis profundo de la siniestralidad histórica del caso y justificación comercial",
+    "duty": "asegurar que los deducibles no incrementen la frecuencia de reclamos ni los costos administrativos"
+   },
+   "quote_verbatim": "Cualquier desvío a los deducibles mínimos establecidos para el Procedimiento Estándar de Suscripción debe estar precedido de un análisis profundo a la siniestralidad histórica del caso y justificado comercialmente."
+  },
+  {
+   "id": "R-076",
+   "source": {
+    "pdf_page": 26,
+    "printed_page": 19,
+    "section": "3.3.3"
+   },
+   "type": "siniestralidad_elevada",
+   "applies_to": "Case Underwriting",
+   "logic": {
+    "formula": "Ind. Siniestralidad = (Siniestralidad Pagada + Siniestralidad en Reserva) / Producción de Primas Netas * 100",
+    "justification": "rentabilidad positiva en el programa o acciones específicas para corregir la siniestralidad futura esperada"
+   },
+   "quote_verbatim": "En caso de que una póliza presente siniestralidad, ésta será evaluada a través del Índice de Siniestralidad o Loss Ratio",
+   "notes": "Fórmula ilegible en la capa de texto del PDF; transcrita desde render visual de la página (ver document.json / source_artifacts)."
+  },
+  {
+   "id": "R-077",
+   "source": {
+    "pdf_page": 26,
+    "printed_page": 19,
+    "section": "3.3.4"
+   },
+   "type": "tarificacion",
+   "applies_to": "Case Underwriting",
+   "logic": {
+    "statement": "No sujeta a Tasas o Primas mínimas; se basa en la experiencia del Suscriptor con límite autorizado."
+   },
+   "quote_verbatim": "La tarificación en el Procedimiento de Suscripción Case Underwriting no se encuentra sujeta de Tasas o Primas mínimas y se basa en la experiencia del Suscriptor con límite autorizado."
+  },
+  {
+   "id": "R-078",
+   "source": {
+    "pdf_page": 26,
+    "printed_page": 19,
+    "section": "3.3.5"
+   },
+   "type": "pesados",
+   "applies_to": "Case Underwriting — automotores pesados (>8 TN)",
+   "logic": {
+    "definition": "Camiones, Tractocamiones, Cisternas, Tractores, Tráileres, Volquetas, Microbuses, Colectivos, Omnibuses, Chatas, Semi-remolques, Remolques, Tolvas y Carrocerías; tonelaje mayor a 8 TN",
+    "policy": "no es objetivo estratégico (no exclusión absoluta); debe justificarse comercialmente",
+    "analysis_factors": [
+     "Exposición en Países limítrofes",
+     "Mayor exposición operativa en vía pública",
+     "Materia transportada (cisternas/hidrocarburos; buses de pasajeros)"
+    ],
+    "references": "Tasa Total Referencial 4,00%; Franquicia Mínima Bs. 3.500; descuentos deben justificarse técnica y comercialmente"
+   },
+   "quote_verbatim": "Bajo este grupo de Automotores se encuentran Camiones, Tractocamiones, Cisternas, Tractores, Tráileres, Volquetas, Microbuses, Colectivos, Omnibuses, Chatas, Semi-remolques, Remolques, Tolvas y Carrocerías; concentra vehículos con un tonelaje mayor a los 8 TN.",
+   "table_ref": "TBL-PESADOS-REF"
+  },
+  {
+   "id": "R-079",
+   "source": {
+    "pdf_page": 27,
+    "printed_page": 20,
+    "section": "3.3.6"
+   },
+   "type": "documentacion",
+   "applies_to": "Case Underwriting",
+   "logic": {
+    "statement": "Información similar a la estándar; las justificaciones de desviaciones y autorizaciones del Área de Suscripción deben documentarse formalmente en los archivos comerciales de cada cuenta."
+   },
+   "quote_verbatim": "Las justificaciones en las desviaciones al proceso estándar y las autorizaciones del Área de Suscripción de Automotores para cualquier desviación en la política deben estar formalmente documentadas en los archivos comerciales de cada cuenta."
+  },
+  {
+   "id": "R-080",
+   "source": {
+    "pdf_page": 28,
+    "printed_page": 21,
+    "section": "3.4"
+   },
+   "type": "definicion_procedimiento",
+   "applies_to": "Suscripción Masiva",
+   "logic": {
+    "statement": "Agrupación de muchos clientes individuales en un solo programa, mismos términos; competencia exclusiva de la Gerencia de Suscripción en coordinación con la Gerencia Nacional de Seguros Masivos."
+   },
+   "quote_verbatim": "Este procedimiento es competencia exclusiva de la Gerencia de Suscripción, en coordinación con la Gerencia Nacional de Seguros Masivos."
+  },
+  {
+   "id": "R-081",
+   "source": {
+    "pdf_page": 28,
+    "printed_page": 21,
+    "section": "3.4.1"
+   },
+   "type": "perfil_riesgo",
+   "applies_to": "Suscripción Masiva",
+   "logic": {
+    "clients": "Entidades Financieras u otros agrupadores con vínculo de afinidad (Concesionarias, Farmacias, Supermercados, entre otros)"
+   },
+   "quote_verbatim": "Bajo este procedimiento de suscripción se puede atender a Entidades Financieras u otros agrupadores con un vínculo de afinidad"
+  },
+  {
+   "id": "R-082",
+   "source": {
+    "pdf_page": 28,
+    "printed_page": 21,
+    "section": "3.4.2"
+   },
+   "type": "validacion_condiciones",
+   "applies_to": "Suscripción Masiva",
+   "logic": {
+    "mechanism": "pólizas madre con términos acordados con el Tomador; los riesgos se suscriben mediante pólizas individuales (productos masivos) o certificados de cobertura individual (colectivos), respectivamente",
+    "validity": "la validez del procedimiento es anual: al aniversario de la póliza deben evaluarse y validarse los términos (autoridad de suscripción correspondiente; en función de rentabilidad del programa, capacidades de reaseguro vigentes y políticas de la línea)",
+    "changes": "en caso de ser necesaria una modificación en las condiciones vigentes, se deberá coordinar con el área comercial un plan para efectivizar este ajuste; los cambios pueden tener efecto solo en la cartera nueva, o en la nueva y la antigua"
+   },
+   "quote_verbatim": "La validez de este procedimiento de suscripción, independientemente de la vigencia de la póliza, es anual y al aniversario de la póliza deberán ser evaluados y validados los términos y condiciones de ésta."
+  },
+  {
+   "id": "R-083",
+   "source": {
+    "pdf_page": 28,
+    "printed_page": 21,
+    "section": "3.4.3"
+   },
+   "type": "autoridades",
+   "applies_to": "Suscripción Masiva",
+   "logic": {
+    "constraint": "la suscripción de Pólizas Colectivas, Masivas e Individuales por canales no tradicionales está restringida al Área de Suscripción solamente"
+   },
+   "quote_verbatim": "La suscripción de Pólizas Colectivas, Masivas e Individuales por canales no tradicionales está restringida al Área de Suscripción solamente."
+  },
+  {
+   "id": "R-084",
+   "source": {
+    "pdf_page": 28,
+    "printed_page": 21,
+    "section": "3.4.4"
+   },
+   "type": "textos",
+   "applies_to": "Suscripción Masiva",
+   "logic": {
+    "requirements": [
+     "emitir pólizas con textos registrados y autorizados por la APS",
+     "cada programa se concretiza en un slip que será base del Condicionado Particular de la póliza madre",
+     "formalizar el modelo de póliza (CCI, Formularios, CP, CG, Cláusulas y Anexos) con título y código de registro APS",
+     "el modelo se mantiene hasta la emisión (incluso en preimpresos)"
+    ]
+   },
+   "quote_verbatim": "Es importante que este procedimiento de suscripción termine emitiendo pólizas con textos debidamente registrados y autorizados por la APS."
+  },
+  {
+   "id": "R-085",
+   "source": {
+    "pdf_page": 29,
+    "printed_page": 22,
+    "section": "3.4.5"
+   },
+   "type": "tarificacion",
+   "applies_to": "Suscripción Masiva",
+   "logic": {
+    "statement": "El análisis se centra en los resultados (obtenidos o esperados); verificar respaldo pleno por Retención Local o contratos automáticos de reaseguro para no sobreexponer Patrimonio ni solvencia.",
+    "variables": [
+     "Crecimiento esperado de la cartera y proyección de penetración",
+     "Análisis de la cartera actual para perfil del cliente final",
+     "Gastos administrativos, costos operativos y de intermediación",
+     "Evolución de la rentabilidad o rentabilidad estimada"
+    ]
+   },
+   "quote_verbatim": "la suscripción a través de este Procedimiento debe verificar que las coberturas aseguradas se encuentren plenamente respaldadas por algún mecanismo de transferencia de riesgos"
+  },
+  {
+   "id": "R-090",
+   "source": {
+    "pdf_page": 30,
+    "printed_page": 23,
+    "section": "3.5 / 3.5.1",
+    "note": "La definición del procedimiento (clientes Estatales, canales Corporate y Directas) está en pdf p.29 (3.5); la característica de Adhesión al Pliego citada está en pdf p.30 (3.5.1)."
+   },
+   "type": "definicion_procedimiento",
+   "applies_to": "Licitaciones",
+   "logic": {
+    "clients": "clientes Estatales; canales Corporate y Directas",
+    "characteristic": "pólizas contratadas por licitación pública que normalmente incluye la Cláusula de Adhesión al Pliego: la Compañía no puede modificar términos de la propuesta"
+   },
+   "quote_verbatim": "estas pólizas son contratadas a través de una licitación pública que normalmente incluye la Cláusula de Adhesión al Pliego, por lo que la Compañía no puede modificar términos de la propuesta."
+  },
+  {
+   "id": "R-092",
+   "source": {
+    "pdf_page": 30,
+    "printed_page": 23,
+    "section": "3.5.2"
+   },
+   "type": "autoridades",
+   "applies_to": "Licitaciones",
+   "logic": {
+    "matrix": "según número máximo de vehículos en la póliza y valor comercial máximo del mayor vehículo"
+   },
+   "quote_verbatim": "Las autoridades de suscripción definidas para este Procedimiento, según el número máximo de vehículos asegurados en una póliza y el valor comercial máximo del mayor vehículo",
+   "table_ref": "TBL-AUTH-LICITACIONES"
+  },
+  {
+   "id": "R-093",
+   "source": {
+    "pdf_page": 30,
+    "printed_page": 23,
+    "section": "3.5.2"
+   },
+   "type": "tarificacion",
+   "applies_to": "Licitaciones",
+   "logic": {
+    "mechanism": "Tarificador de Flotas",
+    "validation": "cotizaciones finales validadas por simulación de la rentabilidad esperada (tasas propuestas, siniestralidad esperada según información histórica, gastos internos administrativos, costos adicionales)"
+   },
+   "quote_verbatim": "La tarificación de este tipo de riesgos está respaldada por el Tarificador de Flotas."
+  },
+  {
+   "id": "R-094",
+   "source": {
+    "pdf_page": 30,
+    "printed_page": 23,
+    "section": "3.5.3"
+   },
+   "type": "procedimiento",
+   "applies_to": "Licitaciones",
+   "logic": {
+    "steps": [
+     "Área Comercial acude a la Matriz de Consultas para revisión de términos de los Slips antes de enviar a Suscripción",
+     "Suscripción revisa los Slips para confirmar/adicionar consultas a la Reunión de Aclaración (según cronograma)",
+     "Área Comercial envía respuestas + cuadro de rentabilidad esperada (tasas/primas propuestas y siniestralidad) + modelo de póliza",
+     "Suscripción envía la aprobación de los slips según el ramo y recomendaciones (según cronograma)"
+    ]
+   },
+   "quote_verbatim": "Al momento de presentarse una Licitación se deberá seguir los siguientes pasos"
+  },
+  {
+   "id": "R-095",
+   "source": {
+    "pdf_page": 31,
+    "printed_page": 24,
+    "section": "3.5.4"
+   },
+   "type": "analisis_riesgo",
+   "applies_to": "Licitaciones",
+   "logic": {
+    "mechanism": "reunión de aclaración con el Suscriptor con autoridad suficiente",
+    "clarification_groups": [
+     "Inconsistencias y contradicciones en el pliego",
+     "Contradicciones con la norma y con la ley vigente (Código de Comercio, Ley de Seguros, Código de Tránsito, etc.)",
+     "Información de Suscripción",
+     "Cláusulas y condiciones que no cuentan con un texto registrado",
+     "Condiciones sobreexpuestas"
+    ],
+    "complement": "rentabilidad esperada de todo el programa documentada en el archivo del cliente; el Área Comercial propone cuadro de tasas y primas con siniestralidad y rentabilidad esperada",
+    "representative_duty": "el representante de la Compañía en la reunión debe comprender el propósito de las observaciones y exigir del licitante una respuesta puntual a las observaciones (el acta de la reunión es documento formal del proceso)"
+   },
+   "quote_verbatim": "Las aclaraciones solicitadas en esta reunión se resumen básicamente en cinco grupos"
+  },
+  {
+   "id": "R-096",
+   "source": {
+    "pdf_page": 32,
+    "printed_page": 25,
+    "section": "3.5.5"
+   },
+   "type": "respaldo_reaseguro",
+   "applies_to": "Licitaciones",
+   "logic": {
+    "requirement": "términos respaldados por un mecanismo de transferencia de riesgos (Retención Neta, Contratos Automáticos de Reaseguro o un Contrato de Reaseguro Automático)",
+    "deviation": "cualquier desviación a las condiciones estándares debe justificarse técnica y comercialmente"
+   },
+   "quote_verbatim": "los términos y condiciones en pólizas para clientes estatales deben estar respaldados por un mecanismo de transferencia de riesgos (Retención Neta, Contratos Automáticos de Reaseguro o un Contrato de Reaseguro Automático)"
+  },
+  {
+   "id": "R-097",
+   "source": {
+    "pdf_page": 32,
+    "printed_page": 25,
+    "section": "3.5.5"
+   },
+   "type": "condiciones_prohibidas",
+   "applies_to": "Licitaciones",
+   "logic": {
+    "prohibited": [
+     {
+      "item": "Valor Admitido u otra base de valoración diferente a los valores comerciales",
+      "reason": "las sumas aseguradas deben ser los valores comerciales"
+     },
+     {
+      "item": "Alcoholemia permitida mayor a 0,70 gramos por litro de sangre",
+      "reason": "los riesgos bajo efectos del alcohol constituyen una exclusión absoluta de las pólizas Motor"
+     },
+     {
+      "item": "Licencia de conducir vencidas por más de 90 días",
+      "reason": "condición de cobertura contar con permisos del Código de Tránsito; excepcionalmente caducidad de hasta 90 días"
+     },
+     {
+      "item": "Permisos especiales de velocidad para Motocicletas y Vehículos Pesados",
+      "reason": "no se puede otorgar permisos para velocidades mayores a las del Código de Tránsito"
+     },
+     {
+      "item": "Servicio de Asistencia y/o Auxilio Mecánico (incluyendo chofer profesional) provisto directamente por La Boliviana Ciacruz para vehículos pesados (tonelaje mayor a 3.5 Toneladas) y/o motocicletas",
+      "alternative": "acordar contra reembolso a la presentación de factura a nombre de LA BOLIVIANA CIACRUZ DE SEGUROS Y REASEGUROS S.A. (NIT: 1007017028); si no es posible, gestionar proveedor local por sucursal; fuera del eje troncal siempre coordinado a nivel de sucursal"
+     },
+     {
+      "item": "Cobertura de AP para pasajeros u ocupantes en carrocería (incl. cubetas de volquetas) o que exceda a los pasajeros en cabina/diseño original",
+      "authority": "solo el Área Técnica de Seguros Personales, la Gerencia Nacional de Suscripción o la Dirección de Negocios pueden autorizarla"
+     }
+    ]
+   },
+   "quote_verbatim": "fueron definidas algunas condiciones que no pueden ser suscritas por este Procedimiento de Suscripción"
+  },
+  {
+   "id": "R-098",
+   "source": {
+    "pdf_page": 33,
+    "printed_page": 26,
+    "section": "3.5.5"
+   },
+   "type": "textos_no_registrados",
+   "applies_to": "Licitaciones (emisión)",
+   "logic": {
+    "rules": [
+     "el Suscriptor debe conocer el alcance de las cláusulas del pliego no registradas en la APS y autorizarlas (junto con el resto de la póliza)",
+     "en la oferta, sustituir condiciones no registradas, en el Condicionado General, por textos con títulos diferentes registrados pero de alcance similar (el CP es copia del pliego)",
+     "aclaraciones de cobertura ya detalladas en el CG pueden quedar como Aclaraciones de Cobertura (no como cláusulas)",
+     "en último caso, registrar ante la APS antes de presentar; en urgencia, presentar como Notas de Cobertura (en proceso de registro) y reemplazar por textos definitivos al finalizar el registro"
+    ]
+   },
+   "quote_verbatim": "se deberá acordar con el cliente la sustitución de estas condiciones, en el Condicionado General…, por textos con títulos diferentes registrados en la Compañía, pero con un alcance de cobertura similar."
+  },
+  {
+   "id": "R-099",
+   "source": {
+    "pdf_page": 34,
+    "printed_page": 27,
+    "section": "3.5.6"
+   },
+   "type": "textos_autorizados",
+   "applies_to": "Licitaciones",
+   "logic": {
+    "rules": [
+     "el equipo comercial asegura que todos los textos contengan las condiciones aprobadas por el suscriptor autorizado",
+     "los documentos de condicionados/cláusulas autorizados están bloqueados para edición (no para descarga)",
+     "en ninguna circunstancia se pueden alterar/editar los textos autorizados: la modificación sin aprobación de la APS conlleva sanción y/o multa"
+    ]
+   },
+   "quote_verbatim": "Se debe considerar que en ninguna circunstancia se podrán alterar ni editar los textos autorizados, ya que la modificación de cualquier Condicionado y/o Clausula sin previa aprobación de la APS conlleva una sanción y/o multa."
+  },
+  {
+   "id": "R-100",
+   "source": {
+    "pdf_page": 34,
+    "printed_page": 27,
+    "section": "4.1"
+   },
+   "type": "renovacion",
+   "applies_to": "política general",
+   "logic": {
+    "statement": "La renovación es el momento para evaluar el comportamiento de la cuenta y la coherencia entre términos y exposición. Ver árbol T-RENOVACION y Anexo 2: Planilla de Solicitud de Renovaciones."
+   },
+   "quote_verbatim": "El proceso de renovación de una póliza representa el momento oportuno para evaluar el comportamiento de la cuenta a lo largo de su vigencia",
+   "tree_ref": "T-RENOVACION"
+  },
+  {
+   "id": "R-101",
+   "source": {
+    "pdf_page": 36,
+    "printed_page": 29,
+    "section": "4.2"
+   },
+   "type": "renuncia_depreciacion_0km",
+   "applies_to": "toda la cartera con vehículos 0 km",
+   "logic": {
+    "policy": "indemnizar por valor a nuevo asegurado, reduciendo impuestos, siempre que los valores asegurados correspondan también a nuevo",
+    "clause_text_verbatim": "Se aclara y acuerda que, no obstante, lo establecido en contrario en las Condiciones Generales de la Póliza, las Pérdidas Totales para vehículos, que al momento de un siniestro tengan una antigüedad menor a un año y un recorrido menor a 15.000 (quince mil) kilómetros, serán indemnizadas según su precio de venta facturado descontando impuestos. Es condición precedente para la aplicación de esta condición que los Valores Asegurados de la póliza coincidan con esta base de indemnización",
+    "application": "aclaración incluida en las Condiciones Particulares de toda la cartera con vehículos 0 km; ya viene por defecto en todas las nuevas pólizas"
+   },
+   "quote_verbatim": "se estableció la inclusión de la siguiente aclaración en las Condiciones Particulares de toda la cartera asegurada en la Compañía que involucre vehículos “0 km.”"
+  },
+  {
+   "id": "R-102",
+   "source": {
+    "pdf_page": 37,
+    "printed_page": 30,
+    "section": "4.3"
+   },
+   "type": "condiciones_preacordadas",
+   "applies_to": "canales con tasas fijas",
+   "logic": {
+    "if": "existen justificativos comerciales y técnicos suficientes",
+    "then": "algún integrante del área de Suscripción puede aprobar condiciones pre acordadas para ciertos canales con tasas fijas",
+    "requirements": [
+     "velar por la rentabilidad de la cartera",
+     "vigencias anuales (revisión periódica)",
+     "los productos armados para Brókers se revisan anualmente"
+    ]
+   },
+   "quote_verbatim": "algún integrante del área de Suscripción podrá aprobar condiciones pre acordadas para ciertos canales con tasas fijas"
+  },
+  {
+   "id": "R-103",
+   "source": {
+    "pdf_page": 37,
+    "printed_page": 30,
+    "section": "4.4"
+   },
+   "type": "definicion_flota",
+   "applies_to": "Flotas de Automotores",
+   "logic": {
+    "commercial": "uno o más vehículos suscritos bajo una misma póliza dentro del Segmento Commercial (no Consumer), que no sean suscritos a través de un concesionario o de una institución financiera (Pólizas Colectivas)",
+    "consumer": "grupo de mínimamente 4 vehículos bajo una misma póliza, mismo propietario Asegurado (según RUAT u otro respaldo); su suscripción está restringida al proceso Case Underwriting",
+    "procedures": "contenidas en Estándar, Case Underwriting, Masiva y Licitaciones"
+   },
+   "quote_verbatim": "Se considera Flotas de Automotores a uno o más vehículos suscritos bajo una misma póliza dentro del Segmento Commercial (no Consumer)…  En el Segmento Consumer, se considera Flotas de Automotores al grupo de mínimamente 4 vehículos",
+   "flags": [
+    "Tensión interna: el umbral de “flota” difiere según el contexto: ≥3 (PN con NIT, 3.1.5.1.2), desde el 2º vehículo (Empresas, 3.1.5.1.4), “uno o más” (Commercial, 4.4), ≥4 (Consumer, 4.4). No se armoniza: cada regla cita su propio umbral."
+   ]
+  },
+  {
+   "id": "R-104",
+   "source": {
+    "pdf_page": 38,
+    "printed_page": 31,
+    "section": "4.4"
+   },
+   "type": "flotas_analisis_tarificacion",
+   "applies_to": "Flotas de Automotores",
+   "logic": {
+    "analysis": "listado pormenorizado de vehículos + detalle de siniestralidad histórica",
+    "pricing": "parte del Tarificador vigente para individuales con descuento respaldado por las justificaciones del apartado; validación por simulación de rentabilidad (tasas, siniestralidad esperada, costos de intermediación, gastos internos)"
+   },
+   "quote_verbatim": "La tarificación de este tipo de riesgos parte del Tarificador vigente en la línea para vehículos individuales y considera un descuento sobre estas tasas"
+  },
+  {
+   "id": "R-105",
+   "source": {
+    "pdf_page": 38,
+    "printed_page": 31,
+    "section": "4.5"
+   },
+   "type": "vigencias",
+   "applies_to": "pólizas de Seguros Automotores",
+   "logic": {
+    "constraint": "vigencia ni superior ni menor a 12 meses",
+    "exceptions_scope": "las excepciones autorizables aplican SOLAMENTE a casos especiales de duración MENOR a 12 meses; la fuente no prevé excepción alguna para vigencias mayores a 12 meses",
+    "exceptions_with_authorization": "(del Área de Suscripción de Automotores) a) unificación de vencimientos con tarifas de corto plazo; b) Flotas con Anexo de Inclusiones y Exclusiones a prorrata y vigencia de la inclusión igual a la póliza madre; c) Licitaciones con vigencias menores especificadas en el pliego"
+   },
+   "quote_verbatim": "Las pólizas de Seguros Automotores no deben tener una vigencia superior, ni menor a 12 meses."
+  },
+  {
+   "id": "R-106",
+   "source": {
+    "pdf_page": 38,
+    "printed_page": 31,
+    "section": "4.6"
+   },
+   "type": "auxilio_mecanico",
+   "applies_to": "todos los asegurados de productos Automotores",
+   "logic": {
+    "benefit": "“Auxilio Mecánico Express” sin costo adicional; respaldado por convenio interinstitucional con un proveedor; alcances establecidos en cada producto"
+   },
+   "quote_verbatim": "Los productos Automotores ofrecen a todos los asegurados el “Auxilio Mecánico Express”, un servicio sin costo adicional"
+  },
+  {
+   "id": "R-107",
+   "source": {
+    "pdf_page": 38,
+    "printed_page": 31,
+    "section": "4.7"
+   },
+   "type": "valor_asegurado",
+   "applies_to": "pólizas Automotores",
+   "logic": {
+    "definition": "valor anotado en la póliza; responsabilidad máxima de la Compañía por siniestro; debe adecuarse al valor del interés al momento del contrato",
+    "secciones_I_II_III_V": "valor comercial (valor real de mercado al momento del siniestro) atribuido y declarado por el Tomador para el vehículo y sus accesorios",
+    "secciones_IV_VI_VII": "límites separados e independientes, definidos por el Tomador",
+    "indemnity_base": "(*) aplica a las coberturas de las Secciones I, II, III y V (la oración que porta el asterisco): pago en efectivo o gestión de la Compañía para la reparación del vehículo o la adquisición de partes y piezas, según lo defina la Compañía"
+   },
+   "quote_verbatim": "El valor asegurado para las coberturas de Pérdida Total por Accidente (Sección I), de Pérdida Total por Robo (Sección II), de Daños Propios (Sección III) y de Robo Parcial de Partes y Piezas (Sección V) es el valor comercial"
+  },
+  {
+   "id": "R-108",
+   "source": {
+    "pdf_page": 39,
+    "printed_page": 32,
+    "section": "4.8"
+   },
+   "type": "forma_indemnizacion",
+   "applies_to": "pólizas Automotores",
+   "logic": {
+    "options": "indemnizar en efectivo o reponer los daños hasta el estado original (derecho de la Compañía)",
+    "taller_solicitado": "si el Asegurado solicita un taller específico, su costo no debe exceder un 20% de los presupuestos de los talleres de la Compañía"
+   },
+   "quote_verbatim": "la Compañía se reserva el derecho de indemnizar en efectivo las pérdidas sufridas o reponer los daños hasta el estado original del vehículo antes de ocurrido el siniestro"
+  },
+  {
+   "id": "R-109",
+   "source": {
+    "pdf_page": 39,
+    "printed_page": 32,
+    "section": "4.9"
+   },
+   "type": "inspecciones",
+   "applies_to": "pólizas Automotores",
+   "logic": {
+    "instruments": [
+     "Formulario de Inspección Pre – Riesgo (con fotografías, aceptado y firmado por el Contratante y/o Representante)",
+     "Formulario de Declaración Jurada (sin fotografías)"
+    ],
+    "status": "forma parte inseparable de la Póliza y constituye un requisito de asegurabilidad"
+   },
+   "quote_verbatim": "El Formulario de inspección o de declaración jurada forma parte inseparable de la Póliza y constituye un requisito de asegurabilidad para suscribir pólizas de Automotores."
+  },
+  {
+   "id": "R-110",
+   "source": {
+    "pdf_page": 40,
+    "printed_page": 33,
+    "section": "4.10"
+   },
+   "type": "accesorios",
+   "applies_to": "cualquier producto o procedimiento",
+   "logic": {
+    "conditions": [
+     "inspección completada satisfactoriamente",
+     "accesorio asegurado al chasis del vehículo"
+    ],
+    "limits": [
+     "valor máximo asegurado del accesorio <= 30% del valor del vehículo asegurado",
+     "tasa total anual aplicable 8%"
+    ],
+    "exception": "no aplica al Procedimiento de Suscripción para Licitaciones"
+   },
+   "quote_verbatim": "El valor máximo asegurado de este accesorio no puede superar el 30% del valor del vehículo asegurado. La tasa total anual aplicable para estos accesorios es del 8% (por ciento).",
+   "table_ref": "TBL-ACCESORIOS"
+  },
+  {
+   "id": "R-111",
+   "source": {
+    "pdf_page": 40,
+    "printed_page": 33,
+    "section": "4.11"
+   },
+   "type": "retroactividad",
+   "applies_to": "emisión de pólizas nuevas, renovaciones o inclusiones",
+   "logic": {
+    "general": "no se acepta retroactividad mayor a 30 días (entre fecha de expedición e inicio de cobertura)",
+    "estandar_hasta_30": "requiere: orden dada oportunamente antes del inicio de vigencia (caso contrario nueva inspección o declaración jurada) y conformidad del cliente de que no existen siniestros reportados a la fecha de expedición",
+    "mayor_a_30": "análisis por Case Underwriting y según procedimiento del área de Operaciones",
+    "siniestro_en_periodo": "solicitar al Comité de Riesgos y Siniestros la alternativa de cubrirlo; con el VoBo del CR&S se autoriza la retroactividad"
+   },
+   "quote_verbatim": "no se acepta la emisión de pólizas nuevas, renovaciones o inclusiones, con retroactividad mayor a 30 días",
+   "tree_ref": "T-RETROACTIVIDAD"
+  },
+  {
+   "id": "R-120",
+   "source": {
+    "pdf_page": 40,
+    "printed_page": 33,
+    "section": "5.1"
+   },
+   "type": "emision_sistemas",
+   "applies_to": "Operaciones",
+   "logic": {
+    "statement": "La emisión en Sistemas vía Operaciones es mecanismo de control del cumplimiento del manual.",
+    "direct_issue": [
+     "pólizas automotor individual de P&P: directamente desde el CRM si cumplen el manual (procedimiento en Manual de Automotores P&P - CRM)",
+     "pólizas automotor individual de Masivos: directamente desde Plataforma FIDENS si cumplen el manual"
+    ]
+   },
+   "quote_verbatim": "La emisión de pólizas en Sistemas, a través de Operaciones, constituye un mecanismo de control en la suscripción de estas pólizas."
+  },
+  {
+   "id": "R-121",
+   "source": {
+    "pdf_page": 41,
+    "printed_page": 34,
+    "section": "5.2"
+   },
+   "type": "slips_condicionados",
+   "applies_to": "área Comercial / Suscripción",
+   "logic": {
+    "statement": "Las Solicitudes de Cotización son documento informativo con términos pactados y materia asegurable; las condiciones generales regulan todos los contratos del ramo; el listado completo de textos registrados ante la APS está en Intranet."
+   },
+   "quote_verbatim": "El listado completo de textos registrados actualmente ante la APS se encuentra disponible en Intranet para consultas."
+  },
+  {
+   "id": "R-122",
+   "source": {
+    "pdf_page": 41,
+    "printed_page": 34,
+    "section": "6"
+   },
+   "type": "convenios",
+   "applies_to": "extensiones con proveedores externos",
+   "logic": {
+    "statement": "Deben negociarse convenios específicos para extensiones atendidas por proveedores externos: 1) Auxilio Mecánico Express (contrato de servicios privado, periódico); 2) inspecciones de pre riesgo (contrato de servicios periódico).",
+    "flag": "el texto anuncia “tres extensiones” pero el documento termina tras describir dos (INC-MAN-002)"
+   },
+   "quote_verbatim": "Existen, sin embargo, tres extensiones en estos productos que son atendidos por proveedores externos y que deben ser negociados a través de convenios específicos."
+  }
+ ]
+}

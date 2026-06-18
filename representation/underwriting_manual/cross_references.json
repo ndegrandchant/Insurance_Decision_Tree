@@ -1,0 +1,297 @@
+{
+ "_material_class": "cross_reference",
+ "_note": "Punteros del manual a otros manuales, anexos, sistemas, documentos y normas. availability: in_pdf = el documento está dentro del PDF; not_in_pdf = solo referenciado.",
+ "references": [
+  {
+   "id": "XR-M01",
+   "target": "Anexo 1: “Información mínima para cotizar Automotores livianos y Pesados”",
+   "type": "anexo del manual",
+   "availability": "not_in_pdf",
+   "sources": [
+    {
+     "pdf_page": 18,
+     "printed_page": 11,
+     "section": "3.1.5.1.4"
+    },
+    {
+     "pdf_page": 4,
+     "printed_page": -3,
+     "section": "tabla de cambios"
+    }
+   ],
+   "context_quote": "se cuenta con un detalle de la información mínima que se requiere para la tarificación de flotas presentado en el Anexo 1"
+  },
+  {
+   "id": "XR-M02",
+   "target": "Anexo 02 / Anexo 2: “Planilla Solicitud de Renovaciones (para Automotores)”",
+   "type": "anexo del manual",
+   "availability": "not_in_pdf",
+   "sources": [
+    {
+     "pdf_page": 22,
+     "printed_page": 15,
+     "section": "3.1.6"
+    },
+    {
+     "pdf_page": 35,
+     "printed_page": 28,
+     "section": "4.1"
+    }
+   ],
+   "context_quote": "En el Anexo 2: Planilla de Solicitud de Renovaciones para Automotores",
+   "note": "Citado como “Anexo 02” en las listas de información y “Anexo 2” en 4.1; la tabla de cambios dice que los anexos 1 y 2 se unificaron como “Anexo 1: Información mínima para cotizar Automotores livianos y Pesados” — tensión no resuelta."
+  },
+  {
+   "id": "XR-M03",
+   "target": "Manual de Normas y Políticas de Suscripción Ingeniería de Riesgos (Manual de Ingeniería de Riesgos, intranet)",
+   "type": "manual externo",
+   "availability": "not_in_pdf",
+   "sources": [
+    {
+     "pdf_page": 22,
+     "printed_page": 15,
+     "section": "3.1.6"
+    },
+    {
+     "pdf_page": 39,
+     "printed_page": 32,
+     "section": "4.9"
+    }
+   ],
+   "context_quote": "Mayores detalles se presentan en el manual de ingeniería de riesgos publicado en la intranet: Manual de Normas y Políticas de Suscripción Ingeniería de Riesgos"
+  },
+  {
+   "id": "XR-M04",
+   "target": "Manual de Automotores P&P - CRM",
+   "type": "manual externo",
+   "availability": "not_in_pdf",
+   "sources": [
+    {
+     "pdf_page": 41,
+     "printed_page": 34,
+     "section": "5.1"
+    }
+   ],
+   "context_quote": "el procedimiento de emisión se encuentra descrito en el Manual de Automotores P&P - CRM"
+  },
+  {
+   "id": "XR-M05",
+   "target": "CRM (Customer Relationship Management) — Tarificador",
+   "type": "sistema",
+   "availability": "sistema",
+   "sources": [
+    {
+     "pdf_page": 16,
+     "printed_page": 9,
+     "section": "3.1.5.1.1"
+    },
+    {
+     "pdf_page": 17,
+     "printed_page": 10,
+     "section": "EMISIONES NUEVAS"
+    },
+    {
+     "pdf_page": 36,
+     "printed_page": 29,
+     "section": "4.1"
+    }
+   ],
+   "context_quote": "La actual política de tarificación está implementada a través de un motor de cálculo que está disponible en el CRM"
+  },
+  {
+   "id": "XR-M06",
+   "target": "Plataforma FIDENS",
+   "type": "sistema",
+   "availability": "sistema",
+   "sources": [
+    {
+     "pdf_page": 41,
+     "printed_page": 34,
+     "section": "5.1"
+    }
+   ],
+   "context_quote": "pueden ser emitidas directamente desde Plataforma FIDENS"
+  },
+  {
+   "id": "XR-M07",
+   "target": "RUAT (registro vehicular) / CRPVA / FRV (Formulario de Registro de Vehículos)",
+   "type": "registro/documento externo",
+   "availability": "externo",
+   "sources": [
+    {
+     "pdf_page": 11,
+     "printed_page": 4,
+     "section": "3.1.2"
+    },
+    {
+     "pdf_page": 15,
+     "printed_page": 8,
+     "section": "3.1.4.c"
+    },
+    {
+     "pdf_page": 23,
+     "printed_page": 16,
+     "section": "3.1.6"
+    }
+   ],
+   "context_quote": "Fotocopia del RUAT de cada vehículo"
+  },
+  {
+   "id": "XR-M08",
+   "target": "Formulario GCP (Información del Asegurado)",
+   "type": "formulario",
+   "availability": "not_in_pdf",
+   "sources": [
+    {
+     "pdf_page": 23,
+     "printed_page": 16,
+     "section": "3.1.6"
+    }
+   ],
+   "context_quote": "Información del Asegurado (Formulario GCP)"
+  },
+  {
+   "id": "XR-M09",
+   "target": "APS (Autoridad de Fiscalización y Control de Pensiones y Seguros) — registro de textos",
+   "type": "regulador",
+   "availability": "externo",
+   "sources": [
+    {
+     "pdf_page": 29,
+     "printed_page": 22,
+     "section": "3.4.4"
+    },
+    {
+     "pdf_page": 33,
+     "printed_page": 26,
+     "section": "3.5.5"
+    },
+    {
+     "pdf_page": 34,
+     "printed_page": 27,
+     "section": "3.5.6"
+    },
+    {
+     "pdf_page": 41,
+     "printed_page": 34,
+     "section": "5.2"
+    }
+   ],
+   "context_quote": "pólizas con textos debidamente registrados y autorizados por la APS"
+  },
+  {
+   "id": "XR-M10",
+   "target": "Código de Comercio; Ley de Seguros; Código de Tránsito",
+   "type": "norma legal",
+   "availability": "externo",
+   "sources": [
+    {
+     "pdf_page": 31,
+     "printed_page": 24,
+     "section": "3.5.4"
+    },
+    {
+     "pdf_page": 33,
+     "printed_page": 26,
+     "section": "3.5.5"
+    }
+   ],
+   "context_quote": "Algunas condiciones solicitadas en el pliego pueden contravenir la normativa vigente en el país (Código de Comercio, Ley de Seguros, Código de Tránsito, etc.)"
+  },
+  {
+   "id": "XR-M11",
+   "target": "Condiciones Generales de la póliza (documento compañero: bundle de cláusulas generales)",
+   "type": "condicionado registrado",
+   "availability": "companion_document",
+   "sources": [
+    {
+     "pdf_page": 11,
+     "printed_page": 4,
+     "section": "3.1.2 nota"
+    },
+    {
+     "pdf_page": 36,
+     "printed_page": 29,
+     "section": "4.2"
+    },
+    {
+     "pdf_page": 38,
+     "printed_page": 31,
+     "section": "4.7"
+    }
+   ],
+   "context_quote": "De acuerdo con lo estipulado en las Condiciones Generales de esta póliza"
+  },
+  {
+   "id": "XR-M12",
+   "target": "Matriz de Consultas (licitaciones)",
+   "type": "herramienta interna",
+   "availability": "not_in_pdf",
+   "sources": [
+    {
+     "pdf_page": 30,
+     "printed_page": 23,
+     "section": "3.5.3"
+    }
+   ],
+   "context_quote": "Área Comercial acudirá a la Matriz de Consultas para la revisión de Términos y Condiciones de los Slips"
+  },
+  {
+   "id": "XR-M13",
+   "target": "Comité de Riesgos y Siniestros (CR&S)",
+   "type": "órgano interno",
+   "availability": "interno",
+   "sources": [
+    {
+     "pdf_page": 40,
+     "printed_page": 33,
+     "section": "4.11"
+    }
+   ],
+   "context_quote": "debe solicitarse al Comité de Riesgos y siniestros la alternativa de cubrirlo"
+  },
+  {
+   "id": "XR-M14",
+   "target": "Intranet — listado completo de textos registrados ante la APS",
+   "type": "repositorio interno",
+   "availability": "externo",
+   "sources": [
+    {
+     "pdf_page": 41,
+     "printed_page": 34,
+     "section": "5.2"
+    }
+   ],
+   "context_quote": "El listado completo de textos registrados actualmente ante la APS se encuentra disponible en Intranet para consultas"
+  },
+  {
+   "id": "XR-M15",
+   "target": "Cláusulas nombradas del condicionado (ver linkage.json para el mapeo a códigos APS)",
+   "type": "cláusulas registradas",
+   "availability": "companion_document",
+   "sources": [
+    {
+     "pdf_page": 14,
+     "printed_page": 7,
+     "section": "3.1.4"
+    },
+    {
+     "pdf_page": 11,
+     "printed_page": 4,
+     "section": "3.1.2"
+    },
+    {
+     "pdf_page": 16,
+     "printed_page": 9,
+     "section": "3.1.4.d"
+    },
+    {
+     "pdf_page": 38,
+     "printed_page": 31,
+     "section": "4.5"
+    }
+   ],
+   "context_quote": "Cláusula de Renovación y Depreciación Anual para Pólizas Mayores a Un Año; Cláusula de Participación de Utilidades; Cláusula de Valor Admitido; …"
+  }
+ ]
+}

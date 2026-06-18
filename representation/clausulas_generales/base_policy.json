@@ -1,0 +1,1067 @@
+{
+ "_material_class": "core_contract_structure",
+ "_note": "Estructura de las CONDICIONES GENERALES y Secciones I–VII de la Póliza LBC-AUTO. Texto canónico verbatim: clause_texts/CG-base.txt y CG-1001..CG-1007.txt. Los campos structured_parameters / key_parameters son lecturas estructuradas derivadas del texto (tageadas como derivadas); el texto verbatim prevalece.",
+ "code": "101 - 910547 - 2017 09 400",
+ "pdf_pages": "2-43",
+ "prelacion_documental": {
+  "pdf_page": 2,
+  "text_verbatim": "Para cualquier efecto en la presente póliza las Condiciones Particulares tienen prelación sobre las Condiciones Generales; y los Anexos y Cláusulas adicionales sobre las Condiciones Particulares y Generales en la presente póliza.",
+  "orden_derivado": [
+   "Anexos y Cláusulas adicionales",
+   "Condiciones Particulares",
+   "Condiciones Generales"
+  ],
+  "_derived": true
+ },
+ "definiciones": {
+  "pdf_pages": "2-4",
+  "nota_verbatim": "las mismas que son de carácter enunciativo y no limitativo",
+  "items": [
+   {
+    "num": 1,
+    "term": "ACCIDENTE",
+    "pdf_page": 2,
+    "text": "Hecho violento, súbito e imprevisto, externo y ajeno a la intencionalidad y\nvoluntad del Asegurado, en el que se halle involucrado el vehículo Asegurado, que provoque\ndaños físicos a una persona, daños físicos al vehículo Asegurado, daños a otros vehículos o a\nbienes de terceros, que pueda estar amparados por alguna cobertura del seguro, que ocurra\ndurante la vigencia de esta póliza."
+   },
+   {
+    "num": 2,
+    "term": "ACCESORIOS",
+    "pdf_page": 2,
+    "text": "Son las partes y piezas adicionales al diseño original del vehículo, no excluidas\nen la póliza, que se encuentran fijadas en forma permanente al chasis del vehículo asegurado\n(excepto la caja de herramientas que debe estar ubicada en un lugar no visible dentro del\nvehículo) y declaradas expresamente en el Formulario de Declaración Pre-Riesgo. Su valor debe\nestar declarado e incluido en el valor Asegurado para que tenga cobertura."
+   },
+   {
+    "num": 3,
+    "term": "ANEXOS Y/O CLÁUSULAS ADICIONALES",
+    "pdf_page": 2,
+    "text": "Son los documentos adicionales que forman\nparte integrante de la Póliza, que modifican, aclaran, o dejan sin efecto parte del contenido de las\nCondiciones Generales. Queda entendido que todas las condiciones de la Póliza se mantienen en\nvigor, salvo aquellas que se hallen modificadas y/o ampliadas por los Anexos y/o Cláusulas\nAdicionales correspondientes."
+   },
+   {
+    "num": 4,
+    "term": "ASEGURADO",
+    "pdf_page": 3,
+    "text": "Persona natural o jurídica, titular del interés expuesto al riesgo, a quien\ncorresponden en su caso, los derechos y obligaciones derivados del contrato.\nLa palabra Asegurado cuando sea usada con relación a este seguro incluye al Asegurado titular\ny cualquier persona adicional que sea autorizada a su vez por el Asegurado, siempre y cuando\nestén debidamente habilitados a conducir vehículos por la autoridad competente, en la categoría\ncorrespondiente."
+   },
+   {
+    "num": 5,
+    "term": "BENEFICIARIO",
+    "pdf_page": 3,
+    "text": "La persona natural o jurídica que se beneficia del interés amparado por el\nseguro."
+   },
+   {
+    "num": 6,
+    "term": "CONTRATO DE SEGURO",
+    "pdf_page": 3,
+    "text": "Existe Contrato de Seguro cuando, habiendo un interés\nasegurable, la Aseguradora se obliga, mediante la emisión de una Póliza y la percepción de la\nPrima correspondiente, a asumir un riesgo y a efectuar una prestación ante la ocurrencia del\nevento previsto.\nEl Contrato de Seguro se prueba por escrito, mediante la Póliza de Seguro que está compuesta\npor las Condiciones Generales, Particulares, el Formulario de Declaración Pre-Riesgo y\ncualquier otro Anexo y/o Cláusula Adicional."
+   },
+   {
+    "num": 7,
+    "term": "FRANQUICIA DEDUCIBLE",
+    "pdf_page": 3,
+    "text": "Es la suma que reduce la responsabilidad de la Aseguradora.\nSe la puede estipular como suma fija o como porcentaje sobre el valor Asegurado o sobre el\nmonto de la indemnización, que por cada siniestro o evento el Asegurado se obliga a cancelar."
+   },
+   {
+    "num": 8,
+    "term": "FORMULARIO DE DECLARACIÓN PRE-RIESGO",
+    "pdf_page": 3,
+    "text": "El Formulario de Declaración Pre\nRiesgo, de acuerdo al artículo 992 del Código de Comercio, forma parte de la póliza y\ndetermina el estado del Vehículo, de sus partes, piezas y accesorios asegurados, así como de\ntodos sus riesgos asociados. Este documento podrá ser un documento digital, será\njurídicamente relevante y deberá ser llenado y aceptado expresamente por el Asegurado y/o\nTomador y representa una declaración jurada para efectos del contrato de Seguro suscrito con\nla Aseguradora."
+   },
+   {
+    "num": 9,
+    "term": "LLANTA",
+    "pdf_page": 3,
+    "text": "Es el conjunto de piezas conformado por un (1) aro, una (1) goma o neumático,\nuna (1) válvula, una (1) cámara (cuando el neumático no es radial)."
+   },
+   {
+    "num": 10,
+    "term": "MATERIA ASEGURADA",
+    "pdf_page": 3,
+    "text": "Se entiende como materia asegurada, al(los) vehículo(s)\ndescrito(s) en las Condiciones Particulares de la Póliza y en el Formulario de Declaración Pre-\nRiesgo, que constituye(n) el objeto del seguro."
+   },
+   {
+    "num": 11,
+    "term": "PÓLIZA",
+    "pdf_page": 3,
+    "text": "Son los documentos que regulan la relación contractual convenida entre el Asegurado\ny la Aseguradora. Forman parte integrante de la póliza: el Certificado de Cobertura Individual\nmismo que contiene todas las condiciones de la Póliza a la cual se adhiere el Asegurado, el\nFormulario de Declaración Pre Riesgo, las Condiciones Generales, Condiciones Particulares, las\ncláusulas y Anexos adheridos a la misma."
+   },
+   {
+    "num": 12,
+    "term": "SINIESTRO",
+    "pdf_page": 3,
+    "text": "Evento que se produce al acontecer el riesgo cubierto por el contrato de seguro,\ndando origen a la obligación de la Aseguradora de indemnizar o efectuar la prestación convenida\nde acuerdo a los procedimientos que debe seguir el Asegurado, según se señala en las secciones\nrespectivas."
+   },
+   {
+    "num": 13,
+    "term": "TOMADOR",
+    "pdf_page": 4,
+    "text": "Es el ente jurídico que por cuenta y a nombre del asegurado, contrata con la\nAseguradora la cobertura de los riesgos."
+   },
+   {
+    "num": 14,
+    "term": "VALOR ASEGURADO (SUMA ASEGURADA)",
+    "pdf_page": 4,
+    "text": "Corresponde al valor comercial al\nmomento de asegurar los bienes, declarado por el Asegurado, para el vehículo y sus accesorios,\nno incluye IVA. Constituye el límite máximo de la responsabilidad de la Aseguradora.\nLos límites establecidos en las diferentes Secciones del presente Contrato son independientes y\nse aplicarán únicamente a las coberturas respectivas, no siendo acumulables entre sí."
+   },
+   {
+    "num": 15,
+    "term": "VALOR REAL",
+    "pdf_page": 4,
+    "text": "Valor Comercial del vehículo al momento del siniestro sin considerar\nimpuestos; excepto para vehículos que al momento de un siniestro tengan una antigüedad menor\na un año y un recorrido menor a 15.000 (quince mil) kilómetros, donde el Valor Real corresponde\nal precio de venta facturado del vehículo sin considerar ningún tipo de impuestos."
+   },
+   {
+    "num": 16,
+    "term": "VEHÍCULO DE IMPORTACIÓN DIRECTA",
+    "pdf_page": 4,
+    "text": "Es aquel que ha sido importado a Bolivia de\nforma directa y no por el representante oficial de la marca."
+   },
+   {
+    "num": 17,
+    "term": "VEHÍCULO TRANSFORMADO",
+    "pdf_page": 4,
+    "text": "Es aquel cuyo sistema de dirección ha sido modificado de\nsu posición original para adecuarlo a las leyes y normas de circulación bolivianas que exigen que\nel volante esté al lado izquierdo del vehículo."
+   },
+   {
+    "num": 18,
+    "term": "VÍAS HABILITADAS AL TRANSITO",
+    "pdf_page": 4,
+    "text": "Se entienden las de dominio público, garajes,\naparcamientos, carreteras, calles y avenidas habilitadas para la circulación de vehículos que no\nsean sendas y estén legalmente habilitadas al tránsito de vehículos."
+   },
+   {
+    "num": 19,
+    "term": "SALVAMENTO",
+    "pdf_page": 4,
+    "text": "Conjunto de operaciones encaminadas al rescate del vehículo Asegurado tras la ocurrencia de\nun siniestro cubierto por la póliza. Con este término se alude tanto al hecho de procurar evitar\nla propagación o agravación de los daños tras la ocurrencia de un siniestro, como a las piezas\ny partes del propio vehículo que, después de producido el evento, hubiesen resultado indemnes."
+   }
+  ]
+ },
+ "consideraciones_generales": {
+  "pdf_pages": "4-13",
+  "blocks": [
+   {
+    "label": "DISPOSICIONES GENERALES",
+    "pdf_page_start": 4,
+    "text_verbatim": "Todas las Cláusulas aplicables en la presente Póliza, han sido\nestipuladas conforme a la normativa contemplada en el Código de Comercio, la Ley de Seguros (Ley\n1883) y el Código Nacional de Tránsito, su Reglamento y todas las demás disposiciones legales\nconexas por lo cual cualquier circunstancia no prevista en la presente Póliza, deberá remitirse a las\nnormas antes señaladas."
+   },
+   {
+    "label": "ALCANCE TERRITORIAL",
+    "pdf_page_start": 5,
+    "text_verbatim": "Es el límite geográfico dentro del cual son aplicables las coberturas de\nla Póliza de Seguro de Automotores, en caso de que correspondan. La Aseguradora atenderá estas\ncoberturas única y exclusivamente dentro del territorio boliviano, salvo pacto en contrario mediante\ncláusula.",
+    "structured_parameters": [
+     {
+      "name": "ámbito",
+      "value": "territorio boliviano únicamente, salvo pacto en contrario mediante cláusula"
+     }
+    ]
+   },
+   {
+    "label": "DISCREPANCIAS CON LA PÓLIZA",
+    "pdf_page_start": 5,
+    "text_verbatim": "Si el Asegurado encuentra que la Póliza no concuerda con lo\nconvenido o propuesto, puede pedir la rectificación correspondiente de manera formal y por escrito,\ndentro de los quince (15) días (calendario) siguientes a la recepción de la misma. Se considerarán\naceptadas las estipulaciones de la Póliza si durante dicho plazo, el Asegurado no solicita rectificación.\nSi dentro de los quince (15) días (calendario) siguientes a la reclamación, la Aseguradora no comunica\nla rectificación o mantiene silencio, se la entiende como aceptada.",
+    "structured_parameters": [
+     {
+      "name": "plazo_asegurado_rectificación",
+      "value": "quince (15) días (calendario) siguientes a la recepción"
+     },
+     {
+      "name": "plazo_aseguradora_respuesta",
+      "value": "quince (15) días (calendario) siguientes a la reclamación"
+     },
+     {
+      "name": "silencio_aseguradora",
+      "value": "se entiende como aceptada (la rectificación)"
+     }
+    ]
+   },
+   {
+    "label": "DOCUMENTOS VÁLIDOS",
+    "pdf_page_start": 5,
+    "text_verbatim": "La Póliza y sus eventuales Anexos y/o Cláusulas Adicionales firmadas\npor funcionarios autorizados de la Aseguradora, son los únicos documentos válidos para fijar los\nderechos y obligaciones entre partes. La Aseguradora no se hace responsable de declaraciones\nefectuadas que no consten por escrito."
+   },
+   {
+    "label": "DOMICILIO Y COMUNICACIONES",
+    "pdf_page_start": 5,
+    "text_verbatim": "Se fija como domicilio para el cumplimiento de las\nobligaciones de esta Póliza, la ciudad donde fue suscrita la misma, dentro del territorio boliviano. La\ndirección del domicilio del Asegurado será la estipulada en las Condiciones Particulares de la póliza u\notra expresamente señalada por escrito por el Asegurado.\nLas partes autorizan expresamente el envío de información y comunicaciones relacionadas a la póliza\nde seguros a través del uso de medios electrónicos, estableciendo como válidas y con plena eficacia\nlegal la dirección de correo electrónico y números de teléfonos móviles del Asegurado registrados en\nel formulario de solicitud del seguro y que se encuentran señalados en las Condiciones Particulares de\nla póliza.\nLa Aseguradora se liberará de toda responsabilidad si el Asegurado realiza el cambio de dirección de\ndomicilio o de correo electrónico y no da aviso a la Aseguradora, siendo la obligación del Asegurado\ncomunicar de manera formal el cambio, manteniendo actualizada su dirección de domicilio y de correo\nelectrónico mientras se encuentre vigente su Póliza.",
+    "structured_parameters": [
+     {
+      "name": "medios_electrónicos",
+      "value": "correo electrónico y teléfonos móviles registrados son válidos y con plena eficacia legal"
+     }
+    ]
+   },
+   {
+    "label": "COSTO DE SALVAMENTO",
+    "pdf_page_start": 5,
+    "text_verbatim": "Son los gastos indispensables realizados por el Asegurado en ocasión\ndel salvamento del vehículo siniestrado, aunque los esfuerzos hayan resultado total o parcialmente\ninfructuosos. Se excluye el reembolso de remuneraciones al personal dependiente del asegurado, los\nhonorarios de su perito y la parte proporcional del tercero dirimidor.\nEn caso de accidente cubierto por la póliza que no corresponda a una Pérdida Total por Accidente, la\nAseguradora correrá con el costo de salvamento por encunetamiento o embarrancamiento y/o traslado,\ncuando el vehículo no pueda moverse por sus propios medios, hasta el taller de servicio más cercano\nque autorice la misma, apto para su reparación; considerando este como indispensable. En caso de que\n\nel Asegurado desee trasladar su vehículo a otro taller y/o ciudad, la diferencia del costo del traslado será\ncancelado por éste.",
+    "structured_parameters": [
+     {
+      "name": "alcance",
+      "value": "encunetamiento o embarrancamiento y/o traslado hasta el taller más cercano autorizado, cuando el vehículo no pueda moverse por sus propios medios y no corresponda a Pérdida Total por Accidente"
+     },
+     {
+      "name": "exclusión",
+      "value": "remuneraciones a personal dependiente del asegurado, honorarios de su perito, parte proporcional del tercero dirimidor"
+     }
+    ]
+   },
+   {
+    "label": "COBERTURA PARA ACCESORIOS",
+    "pdf_page_start": 6,
+    "text_verbatim": "El Asegurado está obligado a comunicar a la Aseguradora y\nsolicitar la inspección respectiva para la emisión del Anexo correspondiente, previo pago de extra\nprima, de todo cambio y/o instalación de accesorios adicionales que se realice con posterioridad al\ninicio de la vigencia del seguro.\nPor otra parte, se acuerda y establece que en caso de que el Asegurado cambie o modifique los accesorios,\nsin dar aviso a la Aseguradora para la correspondiente re inspección y aceptación de los mismos, éstos\nen caso de robo o daño no serán cubiertos por el seguro. Sin embargo, la Aseguradora se limitará a cubrir\nel costo conforme a la declaración original (Formulario de Declaración Pre Riesgo).",
+    "structured_parameters": [
+     {
+      "name": "condición",
+      "value": "comunicar, solicitar inspección, emisión del Anexo y pago de extra prima para todo cambio y/o instalación de accesorios adicionales que se realice con posterioridad al inicio de la vigencia del seguro"
+     },
+     {
+      "name": "incumplimiento",
+      "value": "accesorios cambiados sin aviso no cubiertos; la Aseguradora se limita a la declaración original"
+     }
+    ]
+   },
+   {
+    "label": "COBERTURA DE ASISTENCIA JURÍDICA",
+    "pdf_page_start": 6,
+    "text_verbatim": "la Presente Póliza se extiende a brindar el servicio de\nAsistencia Jurídica en caso de siniestro cubierto por la Aseguradora y procesos exclusivamente de orden\ncivil dentro de las ciudades capitales de La Paz y Santa Cruz y potestativamente en el resto del país,\nincluyendo y limitando a:\n• Asistencia a audiencias de tránsito.\n• Asistencia a audiencias de conciliación ante autoridades que tengan jurisdicción en el\naccidente.\nEn caso de ocurrir un accidente cubierto por el seguro, la Aseguradora podrá, a su propia decisión, tratar\ndirectamente con los perjudicados o sus derechohabientes e indemnizarles, si correspondiera. De no\nhaberse podido obtener un arreglo amistoso, la Aseguradora podrá dirigir la defensa del Asegurado en la\nacción civil. A tales efectos el Asegurado, en cada caso, deberá otorgar a la Aseguradora los poderes\nnecesarios en favor de la persona que la Aseguradora designe.\nLa Aseguradora podrá liberarse de asumir la defensa de toda responsabilidad posterior si deposita ante\nautoridad competente y/o el Asegurado, la totalidad de la suma asegurada para Responsabilidad Civil de\nesta Póliza o la suma demandada, la que sea menor, y pagar las costas y gastos devengados hasta ese\nmomento, dejando al Asegurado la responsabilidad exclusiva de su propia defensa.\nEste servicio no se extiende a ninguna acción, asesoría, actuación y/o gasto en al ámbito penal.",
+    "structured_parameters": [
+     {
+      "name": "ámbito_material",
+      "value": "procesos exclusivamente de orden civil; se excluye ámbito penal"
+     },
+     {
+      "name": "ámbito_geográfico",
+      "value": "ciudades capitales de La Paz y Santa Cruz; potestativamente en el resto del país"
+     },
+     {
+      "name": "liberación",
+      "value": "depósito de la suma asegurada de RC o la suma demandada, la que sea menor, más costas y gastos devengados"
+     }
+    ]
+   },
+   {
+    "label": "ERRORES Y/U OMISIONES",
+    "pdf_page_start": 6,
+    "text_verbatim": "No se afectarán los derechos del Asegurado en caso de siniestro, si la\ndeclaración del Asegurado, contenida en la solicitud del seguro y/o en el listado valorado de vehículos,\nadolece de Errores y/u Omisiones respecto a la denominación, descripción en las placas de circulación,\nchasis y/o motor del vehículo asegurado, excepto en lo que respecta a los hechos y circunstancias que\nconocidos por la Aseguradora, le hubieran inducido no aceptar el contrato o a estipular condiciones\ndistintas, que hacen anulable el contrato de seguro (según el Artículo 993 del Código de Comercio).\nLa reticencia o la inexactitud en las declaraciones del asegurado, sin dolo de su parte, dan derecho a la\nAseguradora a demandar la anulación del contrato dentro de los treinta (30) días de conocidos tales\nhechos por él, debiendo restituir, en este caso, las primas del período no corrido. Si se subsanan los errores\nu omisiones puede optar por reajustar las primas de acuerdo al verdadero estado del riesgo.\n\nLas declaraciones falsas o reticentes hechas con dolo o mala fe hacen nulo el contrato de seguro. En este\ncaso el asegurado no tendrá derecho a la devolución de las primas pagadas.",
+    "structured_parameters": [
+     {
+      "name": "base_legal",
+      "value": "Artículo 993 del Código de Comercio"
+     },
+     {
+      "name": "plazo_demanda_anulación",
+      "value": "treinta (30) días de conocidos tales hechos"
+     }
+    ]
+   },
+   {
+    "label": "FLETE AÉREO",
+    "pdf_page_start": 7,
+    "text_verbatim": "en caso de que se suscite algún siniestro amparado por la póliza y se requiera\nimportar repuestos del exterior, la Aseguradora además de reconocer el valor de compra declarado en\nla factura original, los impuestos y los recargos de ley; también reconocerá íntegramente el costo de\nefectuar un transporte con flete aéreo u otros transportes especiales y/o con gastos extraordinarios para\nobtener dichos repuestos hasta un límite asegurado máximo de $us. 1,000, debiendo el Asegurado\nhacerse cargo del exceso. Esta cobertura surte efecto, siempre y cuando la Aseguradora no decida que\nse indemnice en efectivo por los daños de un evento cubierto por esta póliza.",
+    "structured_parameters": [
+     {
+      "name": "límite",
+      "value": "$us. 1,000",
+      "quote": "hasta un límite asegurado máximo de $us. 1,000, debiendo el Asegurado hacerse cargo del exceso"
+     }
+    ]
+   },
+   {
+    "label": "GESTIÓN DE COBRANZA",
+    "pdf_page_start": 7,
+    "text_verbatim": "La Aseguradora no está obligada a dar aviso alguno al Asegurado con\nrespecto a la fecha de vencimiento de sus cuotas pendientes. Sin embargo, podrá hacerlo a simple título\nde cortesía sin que la interrupción o demora de tal servicio pueda considerarse justificación para no\nefectuar el pago correspondiente en cada fecha preestablecida de vencimiento. Este servicio de\ncobranza no exime al Asegurado de la responsabilidad del pago oportuno por lo que tiene la obligación\nde cancelar la Prima en las oficinas de la Aseguradora o en los puntos de pago autorizados por ella.\nEn caso de que la Prima correspondiente se encuentre impaga, dentro de los plazos fijados, suspende\nla vigencia del seguro, de acuerdo a las modificaciones al artículo 1018 del Código de Comercio,\nestablecidas por la Ley No. 365 de 23 de abril de 2013 y por ende la atención de cualquier reclamo\npresentado y amparado por esta Póliza.",
+    "structured_parameters": [
+     {
+      "name": "efecto_impago",
+      "value": "suspende la vigencia del seguro (art. 1018 Código de Comercio, modificado por Ley No. 365 de 23 de abril de 2013)"
+     }
+    ]
+   },
+   {
+    "label": "LIMITACIÓN PARA VEHÍCULOS TRANSFORMADOS Y DE IMPORTACIÓN DIRECTA",
+    "pdf_page_start": 7,
+    "text_verbatim": "En caso de un accidente cubierto, la Aseguradora se reserva el derecho de indemnizar en base a la\npresentación de tres cotizaciones y la factura correspondiente.\nAsimismo, se acuerda que en caso de que no se puedan conseguir cotizaciones de las piezas dañadas, La\nAseguradora se reserva el derecho de indemnizar, de acuerdo a cotizaciones de piezas similares de\nvehículos de la misma marca y de modelo similar.",
+    "structured_parameters": [
+     {
+      "name": "base_indemnización",
+      "value": "derecho de indemnizar en base a tres cotizaciones y factura; si no hay cotizaciones, piezas similares de la misma marca y modelo similar"
+     }
+    ]
+   },
+   {
+    "label": "MANTENIMIENTO Y AGRAVACIÓN DEL RIESGO",
+    "pdf_page_start": 7,
+    "text_verbatim": "El Asegurado está obligado a mantener el\nestado del riesgo (especificado en el Formulario de Declaración Pre-Riesgo y las Normas del Fabricante\ndel Vehículo Asegurado), en tal virtud, debe comunicar por escrito a la Aseguradora las agravaciones del\nriesgo debidas a hechos propios, antes de su ejecución y los ajenos a su voluntad, dentro de los ocho (8)\ndías siguientes al momento en que los conozca. Si se omite la comunicación de estos hechos, cesan en lo\nfuturo las obligaciones de la Aseguradora, correspondiendo al mismo probar la agravación del riesgo\n(según lo establecido en el artículo 1000 del Código de Comercio).\nComunicada la agravación del riesgo dentro de los términos previstos en este artículo, la Aseguradora\npuede rescindir el contrato o exigir el reajuste a que haya lugar en el importe de la prima, dentro de los\n\nquince días siguientes.\nLa vigencia del seguro no se suspende sino ocho (8) días (calendario) después de la fecha en que la\nAseguradora comunique su decisión de rescindir el contrato.\nConsecuentemente, la anulación de la Póliza por Agravación del Riesgo no admitirá devolución de Prima.\nDe existir saldos de la Prima vencidos y/o por vencer, éstos serán líquidos y exigibles.",
+    "structured_parameters": [
+     {
+      "name": "aviso_hechos_propios",
+      "value": "antes de su ejecución"
+     },
+     {
+      "name": "aviso_hechos_ajenos",
+      "value": "dentro de los ocho (8) días siguientes al momento en que los conozca"
+     },
+     {
+      "name": "opciones_aseguradora",
+      "value": "rescindir o exigir reajuste de prima dentro de los quince días siguientes"
+     },
+     {
+      "name": "suspensión_tras_rescisión",
+      "value": "ocho (8) días (calendario) después de comunicada la decisión"
+     },
+     {
+      "name": "devolución_prima",
+      "value": "la anulación por Agravación del Riesgo no admite devolución de Prima"
+     }
+    ]
+   },
+   {
+    "label": "AGRAVACIÓN SUSTANCIAL DEL RIESGO",
+    "pdf_page_start": 8,
+    "text_verbatim": "Se entiende por agravación sustancial la alteración\ndel estado del riesgo, especificado en el Formulario de Declaración Pre-Riesgo, originada por cualquier\nhecho importante que influya en la apreciación del mismo, de tal manera que, de ser conocido por la\nAseguradora, le hubiera inducido a no celebrar el contrato o a estipular condiciones distintas, según lo\nestablecido por el artículo 1001 del Código de Comercio. Entre ellas, las alteraciones físicas en el\nvehículo, siendo las mismas de carácter enunciativo y no limitativo."
+   },
+   {
+    "label": "MEDIDAS DE SEGURIDAD",
+    "pdf_page_start": 8,
+    "text_verbatim": "El Asegurado está obligado a tomar todas las Medidas de Seguridad que\nla Aseguradora le exija durante la vigencia de la presente Póliza de Seguro, cualquiera sea el momento,\ncomo condición previa e indispensable para que exista cobertura.\nEn caso de que la Aseguradora requiera la instalación de medidas de seguridad, se dará a conocer este\naspecto mediante carta dirigida al Asegurado y orden de colocación respectiva, debiendo éste cumplir\ncon lo estipulado en la nota dentro del plazo informado por la Aseguradora.\nEl cumplimiento de estos requisitos es de entera y única responsabilidad del Asegurado. En caso de\nsiniestro y de comprobar la Aseguradora que el Asegurado no ha instalado las Medidas de Seguridad en\nlos plazos previstos en la orden respectiva, las coberturas de robo no surtirán efecto alguno, quedando\nliberada la Aseguradora de toda responsabilidad de indemnización.\nEn caso de que la presente póliza sea una renovación ininterrumpida, el cliente será responsable de\ncumplir con todas las medidas y/o requerimientos exigidos hasta la vigencia en curso.",
+    "structured_parameters": [
+     {
+      "name": "efecto_incumplimiento",
+      "value": "las coberturas de robo no surten efecto alguno"
+     }
+    ]
+   },
+   {
+    "label": "PARTES GENUINAS",
+    "pdf_page_start": 8,
+    "text_verbatim": "En caso que la Aseguradora se hiciera cargo de la reparación en caso de\nsiniestro siempre y cuando corresponda la reposición de las piezas debido a que el costo de reparación\ndel daño supera el 65% del valor de reposición a nuevo, la Aseguradora realizará las gestiones\nnecesarias para proceder con el reemplazo de piezas y/o partes dañadas con Repuestos Originales,\nsujeto a que el vehículo haya contado con los mismos al momento de iniciar el seguro.\nSe acuerda y establece que el mencionado reemplazo con Repuestos Originales no supone\nexclusivamente la compra de los mismos en el distribuidor de la marca local, pudiendo la Aseguradora\noptar por su importación a través de un proveedor. Si el asegurado no está de acuerdo con esta opción\n(importación a través de un proveedor), la Aseguradora se reserva el derecho de indemnizar en base a\nla pro forma obtenida, descontando la franquicia deducible (si corresponde) y tendrá el derecho de\nquedarse con la parte y/o pieza dañada. En caso de que el Asegurado acepte la importación, se establece\n\nque el plazo de entrega no es responsabilidad de la Aseguradora, al ser la empresa proveedora quien\ngestiona la adquisición de los mismos.\nQueda acordado que la Aseguradora no está obligada a la adquisición de los repuestos en el mercado\nlocal si estos tienen una diferencia mayor al 20% sobre la importación de los mismos.",
+    "structured_parameters": [
+     {
+      "name": "umbral_reposición",
+      "value": "costo de reparación supera el 65% del valor de reposición a nuevo"
+     },
+     {
+      "name": "diferencial_importación",
+      "value": "no obligada a comprar en mercado local si la diferencia es mayor al 20% sobre la importación"
+     }
+    ]
+   },
+   {
+    "label": "PERITAJE",
+    "pdf_page_start": 9,
+    "text_verbatim": "Se recurrirá al peritaje para resolver cuestiones de apreciación o evaluación de hechos\ncontrovertidos, las partes podrán nombrar un perito único; si no hubiese acuerdo, cada una nombrará\nel suyo y un tercero dirimidor. Este último será designado por las dos partes de mutuo acuerdo y el\ncosto del mismo será asumido en una proporción igual, aclarando también que la decisión de éste será\nrespetada por las partes.\nAsí mismo se establece que para los casos en los que se requiera un informe ampliatorio acerca de\nelementos circunstanciales que afecten directamente al análisis del reclamo la compañía podrá solicitar\nla intervención del IITCUP (Instituto de Investigaciones Técnico Científicas) como instancia parte de\nla autoridad competente.",
+    "structured_parameters": [
+     {
+      "name": "mecanismo",
+      "value": "perito único o uno por parte + tercero dirimidor (costo en proporción igual); IITCUP como instancia para informes ampliatorios"
+     }
+    ]
+   },
+   {
+    "label": "PLAZO PARA PRONUNCIARSE EN CASO DE SINIESTRO",
+    "pdf_page_start": 9,
+    "text_verbatim": "La Aseguradora debe pronunciarse\nsobre el derecho del Asegurado o Beneficiario dentro de los treinta días (30) calendario de recibida\ntoda la información y las evidencias requeridas, según lo establecido en las Obligaciones del Asegurado\ny en las Notas de Solicitud enviadas por la Aseguradora.\nEl plazo de treinta (30) días mencionado, fenece con la aceptación o rechazo del siniestro. Este plazo se\ninterrumpe con la solicitud de la Aseguradora al Asegurado de la documentación que ésta considere\nnecesaria para complementar la información que permita un correcto análisis del caso y no vuelve a correr\nhasta que el Asegurado haya cumplido con tales requerimientos.\nLa solicitud de complementos establecidos por parte de la Aseguradora no podrá extenderse por más de\ndos veces a partir de la primera solicitud de informes y evidencias, debiendo pronunciarse dentro el plazo\nestablecido y de manera definitiva sobre el derecho del Asegurado, después de la entrega por parte del\nAsegurado de toda la información requerida.\nEl silencio de la Aseguradora, vencido el término para pronunciarse, implicará la aceptación del reclamo.",
+    "structured_parameters": [
+     {
+      "name": "plazo",
+      "value": "treinta días (30) calendario de recibida toda la información y evidencias"
+     },
+     {
+      "name": "interrupciones_máximas",
+      "value": "la solicitud de complementos no podrá extenderse por más de dos veces"
+     },
+     {
+      "name": "silencio",
+      "value": "implicará la aceptación del reclamo"
+     }
+    ]
+   },
+   {
+    "label": "PLURALIDAD DE SEGUROS",
+    "pdf_page_start": 9,
+    "text_verbatim": "El que toma varios seguros sobre el mismo riesgo y el mismo interés,\ndebe hacer saber a cada una de las Aseguradoras la existencia de los otros seguros.\nSi la pluralidad de seguros es contratada de buena fe, en defecto de estipulaciones especiales, todas las\nAseguradoras, en caso de siniestro responderán proporcionalmente al monto de su contrato con relación\nal daño ocurrido. Si alguna Aseguradora hubiera pagado en exceso, podrá repetir contra los demás\nAseguradoras."
+   },
+   {
+    "label": "PRIMA",
+    "pdf_page_start": 9,
+    "text_verbatim": "La prima es debida desde el momento de la celebración del contrato, pero no es exigible sino\ncon la entrega de la póliza o certificado provisional de cobertura. Las primas sucesivas se pagarán al\n\ncomienzo de cada periodo salvo que se estipule otra forma de pago en cuyo caso se cargarán los intereses\ncorrespondientes de acuerdo a su diferimiento.\nSi la entrega de la póliza o certificado provisional de cobertura se realiza sin la percepción de la prima,\nse presume la concesión de crédito con intereses por su importe.\nSi el pago de la prima es parcial, se presume el otorgamiento de crédito con intereses por el saldo\nEl incumplimiento en el pago de la prima más los intereses dentro de los plazos fijados, suspende la\nvigencia del contrato, según las modificaciones al artículo 1018 del Código de Comercio, establecidas\npor la Ley No. 365 de 23 de abril de 2013.\nSuspendida la vigencia de la póliza, la Aseguradora tiene derecho con fuerza ejecutiva a la prima\ncorrespondiente por el periodo corrido, calculado a prorrata.\nTranscurridos 31 días del incumplimiento del pago de la prima en los términos y plazos establecidos en\nel Anexo de Liquidación de Cobranza, en apego a lo establecido en el Artículo 569 del Código Civil, se\nproducirá la resolución de la Póliza.",
+    "structured_parameters": [
+     {
+      "name": "exigibilidad",
+      "value": "con la entrega de la póliza o certificado provisional de cobertura"
+     },
+     {
+      "name": "efecto_impago",
+      "value": "suspende la vigencia (art. 1018 Código de Comercio, Ley No. 365 de 23/04/2013)"
+     },
+     {
+      "name": "resolución",
+      "value": "transcurridos 31 días del incumplimiento en los términos del Anexo de Liquidación de Cobranza (Artículo 569 del Código Civil)"
+     }
+    ]
+   },
+   {
+    "label": "PRESCRIPCIÓN",
+    "pdf_page_start": 10,
+    "text_verbatim": "Las acciones del Asegurado contra la Aseguradora derivadas de esta Póliza,\nprescriben a los dos (2) años contados desde la fecha de siniestro. La cobranza de la Prima adeudada,\nprescribe en el mismo plazo a contar de la fecha en que ella sea exigible.\nAdemás de las causas ordinarias, la prescripción se interrumpe por cualquiera de los actos jurídicos\nestablecidos por la ley.",
+    "structured_parameters": [
+     {
+      "name": "plazo",
+      "value": "dos (2) años contados desde la fecha de siniestro; cobranza de la prima igual plazo desde que sea exigible"
+     }
+    ]
+   },
+   {
+    "label": "RECUPEROS",
+    "pdf_page_start": 10,
+    "text_verbatim": "El Asegurado se obliga a remitir a la Aseguradora toda la documentación del vehículo\nque le sea solicitada, la baja impositiva en caso de robo o pérdida total, así como otorgar el poder\nrespectivo o suscribir los documentos de transferencia cuando corresponda, para la libre disposición\nde los restos siniestrados por parte de la Aseguradora, renunciando el Asegurado a todo derecho\npropietario sobre éstos antes de que la Aseguradora proceda con la indemnización correspondiente."
+   },
+   {
+    "label": "RECLAMACIÓN FRAUDULENTA",
+    "pdf_page_start": 10,
+    "text_verbatim": "La Aseguradora quedará relevada de toda responsabilidad y el\nAsegurado o Beneficiario perderá todo derecho a indemnización bajo esta póliza cuando:\n1) Provoquen dolosa o intencionalmente el siniestro, su extensión o propagación;\n2) El Asegurado presentare una reclamación fraudulenta, engañosa o apoyada en declaraciones falsas.\n3) Oculten o alteren, maliciosamente, en la verificación del siniestro, los hechos y circunstancias\nmencionados en los artículos 1028 y 1031 del Código de Comercio.\n4) Recurran a pruebas falsas, engañosas o dolosas con el ánimo de obtener un beneficio ilícito.\nEn cualquiera de estos casos, el Asegurado pierde además el derecho a la devolución de las primas, sin\nperjuicio de las sanciones penales.",
+    "structured_parameters": [
+     {
+      "name": "efecto",
+      "value": "pérdida de todo derecho a indemnización y de la devolución de primas; causales 1)-4) incl. arts. 1028 y 1031 del Código de Comercio"
+     }
+    ]
+   },
+   {
+    "label": "RECONOCIMIENTO DE RESPONSABILIDAD",
+    "pdf_page_start": 10,
+    "text_verbatim": "La Aseguradora no pagará ni reconocerá las\ntransacciones o arreglos extrajudiciales en los cuales el Asegurado admita su responsabilidad, cuando\nno exista previa aprobación de la Aseguradora. Toda declaración que realice el Asegurado ante\n\ncualquier autoridad, en cumplimiento a su obligación legal señalada, deberá ser informada a la\nAseguradora para conocimiento de ésta, sin perjuicio de las exclusiones que sean aplicables al caso."
+   },
+   {
+    "label": "REDUCCIÓN DE LA SUMA ASEGURADA POR SINIESTRO PARCIAL",
+    "pdf_page_start": 11,
+    "text_verbatim": "En caso de siniestro\nparcial, para que la suma asegurada no quede reducida en el mismo importe de la indemnización\npagada, se acuerda y establece que ésta será rehabilitada al valor inicial contratado en el seguro\nmediante el pago al contado de una prima de rehabilitación, calculada a prorrata por el plazo no corrido,\nutilizando la tasa aplicada al Valor Asegurado al momento de suscribir la Póliza, sobre el valor\nregistrado de siniestro parcial, aplicada al vehículo siniestrado. Excluye robos parciales, donde solo se\ncubrirá una única vez cada parte robada.",
+    "structured_parameters": [
+     {
+      "name": "rehabilitación",
+      "value": "pago al contado de prima de rehabilitación a prorrata por el plazo no corrido sobre el valor del siniestro parcial"
+     },
+     {
+      "name": "excepción",
+      "value": "robos parciales: solo se cubre una única vez cada parte robada"
+     }
+    ]
+   },
+   {
+    "label": "RESCISIÓN Y TERMINACIÓN DEL CONTRATO",
+    "pdf_page_start": 11,
+    "text_verbatim": "Rescisión Voluntaria:\nEste contrato podrá ser rescindido en cualquier momento por decisión de cualquiera de las partes\ncontratantes, si la Aseguradora ejerce la facultad de rescindir debe notificar por escrito su decisión al\nAsegurado en su domicilio y con antelación no menor de quince días, si fuera el Asegurado quien ejerza\nla facultad de rescindir, ésta producirá sus efectos desde su notificación escrita a la Aseguradora debiendo\nobservarse las siguientes normas:\na) Si la rescisión fuera por voluntad de la Aseguradora, éste devolverá a prorrata la parte de la\nprima de seguro por el tiempo no corrido, salvo que durante la vigencia del seguro objeto de\nla rescisión, haya pagado al Asegurado, siniestros por un valor de cuando menos el ochenta\ny cinco por ciento (85%) del monto de la prima neta anual pactada.\nb) Si fuera por voluntad del Asegurado, la Aseguradora tendrá derecho a la prima por el tiempo\ncorrido a prorrata.\nTerminación Automática del seguro:\nEn caso de Pérdida Total por accidente o robo, la vigencia del contrato de seguro termina luego de\nrealizarse la indemnización correspondiente.\nLa transferencia del interés Asegurado por acto entre vivos debe ser notificado a la Aseguradora, así\ncomo cualquier acción legal que determine el secuestro, embargo y/o incautación del bien objeto del\nseguro. La omisión de esta notificación da lugar a la extinción del contrato de seguro con la devolución\nde la prima por el tiempo no corrido, a menos que el Asegurado demuestre aún un interés asegurable,\nsegún lo establecido en el artículo 1068 del Código de Comercio.\nSuspensión y Terminación del contrato por incumplimiento del pago de la prima:\nConforme lo establecido en el artículo 1018 del Código de Comercio, el incumplimiento en el pago de la\nprima más los intereses, dentro de los plazos fijados, suspende la vigencia del contrato. Suspendida la\nvigencia de la póliza, la Aseguradora tiene derecho con fuerza ejecutiva a la prima correspondiente al\nperiodo corrido, calculado a prorrata.",
+    "structured_parameters": [
+     {
+      "name": "aviso_aseguradora",
+      "value": "antelación no menor de quince días"
+     },
+     {
+      "name": "devolución_si_rescinde_aseguradora",
+      "value": "prorrata del tiempo no corrido, salvo siniestros pagados ≥ ochenta y cinco por ciento (85%) de la prima neta anual"
+     },
+     {
+      "name": "si_rescinde_asegurado",
+      "value": "la Aseguradora tiene derecho a la prima por el tiempo corrido a prorrata"
+     },
+     {
+      "name": "terminación_automática",
+      "value": "en Pérdida Total por accidente o robo, tras la indemnización"
+     },
+     {
+      "name": "transferencia_interés",
+      "value": "debe notificarse; omisión extingue el contrato con devolución de prima no corrida salvo interés asegurable (art. 1068 Código de Comercio)"
+     }
+    ]
+   },
+   {
+    "label": "SUBROGACIÓN DE DERECHOS",
+    "pdf_page_start": 11,
+    "text_verbatim": "La Aseguradora que paga la indemnización se subroga por este\n\nhecho las acciones y derechos del Asegurado contra terceros responsables del siniestro, hasta la suma de\nla indemnización. El Asegurado dentro de lo posible, debe facilitar y coadyuvar la acción de la\nAseguradora contra terceros responsables del siniestro, siendo responsable de todo acto perjudicial a los\nderechos derivados de la subrogación.\nLa Aseguradora no tiene derecho a la subrogación contra personas que tengan relación de parentesco o\ndependencia con el Asegurado, de tal forma que comprometan, de acuerdo con las leyes; la\nresponsabilidad del propio Asegurado. Esta disposición no tiene aplicación si la responsabilidad proviene\nde dolo o mala fe.",
+    "structured_parameters": [
+     {
+      "name": "límite",
+      "value": "hasta la suma de la indemnización"
+     },
+     {
+      "name": "excepción",
+      "value": "no contra personas con relación de parentesco o dependencia con el Asegurado, de tal forma que comprometan, de acuerdo con las leyes, la responsabilidad del propio Asegurado; sin aplicación si la responsabilidad proviene de dolo o mala fe"
+     }
+    ]
+   },
+   {
+    "label": "TÉRMINO PARA EL PAGO DEL SINIESTRO",
+    "pdf_page_start": 12,
+    "text_verbatim": "Establecido el derecho del Asegurado y aceptado\nformalmente el monto de la indemnización, la Aseguradora pagará su obligación hasta dentro de los\nsesenta (60) días siguientes, según lo dispuesto por el Artículo 1034 del Código de Comercio.",
+    "structured_parameters": [
+     {
+      "name": "plazo",
+      "value": "sesenta (60) días siguientes a la aceptación (Artículo 1034 del Código de Comercio)"
+     }
+    ]
+   },
+   {
+    "label": "CLÁUSULA ARBITRAL",
+    "pdf_page_start": 12,
+    "text_verbatim": "Toda discrepancia, cuestión o reclamo, resultantes de la ejecución o interpretación de la presente Póliza\no relacionado con ella, directa o indirectamente, se resolverá definitivamente mediante Conciliación o\nArbitraje en derecho, bajo el arbitraje institucional y en el marco de las normas del Centro de\nConciliación y Arbitraje Comercial de La Cámara Nacional de Comercio de la ciudad de La Paz o el\nCentro de Conciliación y Arbitraje Comercial de la CAINCO de la ciudad de Santa Cruz de la Sierra,\nde acuerdo al reglamento vigente en los centros mencionados y a lo establecido por Ley N° 708 de\nfecha 25 de junio de 2015.\nLas controversias de hecho sobre las características técnicas de un seguro serán resueltas a través de\nPeritaje y según lo dispuesto en estas mismas Condiciones Generales. Si por esta vía no se llegara a un\nacuerdo sobre dichas controversias, éstas deberán definirse por la vía del arbitraje.\nPara el caso del Arbitraje, se conviene que las leyes aplicables en la controversia serán: el Código de\nComercio, el Código Civil y las demás leyes conexas con la materia arbitral. Las partes acuerdan, de\nconformidad al art. 61 de la Ley N° 708, que el número de árbitros será de tres (3); cada parte designará\na un número igual de árbitros en el plazo de diez (10) días, desde la última notificación con la\ncontestación a la solicitud de arbitraje, debiendo entre éstos, en el plazo de diez (10) días, elegir al\nÁrbitro impar. A falta de acuerdo de las partes o de los árbitros, la designación de uno o varios árbitros\nserá efectuada en conformidad a lo establecido por el Reglamento del Centro de Conciliación y\nArbitraje correspondiente.\nLas Reglas Procedimentales en las que se enmarcará el desarrollo del arbitraje, estarán contempladas\nen el Reglamento del Centro de Conciliación y Arbitraje correspondiente, considerando lo acordado\nen la presente Cláusula Arbitral.\nSe acuerda que, la resolución de la procedencia o improcedencia de las medidas cautelares será resuelta\núnicamente por el Tribunal Arbitral, una vez sea constituido, consecuentemente no se prevé la\ndesignación de un Árbitro de Emergencia.\n\nLas controversias de derecho suscitadas entre las partes sobre la naturaleza y alcance del contrato de\nseguro, reaseguro o planes de seguro serán resueltas en única e inapelable instancia, por la vía del\narbitraje.\nLa Autoridad de Fiscalización y Control de Pensiones y Seguros podrá fungir como instancia de\nconciliación, para todo siniestro cuya cuantía no supere el monto de UFV100.000,00.- (Cien Mil\n00/100 Unidades de Fomento de Vivienda). Si por esta vía no existiera un acuerdo, la Autoridad de\nFiscalización y Control de Pensiones y Seguros, podrá conocer y resolver la controversia por resolución\nadministrativa debidamente motivada.",
+    "structured_parameters": [
+     {
+      "name": "foros",
+      "value": "Centro de Conciliación y Arbitraje Comercial de la Cámara Nacional de Comercio (La Paz) o de la CAINCO (Santa Cruz); Ley N° 708 de 25 de junio de 2015"
+     },
+     {
+      "name": "árbitros",
+      "value": "tres (3); designación en plazos de diez (10) días (art. 61 Ley 708)"
+     },
+     {
+      "name": "conciliación_APS",
+      "value": "la Autoridad de Fiscalización y Control de Pensiones y Seguros puede fungir de instancia de conciliación para siniestros de cuantía no superior a UFV100.000,00"
+     }
+    ]
+   },
+   {
+    "label": "LEGISLACIÓN APLICABLE",
+    "pdf_page_start": 13,
+    "text_verbatim": "Todas las cuestiones que se susciten en ocasión del cumplimiento e\ninterpretación de la presente póliza se someten expresamente a las leyes y disposiciones legales\nvigentes en el Estado Plurinacional de Bolivia. Las discrepancias que no se resuelvan por acuerdo entre\npartes, serán sometidas al procedimiento de conciliación y Arbitraje respecto a Ley."
+   }
+  ]
+ },
+ "obligaciones_del_asegurado_en_caso_de_siniestro": {
+  "pdf_pages": "13-14",
+  "preamble_verbatim": "El incumplimiento, por parte del Asegurado de la Póliza o conductor autorizado del vehículo\nAsegurado, de cualquiera de las siguientes obligaciones liberará a la Aseguradora de toda\nresponsabilidad con relación al accidente o reclamo, el mismo que no será indemnizable en\nninguna de sus coberturas.\nEn caso de ocurrir un accidente que pudiera estar cubierto por la Póliza, el Asegurado de la Póliza o el\nconductor autorizado del vehículo Asegurado se obliga a:",
+  "efecto_incumplimiento_verbatim": "El incumplimiento, por parte del Asegurado de la Póliza o conductor autorizado del vehículo Asegurado, de cualquiera de las siguientes obligaciones liberará a la Aseguradora de toda responsabilidad con relación al accidente o reclamo, el mismo que no será indemnizable en ninguna de sus coberturas.",
+  "items": [
+   {
+    "letra": "a",
+    "pdf_page": 13,
+    "text": "Tomar todas las precauciones que estén a su alcance para proteger el vehículo accidentado y evitar\nla agravación y propagación de los daños materiales y/o personales."
+   },
+   {
+    "letra": "b",
+    "pdf_page": 13,
+    "text": "Denunciar inmediatamente o hasta dentro de las 6 horas de sucedido el accidente, el hecho a la\nautoridad competente en la jurisdicción donde se produjo el hecho, oficializando todas las\ncircunstancias y detalles del mismo, salvo impedimento debidamente justificado o siniestros que se\nestimen menores a USD 1.000 que afecten exclusivamente Daños Propios o Robo Parcial. En caso\nde que el Asegurado se acoja a la excepción por estimación del siniestro menor a USD 1.000, la\nAseguradora estará obligada a pagar únicamente hasta USD 1.000.",
+    "structured_parameters": [
+     {
+      "name": "plazo_denuncia",
+      "value": "inmediatamente o hasta dentro de las 6 horas"
+     },
+     {
+      "name": "excepción",
+      "value": "impedimento justificado o siniestros estimados menores a USD 1.000 que afecten exclusivamente Daños Propios o Robo Parcial; en tal caso la Aseguradora paga únicamente hasta USD 1.000"
+     }
+    ]
+   },
+   {
+    "letra": "c",
+    "pdf_page": 13,
+    "text": "El conductor debe someterse a la prueba de dosaje etílico inmediatamente o dentro de las 6 horas de\nsucedido el accidente, aún si las autoridades competentes no se lo requieran; salvo impedimentos\ndebidamente justificados o siniestros que se estimen menores a USD 1.000 que afecten\nexclusivamente Daños Propios o Robo Parcial. En caso de que el Asegurado se acoja a la excepción\npor estimación del siniestro menor a USD 1.000, la Aseguradora estará obligada a pagar únicamente\nhasta los USD 1.000",
+    "structured_parameters": [
+     {
+      "name": "plazo_dosaje_etílico",
+      "value": "inmediatamente o dentro de las 6 horas"
+     },
+     {
+      "name": "excepción",
+      "value": "igual que b): siniestros < USD 1.000 (Daños Propios o Robo Parcial); tope de pago USD 1.000"
+     }
+    ]
+   },
+   {
+    "letra": "d",
+    "pdf_page": 13,
+    "text": "Solicitar y obtener de la autoridad competente, copia legalizada del Informe Técnico con\ndeterminación de responsabilidades sobre el accidente que deberá ser entregado a la Aseguradora,\n\npara el análisis preliminar respectivo."
+   },
+   {
+    "letra": "e",
+    "pdf_page": 14,
+    "text": "Dar aviso del accidente a la Aseguradora tan pronto y a más tardar dentro de los diez (10) días\ncalendario de tener conocimiento del siniestro, salvo afecte la Cobertura de Responsabilidad Civil,\ndonde aplicará el plazo de tres (3) días de producido el hecho que comprometa la eventual\nresponsabilidad del asegurado prevista en el contrato de seguro o desde la demanda del tercero. En\ncaso de demanda judicial, el asegurado dará noticia inmediata. La retardación en el aviso motivará\nque el asegurado corra con los gastos adicionales por su demora. (Art. 1091 Código de Comercio).\nEl Asegurado está obligado a proporcionar a la Aseguradora las informaciones y pruebas necesarias\npara su defensa. Si asume su defensa en forma directa contra orden expresa de la Aseguradora corren\na su cargo los honorarios, gastos y costas de la acción.",
+    "structured_parameters": [
+     {
+      "name": "plazo_aviso",
+      "value": "a más tardar dentro de los diez (10) días calendario de tener conocimiento"
+     },
+     {
+      "name": "plazo_aviso_RC",
+      "value": "tres (3) días de producido el hecho o desde la demanda del tercero (Art. 1091 Código de Comercio)"
+     }
+    ]
+   },
+   {
+    "letra": "f",
+    "pdf_page": 14,
+    "text": "Pagar la Franquicia Deducible estipulada en el condicionado particular de la póliza o el certificado\nde cobertura, en los puntos autorizados por la Aseguradora."
+   },
+   {
+    "letra": "g",
+    "pdf_page": 14,
+    "text": "Facilitar, a requerimiento de la Aseguradora, toda la información que se tenga sobre los hechos y\ncircunstancias del accidente, suministrando las evidencias conducentes a la determinación de la\ncausa, identidad de las personas, intereses Asegurados y cuantía de los daños, así como permitir las\nindagaciones pertinentes y necesarias a tal objeto."
+   },
+   {
+    "letra": "h",
+    "pdf_page": 14,
+    "text": "Esperar la autorización de la Aseguradora para iniciar la reparación de cualquier daño."
+   },
+   {
+    "letra": "i",
+    "pdf_page": 14,
+    "text": "Informar y remitir inmediatamente a las Aseguradora y a más tardar dentro de las cuarenta y ocho\n(48) horas siguientes de la recepción, salvo impedimento razonablemente justificado: el informe de\nla Autoridad competente, avisos, citaciones, requerimientos, cartas, emplazamientos y en general,\ntodos los documentos judiciales y/o extrajudiciales que con motivo de un Siniestro cubierto por el\nseguro le sean dirigidos.",
+    "structured_parameters": [
+     {
+      "name": "plazo_remisión_documentos",
+      "value": "dentro de las cuarenta y ocho (48) horas siguientes de la recepción, salvo impedimento razonablemente justificado"
+     }
+    ]
+   },
+   {
+    "letra": "j",
+    "pdf_page": 14,
+    "text": "Comunicar e informar a la Aseguradora, antes de llegar a un acuerdo, cualquier intento de acuerdo\njudicial o extrajudicial; caso contrario, tal acuerdo liberará a la Aseguradora de toda responsabilidad\nsobre el Siniestro en cualquiera de sus Coberturas."
+   }
+  ]
+ },
+ "exclusiones_generales": {
+  "pdf_pages": "14-21",
+  "preamble_verbatim": "En forma general y en adición a las exclusiones particulares establecidas en cada una de las Secciones\nde la presente Póliza, no están amparadas las indemnizaciones que resulten de:",
+  "groups": [
+   {
+    "group": "EXCLUSIONES BÁSICAS",
+    "pdf_page_start": 14,
+    "text": "- Muerte y/o lesiones a personas y animales, daños a bienes materiales de terceros o a los vehículos\nAsegurados en esta Póliza que se produzcan al ser el vehículo Asegurado conducido por una\npersona que, en el momento del accidente, se halle bajo el efecto de bebidas alcohólicas que\nsobrepasen el grado alcohólico máximo permitido de cero punto cincuenta (0.50) grados en cada\n\nmil (1000) ml de sangre o su equivalente en mg/l en el aire espirado, de drogas1, alucinógenos y/o\nestupefacientes de cualquier naturaleza, y/o se encuentre bajo efectos de medicación (con o sin\nprescripción médica) que impidan la conducción de un vehículo. A efectos de la presente\ncobertura, se entenderá también como drogas, los medicamentos contraindicados para la\nconducción normal y segura del vehículo.\n- La Pérdida Total y los daños parciales al vehículo provenientes de la participación del mismo\nen apuestas, desafíos, competencias, carreras, rally o concursos de cualquier naturaleza o en las\npruebas preparatorias de los mismos.\n- La Pérdida Total y los daños parciales al Vehículo Asegurado si los mismos son resultado de\nrevanchas personales de terceros o personas ligadas al Asegurado hasta el tercer grado.\n- Los daños causados o quemaduras producidas por artefactos eléctricos, fósforos, cenizas de\ntabaco o por combustible, explosivos o inflamables, así como los daños ocasionados por el\ntransporte de mercancías inflamables o explosivas sin la previa notificación y la correspondiente\nautorización de la Aseguradora y de la Autoridad Competente.\n- Los daños y/o lesiones que se produzcan por o a la carga transportada o a consecuencia de la\nmisma, estando en circulación, detenido o estacionado, así como a consecuencia de cargar o\ndescargar la misma.\n- La Aseguradora se liberará de toda responsabilidad indemnizatoria y cualquier devolución de\nprimas si el Asegurado y/o Beneficiario incurre en cualquiera de los actos comprendidos en Art.\n1038 del Código de Comercio, que se refiere a los hechos causados con dolo y malicia, que\noculten la verificación de los hechos y circunstancias correspondientes, o recurran a pruebas\nfalsas con ánimo de obtener un beneficio ilícito.\n- Pérdida, robo, hurto, extravío de las placas de circulación y de las llaves de contacto del vehículo\nAsegurado.\n- Los daños al vehículo Asegurado o el robo de las partes y piezas del vehículo como consecuencia\nde confiscación, requisa, expropiación, incautación, decomiso, embargo, secuestro u ocupación\no retención del vehículo Asegurado ordenada por autoridad civil, policial o militar, medidas\nprecautorias y/o cautelares sobre el mismo.\n- El robo y/o hurto de partes y piezas que se produzcan a motocicletas, cuadratracks y vehículos\nquad.\n- Los daños al Vehículo Asegurado originados por la energía nuclear.\n1 Según lo definido en la Ley 1008, Droga es toda sustancia capaz de alterar las estructuras o las funciones\ncorporales, psíquicas, fisiológicas y/o biológicas, ocasionen o no dependencia y/o tolerancia.\n\n- Las acciones tendientes a modificar, ocultar o alterar la verdad sobre los hechos producidos,\nliberará a la Aseguradora de toda responsabilidad con relación al accidente o reclamo, el mismo\nque no será indemnizable en ninguna de sus coberturas.\n- La presentación de documentación o información incongruente o inconsistente que impida a la\nAseguradora realizar un análisis conducente a la determinación de la causa, identidad de las\npersonas o intereses asegurados y cuantía de los daños, liberará a la Aseguradora de toda\nresponsabilidad con relación al accidente o reclamo, el mismo que no será indemnizable en\nninguna de sus coberturas.\n- En cualquier acción legal, litigio u otro procedimiento, en que la Aseguradora sostenga que por\ncausa de lo dispuesto por la presente Condición, un determinado daño o pérdida no estuviera\ncubierto por el presente seguro, el costo de probar que dicha pérdida o daño está cubierto(a),\nserá por cuenta del Asegurado.\n- La Aseguradora no está obligada a pagar ni reconocer las transacciones o arreglos extrajudiciales\nen los cuales el Asegurado admita su responsabilidad, cuando no exista previa aprobación de la\nAseguradora. Es responsabilidad del Asegurado probar la ocurrencia de un evento cubierto y la\nAseguradora podrá probar los hechos y circunstancias que pudieran liberarla, en todo o en parte,\nde su responsabilidad en este evento."
+   },
+   {
+    "group": "EXCLUSIONES DE ORDEN PÚBLICO",
+    "pdf_page_start": 16,
+    "text": "Las pérdidas, lesiones, muerte o daños ocasionados directa o indirectamente por, o a consecuencia de:\n- Actos de guerra internacional o civil, invasión, acto de enemigo extranjero, hostilidades,\noperaciones militares (exista o no declaración de guerra), revolución o insurrección armada,\nasonada militar, sedición, requisición, nacionalización, ley marcial u otros hechos que atenten\ncontra la seguridad del país, insubordinación, conmoción civil que tuviere las proporciones de o\nllegare a constituir un levantamiento popular, levantamiento militar o policial o usurpación de\npoder o de cualquier acto de cualquier persona que actúe en nombre o en relación con cualquier\norganización con actividades dirigidas a la destitución por la fuerza del gobierno “de jure” o “de\nfacto”. No se encuentran cubiertos los daños causados por bombas o artefactos inflamables o\nexplosivos o cualquier atentado con fin político social.\n- Levantamiento contra el orden público, con empleo de la violencia que ocasione pérdidas o\ndaños que la autoridad llamada por ley no pueda impedir.\n- Cuando las fuerzas del orden se acuartelen por amotinamiento, motivo por el cual la ciudadanía\no parte de ella quede desguarnecida de vigilancia y protección, facilitando de esta manera el\nvandalismo por insurrectos o delincuentes comunes.\n- Alzamiento en armas con el fin de cambiar la Constitución Política o la forma de gobierno\nestablecida en ella, deponer algunos de los poderes públicos del gobierno nacional o impedir,\n\naunque sea temporalmente, el libre ejercicio de sus facultades constitucionales o su renovación\nen los términos legales que origine enfrentamientos armados con fuerzas regulares o de\nseguridad pública, o para cometer atentados contra la vida y seguridad de las personas, la\nintegridad o la soberanía del Estado."
+   },
+   {
+    "group": "OTRAS EXCLUSIONES",
+    "pdf_page_start": 17,
+    "text": "HECHOS AGRAVADOS: Son los casos de conmoción civil, huelga, bloqueos, marchas de protesta,\ndisturbios laborales, vandalismo o sabotaje donde el Asegurado o conductor del vehículo decida no\nevitarlos y se exponga a sufrir daños.\nPérdidas y daños sufridos cuando el conductor en conocimiento del peligro, se exponga a sufrir daños a\nconsecuencia de crecida de ríos o mazamorras y/o decida cruzar o circular por calles, avenidas, canales\ny ríos y/o cualquier otra vía que se encuentra anegada, inundada y/o en condiciones que impidan la\ncirculación normal.\nLos daños que se produzcan por hechos provocados intencionalmente por el Asegurado o por el\nconductor y/o ocupantes del vehículo Asegurado y/o en conocimiento de peligro se expongan\ntemerariamente a sufrir daños.\nLos daños materiales propios o de terceros, así como la muerte y/o lesiones a personas que se produzcan\ncomo consecuencia de que el vehículo Asegurado se encuentre remolcando o arrastrando a otro o viceversa.\nLos siguientes casos se consideran hechos agravados, según lo establecido por el Artículo 1001 del Código\nde Comercio, los cuales son de carácter enunciativo y no limitativo:\na) Alteraciones físicas en el Vehículo.\nb) Cambio de uso declarado, entiéndase por uso, público o privado o alquiler.\nc) Cambio de Propiedad del Vehículo, salvo notificación y aceptación de la Compañía.\nd) Pérdida de llaves.\nABUSO DE CONFIANZA: Los daños al Vehículo Asegurado que no sean súbitos, imprevistos y\nfortuitos, ocurridos mientras éste se encuentre en poder de terceros y éstos por abuso de confianza y sin la\nautorización del Asegurado, hayan utilizado el Vehículo para otros fines que no sean los autorizados por\nel Asegurado.\nCONDUCCIÓN NO AUTORIZADA: Los daños materiales y/o lesiones corporales y/o muerte que se\nproduzcan cuando el vehículo Asegurado esté conducido por una persona cuya licencia de conducir se\nhalle caduca o vencida (sin vigencia) por más de sesenta (60) días calendario o este suspendida, o cuando\nla licencia de conducir no pertenezca a la categoría que corresponda al tipo y/o uso de Vehículo Asegurado,\no cuando no cuente con licencia válida para conducir en territorio boliviano o que aun teniéndola, sea\nmenor a dieciocho (18) años o mayor a sesenta y nueve (69) años.\nDOLO O MALA FE: Las declaraciones falsas o reticentes hechas con dolo o mala fe hacen nulo el\npresente contrato. En este caso el Asegurado no tendrá derecho a la devolución de la prima pagada.\n\nMEDIOS PROPIOS: Los daños cuando el vehículo Asegurado no se encuentre circulando por sus\npropios medios, sino en otros, como ser sobre camión, plataforma de ferrocarril u otro similar.\nMULTAS/ PENALIDADES: Multas, sanciones, guardajes o costo de postas, decomisos y penalidades\nimpuestas por autoridades policiales, militares, judiciales o administrativas, costo de emisión de informes\nde las autoridades competentes.\nUSO DECLARADO: Los daños causados al vehículo Asegurado cuando se encuentre prestando otro\nuso al declarado al momento de asegurar el vehículo en el Formulario de Declaración Pre Riesgo, ya sea\nen forma momentánea o permanente. Entendiendo por uso público, privado, de alquiler o utilizado para\nfines de enseñanza o instrucción.\nVÍAS NO AUTORIZADAS PARA LA CIRCULACIÓN: Los daños materiales y/o lesiones corporales\ny/o muerte que se produzcan mientras el vehículo Asegurado circule o esté estacionado o detenido en vías\nprohibidas o no habilitadas al tránsito rodado, ríos o lechos de ríos o por territorio extranjero, salvo que\ncuente con la cláusula de extraterritorialidad. Sin embargo, se hará la excepción cuando estas vías se\nconstituyan en el paso obligatorio de camino, siempre y cuando el vehículo asegurado no esté\ninvolucrado en competencias de ningún tipo.\nEQUIPOS: En la presente póliza se entenderá como equipos a todos los relacionados con comunicación,\nrastreo satelital, GPS, médicos, de amplificación de sonido y otros similares. Los mismos no se encuentran\nincluidos en las coberturas de la presente póliza.\nCONTRAVENCIONES: Los daños materiales y/o lesiones corporales y/o invalidez y/o muerte de los\nocupantes que se produzcan por la contravención a las siguientes infracciones del Código y Reglamento\nde Tránsito:\n1. Fuga y falta de asistencia a la víctima en caso de accidente.\n2. Confiar la conducción a persona que no posea licencia ni autorización para conducir.\n3. Falsificar o Alterar la licencia de Conducir.\n4. Usar placas alteradas y/o que no correspondan al vehículo asegurado y/o circular sin placas.\n5. No informar a la autoridad en caso de accidente.\n6. Exceso de carga o de pasajeros en el transporte.\n7. Circular con exceso de velocidad o por encima de la velocidad permitida\n8. Circulación del vehículo en sentido contrario al autorizado por el Organismo Operativo de Tránsito y la\nAlcaldía, siempre y cuando exista la señalización correspondiente.\n9. Detener o estacionar el vehículo en carretera, calle o avenida de forma que haga peligroso el tránsito.\n10. Conducir sin haber recabado la licencia o autorización correspondiente, o que la misma no pertenezca\na la categoría y uso realizado.\n11. Es obligatorio el cumplimiento de las normas contenidas referidas a las señales verticales, horizontales,\nluminosas y sonoras y la de los policías, incluyendo semáforos luminosos.\n12. Conducir con licencia inhabilitada, revocada o caduca más de 60 días.\n13. Transitar sin luces durante horario nocturno.\n14. Omitir la señalización reglamentaria en el caso de detención obligada.\n\n15. Invasión de carril y adelantamiento en carretera, Art 41 y 42 del Código de Tránsito.\n16. Infracciones a las disposiciones descritas en el Capítulo XII – De la Carga – incluidas en el Reglamento\ndel Código de Tránsito y contravenir a toda otra disposición de cumplimiento imperativo relativo al uso,\nconducción, circulación y tráfico de vehículos:\nArtículo 168°.- (Peso y volumen) Con carácter general el peso de la carga no será superior a la capacidad\ndel vehículo según su fabricación y el volumen no excederá de las medidas establecidas en este reglamento.\nArtículo 169°.- (Cargas generales) Las cargas generales no podrás sobresalir de las partes más salientes\n(carrocerías, guardabarros o punta eje) del vehículo en que sean transportadas.\nArtículo 170°.-(Cargas livianas) Se exceptúa de la disposición anterior las cargas tales como pasto, paja,\nlanas, virutas de madera, envases vacíos y otras similares en lo que a su gran volumen en relación al poco\npeso se refiere, las que podrán sobresalir:\n- Un metro como máximo de la parte posterior del vehículo.\n- La altura del vehículo cargado no excederá el límite fijado a continuación:\nAncho total máximo con carga: 2.50 metros\nAltura total máxima con carga: 4.00 metros\nLongitudes totales máximas con carga:\n- Vehículo de dos ejes: 11.00 metros\n- Vehículos de tres ejes: 12.00 metros\n- Vehículos semi-remolques: 15.00 metros\n- Otras combinaciones: 18.30 metros\nArtículo 171°.-(Cargas indivisibles) Tratándose de transporte de las cargas indivisibles estas podrán\nsobresalir:\n- Un metro como máximo de la parte posterior del vehículo.\n- La altura y anchura del vehículo cargado no excederán de las medidas señaladas a continuación:\nAncho total máximo con carga: 2.50 metros\nAltura total máxima con carga: 4.00 metros\nLongitudes totales máximas con carga:\n- Vehículo de dos ejes: 11.00 metros\n- Vehículos de tres ejes: 12.00 metros\n- Vehículos semi-remolques: 15.00 metros\nOtras combinaciones: 18.30 metros\nArtículo 172°.- (Señales de peligro) Los vehículos a que se refieren los artículos 177, 178 y 190 circularán\na velocidades prudenciales y por las calles de menor tránsito en las ciudades y poblaciones. Llevarán dos\nbanderolas de color rojo y solamente podrán transitar durante la noche con una luz roja de prevención de\npeligro, ambas colocadas en la parte delantera y trasera del vehículo y en lugar perfectamente visible.\nArtículo 173°.- (Cargas excepcionales) En casos excepcionales y cuando la carga exceda las medidas\ngeométricas señaladas anteriormente, la Policía de Tránsito otorgará permisos especiales. En estos casos\nla autoridad determinará las precauciones y cuidados especiales que deben tener tanto el conductor como\nel propietario en el transporte de estas cargas. Los permisos serán válidos para un solo viaje.\nArtículo 174°.- (Transporte de ripio, arena y similares) Los vehículos destinados al transporte de arena,\nripio, tierra, cascajo, materiales de construcción, ya sean líquidos o sólidos, serán construidos de tal forma\nque la carga no se derrame sobre la vía.\n\nArtículo 177°.- (Transporte de explosivos o inflamables) Los conductores de vehículos que transportan\nmateriales explosivos o inflamables observarán estrictamente las siguientes reglas:\n- Llevarán durante el día dos banderolas de color rojo de 25 x 40 centímetros colocadas en lugar\nvisible de la parte delantera y trasera del vehículo. Durante la noche llevarán luz roja indicadora\ndel peligro y que sea visible a una distancia prudencial.\n- Colocarán una conexión eléctrica entre la armazón metálica del vehículo y la tierra, consistente en\nuna cadena que arrastre por el suelo sin perder contacto.\n- Llevarán dos letreros con las palabras: “PELIGRO EXPLOSIVOS”, colocados en lugar visible de\nla parte trasera y delantera del vehículo.\n- Si estos materiales se transportan en varios vehículos y estos van en convoy o caravana, guardarán\nentre sí una distancia de por lo menos 50 metros.\n- Es prohibido al conductor o acompañante, fumar en, sobre o cerca del vehículo cargado con\nmateriales explosivos o inflamables.\n- Es estrictamente prohibido llevar pasajeros u otros materiales inflamables en el mismo vehículo.\nLos vehículos que transporten explosivos no podrán llevar fulminantes.\nArtículo 178°.- (Precauciones) Los vehículos destinados al transporte de materiales explosivos o\ninflamables, circularan a velocidades prudenciales, no estacionarán en los lugares poblados salvo casos de\nfuerza mayor y en todo caso, los conductores extremarán las precauciones tendientes a dar la máxima\nseguridad para su vehículo y ocupantes, así como también para todos los usuarios y vecinos del camino a\nlos que se fueran aproximando en su recorrido.\nArtículo 182°.- (Exceso de carga) Con carácter general, la vigilancia y el cuidado sobre el exceso de\ncarga, correrá por cuenta del propietario o conductor del vehículo. En casos de infracción a la Policía del\nTránsito obligará a descargar el exceso, prohibiendo, hasta tanto la circulación del vehículo y sancionará\nal infractor.\nArtículo 184°.- (Descargue) No se permitirá que durante las operaciones de descargue se deje la carga\nobstruyendo la circulación, debiendo ser esta trasladada directamente del vehículo a los depósitos o lugares\ndestinados a su guarda.\nArtículo 185°.- (Precauciones) Tanto durante las operaciones de carguío, como de descargue se deberá\ntener el cuidado necesario y se tomarán las precauciones del caso a fin de no ocasionar accidentes o daños\na las personas o cosas.\nArtículo 187°.- (Descargue del transporte pesado) El descargue de los vehículos de transporte pesado\ndebe efectuarse en los depósitos de las personas o empresas contratantes tratándose de zonas de intensa\ncirculación en los horarios establecidos por la Policía de Tránsito, siendo prohibido efectuar estas\noperaciones en las tiendas o almacenes donde se venden los artículos al por menor.\nArtículo 188°.- (Remolques) Todas las disposiciones del presente Capítulo son aplicables a los vehículos\ncon semirremolques o remolques.\nArtículo 189°.- (Transporte mixto) El transporte mixto de pasajeros y carga está prohibido, cuando\nexcepcionalmente sea permitido, se acondicionará de tal forma a los pasajeros y la carga, para que el\ntransporte no constituya peligro.\n16. Incumplir las reglas del Estacionamiento y Paradas establecidas en el Código de Tránsito descritas en\nlos siguientes artículos:\nArtículo 42°.- (Lugar de parada) Todo conductor que estacione, pare o detenga su vehículo lo hará sobre\nel costado derecho de la vía, de modo que no obstaculice la libre circulación.\n\nArtículo 43°.- (Posición) En los lugares de estacionamiento, los vehículos conservarán la posición\nseñalada por la autoridad.\nArtículo 44°.- (Estacionamiento en las carreteras) Se prohíbe el estacionamiento de cualquier clase de\nvehículo en la calzada de las Carreteras y Caminos Rurales, salvo el caso de necesidad insalvable en que\nel conductor queda obligado a prevenir el peligro mediante la señalización correspondiente.\nArtículo 45°.- (Detención súbita) Los conductores quedan prohibidos de detener su vehículo, súbita y\nbruscamente, salvo el caso de emergencia.\nArtículo 46°.- (Estacionamiento prohibido) Es prohibido estacionar, para o detener el vehículo en\nlugares no autorizados.\nArtículo 190°.- (Brevet o licencia) Está prohibido conducir vehículos motorizados sin el respectivo brevet\no licencia o estando este documento caduco o cancelado. Es igualmente prohibido ceder el brevet o la\nlicencia a terceras personas o permitir la conducción a personas que no estén legalmente autorizadas para\nhacerlo."
+   }
+  ],
+  "parametros_destacados": [
+   {
+    "name": "alcoholemia_máxima",
+    "value": "cero punto cincuenta (0.50) grados en cada mil (1000) ml de sangre o su equivalente en mg/l en el aire espirado",
+    "group": "EXCLUSIONES BÁSICAS",
+    "_derived": true
+   },
+   {
+    "name": "licencia_caduca",
+    "value": "caduca o vencida (sin vigencia) por más de sesenta (60) días calendario",
+    "group": "OTRAS EXCLUSIONES / CONDUCCIÓN NO AUTORIZADA",
+    "_derived": true
+   },
+   {
+    "name": "edad_conductor",
+    "value": "menor a dieciocho (18) años o mayor a sesenta y nueve (69) años",
+    "group": "OTRAS EXCLUSIONES / CONDUCCIÓN NO AUTORIZADA",
+    "_derived": true
+   },
+   {
+    "name": "robo_hurto_partes_motos",
+    "value": "el robo y/o hurto de partes y piezas que se produzcan a motocicletas, cuadratracks y vehículos quad está excluido",
+    "group": "EXCLUSIONES BÁSICAS",
+    "_derived": true
+   }
+  ]
+ },
+ "secciones": [
+  {
+   "code": "101 - 910547 - 2017 09 400 1001",
+   "code_suffix": "1001",
+   "title": "SECCIÓN I COBERTURA DE PÉRDIDA TOTAL POR ACCIDENTE",
+   "pdf_pages": [
+    22,
+    23
+   ],
+   "text_file": "clause_texts/CG-1001.txt",
+   "key_parameters": [
+    {
+     "name": "umbral_pérdida_total",
+     "value": "costo de reparación estimado supera el 65% del Valor Comercial al momento del siniestro sin incluir impuesto",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "ámbito",
+     "value": "territorio boliviano; vehículo en circulación o estacionado; conducido por el Asegurado, conductores designados en el Formulario de Declaración Pre Riesgo u otra persona con autorización",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "sobreseguro",
+     "value": "si Valor Asegurado > Valor Real, se indemniza el Valor Real",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "infraseguro",
+     "value": "si Valor Asegurado < Valor Real, indemnización en la proporción de ambos valores",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "opción_reemplazo",
+     "value": "la Aseguradora puede reemplazar el vehículo por otro de características similares",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "exclusiones_propias",
+     "value": "a) falla/rotura mecánica, desperfectos eléctricos, desgaste; b) seguir conduciendo más allá del primer punto de auxilio con daño severo evidente; c) robo de partes y piezas",
+     "source_clausula": "Cláusula 4"
+    },
+    {
+     "name": "documentos_siniestro",
+     "value": "lista a)–n) (CRPVA, alodial, impuestos, baja impositiva, roseta, SOAT, llaves, herramientas, póliza de importación, minuta de transferencia a nombre de la Aseguradora, etc.)",
+     "source_clausula": "Cláusula 5"
+    }
+   ]
+  },
+  {
+   "code": "101 - 910547 - 2017 09 400 1002",
+   "code_suffix": "1002",
+   "title": "SECCIÓN II COBERTURA DE PÉRDIDA TOTAL POR ROBO",
+   "pdf_pages": [
+    25,
+    26
+   ],
+   "text_file": "clause_texts/CG-1002.txt",
+   "key_parameters": [
+    {
+     "name": "configuración_robo_total",
+     "value": "robo total del vehículo perpetrado por personas desconocidas, cuando transcurridos treinta (30) días del aviso no haya sido hallado ni existan indicios sobre su paradero",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "porcentaje_indemnización",
+     "value": "hasta el porcentaje estipulado en las Condiciones Particulares",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "franquicia",
+     "value": "se deduce la franquicia deducible estipulada en las Condiciones Particulares",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "vehículo_recuperado_alterado",
+     "value": "si el vehículo robado es recuperado ANTES de la indemnización con números de motor o chasis alterados o remarcados y/o sin placas: la regularización queda a cargo del Asegurado; la Aseguradora indemniza $us. 500 para tal efecto",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "exclusiones_propias",
+     "value": "robo de piezas o partes; robo provocado intencionalmente por el Asegurado; robo por ajustes o deudas pendientes",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "documentos_siniestro",
+     "value": "lista a)–n) incl. Certificado de Denuncia a DIPROVE",
+     "source_clausula": "Cláusula 4"
+    }
+   ]
+  },
+  {
+   "code": "101 - 910547 - 2017 09 400 1003",
+   "code_suffix": "1003",
+   "title": "SECCIÓN III COBERTURA DE DAÑOS PROPIOS",
+   "pdf_pages": [
+    27,
+    28,
+    29
+   ],
+   "text_file": "clause_texts/CG-1003.txt",
+   "key_parameters": [
+    {
+     "name": "alcance",
+     "value": "a) choque; b) embarrancamiento, vuelco o caída; c) caída/impacto de objetos; d) hundimiento de vías; e) rotura de vidrios por cambios de temperatura; f) dobladuras/rayaduras/raspaduras (internas y/o externas) causadas por persona; g) ídem (externas) por animal; h) desprendimiento súbito de partes por mala sujeción/mantenimiento",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "indemnización_efectivo_sin_franquicia",
+     "value": "en dinero hasta el costo estimado de reparación y sin cobro de la Franquicia Deducible, a no ser que la franquicia se haya establecido como porcentaje del costo estimado de reparación",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "taller_libre_elección",
+     "value": "responsabilidad máxima: 20% adicional y justificado sobre el valor cotizado por taller autorizado",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "conversión_a_pérdida_total",
+     "value": "costos estimados ≥ 65% del Valor Asegurado → condiciones de la Sección I",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "umbral_reposición_pieza",
+     "value": "la pieza se reemplaza solo si su costo de reparación supera el 65% del valor de reposición a nueva (con repuestos originales de fábrica, si la pieza tenía esa condición)",
+     "source_clausula": "Cláusula 4"
+    },
+    {
+     "name": "partes_no_disponibles_y_diferencial_importación",
+     "value": "Dos reglas distintas de la Cláusula 4: (1) si las partes/piezas no se encuentran en el mercado local con límites superiores al establecido en la condición de Flete Aéreo del Condicionado, se procede directamente a la indemnización en efectivo; (2) la Aseguradora tampoco está obligada a adquirir partes y piezas en el mercado local cuando exista una diferencia de más del veinte por ciento (20%) entre el precio local y el precio de importación",
+     "source_clausula": "Cláusula 4"
+    },
+    {
+     "name": "exclusiones_propias",
+     "value": "a) fallas mecánicas/eléctricas/desgaste/deficiente instalación; b) seguir conduciendo más allá del primer punto de auxilio a pesar de existir un daño estructural y/o mecánico severo y evidente (el auxilio mecánico de la Aseguradora cuenta como punto de auxilio); c) robo de piezas",
+     "source_clausula": "Cláusula 5"
+    }
+   ]
+  },
+  {
+   "code": "101 - 910547 - 2017 09 400 1004",
+   "code_suffix": "1004",
+   "title": "SECCIÓN IV COBERTURA DE HMACC-AMITT",
+   "pdf_pages": [
+    29,
+    30,
+    31,
+    32,
+    33,
+    34
+   ],
+   "text_file": "clause_texts/CG-1004.txt",
+   "key_parameters": [
+    {
+     "name": "riesgos_cubiertos",
+     "value": "Huelgas, Motines, Asonada, Conmoción Civil (HMACC); Actos Mal Intencionados de Terceros y Terrorismo (AMITT): Daño Malicioso, Vandalismo y Sabotaje; Terrorismo — con definiciones propias en la Sección",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "definición_motín_límite_temporal",
+     "value": "alteración local del orden público que reviste poca gravedad y no mayor a cinco (5) días",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "extensión",
+     "value": "daños por acción de autoridad legalmente constituida en la represión de la alteración del orden público",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "opción_pérdida_total",
+     "value": "costos ≥ 65% del Valor Asegurado → la Aseguradora a su elección puede declarar Pérdida Total",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "indemnización",
+     "value": "mismo esquema que Sección III (efectivo sin franquicia salvo franquicia porcentual; taller libre elección +20%; infraseguro proporcional; sobreseguro al costo de reparación)",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "umbral_reposición_pieza",
+     "value": "65% del valor de reposición a nueva",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "exclusiones_propias",
+     "value": "a)–n): robo/hurto no amparado, lucro cesante, suspensión de trabajo, robo/hurto como causa directa, desposeimiento por confiscación/ocupación ilegal, material nuclear, radiaciones, contaminación biológica/química, cohetes y misiles, interrupción de negocio/servicios, guerra (i–iv), actos del Asegurado/parientes/empleados/contratistas",
+     "source_clausula": "Cláusula 4"
+    }
+   ]
+  },
+  {
+   "code": "101 - 910547 - 2017 09 400 1005",
+   "code_suffix": "1005",
+   "title": "SECCIÓN V COBERTURA DE ROBO PARCIAL DE PARTES Y PIEZAS",
+   "pdf_pages": [
+    35,
+    36,
+    37
+   ],
+   "text_file": "clause_texts/CG-1005.txt",
+   "key_parameters": [
+    {
+     "name": "requisitos_cobertura",
+     "value": "partes verificadas y valorizadas en el Formulario de Declaración Pre Riesgo, fijadas/sujetadas permanentemente (o añadidas después, declaradas y acordadas); incluye llanta de repuesto, llave de ruedas, pernos, herramientas, extinguidor y gata",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "intento_de_robo",
+     "value": "si no se consumó la sustracción, el daño se considera bajo la Sección HMACC AMITT (si está contratada)",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "límite_eventos",
+     "value": "reposición de un solo evento por cada parte o pieza robada durante la vigencia anual",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "límite_llanta",
+     "value": "límite máximo de USD 700.- por llanta",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "umbral_reposición_pieza",
+     "value": "65% del valor de reposición a nueva",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "exclusiones_propias",
+     "value": "a) hurto; b) hechos provocados intencionalmente; c) confiscación/medidas precautorias incl. robo en traslado ordenado por autoridad; d) partes sin las medidas de seguridad solicitadas (en el tiempo y forma requeridos), salvo pacto escrito en contrario",
+     "source_clausula": "Cláusula 5"
+    }
+   ]
+  },
+  {
+   "code": "101 - 910547 - 2017 09 400 1006",
+   "code_suffix": "1006",
+   "title": "SECCIÓN VI COBERTURA DE RESPONSABILIDAD CIVIL",
+   "pdf_pages": [
+    38,
+    39,
+    40
+   ],
+   "text_file": "clause_texts/CG-1006.txt",
+   "key_parameters": [
+    {
+     "name": "alcance",
+     "value": "indemnizaciones por responsabilidad civil por lesiones corporales y daños materiales a terceros por el uso del vehículo, hasta la suma de las Condiciones Particulares",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "relación_SOAT",
+     "value": "lesiones corporales en exceso de los montos del SOAT, excepto tercero afectado sin cobertura SOAT; compatible con el SOAT; el incumplimiento en contratar SOAT no libera a la Aseguradora",
+     "source_clausula": "Cláusulas 1 y 5"
+    },
+    {
+     "name": "gastos_judiciales",
+     "value": "honorarios, gastos y costas de defensa en exceso de la suma de la Sección; opción de depósito para liberarse; proporcionalidad si la responsabilidad excede la suma asegurada",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "responsabilidad_penal",
+     "value": "actos intencionales/potestativos y responsabilidades de orden penal no amparados",
+     "source_clausula": "Cláusula 3"
+    },
+    {
+     "name": "pago",
+     "value": "dentro de los sesenta (60) días desde la aceptación escrita (art. 1034 Código de Comercio); opción de reposición/reparación/reconstrucción; indemnización al Asegurado o al tercero damnificado, hasta el Límite Combinado para Daños a Personas y de Bienes de Terceros",
+     "source_clausula": "Cláusula 4"
+    },
+    {
+     "name": "exclusiones_propias",
+     "value": "a)–o): cubierto por SOAT/AP (salvo exceso), familiares/dependientes/ocupantes (amparables por coberturas adicionales), empleados/contratistas/socios, cosas en custodia, carga transportada, daños al propio vehículo, personas reparando el vehículo (salvo emergencia), fuga y falta de asistencia, contaminación/polución gradual, vehículo robado/incautado/sin autorización, responsabilidad penal, multas, riesgos de la naturaleza, lucro cesante, partes desprendidas/lanzadas",
+     "source_clausula": "Cláusula 6"
+    }
+   ]
+  },
+  {
+   "code": "101 - 910547 - 2017 09 400 1007",
+   "code_suffix": "1007",
+   "title": "SECCIÓN VII COBERTURA DE ACCIDENTES PERSONALES A OCUPANTES DE VEHÍCULOS",
+   "pdf_pages": [
+    41,
+    42,
+    43
+   ],
+   "text_file": "clause_texts/CG-1007.txt",
+   "key_parameters": [
+    {
+     "name": "coberturas",
+     "value": "Muerte, Invalidez Total y/o Permanente, Gastos Médicos y Gastos de Sepelio por Accidente de Tránsito, para conductor y ocupantes",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "reducción_proporcional",
+     "value": "si el número de ocupantes es superior al número de asientos originales (según diseño del fabricante) o hasta 8 pasajeros, el que resulte menor, las indemnizaciones se reducen en esa proporción",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "relación_SOAT",
+     "value": "se aplica en exceso del SOAT; no contratar SOAT no libera a la Aseguradora",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "discrepancia_invalidez",
+     "value": "se somete al “Manual de Normas de Evaluación y Calificación del Grado de Invalidez” vigente",
+     "source_clausula": "Cláusula 1"
+    },
+    {
+     "name": "muerte_plazo",
+     "value": "fallecimiento dentro de los trescientos sesenta y cinco (365) días siguientes al accidente; se deduce lo pagado por invalidez del mismo accidente",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "ocupantes_exceso_CRPVA",
+     "value": "si los ocupantes superan los del CRPVA, a cada fallecido se le indemniza la suma asegurada total dividida entre el número de ocupantes accidentados",
+     "source_clausula": "Cláusula 2"
+    },
+    {
+     "name": "exclusiones_propias",
+     "value": "a) hechos intencionales del Asegurado o conductor; b) lucro cesante/demora; c) vehículo robado, incautado o conducido sin autorización",
+     "source_clausula": "Cláusula 3"
+    }
+   ],
+   "notes": "La tabla de invalidez se transcribe estructurada en invalidez_scale."
+  }
+ ],
+ "invalidez_scale": {
+  "_source": "Sección VII, Cláusula 2 (pdf pp. 41-42)",
+  "total_100_pct": "Pérdida total o inhabilitación completa y definitiva a la vida; ambos ojos; de los dos brazos o las dos manos; de las dos piernas o los dos pies; de una pierna y un brazo; de una mano y un pie: 100 %",
+  "items": [
+   {
+    "concepto": "Pérdida de la audición de ambos oídos",
+    "pct": "50 %"
+   },
+   {
+    "concepto": "Pérdida de la vista de un ojo",
+    "pct": "30 %"
+   },
+   {
+    "concepto": "Pérdida de un brazo arriba del codo",
+    "derecho": "75 %",
+    "izquierdo": "60 %"
+   },
+   {
+    "concepto": "Pérdida de un antebrazo hasta el codo",
+    "derecho": "70 %",
+    "izquierdo": "65 %"
+   },
+   {
+    "concepto": "Pérdida de una mano a la altura de la muñeca",
+    "derecho": "60 %",
+    "izquierdo": "50 %"
+   },
+   {
+    "concepto": "Pérdida del dedo pulgar de la mano",
+    "derecho": "20 %",
+    "izquierdo": "18 %"
+   },
+   {
+    "concepto": "Pérdida del dedo índice de la mano",
+    "derecho": "16 %",
+    "izquierdo": "14 %"
+   },
+   {
+    "concepto": "Pérdida del dedo medio de la mano",
+    "derecho": "12 %",
+    "izquierdo": "10 %"
+   },
+   {
+    "concepto": "Pérdida del dedo anular de la mano",
+    "derecho": "10 %",
+    "izquierdo": "8 %"
+   },
+   {
+    "concepto": "Pérdida del dedo meñique de la mano",
+    "derecho": "6 %",
+    "izquierdo": "4 %"
+   },
+   {
+    "concepto": "Pérdida de una pierna por encima de la rodilla",
+    "pct": "60 %"
+   },
+   {
+    "concepto": "Pérdida de una pierna por debajo de la rodilla",
+    "pct": "50 %"
+   },
+   {
+    "concepto": "Pérdida de un pie",
+    "pct": "35 %"
+   },
+   {
+    "concepto": "Pérdida del dedo gordo de un pie",
+    "pct": "10 %"
+   },
+   {
+    "concepto": "Pérdida de todos los dedos de un pie",
+    "pct": "20 %"
+   }
+  ],
+  "regla_zurdo": "En caso de que se compruebe que el incapacitado por el siniestro es zurdo, los porcentajes arriba indicados se aplicarán en sentido opuesto.",
+  "tope": "Las indemnizaciones parciales que se abonen no podrán exceder, en ningún caso, del monto asegurado para el riesgo de invalidez o de la proporción establecida para la pérdida de un miembro."
+ }
+}

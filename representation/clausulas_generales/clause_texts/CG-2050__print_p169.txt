@@ -1,0 +1,49 @@
+# Código Asignado: 101 -910547 - 2017 09 400 2050
+# Título: CLÁUSULA DE SUBROGACIÓN DE DERECHOS DE INDEMNIZACIÓN (PARA PÓLIZAS BANCO BISA S.A. / BISA LEASING S.A / ALMACENES INTERNACIONALES S.A. (RAISA))
+# Impresión: PDF pp. [169, 170] (orden en bundle 122)
+# NOTA: este código tiene más de un texto en el bundle; clasificación de la variación en clause_registry.json.
+
+Póliza N°:
+Certificado N°:
+Ramo:
+Lugar y Fecha:
+Asegurado:
+Vigencia de la Póliza: Inicio:
+Fin:
+Vigencia de la Inicio:
+Subrogación: Fin:
+Materia Asegurada:
+Valor Asegurado:
+Valor Subrogado:
+Subrogatario: BANCO BISA S.A.
+Queda constancia por la presente que, a solicitud expresa del (de los) Asegurado(s), todos los
+DERECHOS y ACCIONES que resulten de la presente póliza, quedan subrogados a favor del BANCO
+BISA S.A., hasta la suma estipulada como Valor Subrogado.
+En consecuencia, el Asegurado no podrá ejercer sus derechos, si no por intermedio del Subrogatario,
+acordándose expresamente que cualquier siniestro indemnizable será pagado por la Compañía al
+Subrogatario. La Compañía sólo estará obligada a pagar al Subrogatario la suma adeudada por el
+Asegurado y el excedente, si lo hubiera, será pagado al Asegurado.
+Como consecuencia de la presente, ninguna modificación de las condiciones de la póliza, sean estas
+generales, particulares o especiales, y que afecten los intereses del Subrogatario, serán introducidas
+sin el previo consentimiento escrito del Subrogatario. En este sentido, toda modificación solicitada
+debe ser acompañada de la correspondiente aprobación escrita por parte del Subrogatario. Toda
+modificación que no haya sido expresamente autorizada por el Subrogatario carecerá de cualquier
+valor. De manera específica, la Compañía acepta que la presente póliza no podrá ser anulada sin el
+consentimiento escrito del Subrogatario, mientras subsista la obligación del Asegurado con el
+Subrogatario.
+La Compañía se obliga a notificar por escrito al Subrogatario en caso que el Asegurado no pague, ya
+sea parcial o totalmente, la prima correspondiente; otorgando treinta (30) días adicionales de
+
+cobertura a partir de la notificación, a afectos que el Subrogatario pueda hacerse cargo del pago
+correspondiente de la prima adeudada con el fin de mantener vigente la cobertura. En caso que la
+Compañía omitiese notificar al Subrogatario sobre el incumplimiento en el pago de la prima, la
+Compañía en caso de siniestro no podrá alegar mora en el pago, obligándose a mantener la póliza
+vigente y con cobertura.
+En caso de renovación de la póliza y de no mediar solicitud en contrario por parte del Subrogatario,
+la Compañía conviene que extenderá automáticamente el tenor de esta cláusula en la nueva póliza,
+aunque no medie solicitud en ese sentido.
+La presente cláusula prevalecerá sobre cualquier cláusula, anexo, condición general, particular o
+especial que se oponga a la misma, aun cuando sea de fecha posterior.
+FIRMAS AUTORIZADAS
+LA BOLIVIANA CIACRUZ
+DE SEGUROS Y REASEGUROS S.A.

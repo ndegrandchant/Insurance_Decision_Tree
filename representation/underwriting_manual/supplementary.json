@@ -1,0 +1,217 @@
+{
+ "_material_class": "supplementary (claramente separado de la lógica de decisión)",
+ "products": {
+  "_note": "Descripciones de producto según el manual (2.2). Los textos contractuales correspondientes están en el bundle de cláusulas.",
+  "LBC_Auto": {
+   "source": {
+    "pdf_page": 9,
+    "printed_page": 2,
+    "section": "2.2.1"
+   },
+   "description_quote": "producto flexible que puede ser suscrito para todos los clientes de la Compañía y todos los segmentos (individual, flotas, licitaciones, masivos, etc.). Cuenta con 7 Secciones Aseguradas, que podrían ser incluidas en la póliza en su totalidad o parcialmente",
+   "secciones": [
+    "Pérdida Total por Accidente — cuando los costos de reparación sean mayores al 65% del valor asegurado",
+    "Pérdida Total por Robo — cuando transcurridos 30 días de su desaparición no se tenga indicios de su ubicación",
+    "Daños Propios — pérdidas por accidentes (en movimiento o estacionados, daños por colisión)",
+    "HMACC AMITT — Huelgas, Motines, Asonada, Conmoción Civil y Actos Mal Intencionados de Terceros y Terrorismo",
+    "Robo Parcial de Partes y Piezas — siempre y cuando se encuentren detalladas en la inspección de pre riesgo",
+    "Responsabilidad Civil — daños a terceros",
+    "Accidentes Personales a Ocupantes — Muerte, Invalidez total y/o parcial permanente y Gastos Médicos"
+   ]
+  },
+  "Plan_Proteccion_Brevet": {
+   "source": {
+    "pdf_page": 9,
+    "printed_page": 2,
+    "section": "2.2.2"
+   },
+   "description_quote": "seguro diseñado para cubrir los vehículos declarados del Asegurado, que sean conducidos por personas nominadas por el contratante. No se cuenta con un producto específico, por lo que estas pólizas son emitidas bajo otros productos adaptados.",
+   "underwriting_info": "cotizado junto con la flota de la empresa o con acuerdo con la Concesionaria; requiere dimensionar exposición (cantidad de vehículos; valores máximos, mínimos y promedios; siniestralidad; límites por evento y agregado anual)"
+  },
+  "Plan_Moto_Proteccion": {
+   "source": {
+    "pdf_page": 10,
+    "printed_page": 3,
+    "section": "2.2.3"
+   },
+   "description_quote": "producto enlatado",
+   "coberturas": [
+    "Pérdida Total por Accidente al 100% (costos de reparación mayores al 65% del valor asegurado)",
+    "Pérdida Total por Robo al 80% (30 días sin indicios)",
+    "Daños propios con Franquicia Deducible del 20% sobre el valor del siniestro, mínimo la franquicia según Plaza de circulación o monto del Valor Asegurado",
+    "Daño malicioso, vandalismo, motines con Franquicia Deducible del 20% sobre el valor del siniestro",
+    "Responsabilidad Civil con cobertura hasta Bs. 35.000"
+   ]
+  }
+ },
+ "strategic_objectives": {
+  "source": {
+   "pdf_page": 8,
+   "printed_page": 1,
+   "section": "1.2"
+  },
+  "_material_class": "metadata",
+  "items": [
+   "cartera rentable y sostenible en el largo plazo (objetivo principal)",
+   "alinear procesos a la Estrategia Corporativa",
+   "suscripción ágil para el segmento masivo con costos operativos mínimos",
+   "segmentar riesgos y aprovechar nichos rentables",
+   "monitoreo continuo de tasas vía resultados de rentabilidad",
+   "rentabilizar el segmento Personas mediante descreme de cartera con diferenciación de tasas; tasas basadas en siniestralidad histórica de 10 años, ajustadas mensualmente según siniestralidad observada"
+  ]
+ },
+ "illustrative_examples": {
+  "_material_class": "example",
+  "_note": "Ejemplos y casos ilustrativos del manual; NO forman parte del árbol de decisión pero se conservan para features futuras.",
+  "items": [
+   {
+    "example": "póliza con la Sección de Responsabilidad Civil únicamente",
+    "context": "ejemplo de suscripción parcial de secciones",
+    "source": {
+     "pdf_page": 14,
+     "printed_page": 7,
+     "section": "3.1.4"
+    }
+   },
+   {
+    "example": "motos BMW o DUCATTI",
+    "context": "ejemplo de marcas de lujo en la exclusión de motocicletas >400cc",
+    "source": {
+     "pdf_page": 11,
+     "printed_page": 4,
+     "section": "3.1.2"
+    }
+   },
+   {
+    "example": "Toyosa, SACI, Andar Motors, Ovando, Taiyo Motors e IMCRUZ",
+    "context": "lista cerrada de importadores/comercializadores aceptados para VA > Bs. 700.000",
+    "source": {
+     "pdf_page": 12,
+     "printed_page": 5,
+     "section": "3.1.2"
+    },
+    "note": "lista operativa (parte de la regla X15), citada aquí también como referencia de entidades"
+   },
+   {
+    "example": "Concesionarias, Farmacias o Supermercados",
+    "context": "ejemplos de agrupadores con vínculo de afinidad (Masiva)",
+    "source": {
+     "pdf_page": 28,
+     "printed_page": 21,
+     "section": "3.4.1"
+    }
+   },
+   {
+    "example": "camiones cisterna u otro tipo de vehículos que transporten hidrocarburos … y los buses de pasajeros",
+    "context": "ejemplos de mayor exposición por materia transportada (pesados)",
+    "source": {
+     "pdf_page": 27,
+     "printed_page": 20,
+     "section": "3.3.5"
+    }
+   },
+   {
+    "example": "parabrisas, radio, panel, etc.",
+    "context": "fotos que el acoplado no tiene (inspección de chatas/semirremolques)",
+    "source": {
+     "pdf_page": 24,
+     "printed_page": 17,
+     "section": "3.1.6"
+    }
+   },
+   {
+    "example": "en algunos casos, 24 horas al día",
+    "context": "uso continuo de automotores pesados",
+    "source": {
+     "pdf_page": 27,
+     "printed_page": 20,
+     "section": "3.3.5"
+    }
+   }
+  ]
+ },
+ "segment_and_terms_glossary": {
+  "_material_class": "definition",
+  "_note": "Términos usados normativamente por el manual, con su base textual. Las definiciones contractuales formales están en base_policy.json del bundle.",
+  "items": [
+   {
+    "term": "Eje Troncal / eje central",
+    "observation": "usado en tablas de tasas/primas/franquicias; el manual no lo define formalmente. En tablas afines se nombran La Paz, Santa Cruz, Cochabamba y plazas “Santa Cruz, La Paz, Trinidad” según el caso — la composición exacta varía por tabla y NO se armoniza aquí.",
+    "flag": "ambiguity"
+   },
+   {
+    "term": "Empresas (denominaciones)",
+    "definition_quote": "S.A. (Sociedad Anónima), SRL (Sociedad de Responsabilidad Limitada), S.A.M. (Sociedad Anónima Mixta), R.L. (Responsabilidad Limitada) u ONG (Organismo No Gubernamental)",
+    "source": {
+     "pdf_page": 18,
+     "printed_page": 11,
+     "section": "3.1.5.1.3"
+    }
+   },
+   {
+    "term": "Flota",
+    "observation": "umbral distinto según contexto: ≥3 vehículos (PN con NIT, 3.1.5.1.2); a partir del 2º vehículo (Empresas livianos, 3.1.5.1.4); “uno o más vehículos” (Commercial, 4.4); ≥4 vehículos mismo propietario (Consumer, 4.4, restringido a Case UW)",
+    "flag": "internal_tension"
+   },
+   {
+    "term": "Vehículos pesados (Case UW)",
+    "definition_quote": "Camiones, Tractocamiones, Cisternas, Tractores, Tráileres, Volquetas, Microbuses, Colectivos, Omnibuses, Chatas, Semi-remolques, Remolques, Tolvas y Carrocerías; concentra vehículos con un tonelaje mayor a los 8 TN",
+    "source": {
+     "pdf_page": 26,
+     "printed_page": 19,
+     "section": "3.3.5"
+    }
+   },
+   {
+    "term": "Camión (aclaración RUAT)",
+    "definition_quote": "los camiones son vehículos que tienen la cabina separada de la caja de carga y serán considerados como vehículos pesados, aunque el RUAT indique que se trata de una camioneta",
+    "source": {
+     "pdf_page": 11,
+     "printed_page": 4,
+     "section": "3.1.2"
+    }
+   },
+   {
+    "term": "Valor Asegurado",
+    "definition_quote": "Es el valor que se anota en la póliza o sus anexos, según el caso, y que constituye la responsabilidad máxima de la Compañía",
+    "source": {
+     "pdf_page": 38,
+     "printed_page": 31,
+     "section": "4.7"
+    }
+   }
+  ]
+ },
+ "effective_dates": {
+  "_material_class": "metadata/forward_looking",
+  "items": [
+   {
+    "field": "Fecha de Inicio de Vigencia (tabla de información del documento)",
+    "value": "01/06/2020",
+    "source": {
+     "pdf_page": 2,
+     "printed_page": -5,
+     "section": "Información del documento"
+    }
+   },
+   {
+    "field": "Fecha de Validación",
+    "value": "02/06/2025",
+    "source": {
+     "pdf_page": 2,
+     "printed_page": -5,
+     "section": "Información del documento"
+    }
+   },
+   {
+    "field": "últimas modificaciones registradas",
+    "value": "01/01/2025 y 04/06/2025 (ver change_log en document.json)",
+    "source": {
+     "pdf_page": 3,
+     "printed_page": -4,
+     "section": "Tabla de cambios"
+    }
+   }
+  ]
+ }
+}

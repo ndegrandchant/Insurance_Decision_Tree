@@ -1,0 +1,416 @@
+{
+ "_material_class": "core_decision_logic",
+ "_schema_note": "Árboles construidos SOLO donde la fuente es genuinamente ramificada (ver decisions.md D2). Cada nodo cita la fuente. Los nodos \"excluded_unless\" reproducen las condiciones de levantamiento de exclusión textuales; donde la fuente no define orden de evaluación, el campo evaluation_order lo dice explícitamente.",
+ "trees": [
+  {
+   "id": "T-ELIG-ESTANDAR",
+   "name": "Elegibilidad de perfil de riesgo — Procedimiento de Suscripción Estándar",
+   "source": {
+    "pdf_page": 10,
+    "printed_page": 3,
+    "section": "3.1.2"
+   },
+   "evaluation_order": "La fuente lista tipos admitidos y luego exclusiones; no define orden de evaluación entre exclusiones. Modelado: gate de tipo admitido → toda exclusión aplicable rechaza (o deriva), salvo condición de levantamiento.",
+   "root": {
+    "node": "gate_tipo_vehiculo",
+    "question": "¿El vehículo es de un tipo admitido para el Procedimiento Estándar?",
+    "admitted_types_quote": "automotores livianos, camionetas (pick-up), vagonetas y jeeps, motocicletas, minibuses de hasta 8 ocupantes sin modificación al diseño original y furgonetas que sean de uso particular y automotores pesados de bajo tonelaje para empresas (utilizados para la distribución de productos y transporte de material de construcción)",
+    "note": "Nuevos (0 km.) y usados, indistintamente.",
+    "if_no": {
+     "outcome": "NO elegible por Estándar (evaluar otro procedimiento según su perfil)"
+    },
+    "if_yes": {
+     "next": "exclusiones"
+    }
+   },
+   "exclusiones": [
+    {
+     "id": "X01",
+     "excluded": "Automotores pesados con tonelajes mayores a 8 toneladas: Camiones, Tractocamiones y Volquetas para el segmento Comercial y Pyme",
+     "outcome": "excluido",
+     "source_page": 11
+    },
+    {
+     "id": "X02",
+     "excluded": "Cualquier tipo de vehículo pesado para el segmento Consumer (Personas Naturales y Personas Naturales con NIT)",
+     "clarification_quote": "los camiones son vehículos que tienen la cabina separada de la caja de carga y serán considerados como vehículos pesados, aunque el RUAT indique que se trata de una camioneta",
+     "outcome": "excluido",
+     "source_page": 11
+    },
+    {
+     "id": "X03",
+     "excluded": "Cisternas, Tractores, Tráileres, Microbuses, Colectivos, Ómnibus, Chatas, Semirremolques, Remolques, Tolvas y Carrocerías de cualquier tonelaje",
+     "outcome": "excluido",
+     "source_page": 11
+    },
+    {
+     "id": "X04",
+     "excluded": "Equipo pesado de Contratistas sin placas de circulación",
+     "outcome": "excluido; deben ser suscritos como Equipos de Contratistas en la Línea de Ingeniería",
+     "source_page": 11
+    },
+    {
+     "id": "X05",
+     "excluded": "Vehículos de competición, campo traviesa (Off-Road) y/o carreras",
+     "outcome": "excluido",
+     "source_page": 11
+    },
+    {
+     "id": "X06",
+     "excluded": "Vehículos con modificaciones en su carrocería original",
+     "outcome": "excluido",
+     "source_page": 11
+    },
+    {
+     "id": "X07",
+     "excluded": "Minibuses con modificaciones al diseño original para reducir o ampliar la capacidad de ocupantes",
+     "lift_condition": {
+      "if": "se haya REDUCIDO la capacidad de ocupantes",
+      "and": "se otorgue cobertura de Accidentes Personales a Ocupantes solamente al conductor (1 ocupante) o se elimine esta cobertura",
+      "then": "exclusión levantada"
+     },
+     "source_page": 11
+    },
+    {
+     "id": "X08",
+     "excluded": "Vehículos sobre rieles",
+     "outcome": "excluido",
+     "source_page": 11
+    },
+    {
+     "id": "X09",
+     "excluded": "Motocicletas con cilindrada superior a 400 cc. de competición, Street Legal y marcas de lujo (por ejemplo, motos BMW o DUCATTI)",
+     "lift_condition": {
+      "authority": "límite de Autoridad de Subgerentes Comerciales y Gerentes de Sucursal",
+      "conditions": [
+       "la motocicleta no participe en ningún tipo de competición",
+       "su valor asegurado no supere los Bs.70.000",
+       "apliquen los términos/condiciones/tasas del producto Moto protección"
+      ],
+      "then": "exclusión levantada"
+     },
+     "source_page": 11
+    },
+    {
+     "id": "X10",
+     "excluded": "Vehículos de Rent a Car o alquiler en general",
+     "routing": {
+      "case": "vehículos que trabajan con contratos de alquiler con empresas petroleras",
+      "then": "deberán ser autorizados por procedimiento Case Underwriting"
+     },
+     "source_page": 11
+    },
+    {
+     "id": "X11",
+     "excluded": "Vehículos para uso de aprendizaje (Escuelas de Conducción)",
+     "outcome": "excluido",
+     "source_page": 11
+    },
+    {
+     "id": "X12",
+     "excluded": "Vehículos antiguos (con antigüedad mayor a 20 años)",
+     "lift_conditions": [
+      {
+       "case": "a) Renovaciones",
+       "conditions": [
+        "se aclare que la cobertura de Daños es base efectivo (partes genuinas sujeto a indemnización en efectivo)",
+        "se otorgue la Cláusula de Elegibilidad de Talleres en lugar de Libre Elegibilidad",
+        "se incluya la Nota Aclaratoria sobre este tipo de vehículos"
+       ],
+       "limit": "renovables siempre que los vehículos no tengan antigüedad mayor a los 40 años"
+      },
+      {
+       "case": "b) Nuevas",
+       "scope": "vehículos con antigüedad de 21 años hasta modelos 1990, solamente marcas Suzuki, Toyota. Nissan, Mitsubishi, Mazda, Ford, Volkswagen y Honda [puntuación verbatim]",
+       "pricing": "Personas y Empresas Unipersonales: prima generada por el tarificador para vehículos de 20 años de antigüedad; Empresas: tasa y prima mínima asignada a este segmento y el slip modelo para livianos",
+       "conditions": [
+        "cobertura de Daños base efectivo",
+        "Cláusula de Elegibilidad de Talleres en lugar de Libre Elegibilidad",
+        "Nota Aclaratoria"
+       ]
+      }
+     ],
+     "related_note": "Nota de la fuente (p.12): la Aseguradora podrá solicitar cotización para la reparación/reposición y validarla con sus tablas de costos u otras cotizaciones; la cotización validada se usa en la indemnización en efectivo.",
+     "source_page": 11
+    },
+    {
+     "id": "X13",
+     "excluded": "Vehículos que, como parte de su actividad regular, circulen fuera del País",
+     "clarification_quote": "La extraterritorialidad ocasional no forma parte de esta exclusión",
+     "outcome": "excluido",
+     "source_page": 12
+    },
+    {
+     "id": "X14",
+     "excluded": "Vehículos con capacidad original de más de 8 pasajeros",
+     "outcome": "excluido",
+     "source_page": 12
+    },
+    {
+     "id": "X15",
+     "excluded": "Vehículos que tengan un Valor Asegurado igual o mayor a Bs. 1.050.000,00",
+     "additional_check": {
+      "if": "el valor supera los Bs. 700.000",
+      "then": "validar que hayan sido importados y comercializados por: Toyosa, SACI, Andar Motors, Ovando, Taiyo Motors e IMCRUZ"
+     },
+     "outcome": "VA >= 1.050.000 excluido; 700.000 < VA < 1.050.000 condicionado a importador autorizado",
+     "source_page": 12,
+     "flag": "La fuente enlaza ambas condiciones en una sola viñeta; la lectura estructurada (>=1.050.000 excluye; >700.000 exige validación de importador) es derivada de la sintaxis."
+    },
+    {
+     "id": "X16",
+     "excluded": "Vehículos destinados para el servicio público (urbano o rural o internacional) de pasajeros",
+     "verification": "Se deberá verificar en el RUAT",
+     "outcome": "excluido",
+     "source_page": 12
+    },
+    {
+     "id": "X17",
+     "excluded": "Vehículos descapotables con techo de lona",
+     "outcome": "excluido",
+     "source_page": 12
+    },
+    {
+     "id": "X18",
+     "excluded": "Vehículos blindados",
+     "outcome": "excluido",
+     "source_page": 12
+    },
+    {
+     "id": "X19",
+     "excluded": "Vehículos de Bomberos, de la Policía, del Ejército y ambulancias",
+     "outcome": "excluido",
+     "source_page": 12
+    },
+    {
+     "id": "X20",
+     "excluded": "Vehículos en licitaciones del sector público/ privadas",
+     "outcome": "excluido (corresponde al Procedimiento Licitaciones)",
+     "source_page": 12
+    },
+    {
+     "id": "X21",
+     "excluded": "Vehículos con placa de circulación extranjera",
+     "outcome": "excluido",
+     "source_page": 12
+    },
+    {
+     "id": "X22",
+     "excluded": "Vehículos de colocación masiva de seguros de automotores, como acuerdos con Concesionarios, Bancos, Entidades Financieras u otro canal de distribución que sea considerado masivo",
+     "outcome": "excluido (corresponde al Procedimiento Masivo)",
+     "source_page": 12
+    },
+    {
+     "id": "X23",
+     "excluded": "Vehículos a través de Pólizas de Brevet",
+     "outcome": "excluido",
+     "source_page": 12
+    }
+   ],
+   "default_outcome": "Si pasa el gate y ninguna exclusión aplica (o fue levantada): elegible por Procedimiento Estándar."
+  },
+  {
+   "id": "T-ELIG-CASEUW",
+   "name": "Elegibilidad de perfil de riesgo — Case Underwriting",
+   "source": {
+    "pdf_page": 25,
+    "printed_page": 18,
+    "section": "3.3.1"
+   },
+   "evaluation_order": "La fuente admite cualquier tipo de vehículo salvo lista explícita de exclusiones; sin orden definido entre ellas.",
+   "root": {
+    "node": "gate",
+    "statement": "Puede suscribirse cualquier tipo de vehículos, incluyendo vehículos pesados, salvo las exclusiones siguientes."
+   },
+   "exclusiones": [
+    {
+     "id": "C01",
+     "excluded": "Equipo de pesado de Contratistas sin placas de circulación [redacción verbatim]",
+     "outcome": "excluido; suscribir como Equipos de Contratistas en la Línea de Ingeniería"
+    },
+    {
+     "id": "C02",
+     "excluded": "Vehículos de competición, campo traviesa (Off-Road) y/o carreras",
+     "outcome": "excluido"
+    },
+    {
+     "id": "C03",
+     "excluded": "Vehículos con modificaciones en su carrocería original",
+     "outcome": "excluido"
+    },
+    {
+     "id": "C04",
+     "excluded": "Vehículos sobre rieles",
+     "outcome": "excluido"
+    },
+    {
+     "id": "C05",
+     "excluded": "Vehículos de alquiler (Rent-A-Car)",
+     "clarification_quote": "Esta exclusión no aplica a vehículos alquilados.",
+     "outcome": "excluido",
+     "flag": "La aclaración de la fuente es ambigua (excluye Rent-A-Car pero \"no aplica a vehículos alquilados\"); se transcribe sin interpretar."
+    },
+    {
+     "id": "C06",
+     "excluded": "Vehículos para uso de aprendizaje (Escuelas de Conducción)",
+     "outcome": "excluido"
+    },
+    {
+     "id": "C07",
+     "excluded": "Vehículos que, como parte de su actividad regular, circulen fuera del País",
+     "outcome": "excluido"
+    },
+    {
+     "id": "C08",
+     "excluded": "Vehículos destinados para el servicio público (urbano o rural o internacional) de pasajeros",
+     "outcome": "excluido"
+    },
+    {
+     "id": "C09",
+     "excluded": "Vehículos de Bomberos, de la Policía, del Ejército",
+     "outcome": "excluido",
+     "note": "A diferencia del Estándar (X19), esta lista NO menciona ambulancias."
+    },
+    {
+     "id": "C10",
+     "excluded": "Vehículos de licitaciones del sector público/ privadas",
+     "outcome": "excluido"
+    },
+    {
+     "id": "C11",
+     "excluded": "Vehículos de colocación masiva de seguros de automotores, como acuerdos con Concesionarios, Bancos, Entidades Financieras u otro canal de distribución que sea considerado masivo (canal Wholesale)",
+     "outcome": "excluido"
+    }
+   ],
+   "default_outcome": "Si ninguna exclusión aplica: elegible por Case Underwriting."
+  },
+  {
+   "id": "T-RENOVACION",
+   "name": "Renovación de pólizas — decisión por segmento y siniestralidad",
+   "source": {
+    "pdf_page": 34,
+    "printed_page": 27,
+    "section": "4.1"
+   },
+   "branches": [
+    {
+     "segment": "Comercial (aplica también a Pyme cuando el Asegurado tenga denominación S.A., SRL, S.A.M., R.L. u ONG)",
+     "source_pages": [
+      35
+     ],
+     "auto_renewal_conditions": [
+      "1. El tipo de vehículo(s) se enmarca en el perfil de riesgo del Procedimiento Estándar, los límites asegurados están dentro de las Autoridades de Suscripción Estándar y se cuenta con la aprobación de un Suscriptor con autoridad para estos límites en la renovación",
+      "2. Los términos y condiciones de renovación se mantienen igual a la última vigencia y no corresponden a ninguna exclusión de las Normas y Políticas de Suscripción vigentes"
+     ],
+     "rate_decision": [
+      {
+       "if": "siniestralidad histórica de la póliza es nula",
+       "then": "podrá mantener su tasa vigente sin considerar las tasas mínimas"
+      },
+      {
+       "if": "siniestralidad histórica o última vigencia es menor al 150%",
+       "then": "el suscriptor con límites de suscripción estándar podrá decidir entre mantener su tasa o incrementarla según su criterio buscando rentabilizar la cuenta"
+      },
+      {
+       "if": "la siniestralidad supera el 150%",
+       "then": "el caso deberá ser revisado y autorizado por suscripción Case Underwriting"
+      }
+     ],
+     "flag": "La fuente enumera estas decisiones como condiciones 3. y 4. del mismo listado de renovación automática; se transcriben como reglas de decisión de tasa."
+    },
+    {
+     "segment": "Consumer",
+     "source_pages": [
+      35,
+      36
+     ],
+     "scope_quote": "aplica a renovaciones por cualquier canal y para cualquier póliza que corresponda a un riesgo con perfil de Suscripción Estándar (livianos, pesados, motocicletas, etc.) sin considerar antigüedad",
+     "bands": [
+      {
+       "condition": "Siniestralidad histórica nula",
+       "action": "hasta 10% de descuento, aplicable una sola vez por vehículo; esta tasa descontada se mantiene en siguientes renovaciones mientras la siniestralidad histórica no suba del 60%",
+       "constraint": "prevalecen las primas mínimas vigentes (no aplica el descuento si supone bajar de la prima mínima)"
+      },
+      {
+       "condition": "Siniestralidad histórica hasta el 60%",
+       "action": "mismas tasas"
+      },
+      {
+       "condition": "Siniestralidad histórica entre el 60% y el 150%",
+       "action": "recargo del 10% en tasas o tasas del Tarificador (el que sea mayor)"
+      },
+      {
+       "condition": "Siniestralidad histórica entre 150% y 250%",
+       "action": "recargo del 50%"
+      },
+      {
+       "condition": "Siniestralidad histórica mayor al 250%",
+       "action": "Depuración (recargo exagerado)"
+      }
+     ],
+     "minimums_table_ref": "TBL-RENOV-MIN",
+     "enforcement_quote": "En caso de que el usuario solicite descuento del 10% o 20% y dicho descuento signifique que la prima final esté por debajo de la Prima o Tasa mínima, el CRM bloqueará la solicitud con un mensaje de rechazo.",
+     "additional": [
+      "el suscriptor con límites locales podrá realizar recargos mayores según su criterio",
+      "sigue vigente la revisión de casos excepcionales por Case UW",
+      "renovaciones del producto VIP: por procedimiento estándar manteniendo términos y condiciones siempre y cuando la póliza no haya registrado siniestralidad históricamente"
+     ],
+     "band_boundary_flag": "Los límites de banda (60%, 150%, 250%) aparecen en dos bandas adyacentes (\"hasta el 60%\" y \"entre el 60% y el 150%\", etc.); la fuente no precisa a qué banda pertenece el valor exacto de frontera. No se resuelve."
+    },
+    {
+     "segment": "Vehículos Pesados y motocicletas (pólizas individuales con perfil de límites de suscripción estándar)",
+     "source_pages": [
+      36
+     ],
+     "bands": [
+      {
+       "condition": "siniestralidad menor o igual al 50% (en la Última vigencia o en su Histórico)",
+       "action": "pueden mantener las tasas de la última vigencia"
+      },
+      {
+       "condition": "desde el 51% hasta el 250%",
+       "action": "se deberá incrementar un 17%"
+      },
+      {
+       "condition": "a partir del 250%",
+       "action": "debe ser revisado a través de Case Underwriting"
+      }
+     ],
+     "flag": "Dos imprecisiones de la fuente, no resueltas: (a) las bandas 1 y 2 dejan sin asignar los valores de siniestralidad en el intervalo abierto (50%, 51%) («menor o igual al 50%» / «desde el 51%»); (b) las bandas 2 y 3 comparten la frontera 250% («hasta el 250%» / «a partir del 250%»).",
+     "placement_in_source": "Este esquema aparece como el punto numerado 3. DENTRO del bloque del Segmento “Consumer” (pdf p.36), no como sección independiente. Se modela como rama propia por su alcance material distinto, registrando aquí su ubicación real."
+    }
+   ],
+   "conflict_flag": "CONFLICTO INTERNO DE LA FUENTE (no resuelto): el alcance declarado de la política Consumer (punto 1, p.35: «cualquier póliza que corresponda a un riesgo con perfil de Suscripción Estándar (livianos, pesados, motocicletas, etc.)») se solapa con el esquema del punto 3 para Pesados y motocicletas (p.36), que fija bandas y recargos distintos (p.ej., siniestralidad 200%: recargo del 50% según las bandas Consumer vs incremento del 17% según el punto 3; siniestralidad 40%: «mismas tasas» vs «mantener tasas» — coincidente; 55%: «mismas tasas» vs «+17%» — contradictorio). La fuente no indica cuál esquema prevalece para pesados/motocicletas del segmento Consumer."
+  },
+  {
+   "id": "T-RETROACTIVIDAD",
+   "name": "Retroactividad en emisión/renovación/inclusión",
+   "source": {
+    "pdf_page": 40,
+    "printed_page": 33,
+    "section": "4.11"
+   },
+   "root": {
+    "general_rule_verbatim": "Como política general, no se acepta la emisión de pólizas nuevas, renovaciones o inclusiones, con retroactividad mayor a 30 días (entre la fecha de expedición y el inicio de cobertura).",
+    "question": "¿La retroactividad solicitada (entre fecha de expedición e inicio de cobertura) es de hasta 30 días?",
+    "if_yes": {
+     "case": "hasta 30 días (procedimiento estándar)",
+     "requirements": [
+      "verificar que la orden de renovación/emisión/inclusión haya sido dada oportunamente antes del inicio de vigencia; caso contrario será necesaria una nueva inspección del vehículo o la presentación de la declaración jurada",
+      "conformidad del cliente de que no existen siniestros reportados a la fecha de expedición"
+     ],
+     "outcome": "puede emitirse/renovarse/incluirse con retroactividad"
+    },
+    "if_no": {
+     "case": "mayor a 30 días (excepción a la política general)",
+     "outcome": "el caso deberá ser analizado por el procedimiento Case Underwriting y según el Procedimiento establecido desde el área de Operaciones"
+    },
+    "overlay_condition": {
+     "condition": "si el cliente tuvo algún siniestro durante este periodo (aplicable en cualquiera de los dos casos anteriores; nótese que el caso ≤30 días exige conformidad de que NO existen siniestros reportados)",
+     "outcome": "debe solicitarse al Comité de Riesgos y Siniestros la alternativa de cubrirlo, considerando el riesgo de posibles fraudes; con el VoBo del CR&S se autorizará la retroactividad",
+     "note": "La fuente presenta este caso como párrafo aparte, no como tercera rama excluyente; se modela como condición superpuesta."
+    }
+   }
+  }
+ ]
+}

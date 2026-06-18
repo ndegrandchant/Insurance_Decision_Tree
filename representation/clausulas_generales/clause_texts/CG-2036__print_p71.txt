@@ -1,0 +1,51 @@
+# Código Asignado: 101 – 910547 – 2017 09 400 2036
+# Título: CLAUSULA DE SUBROGACION DE DERECHOS – BCP
+# Impresión: PDF pp. [71, 72] (orden en bundle 32)
+# NOTA: este código tiene más de un texto en el bundle; clasificación de la variación en clause_registry.json.
+
+Asegurado XXXX
+Lugar y Fecha: XXXX
+Materia del Seguro XXXX
+Subrogada: Placa: XXXX
+Color: XXXX
+Año: XXXX
+Motor: XXXX
+Chasis: XXXX
+Ubicación del Riesgo: XXXX
+Vigencia del Seguro: Desde: XXXX
+Hasta: XXXX
+Vigencia de la Desde: XXXX
+Subrogación: Hasta: XXXX
+Se deja constancia por la presente Cláusula, que a solicitud expresa de los tomadores y/o contratantes
+y/o asegurados, los señores Banco de Crédito de Bolivia S.A. serán considerados como beneficiarios
+en su condición de acreedores, hasta por el importe de su acreencia sin exceder la suma asegurada de $us
+XXXX correspondiente al valor asegurado subrogado.
+En consecuencia, el Asegurado no podrá ejercitar sus derechos, sino por intermedio de los Subrogatarios,
+acordándose expresamente que cualquier siniestro indemnizable, será pagado por la Compañía
+Aseguradora a los Subrogatarios en forma proporcional al saldo adeudado mencionado en el primer
+párrafo de la presente Cláusula.
+La Compañía Aseguradora solo estará obligada a pagar a los Subrogatarios la suma equivalente al saldo
+adeudado por el Asegurado a cada uno de ellos, y el excedente, si lo hubiera, será pagado al Asegurado.
+Queda entendido y convenido por la aseguradora, que ninguna modificación en las condiciones de la
+presente póliza sean estas generales, particulares o especiales, y que afecten los intereses del Banco de
+Crédito de Bolivia S.A., serán introducidas sin el previo consentimiento escrito del Banco de Crédito
+de Bolivia S.A.. Para estos efectos la Aseguradora avisara oportunamente y por escrito de toda
+modificación que se solicite o exigiera al original tomador y asegurado que presente la aprobación del
+Banco de Crédito de Bolivia S.A.
+Consecuentemente se considera como no inserta o no puesta cualquier modificación que no haya sido
+expresamente autorizada.
+
+La aseguradora se obliga a notificar por escrito al Banco de Crédito de Bolivia S.A. en caso que el original
+tomador o asegurado no pague – total o parcialmente – la prima hasta 10 días calendario anteriores a la
+fecha de vencimiento de la obligación. El Banco de Crédito de Bolivia podrá hacerse cargo del pago
+correspondiente a los bienes cubiertos por la presente Cláusula.
+En caso de renovación de la póliza y de no mediar solicitud en contrario del subrogatario, la aseguradora
+conviene que extenderá automáticamente el tenor de esta cláusula en la nueva póliza, aunque no medie
+solicitud en ese sentido.
+La Presente cláusula será preeminente sobre cualquier cláusula, anexo, condiciones generales,
+particulares o especiales que se opongan a la misma aun cuando sea de fecha posterior.
+LA BOLIVIANA CIACRUZ
+DE SEGUROS Y REASEGUROS S.A.
+FIRMAS AUTORIZADAS
+------------------------------------------------
+Firma del Asegurado

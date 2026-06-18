@@ -1,0 +1,37 @@
+# Código Asignado: 101 – 910547 – 2017 09 400 2100
+# Título: CLÁUSULA DE INDEMNIZACIÓN DE CUOTAS
+# Impresión: PDF pp. [147, 148] (orden en bundle 104)
+# NOTA: este código tiene más de un texto en el bundle; clasificación de la variación en clause_registry.json.
+
+Mediante la presente Cláusula, se acuerda y establece que, la Aseguradora otorga al Asegurado el beneficio
+de Indemnización por las Cuotas al crédito de la prima en esta Póliza, en caso de que haya sido contratada
+con la forma de pago al crédito y de acuerdo a las siguientes condiciones:
+Beneficio:
+Si el vehículo asegurado sufre un accidente cubierto por las Secciones III Daños Propios o IV HMACC-
+AMITT y a consecuencia de este accidente el vehículo no puede ser utilizado por sus propios medios, la
+Compañía Aseguradora, posterior al periodo de carencia de 20 (veinte) días hábiles contados a partir del
+día siguiente a la orden de reparación, se hará responsable ante el Asegurado por las Cuotas Mensuales de
+Financiamiento acordadas en el Cronograma de Pagos al crédito vigente en esta Póliza y hasta que el
+vehículo sea utilizable por sus propios medios nuevamente pero sin superar un máximo de USD 1.000 por
+evento.
+Periodo de Carencia:
+20 (veinte) días hábiles computables a partir del día siguiente en que la Compañía, habiendo aceptado el
+siniestro, otorga la orden de reparación del vehículo siniestrado al Taller.
+El periodo de carencia no entra en vigencia mientras la Compañía Aseguradora no determine las
+causalidades del siniestro, realice la investigación del mismo y determine la aceptación del accidente, ni se
+encuentre en la etapa de la cuantificación de los daños.
+Otras exclusiones:
+Este beneficio queda excluido para las coberturas de Pérdida Total por Accidente y Robo, Robo Parcial,
+Responsabilidad Civil y Accidentes Personales, cualquiera sea su naturaleza.
+Asimismo, queda excluido de este beneficio cuando el asegurado presente mora en el pago de su prima al
+crédito.
+Las faltas y las contravenciones a las normas de tránsito, así como las causalidades liberatorias descritas en
+las Condiciones Generales de la póliza, liberarán completamente a La Boliviana Ciacruz de Seguros y
+Reaseguros S.A. de otorgar el presente beneficio.
+
+Todos los demás términos y condiciones de la póliza permanecen sin modificación, aclarando que el texto
+de la cláusula de Ausencia de Control queda excluida de las faltas y contravenciones mencionadas
+anteriormente.
+LA BOLIVIANA CIACRUZ
+de Seguros y Reaseguros S.A.
+FIRMAS AUTORIZADAS
