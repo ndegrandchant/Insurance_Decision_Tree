@@ -24,7 +24,7 @@ over logic that isn't in the source; represent conflicts, never resolve them sil
 |---|---|
 | Understand the project fast | this map → `PROJECT_CONTEXT.md` |
 | Run or extend the executable graph | `crawlable/README.md` (run commands) → `crawlable/node_schema.md` |
-| Read the faithful source extraction | `representation/` (see §C below) |
+| Read the faithful source extraction | [`representation/README.md`](representation/README.md) (full folder guide) · or §C below |
 | See the proof nothing was lost | `crawlable/COVERAGE_REPORT.md` (data-loss proof) · `verification_report.md` (Part-1 verification) |
 | Know exactly what was built & fixed | `crawlable/CONVERSION_RECORD.md` (§8 fix log, §9 open items) |
 | Apply the method to a *new* manual | `Manual Prompt.md` (extract) → `Crawlable_Conversions.md` (make crawlable) |
@@ -50,10 +50,11 @@ over logic that isn't in the source; represent conflicts, never resolve them sil
 | `source_text/*.txt` | Page-anchored plain-text of both PDFs (`===== PAGE n =====` = physical PDF page). **The audit base every `pdf_page` anchor checks against** — no re-parsing needed. |
 
 ### C. Part 1 — the representation (`representation/`, read-only canonical)
-The faithful extraction: two source sub-trees + a cross-document linkage file.
+The faithful extraction: two source sub-trees + a cross-document linkage file. **This folder has its own full guide — [`representation/README.md`](representation/README.md) — a field-level reference + consumption guide for every artifact; the essentials:**
 
 | Path | Purpose |
 |---|---|
+| **[`representation/README.md`](representation/README.md)** | **The folder's own full guide** — field-level reference + consumption guide for every artifact below; start here for `representation/`. |
 | `underwriting_manual/document.json` | Manual identity, version/change log, structural inconsistencies, source artifacts. |
 | `underwriting_manual/rules.json` | **84** atomic rules — id, source anchors, type, `applies_to`, structured `logic`, verbatim Spanish trigger, flags, table/tree pointers. |
 | `underwriting_manual/tables.json` | **24** parameter tables (authority matrices, tariffs, primas/franquicias mínimas, surcharges, terms), provenance-tagged `verbatim_table` vs `parameter_digest`. |

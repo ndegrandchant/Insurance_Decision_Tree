@@ -19,8 +19,10 @@ hand-patch a resolution into the graph; record it in `rulings/` and regenerate.*
   merging `tables*.json`:
   - `tables_authority.json` — the 3 authority matrices (`matrix_lookup`), **generated** by `build_tables.py`.
   - `tables_rating.json` — the rating tables (S2 brackets, rate matrices, scalars, reference).
-- `graph/<section>.json` — executable nodes: `router.json`; `3.1.2` + `3.1.3` (Standard elig +
-  authority); `3.3.1` + `3.3.2` (Case-UW elig + authority); `3.5.2` (Licitaciones authority).
+  - `tables_renovacion.json` — the renovación siniestralidad band tables (S2 `bracket_map`) + minimums.
+- `graph/<section>.json` — executable nodes (**10** files, **56** nodes): `router.json`; Standard
+  `3.1.2` (elig) + `3.1.3` (capacity/authority) + `3.1.4` (RC/AP limits); Case-UW `3.3.1` + `3.3.2`
+  + `3.3.3`; Licitaciones `3.5.2`; renovación `4.1`; retroactividad `4.11`.
 - `rulings/` — the conflict ledger (open items, all variants verbatim, non-binding recommendations).
 - `crawler/crawl.py` — the engine (JSONLogic evaluator + bracket/matrix lookups + authority +
   escalation + the 3 conflict tiers).
@@ -42,8 +44,7 @@ python3 crawlable/crawler/crawl.py case.json   # crawl one supplied-facts payloa
 ```
 
 ## Status
-**Phase 0 + Phase 1 Batches 1–3a complete.** Validator green; 372/372 source ids accounted;
-47 nodes + 22 tables semantically verified (residual drift 0, after Batch 3a's pass caught + fixed
-4 quote drifts). Converted: both eligibility trees + the authority stage + 22/24 rating tables.
-Next: Batch 3b (rating rules) → Batch 4 (renovación/retroactividad) → Batch 5 (clause links).
-Resume from `COVERAGE_REPORT.md` (tail) + `coverage_manifest.json`.
+**COMPLETE — Phases 0–5 converted, both source documents.** Validator GREEN; 372/372 source ids
+accounted (0 deferred); **56** nodes + **29** tables built; residual semantic drift **0** across the
+fresh-context verifier passes (including a second, independent dimension-B vote — DRIFT 0). The full
+record is `CONVERSION_RECORD.md` (§8 fix log, §9 open items); the data-loss proof is `COVERAGE_REPORT.md`.

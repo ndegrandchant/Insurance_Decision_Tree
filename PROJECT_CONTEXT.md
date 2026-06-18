@@ -1,6 +1,14 @@
 # PROJECT CONTEXT — LBC Automotores extraction (read this first)
 
 > **Purpose of this file.** A self-contained briefing so a *fresh chat with no memory* can understand this project and start a new task without re-reading everything. Skim §1–§3, then jump to §4 "Task routing" for what to load for your specific job. Working directory: `/Users/nicolasdegrandchant/Desktop/Fable_Approach`.
+>
+> **▶ Every chat starts by reading `README.md`.** It is the project **map**: reading it makes you
+> aware of *every* file and folder and what each is for — so you grasp the true shape of the project
+> even though there is a lot of data. You may **not need to open every file it points to**; which ones
+> you actually read is your own judgment, driven by the task at hand. But always read the README
+> itself — even if you ingest nothing further, you then know what exists and where it lives.
+> `README.md` (the map) + this file (the briefing) + `CLAUDE.md` (the rules) are the standing entry
+> context for any chat here.
 
 ---
 
@@ -22,6 +30,8 @@ The two were deliberately modeled **differently** (see `decisions.md` D1): the m
 
 ## 3. The artifacts (what exists, and what each is for)
 
+*(`representation/` has its own full guide — `representation/README.md` — a field-level reference + consumption guide for every Part-1 artifact. The map below stays as a quick briefing.)*
+
 **Underwriting manual** → `representation/underwriting_manual/`
 - `document.json` — identity, version history/change log, structural inconsistencies, source artifacts.
 - `rules.json` — **84** atomic rules: `id`, `source{pdf_page,printed_page,section}`, `type`, `applies_to`, `logic` (structured reading), `quote_verbatim` (Spanish trigger), `flags`, `table_ref`/`tree_ref`.
@@ -38,13 +48,21 @@ The two were deliberately modeled **differently** (see `decisions.md` D1): the m
 
 **Cross-document** → `representation/linkage.json` — maps manual mentions ↔ clause codes, with match-confidence and tensions.
 
+**Crawlable graph (Part 2)** → `crawlable/` (generated from `representation/` + `crawlable/rulings/`; the top-level `README.md` map has the exhaustive file list)
+- `node_schema.md` — the authoritative node schema (borrowed spine + **S1** fidelity fields + **S2** decision tables); `decisions.md` — the Part-2 design decisions.
+- `graph/*.json` — the executable **56** nodes (router + one per section); `facts.json` — the input-fact registry; `tables.json` + `tables_{authority,rating,renovacion}.json` — **29** role-typed parameter/decision tables.
+- `rulings/` — the conflict ledger (**16** OPEN rulings; the crawler escalates here, never resolves).
+- `crawler/crawl.py`, `validate.py`, `coverage.py`, `build_*.py` — the engine, the deterministic-execution validator, the data-loss reconciler, the mechanical generators.
+- `COVERAGE_REPORT.md` — the data-loss proof (372/372 ids, 0 deferred); `CONVERSION_RECORD.md` — exactly what/how + the fix log (§8) and open items (§9); `README.md` — run commands.
+
 **Methodology & planning docs** (workspace root)
 - `decisions.md` — every design decision + rationale (D1–D13). *Read before changing structure.*
 - `verification_report.md` — how it was verified, all findings + dispositions, and the honest residual-risk boundary (§4).
-- `README.md` — consumption guide for the `representation/` artifacts.
+- `README.md` — **the project map / front door**: every file and folder in the project with its purpose, a "start here" routing table, and the project-wide conventions. Read it first (see the callout up top).
 - `Manual Prompt.md` — **the reusable playbook**: how to approach *any* manual (recon → mechanical extract → schema-bound subagents → two-layer verify). This is the engine for future manuals.
 - `Crawlable_Migration_Notes.md` — curated list of what to borrow from "Approach 1" (the other project) when making this crawlable, and what *not* to.
 - `Crawlable_Roadmap.md` — **the Part-2 plan**: 10 phases (Phase 0 prove-core-first … Phase 10 per-manual loop), the skeleton decision, and Tasks **S1** (fidelity fields per node) and **S2** (bracket/band → DMN decision tables).
+- `Crawlable_Conversions.md` — **the reusable Part-2 playbook**: how to turn *any* verified representation into a crawlable graph (manual-agnostic; the Part-2 analog of `Manual Prompt.md`).
 - `decision_trees_view.html` — self-contained visual viewer of the 4 trees (graph + JSON). Regenerate with `python3 work/generate_tree_view.py` after editing `decision_trees.json`.
 - `CLAUDE.md` — project behavioral guardrails (accuracy-first, make-the-call, simplicity-with-the-supplementary-exception, verify-against-source).
 
@@ -56,14 +74,14 @@ The two were deliberately modeled **differently** (see `decisions.md` D1): the m
 
 | If your new task is… | Read first | Then |
 |---|---|---|
-| Understand the whole thing | this file, `README.md` | `decisions.md` |
-| Build the crawlable tree (Part 2) | **§9 of this file**, then `Crawlable_Roadmap.md` | `Crawlable_Migration_Notes.md` + the Approach-1 reference files in §9 |
+| Understand the whole thing | **`README.md` (the file-by-file map)**, then this file | `decisions.md` |
+| Run / extend the crawlable graph (Part 2) | `crawlable/README.md` (run commands) + `crawlable/node_schema.md` | `crawlable/CONVERSION_RECORD.md` (what's built) · `Crawlable_Conversions.md` (the method) |
 | Edit/extend the decision trees | `decision_trees.json` + `decisions.md` D2 | regenerate `decision_trees_view.html` |
 | Work on a clause | `clause_registry.json` entry → its `clause_texts/CG-*.txt` | `base_policy.json` for the base it modifies |
 | Pricing / authority / franquicias | `tables.json` (single source of truth for numbers) | `rules.json` rules that `table_ref` them |
 | Apply this method to a NEW manual | `Manual Prompt.md` | `decisions.md` for worked examples |
 | Audit/verify any claim | `source_text/*.txt` (page-anchored) | `verification_report.md` for method |
-| Resolve a flagged conflict | **don't, unless explicitly told** — see §5 | route it to a "rulings ledger" per `Crawlable_Roadmap.md` Phase 2 |
+| Resolve a flagged conflict | **don't, unless explicitly told** — see §5 | route it through the `crawlable/rulings/` conflict ledger |
 
 ## 5. Hard rules any task must follow (non-negotiable)
 
@@ -99,7 +117,7 @@ It is an *executable, crawlable graph* (its `output/graph.json`, `output/graph/<
 - **Quote all paths** — the PDF filenames contain a literal colon (`AUTOMOTORES.:…pdf`).
 - **`pdf_page` is the physical PDF page** (what a reader opens, 1-based). The manual also has a printed "Página n" = `pdf_page − 7`. The cláusulas bundle has no printed page numbers.
 - **Regenerate the tree viewer**: `python3 work/generate_tree_view.py` (reads `decision_trees.json`, rewrites `decision_trees_view.html`).
-- All JSON is UTF-8 and currently parses cleanly (22 artifact files).
+- All JSON is UTF-8 and parses cleanly (22 representation artifact files; the `crawlable/` graph adds more).
 - The model that produced and verified this work is **Opus 4.8 (1M context)**; the method is designed so fidelity is method-driven, not model-dependent (see `Crawlable_Roadmap.md` §On Fable's ban).
 
 ## 8. One-line glossary (so a new chat isn't lost)
@@ -109,7 +127,7 @@ Suscripción = underwriting · Estándar/Case Underwriting/Masiva/Licitaciones/A
 
 ## 9. Starting Part 2 (crawlable) — entry point, canonical schema, output layout
 
-*This section exists so two separate chats build the same thing in the same place. Read it before writing any Part-2 code or JSON.*
+> **Part 2 is COMPLETE (see §2).** This section is not a TODO — it is the historical build spec and the canonical schema / output-layout reference Part 2 followed. Read it to *understand or extend* the graph (or to reuse the schema for a new manual), not to build Part 2 from scratch.
 
 ### 9.1 Where to start (don't skip to bulk conversion)
 Begin at **`Crawlable_Roadmap.md` Phase 0** — prove ONE vertical slice end-to-end before converting everything:
