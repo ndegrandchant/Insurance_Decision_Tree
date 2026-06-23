@@ -1,0 +1,218 @@
+{
+  "Sección III Daños Propios": {
+    "seccion[3].clausula[1]": {
+      "status": "converted",
+      "note": "coverage.guard.section_included"
+    },
+    "seccion[3].clausula[2]": {
+      "status": "converted",
+      "note": "coverage.danos.scope"
+    },
+    "seccion[3].clausula[3].taller_libre_eleccion": {
+      "status": "converted",
+      "note": "coverage.danos.workshop_base_cap"
+    },
+    "seccion[3].clausula[3].conversion_perdida_total": {
+      "status": "converted",
+      "note": "coverage.danos.total_loss_conversion"
+    },
+    "seccion[3].clausula[3].infraseguro_sobreseguro_proformas": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "seccion[3].clausula[4].umbral_reposicion": {
+      "status": "converted",
+      "note": "coverage.parts.replacement_threshold"
+    },
+    "seccion[3].clausula[4].partes_no_disponibles": {
+      "status": "converted",
+      "note": "coverage.parts.local_market_unavailable"
+    },
+    "seccion[3].clausula[4].diferencia_importacion": {
+      "status": "converted",
+      "note": "coverage.parts.import_difference"
+    },
+    "seccion[3].clausula[5].a": {
+      "status": "converted",
+      "note": "coverage.danos.exclusion.mechanical"
+    },
+    "seccion[3].clausula[5].b": {
+      "status": "converted",
+      "note": "coverage.danos.exclusion.after_damage_driving"
+    },
+    "seccion[3].clausula[5].c": {
+      "status": "converted",
+      "note": "coverage.danos.exclusion.robo_piezas"
+    }
+  },
+  "Sección V Robo Parcial": {
+    "seccion[5].clausula[1]": {
+      "status": "converted",
+      "note": "coverage.guard.section_included"
+    },
+    "seccion[5].clausula[1].intento_robo": {
+      "status": "converted",
+      "note": "coverage.robo.attempt"
+    },
+    "seccion[5].clausula[1].cobertura_robo": {
+      "status": "converted",
+      "note": "coverage.robo.scope"
+    },
+    "seccion[5].clausula[1].robo_consumado": {
+      "status": "converted",
+      "note": "coverage.robo.consumated"
+    },
+    "seccion[5].clausula[1].partes_verificadas": {
+      "status": "converted",
+      "note": "coverage.robo.parts_verified"
+    },
+    "seccion[5].clausula[1].partes_fijadas": {
+      "status": "converted",
+      "note": "coverage.robo.parts_attached"
+    },
+    "seccion[5].clausula[2].limite_eventos_llanta": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "seccion[5].clausula[3].umbral_reposicion": {
+      "status": "converted",
+      "note": "coverage.parts.replacement_threshold"
+    },
+    "seccion[5].clausula[4].taller_libre_eleccion": {
+      "status": "converted",
+      "note": "coverage.robo.workshop_base_cap"
+    },
+    "seccion[5].clausula[4].conversion_perdida_total": {
+      "status": "converted",
+      "note": "coverage.robo.total_loss_conversion"
+    },
+    "seccion[5].clausula[4].infraseguro_sobreseguro_proformas": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "seccion[5].clausula[4].partes_no_disponibles": {
+      "status": "converted",
+      "note": "coverage.parts.local_market_unavailable"
+    },
+    "seccion[5].clausula[4].diferencia_importacion": {
+      "status": "converted",
+      "note": "coverage.parts.import_difference"
+    },
+    "seccion[5].clausula[5].a": {
+      "status": "converted",
+      "note": "coverage.robo.exclusion.hurto"
+    },
+    "seccion[5].clausula[5].b": {
+      "status": "converted",
+      "note": "coverage.general.intentional_act"
+    },
+    "seccion[5].clausula[5].c": {
+      "status": "converted",
+      "note": "coverage.general.confiscation"
+    },
+    "seccion[5].clausula[5].d": {
+      "status": "converted",
+      "note": "coverage.robo.security_measures"
+    }
+  },
+  "Obligaciones siniestro": {
+    "obligaciones_siniestro.a": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "obligaciones_siniestro.b": {
+      "status": "converted",
+      "note": "coverage.duty.police_report_missing"
+    },
+    "obligaciones_siniestro.b.excepcion_menor_1000": {
+      "status": "converted",
+      "note": "coverage.duty.police_report_small_claim_cap"
+    },
+    "obligaciones_siniestro.c": {
+      "status": "converted",
+      "note": "coverage.duty.alcohol_test_missing"
+    },
+    "obligaciones_siniestro.c.excepcion_menor_1000": {
+      "status": "converted",
+      "note": "coverage.duty.alcohol_test_small_claim_cap"
+    },
+    "obligaciones_siniestro.d": {
+      "status": "converted",
+      "note": "coverage.duty.technical_report"
+    },
+    "obligaciones_siniestro.e": {
+      "status": "converted",
+      "note": "coverage.duty.notice_delay"
+    },
+    "obligaciones_siniestro.f": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "obligaciones_siniestro.g": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "obligaciones_siniestro.h": {
+      "status": "converted",
+      "note": "coverage.duty.repair_authorization"
+    },
+    "obligaciones_siniestro.i": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "obligaciones_siniestro.j": {
+      "status": "reference",
+      "note": "reference"
+    }
+  },
+  "Exclusiones generales / linkage": {
+    "exclusiones_generales.basicas.alcoholemia": {
+      "status": "converted",
+      "note": "coverage.general.alcohol"
+    },
+    "exclusiones_generales.basicas.drogas_medicacion": {
+      "status": "converted",
+      "note": "coverage.general.drugs_or_medication"
+    },
+    "exclusiones_generales.basicas.confiscacion": {
+      "status": "converted",
+      "note": "coverage.general.confiscation"
+    },
+    "exclusiones_generales.basicas.robo_hurto_partes_motos": {
+      "status": "converted",
+      "note": "coverage.general.robo_partes_motos"
+    },
+    "exclusiones_generales.orden_publico": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "exclusiones_generales.otras.hechos_intencionales": {
+      "status": "converted",
+      "note": "coverage.general.intentional_act"
+    },
+    "exclusiones_generales.otras.conduccion_no_autorizada": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "exclusiones_generales.otras.vias_no_autorizadas": {
+      "status": "reference",
+      "note": "reference"
+    },
+    "link.extraterritorialidad_2027": {
+      "status": "ledger",
+      "note": "coverage.conflict.extraterritorialidad_2027"
+    },
+    "link.talleres_2045_2053": {
+      "status": "ledger",
+      "note": "coverage.workshop.conflict_2045_2053"
+    },
+    "2045": {
+      "status": "converted",
+      "note": "coverage.workshop.cg2045"
+    },
+    "2053": {
+      "status": "converted",
+      "note": "coverage.workshop.cg2053"
+    }
+  }
+}

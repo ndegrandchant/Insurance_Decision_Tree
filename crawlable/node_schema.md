@@ -250,3 +250,63 @@ A graph is not done until every check passes:
 
 This **extends** `verification_report.md` from "matches source" to "executes deterministically".
 The semantic-fidelity pass (COVERAGE_REPORT dimension B) is separate and adversarial.
+
+---
+
+## Coverage Domain Extension (`graph_coverage/`)
+
+Coverage graphs use the same fidelity fields and JSONLogic expression language, but are run by the
+reusable platform `ArtifactGraphEngine` rather than the UW process crawler. The engine contract is
+intentionally data-shaped so later manuals can reuse the skeleton:
+
+```jsonc
+{
+  "id": "coverage.robo.scope",
+  "type": "coverage-grant",
+  "order": 222,
+  "applies_to": ["robo_parcial"],
+  "needs_facts": ["event_type"],
+  "evaluate": { "!=": [ { "var": "event_type" }, "robo_partes" ] },
+  "outcome": "not_covered",
+  "source_quote": "la Aseguradora cubre el robo de partes y piezas del vehículo asegurado",
+  "source": { "section": "Sección V Cláusula 1", "pdf_page": 35, "version": "101 - 910547 - 2017 09 400" },
+  "_origin": { "artifact": "base_policy.json", "path": "secciones[4].text_file:Cláusula 1", "source_id": "seccion[5].clausula[1].cobertura_robo" }
+}
+```
+
+Allowed coverage node types:
+
+| type | meaning |
+|---|---|
+| `coverage-grant` | establishes whether the section grant/scope applies |
+| `condition` | source-backed condition that may continue or terminate |
+| `document-duty` | obligation/document requirement; missing/non-compliance is surfaced |
+| `exclusion-check` | source-backed exclusion |
+| `clause-modifier` | attached clause that changes reading/limits/duties |
+| `limit-deductible` | limit, threshold, deductible, or indemnity rule |
+| `terminal` | explicit final leaf |
+
+Coverage outcome enum:
+
+`{likely_covered, not_covered, conditionally_covered, partially_covered, missing_fact,
+missing_document, refer_adjuster, refer_legal, conflict_escalation}`.
+
+Coverage-specific required fields:
+
+- `applies_to`: `["*"]` or coverage section ids. This is the reusable equivalent of UW `process`.
+- `graph_version`: each coverage graph file declares version metadata (`engine`, line of business,
+  product/slice, status, vigencia, source version, legal guardrail).
+- `reference_elements`: non-executable source elements that still must be accounted for by the
+  reconciliation manifest. This preserves forward-looking metadata/examples/pointers without
+  forcing every sentence into a decision node.
+
+Legal/claims guardrail: coverage output is **orientation, not a coverage determination**. Spanish
+source wording remains canonical; ambiguity, causation, valuation, fraud, or source conflict must
+escalate rather than be smoothed into a binary outcome.
+
+Validator/reconciler:
+
+- `coverage_validate.py` checks the reusable coverage graph contract.
+- `coverage_reconcile.py` writes `coverage_slice_manifest.json` and
+  `COVERAGE_SLICE_REPORT.md`, accounting every declared Section III/V slice source id as
+  converted, ledgered, or reference.

@@ -1,0 +1,232 @@
+{
+  "facts": {
+    "coverage_section": {
+      "type": "enum",
+      "allowed_values": ["danos_propios", "robo_parcial"],
+      "on_missing": "ask",
+      "required_for_initial_run": true,
+      "prompt": "¿La consulta corresponde a Daños Propios o a Robo Parcial?",
+      "source_quote": "SECCIÓN III COBERTURA DE DAÑOS PROPIOS / SECCIÓN V COBERTURA DE ROBO PARCIAL DE PARTES Y PIEZAS"
+    },
+    "coverage_included": {
+      "type": "boolean",
+      "on_missing": "block",
+      "required_for_initial_run": true,
+      "prompt": "¿La Sección fue incluida en las Condiciones Particulares de la póliza?",
+      "source_quote": "Siempre y cuando esta Sección haya sido incluida en las Condiciones Particulares de Objeto la Póliza"
+    },
+    "event_type": {
+      "type": "enum",
+      "allowed_values": [
+        "choque",
+        "embarrancamiento",
+        "vuelco",
+        "caida_objeto",
+        "hundimiento_via",
+        "rotura_vidrios_temperatura",
+        "dobladura_raspadura_persona",
+        "dobladura_raspadura_animal",
+        "desprendimiento_pieza",
+        "robo_partes",
+        "hurto_partes",
+        "intento_robo",
+        "falla_mecanica",
+        "desperfecto_electrico",
+        "desgaste",
+        "mantenimiento_deficiente",
+        "conduccion_despues_dano_severo",
+        "otro"
+      ],
+      "on_missing": "ask",
+      "required_for_initial_run": true,
+      "prompt": "¿Cuál fue el tipo de hecho o causa principal del siniestro?",
+      "source_quote": "El alcance de la presente cobertura se limita a..."
+    },
+    "driver_alcohol_over_limit": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿El conductor superó 0.50 grados por cada 1000 ml de sangre o equivalente?",
+      "source_quote": "sobrepasen el grado alcohólico máximo permitido de cero punto cincuenta (0.50) grados en cada mil (1000) ml de sangre"
+    },
+    "driver_under_drugs_or_impairing_medication": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿El conductor estaba bajo drogas, alucinógenos, estupefacientes o medicación que impida conducir?",
+      "source_quote": "drogas, alucinógenos y/o estupefacientes... y/o se encuentre bajo efectos de medicación... que impidan la conducción"
+    },
+    "intentional_act": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿El daño o robo fue provocado intencionalmente por el asegurado, conductor u ocupantes?",
+      "source_quote": "hechos provocados intencionalmente por el Asegurado y/o el conductor y/o sus ocupantes"
+    },
+    "confiscation_or_authority_measure": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿El daño o robo proviene de confiscación, requisa, expropiación, incautación, decomiso, embargo, secuestro u otra medida de autoridad?",
+      "source_quote": "confiscación, requisa, expropiación, incautación, decomiso, embargo, secuestro u ocupación o retención"
+    },
+    "vehicle_type": {
+      "type": "enum",
+      "allowed_values": ["auto", "camioneta", "camion", "motocicleta", "cuadratrack", "quad", "otro"],
+      "on_missing": "ask",
+      "prompt": "¿Qué tipo de vehículo es?",
+      "source_quote": "El robo y/o hurto de partes y piezas que se produzcan a motocicletas, cuadratracks y vehículos quad."
+    },
+    "theft_consumated": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "En Robo Parcial, ¿la sustracción de partes o piezas se consumó?",
+      "source_quote": "el hecho de robo debe haberse consumado con la sustracción de las partes y/o piezas integrantes del vehículo asegurado"
+    },
+    "parts_verified_and_valued": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿Las partes/piezas estaban verificadas y valorizadas en el Formulario de Declaración Pre Riesgo?",
+      "source_quote": "siempre que las mismas estén verificadas y valorizadas en el Formulario de Declaración Pre Riesgo"
+    },
+    "parts_permanently_attached_or_declared": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿Las partes estaban fijadas permanentemente o fueron añadidas, declaradas y acordadas?",
+      "source_quote": "estén fijadas o sujetadas al mismo permanentemente o hubiesen sido añadidas... declaradas en forma expresa a la Aseguradora y acordadas"
+    },
+    "security_measures_requested": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿La Aseguradora solicitó medidas de seguridad para esas partes o piezas?",
+      "source_quote": "partes y/o piezas para las cuales la Aseguradora haya solicitado la realización de medidas de seguridad"
+    },
+    "security_measures_completed": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "Si hubo medidas de seguridad solicitadas, ¿fueron efectuadas en tiempo y forma?",
+      "source_quote": "no hayan sido efectuadas por el Asegurado en el tiempo y forma requeridos"
+    },
+    "written_security_exception": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿Existe pacto escrito en contrario sobre las medidas de seguridad?",
+      "source_quote": "salvo pacto escrito en contrario"
+    },
+    "police_report_within_6h": {
+      "type": "boolean",
+      "kind": "document",
+      "on_missing": "ask",
+      "prompt": "¿Se denunció ante autoridad competente inmediatamente o dentro de 6 horas?",
+      "source_quote": "Denunciar inmediatamente o hasta dentro de las 6 horas de sucedido el accidente"
+    },
+    "alcohol_test_within_6h": {
+      "type": "boolean",
+      "kind": "document",
+      "on_missing": "ask",
+      "prompt": "¿El conductor se sometió al dosaje etílico inmediatamente o dentro de 6 horas?",
+      "source_quote": "El conductor debe someterse a la prueba de dosaje etílico inmediatamente o dentro de las 6 horas"
+    },
+    "justified_impediment": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿Existe impedimento debidamente justificado para la denuncia o dosaje dentro del plazo?",
+      "source_quote": "salvo impedimento debidamente justificado"
+    },
+    "claim_estimate_usd": {
+      "type": "number",
+      "unit": "USD",
+      "on_missing": "ask",
+      "prompt": "¿Cuál es la estimación del siniestro en USD?",
+      "source_quote": "siniestros que se estimen menores a USD 1.000 que afecten exclusivamente Daños Propios o Robo Parcial"
+    },
+    "affects_only_danos_or_robo": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿El siniestro afecta exclusivamente Daños Propios o Robo Parcial?",
+      "source_quote": "que afecten exclusivamente Daños Propios o Robo Parcial"
+    },
+    "technical_report_available": {
+      "type": "boolean",
+      "kind": "document",
+      "on_missing": "ask",
+      "prompt": "¿Se obtuvo copia legalizada del Informe Técnico con determinación de responsabilidades?",
+      "source_quote": "Solicitar y obtener de la autoridad competente, copia legalizada del Informe Técnico con determinación de responsabilidades"
+    },
+    "insurer_notice_days": {
+      "type": "number",
+      "unit": "days",
+      "on_missing": "ask",
+      "prompt": "¿Cuántos días transcurrieron hasta dar aviso a la Aseguradora?",
+      "source_quote": "a más tardar dentro de los diez (10) días calendario de tener conocimiento del siniestro"
+    },
+    "repair_started_without_authorization": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿Se inició reparación sin autorización de la Aseguradora?",
+      "source_quote": "Esperar la autorización de la Aseguradora para iniciar la reparación de cualquier daño."
+    },
+    "uses_free_choice_workshop": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿El asegurado escogió un taller a libre elección?",
+      "source_quote": "el Asegurado puede escoger un taller a su libre elección"
+    },
+    "attached_clause_codes": {
+      "type": "array",
+      "items": "string",
+      "on_missing": "ask",
+      "prompt": "¿Qué cláusulas APS aplican al siniestro/póliza? Use códigos como CG-2045 o CG-2053.",
+      "source_quote": "clause_registry.json + linkage.json"
+    },
+    "estimated_repair_cost_percent_va": {
+      "type": "number",
+      "unit": "percent",
+      "on_missing": "ask",
+      "prompt": "En Daños Propios, ¿el costo estimado de reparación equivale a qué porcentaje del Valor Asegurado?",
+      "source_quote": "costos estimados de reparación alcancen o superen el 65% del Valor Asegurado"
+    },
+    "estimated_replacement_cost_percent_va": {
+      "type": "number",
+      "unit": "percent",
+      "on_missing": "ask",
+      "prompt": "En Robo Parcial, ¿el costo estimado de reposición equivale a qué porcentaje del Valor Asegurado?",
+      "source_quote": "costos estimados de reposición de las partes y piezas alcancen o superen el 65% del Valor Asegurado"
+    },
+    "part_repair_cost_percent_replacement": {
+      "type": "number",
+      "unit": "percent",
+      "on_missing": "ask",
+      "prompt": "¿El costo de reparación de la parte/pieza equivale a qué porcentaje del valor de reposición a nueva?",
+      "source_quote": "cuando el costo de reparación de la misma supere el 65% del valor de reposición a nueva"
+    },
+    "insured_requests_part_replacement": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "Si la reparación es inferior al 65%, ¿el asegurado solicita cambio de la parte o pieza?",
+      "source_quote": "si el daño es inferior al 65%... y el asegurado solicite el cambio de la parte o pieza éste asumirá la diferencia"
+    },
+    "parts_available_local_market": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿Las partes/piezas se encuentran en el mercado local dentro de los límites de Flete Aéreo?",
+      "source_quote": "partes y piezas del vehículo que no se encuentren en el mercado local con límites superiores al establecido en la condición del Flete Aéreo"
+    },
+    "local_price_over_import_price_percent": {
+      "type": "number",
+      "unit": "percent",
+      "on_missing": "ask",
+      "prompt": "¿Cuál es la diferencia porcentual entre precio local y precio de importación?",
+      "source_quote": "diferencia de más del veinte por ciento (20%) entre el precio local y el precio de importación"
+    },
+    "foreign_territory": {
+      "type": "boolean",
+      "on_missing": "ask",
+      "prompt": "¿El vehículo circulaba o estaba en territorio extranjero?",
+      "source_quote": "por territorio extranjero, salvo que cuente con la cláusula de extraterritorialidad"
+    },
+    "foreign_stay_days": {
+      "type": "number",
+      "unit": "days",
+      "on_missing": "ask",
+      "prompt": "Si aplica extraterritorialidad, ¿cuántos días permaneció fuera del país?",
+      "source_quote": "linkage.json: Coinciden los 30 días; el manual añade extra prima Bs. 420/mes hasta 90 días"
+    }
+  }
+}

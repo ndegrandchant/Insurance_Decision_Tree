@@ -91,3 +91,200 @@ Per the task's explicit requirement (this is the deliberate exception to minimal
 ## D12. Scope guardrails
 
 No re-formatting of the source PDFs, no backups, no extra tooling beyond extraction/verification needs. Names of underwriters (personal data in authority matrices) are part of the source logic and are reproduced as-is because the matrices are operative rules.
+
+---
+
+## D-PLAT-1. Operational changes route through ledger + regenerate, never graph patching
+
+**Decision.** The platform treats `representation/` as immutable source truth and generated
+`crawlable/**` graphs as immutable version snapshots. Business changes are represented as governed
+ledger entries (`RUL-*` or `OVL-*`) and become executable only through regenerate + validate +
+new `graph_version`.
+
+**Why.** This preserves the existing single-source-of-truth rule and prevents a UI or AI module from
+silently diverging from the verified extraction.
+
+## D-PLAT-2. Reusable artifact graph skeleton for future manuals
+
+**Decision.** Net-new executable domains use a generic `ArtifactGraphEngine`: facts file + graph
+JSON + JSONLogic + source/source_quote/_origin + ledger conflicts. The Automotores coverage slice is
+configuration/data over this runtime, not a one-off evaluator.
+
+**Why.** The skeleton must be reusable for different manuals. New manuals should swap artifacts and
+validators, not rewrite runtime behavior.
+
+## D-PLAT-3. Coverage logic lives under `crawlable/graph_coverage/`
+
+**Decision.** Daños Propios + Robo Parcial coverage artifacts live in `crawlable/graph_coverage/`
+with `facts_coverage.json`, `coverage_validate.py`, and `coverage_reconcile.py`.
+
+**Why.** Coverage is net-new, but it should reuse the repo's extraction-grade discipline and remain
+close to the existing generated graph artifacts.
+
+## D-PLAT-4. v1 vigencia is version-ready but single-version honest
+
+**Decision.** The schema supports version/vigencia selection, but the seeded live UW version is the
+one extracted source version. Cross-version date selection remains dormant until a second extracted
+manual/wording version exists.
+
+**Why.** Backfilling historical versions would require a separate Part-1 extraction. The platform
+must not fake historical source versions.
+
+## D-PLAT-5. Data-dependent modules are gated by Phase 0.5 discovery
+
+**Decision.** Claims feedback, friction, simulations, and AI proposals remain gated unless imports or
+a read-only source DB provide `submission.fact_vector` and claim-to-node/clause/section linkage.
+
+**Why.** Without replayable fact vectors and source-backed claim linkage, those modules would be
+descriptive guesses rather than auditable intelligence.
+
+## D-PLAT-6. Chatbot and AI extraction are advisory only
+
+**Decision.** `/api/nl/extract-facts` returns unconfirmed advisory facts. `/api/uw/run` and
+`/api/coverage/run` reject unconfirmed NL extraction payloads.
+
+**Why.** The deterministic engines must never consume facts invented or ambiguously inferred by an
+LLM. The user must confirm/correct before execution.
+
+## D-PLAT-7. Coverage outputs are orientation, not final determinations
+
+**Decision.** Coverage engine responses include the guardrail "orientation, not a coverage
+determination"; source conflicts, causation/valuation/document ambiguity, and cross-document tension
+escalate.
+
+**Why.** Spanish wording remains canonical, and coverage decisions are legally sensitive.
+
+## D-PLAT-8. Renewal changes are scoped deltas, not graph forks
+
+**Decision.** Client renewal exceptions store the base `graph_version` plus client/policy-scoped
+price adjustments and changed target refs (`node`, `table`, `clause`, `fact`, or `rating_factor`).
+They do not clone the full tree and do not edit `representation/` or generated `crawlable/` graph
+artifacts.
+
+**Why.** Many clients may need small renewal-specific adjustments. Storing deltas keeps storage tiny,
+preserves replayability, and avoids corrupting the source-backed graph used for everyone else.
+
+## D-PLAT-9. Pricing is a UW terminal stage, not a standalone workflow
+
+**Decision.** Pricing is no longer exposed as its own independent workflow. The UW run appends a
+rating stage only after the UW walk reaches an eligible/conditional outcome. As of D-PLAT-15, that
+stage is `rating.lbc_auto.final_prices` and uses the isolated LBC Auto rating module. A final approved
+price is returned only when UW is eligible and pricing has no review flags.
+
+**Why.** Underwriters should approve one underwriting packet: eligibility path plus final price. The
+rating parameters stay outside the source-backed graph, but the produced price belongs to the UW
+decision trace rather than a separate calculator.
+
+## D-PLAT-10. Spanish-first product language with stable internal contracts
+
+**Decision.** User-facing platform language is Spanish-first: UI labels, operational prompts,
+human-review packets, governed proposal copy, renewal workbench text, and backend messages that can
+surface to users. Internal API keys, graph node ids, route names, canonical outcome/status values,
+and verbatim/source-backed manual text remain unchanged unless the source itself changes.
+
+**Why.** The users and manuals are Spanish-speaking, but translating machine contracts or cited source
+text would break integrations and weaken auditability.
+
+## D-PLAT-11. `decline` is rendered as "No elegible", not "Rechazar"
+
+**Decision.** The UI displays the canonical executable outcome `decline` as "No elegible". The raw
+machine value remains `decline`.
+
+**Why.** The underwriting source and generated graphs usually express these terminal states as
+"excluido" or "NO elegible" within a procedure. "Rechazar" can imply a final case rejection and would
+overstate the source-backed meaning, especially where another procedure or human review may still be
+appropriate.
+
+## D-PLAT-12. Multimodal extraction stays advisory and Spanish-first
+
+**Decision.** The NL endpoint may use OpenAI for Spanish-first text extraction, image OCR/vision, and
+audio transcription, but those outputs are merged only as unconfirmed suggestions. Deterministic regex
+matches are not overwritten by AI suggestions, and executable engines still reject unconfirmed facts.
+Source-backed manual text, node ids, and canonical machine values remain unchanged.
+
+**Why.** Intake will often include photos, voice notes, and informal Spanish. Multimodal
+parsing can reduce typing, but it must not drift from the manuals or silently turn ambiguous user
+messages into source-backed decisions.
+
+## D-PLAT-13. Chat is a local memory workflow, not an external agent
+
+**Decision.** The project no longer carries an external agent integration. The frontend exposes a
+plain `Chat` module backed by `/api/chat` and `/api/chat/{session_id}`. It persists case memory,
+known facts, pending facts, current question, last customer message, and last RiskIQ summary in the
+project JSONL store. It may run RiskIQ automatically when the conversation contains insurance intent
+and enough facts, but RiskIQ remains the decision authority.
+
+**Why.** The previous agent-shaped layer was a simulation inside this repo. The user asked to remove
+that integration and keep only the OpenAI parser/key plus simple chat memory, so the implementation
+should not imply that a live external agent or messaging bridge exists.
+
+## D-PLAT-15. LBC Auto pricing is an isolated reverse-engineered rating compartment
+
+**Decision.** The old demo heuristic remains in the repo for compatibility, but tree executions now
+call `platform/engine/insurance_engine/lbc_auto_rating.py` for pricing. The module implements the
+user-provided LBC Auto formula: value tier/floor/cap logic, city/brand/year calibrated factors,
+three fixed option ratios and floors, extraterritorialidad, and credit installment math. The
+underwriting graph and `representation/` artifacts are not edited; pricing is appended only after an
+eligible/conditional UW result as `rating.lbc_auto.final_prices`. Unknown city or brand inputs use
+the calibrated La Paz/Toyota base and trigger pricing review instead of silently approving.
+
+**Why.** The formula was reverse-engineered from API observations, not extracted from the manuals or
+the live SAVIA/ATIC tariff database. Keeping it outside the source-backed decision graph lets us
+return final option prices from tree runs now, while preserving a clean replacement point for a future
+official tariff integration.
+
+## D-PLAT-16. Chat runs as part of the backend stack
+
+**Decision.** The chat channel is not a separate runtime. The same backend that serves the RiskIQ APIs
+also serves `/api/chat`, stores sessions in `platform/db/chat_sessions.jsonl`, and exposes the
+frontend packet rail. The VPS stack remains backend, scheduler, Postgres, and reverse proxy.
+
+**Why.** This keeps the project deployable without a second agent process, external messaging
+credentials, or a simulated messaging process. It also makes chat memory inspectable in the project
+data store.
+
+## D-PLAT-18. Missing facts split into client follow-up vs professional task
+
+**Decision.** A stopped tree packet now carries `resolution_channel`. If a missing fact is
+`client_followup`, the chat asks the client or broker the exact missing question, treats the next
+answer in that conversational context as the confirmed value for that requested fact, and replays
+RiskIQ. If the packet is `human_task`,
+the backend creates a routed task for the professional role. The first branch is used for ordinary
+`on_missing=ask` facts; the second is used for `on_missing=refer`, derived/professional validation,
+pricing review, governance/source conflicts, and non-resumable review.
+Client-facing questions are intentionally conversational: booleans invite `sí`/`no`, numeric facts
+can be answered with just the number, and enum facts show short examples. A short answer is treated
+as an answer to the current pending question, not as a new free-form intake.
+
+**Why.** Most sales conversations should not become underwriting tasks just because the next fact is
+missing. Asking the client for reasonably knowable facts keeps the sale moving and preserves UW
+capacity for facts or judgments the client cannot reliably provide. RiskIQ still decides only after
+facts are confirmed and the tree is replayed.
+
+## D-PLAT-20. Local chat is intent-first, with regex only as fallback
+
+**Decision.** The local chat prefers the OpenAI parser when configured and uses deterministic phrase
+matching only as a no-network fallback. The parser prompt is allowed to map direct commercial intent
+to facts when the wording supports it, such as treating "cotizar automotores" as generic
+`product=otro`, but it must not infer risk conditions like absence of deviations, licitation, mass
+grouping, vehicle exclusions, or coverage flags without client wording. The chat persists known
+facts, pending facts, current question, requested fact, last customer message, and last result
+summary. A memory confirmation such as "están bien" confirms pending facts from an older advisory
+turn instead of starting a new extraction; if RiskIQ is already asking a specific blocking question,
+the same phrase keeps the packet unchanged and repeats the required datum rather than inventing an
+answer. The chat does not ask for a final "Confirmar y continuar" step; when RiskIQ stops on a
+client-answerable fact, short answers like "no" are parsed against that pending question.
+
+**Why.** The broker flow should feel like a working packet, not a form with a chat skin. Automatic
+execution is acceptable in this channel because RiskIQ remains the decision authority and the chat
+only converts the client's conversational turn into typed facts with visible packet state.
+
+## D-PLAT-19. Scheduler cancels stale operational follow-ups
+
+**Decision.** The follow-up scheduler cancels pending/snoozed follow-ups when their target case is no
+longer open or their human task is no longer awaiting input. It still creates new follow-ups for
+open cases, active human tasks, and renewals when no open follow-up exists.
+
+**Why.** The broker queue should represent work that still needs action. Leaving follow-ups attached
+to won/lost/closed cases or completed human tasks would create false pressure and make C-suite
+metrics noisy.

@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "riskiq",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/Users/santiagodegrandchant/Desktop/Insurance_Decision_Tree/platform/backend/dev_server.py", "8765"],
+      "port": 8765
+    },
+    {
+      "name": "riskiq-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/tmp/riskiq_proxy.py", "8799"],
+      "port": 8799
+    }
+  ]
+}

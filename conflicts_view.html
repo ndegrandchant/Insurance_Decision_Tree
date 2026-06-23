@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LBC Automotores — Source Problems Viewer</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1c2329;
+      --muted: #5b6874;
+      --line: #d7dde2;
+      --paper: #fbfcfd;
+      --panel: #ffffff;
+      --accent: #0f766e;
+      --warn: #9f1239;
+      --soft: #eef6f5;
+      --chip: #f1f4f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    header {
+      padding: 28px clamp(18px, 4vw, 48px) 18px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 44px); letter-spacing: 0; }
+    header p { max-width: 980px; color: var(--muted); margin: 0; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      padding: 18px clamp(18px, 4vw, 48px);
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 14px;
+      border-radius: 8px;
+    }
+    .metric strong { display: block; font-size: 28px; }
+    .metric span { color: var(--muted); }
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: minmax(200px, 1fr) 220px 220px;
+      gap: 10px;
+      padding: 14px clamp(18px, 4vw, 48px);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(251,252,253,.96);
+      backdrop-filter: blur(8px);
+    }
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 10px 12px;
+      font: inherit;
+      background: #fff;
+      color: var(--ink);
+    }
+    .pills {
+      padding: 0 clamp(18px, 4vw, 48px) 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pills span {
+      background: var(--chip);
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      white-space: nowrap;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+      gap: 14px;
+      padding: 0 clamp(18px, 4vw, 48px) 42px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .eyebrow {
+      margin: 0 0 4px;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    h2 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+      min-width: 120px;
+    }
+    .badges span, .badges strong {
+      background: var(--soft);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badges .blocking { background: #fff1f2; color: var(--warn); }
+    .meta {
+      display: grid;
+      gap: 7px;
+      margin: 13px 0;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .meta div { display: grid; grid-template-columns: 90px 1fr; gap: 10px; }
+    .meta span { color: var(--muted); font-size: 12px; text-transform: uppercase; font-weight: 700; }
+    .meta p { margin: 0; color: var(--ink); overflow-wrap: anywhere; }
+    section { margin-top: 12px; }
+    h3 { margin: 0 0 6px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0; }
+    pre {
+      margin: 0;
+      padding: 10px;
+      border-radius: 7px;
+      background: #f6f8fa;
+      border: 1px solid #e8edf2;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .hidden { display: none; }
+    @media (max-width: 760px) {
+      .controls { grid-template-columns: 1fr; position: static; }
+      .card-top { display: block; }
+      .badges { justify-content: flex-start; margin-top: 10px; }
+      .meta div { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Source Problems Viewer</h1>
+    <p>Generated from <code>crawlable/rulings/*.md</code> plus manual structural inconsistencies in <code>representation/underwriting_manual/document.json</code>. Open rulings are not resolved here; this view shows what the project preserves and escalates.</p>
+  </header>
+  <div class="summary">
+    <div class="metric"><strong>20</strong><span>total displayed items</span></div>
+    <div class="metric"><strong>16</strong><span>open ruling-ledger items</span></div>
+    <div class="metric"><strong>4</strong><span>manual structural/source defects</span></div>
+    <div class="metric"><strong>1</strong><span>blocking conflict nodes</span></div>
+  </div>
+  <div class="pills"><span>ledger: 16</span> <span>structural: 4</span></div>
+  <div class="pills"><span>dual_text: 5</span> <span>threshold_variance: 2</span> <span>overlap: 2</span> <span>derived_reading: 2</span> <span>internal_inconsistency: 1</span> <span>absent_code: 1</span> <span>cross_doc_tension: 1</span> <span>undefined_boundary: 1</span> <span>version_identity: 1</span> <span>numeración TOC vs cuerpo: 1</span> <span>documento aparentemente incompleto: 1</span> <span>typo en tabla: 1</span> <span>formato de cifra irregular: 1</span></div>
+  <div class="controls">
+    <input id="search" placeholder="Search id, title, source text, file...">
+    <select id="kind"><option value="">All kinds</option><option value="absent_code">absent_code (1)</option>
+<option value="cross_doc_tension">cross_doc_tension (1)</option>
+<option value="derived_reading">derived_reading (2)</option>
+<option value="documento aparentemente incompleto">documento aparentemente incompleto (1)</option>
+<option value="dual_text">dual_text (5)</option>
+<option value="formato de cifra irregular">formato de cifra irregular (1)</option>
+<option value="internal_inconsistency">internal_inconsistency (1)</option>
+<option value="numeración TOC vs cuerpo">numeración TOC vs cuerpo (1)</option>
+<option value="overlap">overlap (2)</option>
+<option value="threshold_variance">threshold_variance (2)</option>
+<option value="typo en tabla">typo en tabla (1)</option>
+<option value="undefined_boundary">undefined_boundary (1)</option>
+<option value="version_identity">version_identity (1)</option></select>
+    <select id="status"><option value="">All statuses</option><option value="open">open</option>
+<option value="recorded">recorded</option></select>
+  </div>
+  <main id="cards">
+    <article class="card" data-kind="dual_text" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-2008&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;dual_text&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;clause 2008 (phase 4 clause linking)&quot;], &quot;source&quot;: &quot;clause_registry.json xc-005&quot;, &quot;title&quot;: &quot;rul-2008 — clause 2008 holds two coexisting partial-payment formulations&quot;, &quot;conflict&quot;: &quot;the text of clause 2008 contains two formulations of the partial payment that coexist,\napparently from an editing error: one **obligatory**, one **discretionary**.&quot;, &quot;variants&quot;: &quot;- **obligatory:** \&quot;hará efectivo un pago parcial … 50% …\&quot;\n- **discretionary:** \&quot;podrá adelantar … hasta 50% …\&quot;\n\nrepresentation finding (xc-005): \&quot;aparentemente por un error de edición.\&quot; both preserved\nverbatim in `clause_texts/cg-2008.txt`; not resolved.&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;request the registered/authoritative aps text of 2008 from legal to determine which\nformulation is operative; do not pick one from the bundle, since the bundle itself carries the\nediting artifact. until ruled, any decision depending on 2008&#x27;s payment timing is blocked.\n*advisory only.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-2008.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-2008 — Clause 2008 holds two coexisting partial-payment formulations</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>dual_text</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>clause 2008 (Phase 4 clause linking)</p></div>
+<div><span>Source</span><p>clause_registry.json XC-005</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-2008.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>The text of clause 2008 contains two formulations of the partial payment that coexist,
+apparently from an editing error: one **obligatory**, one **discretionary**.</pre></section>
+<section><h3>Source Variants</h3><pre>- **obligatory:** &quot;hará efectivo un pago parcial … 50% …&quot;
+- **discretionary:** &quot;podrá adelantar … hasta 50% …&quot;
+
+Representation finding (XC-005): &quot;aparentemente por un error de edición.&quot; Both preserved
+verbatim in `clause_texts/CG-2008.txt`; not resolved.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Request the registered/authoritative APS text of 2008 from Legal to determine which
+formulation is operative; do not pick one from the bundle, since the bundle itself carries the
+editing artifact. Until ruled, any decision depending on 2008&#x27;s payment timing is blocked.
+*Advisory only.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="internal_inconsistency" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-2018-peso&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;internal_inconsistency&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;clause cg-2018 (auxilio mecánico express)&quot;], &quot;source&quot;: &quot;representation/clausulas_generales/clause_registry.json → cross_code_findings xc-006&quot;, &quot;title&quot;: &quot;rul-2018-peso — clause 2018 (auxilio mecánico express): inconsistent internal weight limits&quot;, &quot;conflict&quot;: &quot;within the same clause (2018, beneficio de auxilio mecánico express), two internal weight limits\nfor the tow/grúa service disagree.&quot;, &quot;variants&quot;: &quot;- **punto 3.a:** grúa \&quot;hasta un máximo de 3,5 toneladas\&quot;.\n- **punto 4.d (condición especial):** excluye vehículos que sobrepasen \&quot;un máximo de 3 toneladas\&quot;.&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;the more-restrictive 3-toneladas special condition (4.d) likely governs in practice (a special\ncondition usually narrows the general benefit), but the two limits should be reconciled in the\nregistered text. confirm with legal which limit is operative for the tow service. *advisory only;\nboth limits preserved in clause_texts/cg-2018.txt.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-2018-peso.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-2018-PESO — Clause 2018 (Auxilio Mecánico Express): inconsistent internal weight limits</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>internal_inconsistency</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>clause CG-2018 (Auxilio Mecánico Express)</p></div>
+<div><span>Source</span><p>representation/clausulas_generales/clause_registry.json → cross_code_findings XC-006</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-2018-PESO.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>Within the same clause (2018, Beneficio de Auxilio Mecánico Express), two internal weight limits
+for the tow/grúa service disagree.</pre></section>
+<section><h3>Source Variants</h3><pre>- **punto 3.a:** grúa &quot;hasta un máximo de 3,5 toneladas&quot;.
+- **punto 4.d (condición especial):** excluye vehículos que sobrepasen &quot;un máximo de 3 toneladas&quot;.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>The more-restrictive 3-toneladas special condition (4.d) likely governs in practice (a special
+condition usually narrows the general benefit), but the two limits should be reconciled in the
+registered text. Confirm with Legal which limit is operative for the tow service. *Advisory only;
+both limits preserved in clause_texts/CG-2018.txt.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="dual_text" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-2038-2112&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;dual_text&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;clauses 2038 vs 2112 (phase 4 clause linking)&quot;], &quot;source&quot;: &quot;clause_registry.json xc-004 + linkage.json (valor admitido) + rules.json r-097&quot;, &quot;title&quot;: &quot;rul-2038-2112 — two \&quot;valor admitido\&quot; clauses + a manual prohibition that contradicts one&quot;, &quot;conflict&quot;: &quot;two registered valor admitido clauses differ, and the manual (r-097) prohibits valor admitido\nin licitaciones even though 2112 is registered *for* licitaciones.&quot;, &quot;variants&quot;: &quot;- **2038** (uso general): carries the condición precedente that the valor asegurado not exceed\n  the valor comercial by more than 15%.\n- **2112** (uso exclusivo licitaciones): lacks that condition; has an unclosed parenthesis.\n- **r-097** (manual, licitaciones): \&quot;valor admitido u otra base de valoración diferente a los\n  valores comerciales\&quot; may **not** be subscribed — yet 2112 exists, registered for licitaciones.&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;treat the manual prohibition (r-097) as governing for the standard/licitación underwriting\n*decision* (do not offer valor admitido in licitaciones), while keeping both clause texts in\nthe registry as the registered contract wordings (a clause being registered ≠ it being\noffered). flag the 2112 unclosed-parenthesis as a source defect to legal. confirm whether 2112\nis dormant. *advisory only.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-2038-2112.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-2038-2112 — Two &quot;Valor Admitido&quot; clauses + a manual prohibition that contradicts one</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>dual_text</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>clauses 2038 vs 2112 (Phase 4 clause linking)</p></div>
+<div><span>Source</span><p>clause_registry.json XC-004 + linkage.json (Valor Admitido) + rules.json R-097</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-2038-2112.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>Two registered Valor Admitido clauses differ, and the manual (R-097) prohibits Valor Admitido
+in licitaciones even though 2112 is registered *for* licitaciones.</pre></section>
+<section><h3>Source Variants</h3><pre>- **2038** (uso general): carries the condición precedente that the Valor Asegurado not exceed
+  the Valor Comercial by more than 15%.
+- **2112** (uso exclusivo licitaciones): lacks that condition; has an unclosed parenthesis.
+- **R-097** (manual, licitaciones): &quot;Valor Admitido u otra base de valoración diferente a los
+  valores comerciales&quot; may **not** be subscribed — yet 2112 exists, registered for licitaciones.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Treat the manual prohibition (R-097) as governing for the Standard/licitación underwriting
+*decision* (do not offer Valor Admitido in licitaciones), while keeping both clause texts in
+the registry as the registered contract wordings (a clause being registered ≠ it being
+offered). Flag the 2112 unclosed-parenthesis as a source defect to Legal. Confirm whether 2112
+is dormant. *Advisory only.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="dual_text" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-2133-2140&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;dual_text&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;clauses 2133 vs 2140 (phase 4 clause linking)&quot;], &quot;source&quot;: &quot;representation/clausulas_generales/clause_registry.json → cross_code_findings xc-001&quot;, &quot;title&quot;: &quot;rul-2133-2140 — same title, contradictory content (aranceles médicos)&quot;, &quot;conflict&quot;: &quot;two clauses share the title \&quot;cláusula de no aplicación de aranceles médicos\&quot; but say different,\npotentially contradictory things about medical fees within the ap-ocupantes coverage.&quot;, &quot;variants&quot;: &quot;- **2133:** \&quot;no aplicarán los aranceles médicos para la cobertura de accidentes personales a\n  ocupantes del vehículo asegurado.\&quot;\n- **2140:** limits gastos médicos por accidente reimbursements \&quot;hasta el doble del arancel\n  mínimo del colegio médico de bolivia.\&quot;\n\nrepresentation finding (xc-001): \&quot;se registran ambas sin resolver.\&quot; (related: xc-002 2136 vs\n2139 licence-replacement deadlines; carried under this file&#x27;s `see_also`.)&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;they may be reconcilable rather than contradictory: 2133 disapplies a *tariff schedule*\ngenerally for ap-ocupantes, while 2140 caps *gastos médicos* specifically at 2× the colegio\nmédico minimum. if only one is attached to a given policy, no conflict arises — so the real\nquestion is **which is attached when**. recommend treating them as mutually-exclusive\nattachments and recording an attach-time rule, not a merge. confirm with legal. *advisory.*\n\nsee_also: xc-002 (2136 60-day vs 2139 cp-deadline for licence duplicate).&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-2133-2140.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-2133-2140 — Same title, contradictory content (aranceles médicos)</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>dual_text</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>clauses 2133 vs 2140 (Phase 4 clause linking)</p></div>
+<div><span>Source</span><p>representation/clausulas_generales/clause_registry.json → cross_code_findings XC-001</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-2133-2140.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>Two clauses share the title &quot;Cláusula de No Aplicación de Aranceles Médicos&quot; but say different,
+potentially contradictory things about medical fees within the AP-Ocupantes coverage.</pre></section>
+<section><h3>Source Variants</h3><pre>- **2133:** &quot;NO aplicarán los aranceles médicos para la cobertura de Accidentes Personales a
+  Ocupantes del Vehículo Asegurado.&quot;
+- **2140:** limits Gastos Médicos por Accidente reimbursements &quot;hasta el doble del Arancel
+  Mínimo del Colegio Médico de Bolivia.&quot;
+
+Representation finding (XC-001): &quot;Se registran ambas sin resolver.&quot; (Related: XC-002 2136 vs
+2139 licence-replacement deadlines; carried under this file&#x27;s `see_also`.)</pre></section>
+<section><h3>Recommended Resolution</h3><pre>They may be reconcilable rather than contradictory: 2133 disapplies a *tariff schedule*
+generally for AP-Ocupantes, while 2140 caps *Gastos Médicos* specifically at 2× the Colegio
+Médico minimum. If only one is attached to a given policy, no conflict arises — so the real
+question is **which is attached when**. Recommend treating them as mutually-exclusive
+attachments and recording an attach-time rule, not a merge. Confirm with Legal. *Advisory.*
+
+see_also: XC-002 (2136 60-day vs 2139 CP-deadline for licence duplicate).</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="absent_code" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-absent-codes&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;absent_code&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;clause registry (phase 4 clause linking)&quot;], &quot;source&quot;: &quot;representation/clausulas_generales/document.json → code_system.codes_not_present_in_bundle&quot;, &quot;title&quot;: &quot;rul-absent-codes — aps codes 2025, 2131, 2146 absent from the bundle&quot;, &quot;conflict&quot;: &quot;within the observed clause-suffix range 2001–2147, three codes are not printed anywhere in the\nbundle. the bundle does not explain the gaps. nothing is inferred about their content.&quot;, &quot;variants&quot;: &quot;&gt; `codes_not_present_in_bundle: [2025, 2131, 2146]` — \&quot;sufijos faltantes dentro del rango\n&gt; observado. el bundle no explica los huecos; pueden corresponder a textos registrados no\n&gt; incluidos en esta compilación. no se infiere nada más.\&quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;these are recorded as known absences, not errors. if any manual rule or clause cross-references\none of them during phase-4 linking, that reference becomes `unmatched` and surfaces here.\nrecommend requesting the three registered texts from aps/legal to close the gap; until then,\ntreat any dependency on them as a blocked edge. *advisory only.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-absent-codes.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-ABSENT-CODES — APS codes 2025, 2131, 2146 absent from the bundle</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>absent_code</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>clause registry (Phase 4 clause linking)</p></div>
+<div><span>Source</span><p>representation/clausulas_generales/document.json → code_system.codes_not_present_in_bundle</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-ABSENT-CODES.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>Within the observed clause-suffix range 2001–2147, three codes are not printed anywhere in the
+bundle. The bundle does not explain the gaps. Nothing is inferred about their content.</pre></section>
+<section><h3>Source Variants</h3><pre>&gt; `codes_not_present_in_bundle: [2025, 2131, 2146]` — &quot;Sufijos faltantes dentro del rango
+&gt; observado. El bundle no explica los huecos; pueden corresponder a textos registrados no
+&gt; incluidos en esta compilación. No se infiere nada más.&quot;</pre></section>
+<section><h3>Recommended Resolution</h3><pre>These are recorded as known absences, not errors. If any manual rule or clause cross-references
+one of them during Phase-4 linking, that reference becomes `unmatched` and surfaces here.
+Recommend requesting the three registered texts from APS/Legal to close the gap; until then,
+treat any dependency on them as a blocked edge. *Advisory only.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="cross_doc_tension" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-alcoholemia&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;cross_doc_tension&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;r-097 licitaciones constraint; cg exclusion; clause 2002 (phase 1/4)&quot;], &quot;source&quot;: &quot;representation/linkage.json (alcoholemia link) + rules.json r-097&quot;, &quot;title&quot;: &quot;rul-alcoholemia — three blood-alcohol numbers coexist across the documents&quot;, &quot;conflict&quot;: &quot;three different alcohol thresholds live in the two documents with no reconciliation.&quot;, &quot;variants&quot;: &quot;- **cg exclusion: 0.50 g/1000 ml** — general policy exclusion in the condiciones generales.\n- **manual licitaciones cap: 0,70 g/l** — r-097: \&quot;alcoholemia permitida mayor a 0,70 gramos\n  por litro de sangre\&quot; may **not** be subscribed (an upper cap on what can be agreed).\n- **clause 2002:** allows a dosage to be agreed in the condiciones particulares.\n\nrepresentation note (linkage): \&quot;se registran los tres sin armonizar.\&quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;these operate at different layers and may all stand: 0.50 g/1000ml is the *default coverage\nexclusion*; 0,70 g/l is the *maximum a licitación may negotiate*; 2002 is the *mechanism* to\nset a particular dosage within that cap. recommend documenting them as a 3-layer rule\n(default / negotiation ceiling / mechanism) rather than picking one. confirm units\n(g/1000ml vs g/l) are intentionally different. *advisory only.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-alcoholemia.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-ALCOHOLEMIA — Three blood-alcohol numbers coexist across the documents</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>cross_doc_tension</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>R-097 licitaciones constraint; CG exclusion; clause 2002 (Phase 1/4)</p></div>
+<div><span>Source</span><p>representation/linkage.json (alcoholemia link) + rules.json R-097</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-ALCOHOLEMIA.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>Three different alcohol thresholds live in the two documents with no reconciliation.</pre></section>
+<section><h3>Source Variants</h3><pre>- **CG exclusion: 0.50 g/1000 ml** — general policy exclusion in the Condiciones Generales.
+- **Manual licitaciones cap: 0,70 g/l** — R-097: &quot;Alcoholemia permitida mayor a 0,70 gramos
+  por litro de sangre&quot; may **not** be subscribed (an upper cap on what can be agreed).
+- **Clause 2002:** allows a dosage to be agreed in the Condiciones Particulares.
+
+Representation note (linkage): &quot;Se registran los tres sin armonizar.&quot;</pre></section>
+<section><h3>Recommended Resolution</h3><pre>These operate at different layers and may all stand: 0.50 g/1000ml is the *default coverage
+exclusion*; 0,70 g/l is the *maximum a licitación may negotiate*; 2002 is the *mechanism* to
+set a particular dosage within that cap. Recommend documenting them as a 3-layer rule
+(default / negotiation ceiling / mechanism) rather than picking one. Confirm units
+(g/1000ml vs g/l) are intentionally different. *Advisory only.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="undefined_boundary" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-band-edges&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;undefined_boundary&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;t-renovacion bands; tbl-tar-moto (phase 1 rating)&quot;], &quot;source&quot;: &quot;representation decision_trees.json t-renovacion band flags + tables.json tbl-tar-moto.note&quot;, &quot;title&quot;: &quot;rul-band-edges — undefined band-boundary inclusivity (50/51, 60, 150, 250; moto-va gap)&quot;, &quot;conflict&quot;: &quot;several siniestralidad/va band boundaries are stated so adjacent bands share or skip an edge,\nand the source never fixes which band owns the exact value. in s2 every such edge must be an\nexplicit flagged row, never a silent `&lt;`/`&lt;=`.&quot;, &quot;variants&quot;: &quot;- **consumer bands:** \&quot;hasta el 60%\&quot; vs \&quot;entre el 60% y el 150%\&quot;; \&quot;entre 150% y 250%\&quot; vs\n  \&quot;mayor al 250%\&quot; — the exact 60 / 150 / 250 values appear in two adjacent bands.\n  representation: \&quot;la fuente no precisa a qué banda pertenece el valor exacto de frontera.\&quot;\n- **pesados/motos bands:** \&quot;menor o igual al 50%\&quot; vs \&quot;desde el 51%\&quot; (the open interval\n  (50%,51%) is unassigned); \&quot;hasta el 250%\&quot; vs \&quot;a partir del 250%\&quot; (250 shared).\n- **moto va tariff (tbl-tar-moto):** two cent-level gaps — tramo 2 ends \&quot;21.000,00\&quot; / tramo 3\n  starts \&quot;21.001,00\&quot; (21.000,01–21.000,99 undefined); tramo 3 ends \&quot;35.000,00\&quot; / tramo 4 starts\n  \&quot;35.001,00\&quot; (35.000,01–35.000,99 undefined). both flagged in `tbl-tar-moto.boundary_conflicts`.\n- **franquicia empresas (tbl-franq-empresas):** the va bracket \&quot;mayor a 420.000 hasta 700.000\&quot;\n  (bs. 1.500) and the categorical row \&quot;vehículos de lujo mayores a bs. 420.000\&quot; (bs. 2.100) both\n  match a lujo vehicle &gt; 420.000; the source states no precedence between va-bracket and\n  category. modelled with the categoricals as `special_rows` (more specific), but the precedence\n  is not in the source — flagged here, not silently resolved.&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;standard actuarial convention: make each lower bound **inclusive** and each upper bound\n**exclusive** (`[lower, upper)`), and read \&quot;(50%,51%)\&quot; as the 50% boundary belonging to the\n\&quot;≤50%\&quot; band (so the gap closes upward). for the moto-va cent.-level gap, round to the band\nbelow. these are conventions, not source — confirm with suscripción before binding. *advisory.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-band-edges.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-BAND-EDGES — Undefined band-boundary inclusivity (50/51, 60, 150, 250; moto-VA gap)</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>undefined_boundary</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>T-RENOVACION bands; TBL-TAR-MOTO (Phase 1 rating)</p></div>
+<div><span>Source</span><p>representation decision_trees.json T-RENOVACION band flags + tables.json TBL-TAR-MOTO.note</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-BAND-EDGES.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>Several siniestralidad/VA band boundaries are stated so adjacent bands share or skip an edge,
+and the source never fixes which band owns the exact value. In S2 every such edge must be an
+explicit flagged row, never a silent `&lt;`/`&lt;=`.</pre></section>
+<section><h3>Source Variants</h3><pre>- **Consumer bands:** &quot;hasta el 60%&quot; vs &quot;entre el 60% y el 150%&quot;; &quot;entre 150% y 250%&quot; vs
+  &quot;mayor al 250%&quot; — the exact 60 / 150 / 250 values appear in two adjacent bands.
+  Representation: &quot;la fuente no precisa a qué banda pertenece el valor exacto de frontera.&quot;
+- **Pesados/motos bands:** &quot;menor o igual al 50%&quot; vs &quot;desde el 51%&quot; (the open interval
+  (50%,51%) is unassigned); &quot;hasta el 250%&quot; vs &quot;a partir del 250%&quot; (250 shared).
+- **Moto VA tariff (TBL-TAR-MOTO):** two cent-level gaps — tramo 2 ends &quot;21.000,00&quot; / tramo 3
+  starts &quot;21.001,00&quot; (21.000,01–21.000,99 undefined); tramo 3 ends &quot;35.000,00&quot; / tramo 4 starts
+  &quot;35.001,00&quot; (35.000,01–35.000,99 undefined). Both flagged in `TBL-TAR-MOTO.boundary_conflicts`.
+- **Franquicia Empresas (TBL-FRANQ-EMPRESAS):** the VA bracket &quot;Mayor a 420.000 hasta 700.000&quot;
+  (Bs. 1.500) and the categorical row &quot;Vehículos de Lujo mayores a Bs. 420.000&quot; (Bs. 2.100) both
+  match a lujo vehicle &gt; 420.000; the source states no precedence between VA-bracket and
+  category. Modelled with the categoricals as `special_rows` (more specific), but the precedence
+  is not in the source — flagged here, not silently resolved.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Standard actuarial convention: make each lower bound **inclusive** and each upper bound
+**exclusive** (`[lower, upper)`), and read &quot;(50%,51%)&quot; as the 50% boundary belonging to the
+&quot;≤50%&quot; band (so the gap closes upward). For the moto-VA cent.-level gap, round to the band
+below. These are conventions, not source — confirm with Suscripción before binding. *Advisory.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="dual_text" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-caseuw-c05-rentacar&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;dual_text&quot;, &quot;blocking&quot;: true, &quot;raised_by&quot;: [&quot;case_underwriting.elig.rent_a_car (c05)&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/decision_trees.json → t-elig-caseuw c05.flag&quot;, &quot;title&quot;: &quot;rul-caseuw-c05-rentacar — case-uw rent-a-car exclusion contradicts its own clarification&quot;, &quot;conflict&quot;: &quot;case-uw exclusion c05 excludes \&quot;vehículos de alquiler (rent-a-car)\&quot; but the very next sentence\nsays \&quot;esta exclusión no aplica a vehículos alquilados.\&quot; a rent-a-car **is** a rented vehicle, so\nthe outcome for a rented vehicle is indeterminate. the crawler therefore **escalates** at c05\n(blocking conflict) instead of asserting decline.&quot;, &quot;variants&quot;: &quot;- **exclusion:** \&quot;vehículos de alquiler (rent-a-car)\&quot;\n- **clarification:** \&quot;esta exclusión no aplica a vehículos alquilados.\&quot;\n\nrepresentation flag: \&quot;la aclaración de la fuente es ambigua (excluye rent-a-car pero &#x27;no aplica\na vehículos alquilados&#x27;); se transcribe sin interpretar.\&quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;standard exclusion x10 routes **rent-a-car-petroleras → case underwriting**. once in case uw,\nthis c05 contradiction is exactly what such a vehicle hits. so the x10→case-uw path terminates\nhere at an escalation until c05 is ruled — surfacing the tension rather than silently declining\na vehicle standard deliberately forwarded.&quot;, &quot;recommended&quot;: &quot;the clarification likely intends a narrower exclusion than its heading: e.g. exclude only\nrent-a-car *fleets/operators*, while individually-rented vehicles (the \&quot;vehículos alquilados\&quot;\nthe clarification protects) remain admissible under case uw. that reading would also make the\nx10 forward-route coherent. confirm with suscripción which population c05 actually bars.\n*advisory only — c05 escalates until ruled.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-caseuw-c05-rentacar.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-CASEUW-C05-RENTACAR — Case-UW Rent-A-Car exclusion contradicts its own clarification</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>dual_text</span>
+          <strong class="blocking">blocking</strong>
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>case_underwriting.elig.rent_a_car (C05)</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/decision_trees.json → T-ELIG-CASEUW C05.flag</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-CASEUW-C05-RENTACAR.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>Case-UW exclusion C05 excludes &quot;Vehículos de alquiler (Rent-A-Car)&quot; but the very next sentence
+says &quot;Esta exclusión no aplica a vehículos alquilados.&quot; A Rent-A-Car **is** a rented vehicle, so
+the outcome for a rented vehicle is indeterminate. The crawler therefore **escalates** at C05
+(blocking conflict) instead of asserting decline.</pre></section>
+<section><h3>Source Variants</h3><pre>- **exclusion:** &quot;Vehículos de alquiler (Rent-A-Car)&quot;
+- **clarification:** &quot;Esta exclusión no aplica a vehículos alquilados.&quot;
+
+Representation flag: &quot;La aclaración de la fuente es ambigua (excluye Rent-A-Car pero &#x27;no aplica
+a vehículos alquilados&#x27;); se transcribe sin interpretar.&quot;</pre></section>
+<section><h3>Interaction</h3><pre>Standard exclusion X10 routes **rent-a-car-petroleras → Case Underwriting**. Once in Case UW,
+this C05 contradiction is exactly what such a vehicle hits. So the X10→Case-UW path terminates
+here at an escalation until C05 is ruled — surfacing the tension rather than silently declining
+a vehicle Standard deliberately forwarded.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>The clarification likely intends a narrower exclusion than its heading: e.g. exclude only
+Rent-A-Car *fleets/operators*, while individually-rented vehicles (the &quot;vehículos alquilados&quot;
+the clarification protects) remain admissible under Case UW. That reading would also make the
+X10 forward-route coherent. Confirm with Suscripción which population C05 actually bars.
+*Advisory only — C05 escalates until ruled.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="dual_text" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-cg-2023&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;dual_text&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;clause cg-2023 (phase 4 clause linking)&quot;], &quot;source&quot;: &quot;representation/clausulas_generales/document.json → conf-cg-001&quot;, &quot;title&quot;: &quot;rul-cg-2023 — clause 2023 printed twice with different operative conditions&quot;, &quot;conflict&quot;: &quot;\&quot;cláusula de eliminación de la limitación de edad máxima\&quot; (aps code 2023) appears twice in the\nbundle with substantively different licence conditions. same registered code, different\nwording. not resolved — both texts preserved (`clause_texts/cg-2023__print_p51.txt`,\n`cg-2023__print_p237.txt`).&quot;, &quot;variants&quot;: &quot;- **print p.51:** \&quot;siempre que cuente con la licencia de conducir otorgada por la autoridad\n  competente vigente al momento del evento\&quot;\n- **print p.237:** \&quot;siempre que cuente con la licencia de conducir otorgada por la autoridad\n  competente y la vigencia sea mayor al vencimiento de la póliza\&quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;likely the **p.237** text is the later/governing print (it sits in the third, most-recent\ncatalog reprint block, pp.219-271). but aps registration date, not bundle position, decides —\nrequest the registered effective text from legal/aps before binding. *advisory only.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-cg-2023.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-CG-2023 — Clause 2023 printed twice with different operative conditions</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>dual_text</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>clause CG-2023 (Phase 4 clause linking)</p></div>
+<div><span>Source</span><p>representation/clausulas_generales/document.json → CONF-CG-001</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-CG-2023.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>&quot;CLÁUSULA DE ELIMINACIÓN DE LA LIMITACIÓN DE EDAD MÁXIMA&quot; (APS code 2023) appears twice in the
+bundle with substantively different licence conditions. Same registered code, different
+wording. Not resolved — both texts preserved (`clause_texts/CG-2023__print_p51.txt`,
+`CG-2023__print_p237.txt`).</pre></section>
+<section><h3>Source Variants</h3><pre>- **print p.51:** &quot;siempre que cuente con la licencia de conducir otorgada por la Autoridad
+  Competente vigente al momento del evento&quot;
+- **print p.237:** &quot;siempre que cuente con la licencia de conducir otorgada por la Autoridad
+  Competente y la vigencia sea mayor al vencimiento de la póliza&quot;</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Likely the **p.237** text is the later/governing print (it sits in the third, most-recent
+catalog reprint block, pp.219-271). But APS registration date, not bundle position, decides —
+request the registered effective text from Legal/APS before binding. *Advisory only.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="threshold_variance" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-flota-thresholds&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;threshold_variance&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;flota definition (phase 1 rating + r-103)&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/rules.json → r-103.flags&quot;, &quot;title&quot;: &quot;rul-flota-thresholds — \&quot;flota\&quot; means a different count in four places&quot;, &quot;conflict&quot;: &quot;the threshold that makes a group of vehicles a \&quot;flota\&quot; differs by context; the source states\nall four without harmonizing them.&quot;, &quot;variants&quot;: &quot;- **≥3 vehicles** — pn con nit (§3.1.5.1.2): \&quot;flota de mínimamente 3 vehículos…\&quot;\n- **from the 2nd vehicle** — empresas (§3.1.5.1.4): \&quot;se considera una flota a partir del\n  segundo vehículo a una póliza…\&quot;\n- **\&quot;uno o más\&quot;** — commercial (§4.4): \&quot;uno o más vehículos suscritos bajo una misma póliza\n  dentro del segmento commercial (no consumer)…\&quot;\n- **≥4 vehicles** — consumer (§4.4): \&quot;grupo de mínimamente 4 vehículos bajo una misma\n  póliza…\&quot;\n\nrepresentation flag (r-103): \&quot;no se armoniza: cada regla cita su propio umbral.\&quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;do **not** unify into one threshold — they are context-scoped and each is correct for its\nsegment/tariff. keep four context-keyed definitions (`flota_threshold[segment]`) rather than a\nsingle `flota_size` rule. confirm this is intended segmentation, not an editing drift.\n*advisory only.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-flota-thresholds.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-FLOTA-THRESHOLDS — &quot;Flota&quot; means a different count in four places</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>threshold_variance</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>flota definition (Phase 1 rating + R-103)</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/rules.json → R-103.flags</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-FLOTA-THRESHOLDS.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>The threshold that makes a group of vehicles a &quot;flota&quot; differs by context; the source states
+all four without harmonizing them.</pre></section>
+<section><h3>Source Variants</h3><pre>- **≥3 vehicles** — PN con NIT (§3.1.5.1.2): &quot;flota de mínimamente 3 vehículos…&quot;
+- **from the 2nd vehicle** — Empresas (§3.1.5.1.4): &quot;se considera una flota a partir del
+  segundo vehículo a una póliza…&quot;
+- **&quot;uno o más&quot;** — Commercial (§4.4): &quot;uno o más vehículos suscritos bajo una misma póliza
+  dentro del Segmento Commercial (no Consumer)…&quot;
+- **≥4 vehicles** — Consumer (§4.4): &quot;grupo de mínimamente 4 vehículos bajo una misma
+  póliza…&quot;
+
+Representation flag (R-103): &quot;No se armoniza: cada regla cita su propio umbral.&quot;</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Do **not** unify into one threshold — they are context-scoped and each is correct for its
+segment/tariff. Keep four context-keyed definitions (`flota_threshold[segment]`) rather than a
+single `flota_size` rule. Confirm this is intended segmentation, not an editing drift.
+*Advisory only.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="overlap" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-franq-moto-overlap&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;overlap&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;tbl-franq-moto&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/tables.json → tbl-franq-moto.note&quot;, &quot;title&quot;: &quot;rul-franq-moto-overlap — moto franquicia rows overlap above 70.000 (s2 boundary)&quot;, &quot;conflict&quot;: &quot;the moto protección minimum-deductible table prints three rows; rows 2 (\&quot;mayor a bs. 35.000\&quot;)\nand 3 (\&quot;mayor a bs. 70.000\&quot;) are both **open above** their lower bound, so for any\n`valor_asegurado &gt; 70.000` **both** rows match with different outputs, and the manual does not\nstate which prevails.&quot;, &quot;variants&quot;: &quot;| valor_asegurado | santa cruz/la paz/trinidad | resto del país |\n|---|---|---|\n| hasta bs. 35.000,00 | bs. 350 | bs. 350 |\n| mayor a bs. 35.000,00 | bs. 700 | bs. 350 |\n| mayor a bs. 70.000,00 | bs. 1.500 | bs. 1.500 |\n\nrepresentation note: \&quot;los tramos 2 y 3 se solapan para va &gt; 70.000 (un va &gt; 70.000 también es\n&gt; 35.000). el manual no define la precedencia; se transcribe tal cual.\&quot;&quot;, &quot;behaviour&quot;: &quot;`tbl-franq-moto` is `hit_policy: unique`; the overlap edge (70.000) is listed in\n`boundary_conflicts → rul-franq-moto-overlap`. a `bracket_lookup` for a va &gt; 70.000 finds 2\nmatching rows ⇒ unique violation ⇒ the crawler **escalates** citing this entry (it does not\npick 700 or 1.500). a va in (35.000, 70.000] resolves cleanly to row 2; va ≤ 35.000 to row 1.&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;read it as a tiered ladder (the obvious intent): row 2 = **(35.000, 70.000]**, row 3 =\n**(70.000, ∞)**, i.e. cap row 2&#x27;s upper at 70.000 inclusive. then va &gt; 70.000 ⇒ bs. 1.500.\nconfirm the 70.000 edge belongs to row 3 (\&quot;mayor a 70.000\&quot; = strictly greater ⇒ exactly\n70.000 stays in row 2). *advisory only — table stays unique+flagged until ruled.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-franq-moto-overlap.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-FRANQ-MOTO-OVERLAP — Moto franquicia rows overlap above 70.000 (S2 boundary)</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>overlap</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>TBL-FRANQ-MOTO</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/tables.json → TBL-FRANQ-MOTO.note</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-FRANQ-MOTO-OVERLAP.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>The Moto Protección minimum-deductible table prints three rows; rows 2 (&quot;Mayor a Bs. 35.000&quot;)
+and 3 (&quot;Mayor a Bs. 70.000&quot;) are both **open above** their lower bound, so for any
+`valor_asegurado &gt; 70.000` **both** rows match with different outputs, and the manual does not
+state which prevails.</pre></section>
+<section><h3>Source Variants</h3><pre>| valor_asegurado | Santa Cruz/La Paz/Trinidad | Resto del País |
+|---|---|---|
+| Hasta Bs. 35.000,00 | Bs. 350 | Bs. 350 |
+| Mayor a Bs. 35.000,00 | Bs. 700 | Bs. 350 |
+| Mayor a Bs. 70.000,00 | Bs. 1.500 | Bs. 1.500 |
+
+Representation note: &quot;Los tramos 2 y 3 se solapan para VA &gt; 70.000 (un VA &gt; 70.000 también es
+&gt; 35.000). El manual no define la precedencia; se transcribe tal cual.&quot;</pre></section>
+<section><h3>Behavior</h3><pre>`TBL-FRANQ-MOTO` is `hit_policy: unique`; the overlap edge (70.000) is listed in
+`boundary_conflicts → RUL-FRANQ-MOTO-OVERLAP`. A `bracket_lookup` for a VA &gt; 70.000 finds 2
+matching rows ⇒ unique violation ⇒ the crawler **escalates** citing this entry (it does not
+pick 700 or 1.500). A VA in (35.000, 70.000] resolves cleanly to row 2; VA ≤ 35.000 to row 1.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Read it as a tiered ladder (the obvious intent): row 2 = **(35.000, 70.000]**, row 3 =
+**(70.000, ∞)**, i.e. cap row 2&#x27;s upper at 70.000 inclusive. Then VA &gt; 70.000 ⇒ Bs. 1.500.
+Confirm the 70.000 edge belongs to row 3 (&quot;Mayor a 70.000&quot; = strictly greater ⇒ exactly
+70.000 stays in row 2). *Advisory only — table stays unique+flagged until ruled.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="threshold_variance" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-lizeth-rios-auth&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;threshold_variance&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;tbl-auth-caseuw vs tbl-auth-licitaciones (lizeth rios row)&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/tables.json (tbl-auth-caseuw / tbl-auth-licitaciones) + decisions.md d4&quot;, &quot;title&quot;: &quot;rul-lizeth-rios-auth — lizeth rios authority differs between case-uw and licitaciones&quot;, &quot;conflict&quot;: &quot;the same suscriptor, lizeth rios, has different authority limits in the case-uw matrix vs the\nlicitaciones matrix. the source does not mark either as a typo; both are kept (decisions.md d4).&quot;, &quot;variants&quot;: &quot;- **case underwriting** (§3.3.2): lizeth rios — número de vehículos **100** / mayor vehículo\n  **bs. 1.400.000,00**.\n- **licitaciones** (§3.5.2): lizeth rios — número de vehículos **10** / mayor vehículo\n  **bs. 700.000,00**.\n\n(note: the estándar matrix §3.1.3 lists \&quot;lizeth ríos\&quot; with 100 / 1.400.000,00 — consistent with\ncase-uw. only the licitaciones row diverges.)&quot;, &quot;behaviour&quot;: &quot;the two matrices are kept as separate `matrix_lookup` tables, so an authority check for lizeth\nrios returns 100 / 1.4m under `case_underwriting.authority` and 10 / 700k under\n`licitaciones.authority`. both authority nodes carry a non-binding caveat → this entry, so any\nlizeth-rios authority decision surfaces the discrepancy in its audit. nothing is harmonized.&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;the licitaciones limits (10 / 700k) are markedly lower than this suscriptor&#x27;s estándar/case-uw\nlimits (100 / 1.4m); this may be intentional (tighter authority for public-tender risk) or a\ntranscription slip. confirm with suscripción whether lizeth rios&#x27;s licitación authority is\ngenuinely 10 / 700.000. *advisory only — both tables stand until ruled.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-lizeth-rios-auth.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-LIZETH-RIOS-AUTH — Lizeth Rios authority differs between Case-UW and Licitaciones</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>threshold_variance</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>TBL-AUTH-CASEUW vs TBL-AUTH-LICITACIONES (Lizeth Rios row)</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/tables.json (TBL-AUTH-CASEUW / TBL-AUTH-LICITACIONES) + decisions.md D4</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-LIZETH-RIOS-AUTH.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>The same suscriptor, Lizeth Rios, has different authority limits in the Case-UW matrix vs the
+Licitaciones matrix. The source does not mark either as a typo; both are kept (decisions.md D4).</pre></section>
+<section><h3>Source Variants</h3><pre>- **Case Underwriting** (§3.3.2): Lizeth Rios — número de vehículos **100** / mayor vehículo
+  **Bs. 1.400.000,00**.
+- **Licitaciones** (§3.5.2): Lizeth Rios — número de vehículos **10** / mayor vehículo
+  **Bs. 700.000,00**.
+
+(Note: the Estándar matrix §3.1.3 lists &quot;Lizeth Ríos&quot; with 100 / 1.400.000,00 — consistent with
+Case-UW. Only the Licitaciones row diverges.)</pre></section>
+<section><h3>Behavior</h3><pre>The two matrices are kept as separate `matrix_lookup` tables, so an authority check for Lizeth
+Rios returns 100 / 1.4M under `case_underwriting.authority` and 10 / 700k under
+`licitaciones.authority`. Both authority nodes carry a non-binding caveat → this entry, so any
+Lizeth-Rios authority decision surfaces the discrepancy in its audit. Nothing is harmonized.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>The Licitaciones limits (10 / 700k) are markedly lower than this suscriptor&#x27;s Estándar/Case-UW
+limits (100 / 1.4M); this may be intentional (tighter authority for public-tender risk) or a
+transcription slip. Confirm with Suscripción whether Lizeth Rios&#x27;s licitación authority is
+genuinely 10 / 700.000. *Advisory only — both tables stand until ruled.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="version_identity" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-man-version&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;version_identity&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;all manual-sourced nodes and tables (_doc_conflicts)&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/document.json → version_identity&quot;, &quot;title&quot;: &quot;rul-man-version — manual version identity (3.0 vs 4.0)&quot;, &quot;conflict&quot;: &quot;the manual states two different version numbers. every node/table compiled from the manual\nstamps `source.version: \&quot;3.0\&quot;` because that is what is literally printed on the page the\nquote is read from; this ledger entry holds the discrepancy so \&quot;3.0\&quot; is never mistaken for a\nsettled fact.&quot;, &quot;variants&quot;: &quot;- **\&quot;4.0\&quot;** — `cover_verbatim`: \&quot;versión 4.0\&quot;; `change_table_verbatim`: \&quot;versión: 4.0\&quot;.\n- **\&quot;3.0\&quot;** — `document_info_table_verbatim`: \&quot;código man-015 / nro. de versión 3.0 / fecha de\n  validación 02/06/2025 / fecha de inicio de vigencia 01/06/2020\&quot;; `page_headers_verbatim`:\n  \&quot;versión 3.0 (en todas las páginas de contenido)\&quot;.&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;treat **4.0** as the canonical published version (cover + change table are the authored\nfront-matter; the \&quot;3.0\&quot; headers/info-table read like an un-updated template, consistent with\nchange-log entries dated through 04/06/2025). confirm with the document owner (suscripción,\nmarco rada) before stamping. *advisory only — not applied; nodes remain \&quot;3.0\&quot; until ruled.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-man-version.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-MAN-VERSION — Manual version identity (3.0 vs 4.0)</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>version_identity</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>all manual-sourced nodes and tables (_doc_conflicts)</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/document.json → version_identity</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-MAN-VERSION.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>The manual states two different version numbers. Every node/table compiled from the manual
+stamps `source.version: &quot;3.0&quot;` because that is what is literally printed on the page the
+quote is read from; this ledger entry holds the discrepancy so &quot;3.0&quot; is never mistaken for a
+settled fact.</pre></section>
+<section><h3>Source Variants</h3><pre>- **&quot;4.0&quot;** — `cover_verbatim`: &quot;VERSIÓN 4.0&quot;; `change_table_verbatim`: &quot;VERSIÓN: 4.0&quot;.
+- **&quot;3.0&quot;** — `document_info_table_verbatim`: &quot;Código MAN-015 / Nro. de Versión 3.0 / Fecha de
+  Validación 02/06/2025 / Fecha de Inicio de Vigencia 01/06/2020&quot;; `page_headers_verbatim`:
+  &quot;Versión 3.0 (en todas las páginas de contenido)&quot;.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Treat **4.0** as the canonical published version (cover + change table are the authored
+front-matter; the &quot;3.0&quot; headers/info-table read like an un-updated template, consistent with
+change-log entries dated through 04/06/2025). Confirm with the document owner (Suscripción,
+Marco Rada) before stamping. *Advisory only — not applied; nodes remain &quot;3.0&quot; until ruled.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="overlap" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-renov-consumer-pesados-overlap&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;overlap&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;t-renovacion (phase 1 rating/renovación)&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/decision_trees.json → t-renovacion.conflict_flag&quot;, &quot;title&quot;: &quot;rul-renov-consumer-pesados-overlap — consumer bands vs pesados/motos scheme contradict&quot;, &quot;conflict&quot;: &quot;the consumer renovación policy declares its scope as \&quot;cualquier póliza que corresponda a un\nriesgo con perfil de suscripción estándar (livianos, **pesados, motocicletas**, etc.)\&quot;, which\noverlaps the separate point-3 scheme for \&quot;vehículos pesados y motocicletas\&quot;. for a\nconsumer-segment pesado/moto the two give different outputs and the source states no\nprecedence.&quot;, &quot;variants&quot;: &quot;- siniestralidad **55%**: consumer bands → \&quot;mismas tasas\&quot; (≤60%) vs pesados/motos → \&quot;+17%\&quot;\n  (51–250%) — **contradictory**.\n- siniestralidad **200%**: consumer bands → \&quot;+50%\&quot; (150–250%) vs pesados/motos → \&quot;+17%\&quot; —\n  **contradictory**.\n- siniestralidad **40%**: \&quot;mismas tasas\&quot; vs \&quot;mantener tasas\&quot; — coincident.\n\nrepresentation conflict_flag: \&quot;la fuente no indica cuál esquema prevalece para\npesados/motocicletas del segmento consumer.\&quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;apply the **more-specific point-3 pesados/motos scheme** to consumer pesados/motos (specific\noverrides general), reserving the consumer bands for livianos. this is a guess about intent;\nthe source does not say so — confirm with suscripción. *advisory only.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-renov-consumer-pesados-overlap.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-RENOV-CONSUMER-PESADOS-OVERLAP — Consumer bands vs pesados/motos scheme contradict</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>overlap</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>T-RENOVACION (Phase 1 rating/renovación)</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/decision_trees.json → T-RENOVACION.conflict_flag</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-RENOV-CONSUMER-PESADOS-OVERLAP.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>The Consumer renovación policy declares its scope as &quot;cualquier póliza que corresponda a un
+riesgo con perfil de Suscripción Estándar (livianos, **pesados, motocicletas**, etc.)&quot;, which
+overlaps the separate point-3 scheme for &quot;Vehículos Pesados y motocicletas&quot;. For a
+Consumer-segment pesado/moto the two give different outputs and the source states no
+precedence.</pre></section>
+<section><h3>Source Variants</h3><pre>- siniestralidad **55%**: Consumer bands → &quot;mismas tasas&quot; (≤60%) vs pesados/motos → &quot;+17%&quot;
+  (51–250%) — **contradictory**.
+- siniestralidad **200%**: Consumer bands → &quot;+50%&quot; (150–250%) vs pesados/motos → &quot;+17%&quot; —
+  **contradictory**.
+- siniestralidad **40%**: &quot;mismas tasas&quot; vs &quot;mantener tasas&quot; — coincident.
+
+Representation conflict_flag: &quot;La fuente no indica cuál esquema prevalece para
+pesados/motocicletas del segmento Consumer.&quot;</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Apply the **more-specific point-3 pesados/motos scheme** to Consumer pesados/motos (specific
+overrides general), reserving the Consumer bands for livianos. This is a guess about intent;
+the source does not say so — confirm with Suscripción. *Advisory only.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="derived_reading" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-router-precedence&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;derived_reading&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;root.process_router&quot;], &quot;source&quot;: &quot;representation decisions.md d2 + reference_approach1/graph/router.json gap&quot;, &quot;title&quot;: &quot;rul-router-precedence — no stated global precedence between the 5 processes&quot;, &quot;conflict&quot;: &quot;the manual describes 5 underwriting processes (estándar, automática, case underwriting,\nmasiva, licitaciones) and the profile of each, but **never states a top-level precedence**\nwhen several could apply to one risk (e.g. a state fleet quoting an enlatado product; or\nlbc|auto, which is both a standard product (r-011) and has enlatado plans routed to\nautomática (r-060)). part-1 `decisions.md` d2 deliberately declined to invent a master router.&quot;, &quot;variants&quot;: &quot;- r-010: \&quot;el procedimiento de suscripción estándar representa la vía rápida de atención a\n  nuestros clientes, mediante productos no diferenciados…\&quot;\n- r-070: \&quot;este procedimiento debe ser analizado considerando factores ajenos a la misma\n  póliza, como ser: antigüedad del cliente, volumen del programa…\&quot;\n- r-060 (automática): \&quot;en este procedimiento no aplican autoridades de suscripción, ya que los\n  productos ‘enlatados’ cuentan con términos y condiciones definidas…\&quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;adopt a **most-specific-first** order — `licitaciones &gt; masiva &gt; automatica &gt; case_underwriting\n&gt; standard` — as the precedence when multiple triggers fire, since licitación/masiva are\nchannel-determined and automatica is product-determined (both narrower than the\nprofile-based standard/case split). have suscripción confirm, especially the\nenlatado-vs-standard overlap for lbc|auto. *advisory only — the router still escalates on a\nmulti-match until this is ruled.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-router-precedence.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-ROUTER-PRECEDENCE — No stated global precedence between the 5 processes</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>derived_reading</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>root.process_router</p></div>
+<div><span>Source</span><p>representation decisions.md D2 + reference_approach1/graph/router.json gap</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-ROUTER-PRECEDENCE.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>The manual describes 5 underwriting processes (Estándar, Automática, Case Underwriting,
+Masiva, Licitaciones) and the profile of each, but **never states a top-level precedence**
+when several could apply to one risk (e.g. a state fleet quoting an enlatado product; or
+LBC|Auto, which is both a Standard product (R-011) and has enlatado plans routed to
+Automática (R-060)). Part-1 `decisions.md` D2 deliberately declined to invent a master router.</pre></section>
+<section><h3>Source Variants</h3><pre>- R-010: &quot;El procedimiento de Suscripción Estándar representa la vía rápida de atención a
+  nuestros clientes, mediante productos no diferenciados…&quot;
+- R-070: &quot;este procedimiento debe ser analizado considerando factores ajenos a la misma
+  póliza, como ser: antigüedad del cliente, volumen del programa…&quot;
+- R-060 (Automática): &quot;En este procedimiento no aplican autoridades de suscripción, ya que los
+  productos ‘enlatados’ cuentan con términos y condiciones definidas…&quot;</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Adopt a **most-specific-first** order — `licitaciones &gt; masiva &gt; automatica &gt; case_underwriting
+&gt; standard` — as the precedence when multiple triggers fire, since licitación/masiva are
+channel-determined and automatica is product-determined (both narrower than the
+profile-based Standard/Case split). Have Suscripción confirm, especially the
+enlatado-vs-Standard overlap for LBC|Auto. *Advisory only — the router still escalates on a
+multi-match until this is ruled.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="derived_reading" data-status="open" data-category="ledger" data-search="{&quot;id&quot;: &quot;rul-x15-highvalue-reading&quot;, &quot;status&quot;: &quot;open&quot;, &quot;kind&quot;: &quot;derived_reading&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;standard.elig.high_value&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/decision_trees.json → t-elig-estandar x15.flag&quot;, &quot;title&quot;: &quot;rul-x15-highvalue-reading — high-value bullet packs two rules into one sentence&quot;, &quot;conflict&quot;: &quot;the source states the high-value exclusion and the importer-validation step in a **single\nbullet**. the structured reading splits it into two thresholds (`&gt;= 1.050.000` ⇒ excluded;\n`&gt; 700.000` ⇒ must validate authorized importer). that split is **derived from the syntax**,\nnot stated as two rules — flagged in the representation and carried onto the node.&quot;, &quot;variants&quot;: &quot;&gt; \&quot;vehículos que tengan un valor asegurado igual o mayor a bs. 1.050.000,00 … para aquellos\n&gt; que superen los bs. 700.000 se deberá validar que hayan sido importados y comercializados\n&gt; por: toyosa, saci, andar motors, ovando, taiyo motors e imcruz.\&quot;\n\nrepresentation flag: \&quot;la fuente enlaza ambas condiciones en una sola viñeta; la lectura\nestructurada (&gt;=1.050.000 excluye; &gt;700.000 exige validación de importador) es derivada de la\nsintaxis.\&quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;keep the two-threshold reading (it is the only coherent parse) and treat the importer check as\na **validation step → `refer_authority`**, not a decline: an unverifiable importer routes to a\nhuman, never an auto-reject. confirm `700.000` is exclusive (\&quot;&gt;700.000\&quot;). *advisory only.*&quot;, &quot;file&quot;: &quot;crawlable/rulings/rul-x15-highvalue-reading.md&quot;, &quot;category&quot;: &quot;ledger&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">ledger</p>
+          <h2>RUL-X15-HIGHVALUE-READING — High-value bullet packs two rules into one sentence</h2>
+        </div>
+        <div class="badges">
+          <span>open</span>
+          <span>derived_reading</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>standard.elig.high_value</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/decision_trees.json → T-ELIG-ESTANDAR X15.flag</p></div>
+<div><span>File</span><p>crawlable/rulings/RUL-X15-HIGHVALUE-READING.md</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>The source states the high-value exclusion and the importer-validation step in a **single
+bullet**. The structured reading splits it into two thresholds (`&gt;= 1.050.000` ⇒ excluded;
+`&gt; 700.000` ⇒ must validate authorized importer). That split is **derived from the syntax**,
+not stated as two rules — flagged in the representation and carried onto the node.</pre></section>
+<section><h3>Source Variants</h3><pre>&gt; &quot;Vehículos que tengan un Valor Asegurado igual o mayor a Bs. 1.050.000,00 … para aquellos
+&gt; que superen los Bs. 700.000 se deberá validar que hayan sido importados y comercializados
+&gt; por: Toyosa, SACI, Andar Motors, Ovando, Taiyo Motors e IMCRUZ.&quot;
+
+Representation flag: &quot;La fuente enlaza ambas condiciones en una sola viñeta; la lectura
+estructurada (&gt;=1.050.000 excluye; &gt;700.000 exige validación de importador) es derivada de la
+sintaxis.&quot;</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Keep the two-threshold reading (it is the only coherent parse) and treat the importer check as
+a **validation step → `refer_authority`**, not a decline: an unverifiable importer routes to a
+human, never an auto-reject. Confirm `700.000` is exclusive (&quot;&gt;700.000&quot;). *Advisory only.*</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="numeración TOC vs cuerpo" data-status="recorded" data-category="structural" data-search="{&quot;id&quot;: &quot;inc-man-001&quot;, &quot;status&quot;: &quot;recorded&quot;, &quot;kind&quot;: &quot;numeración toc vs cuerpo&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;representation/underwriting_manual/document.json&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/document.json → structural_inconsistencies&quot;, &quot;title&quot;: &quot;inc-man-001 — numeración toc vs cuerpo&quot;, &quot;conflict&quot;: &quot;la tabla de contenido (pdf pp. 6-7) numera 3.1.5.1 vehículos livianos, 3.1.5.2 personas naturales con nit (flota), 3.1.5.3 emisiones nuevas, 3.1.5.4 empresas (individuales), 3.1.5.5 empresas (flota), 3.1.6 primas y franquicias deducibles mínimas, 3.1.7 información de suscripción…, 3.1.8 forma de pago. el cuerpo usa 3.1.5.1 vehículos livianos (con 3.1.5.1.1–3.1.5.1.4), 3.1.5.2 vehículos pesados, 3.1.5.3 moto protección, 3.1.5.4 primas y franquicias deducibles mínimas, 3.1.6 información de suscripción…, 3.1.7 forma de pago. los artefactos citan la numeración del cuerpo.\n\nadditional: en el cuerpo, bajo 3.1.5.1.2 aparece el encabezado no numerado \&quot;emisiones nuevas\&quot;. evidencia adicional: el propio cuerpo (pdf p.14, 3.1.4.a) remite internamente a \&quot;el apartado 3.1.6. primas y franquicias deducibles mínimas\&quot; — es decir, usa la numeración del toc, no la del cuerpo (donde ese contenido es 3.1.5.4).&quot;, &quot;variants&quot;: &quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;recorded in part 1 as a source/document defect; not resolved in the representation.&quot;, &quot;file&quot;: &quot;representation/underwriting_manual/document.json&quot;, &quot;category&quot;: &quot;structural&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">structural</p>
+          <h2>INC-MAN-001 — numeración TOC vs cuerpo</h2>
+        </div>
+        <div class="badges">
+          <span>recorded</span>
+          <span>numeración TOC vs cuerpo</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>representation/underwriting_manual/document.json</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/document.json → structural_inconsistencies</p></div>
+<div><span>File</span><p>representation/underwriting_manual/document.json</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>La Tabla de Contenido (pdf pp. 6-7) numera 3.1.5.1 VEHÍCULOS LIVIANOS, 3.1.5.2 PERSONAS NATURALES CON NIT (FLOTA), 3.1.5.3 EMISIONES NUEVAS, 3.1.5.4 EMPRESAS (INDIVIDUALES), 3.1.5.5 EMPRESAS (FLOTA), 3.1.6 PRIMAS Y FRANQUICIAS DEDUCIBLES MÍNIMAS, 3.1.7 INFORMACIÓN DE SUSCRIPCIÓN…, 3.1.8 FORMA DE PAGO. El cuerpo usa 3.1.5.1 VEHÍCULOS LIVIANOS (con 3.1.5.1.1–3.1.5.1.4), 3.1.5.2 VEHÍCULOS PESADOS, 3.1.5.3 MOTO PROTECCIÓN, 3.1.5.4 PRIMAS Y FRANQUICIAS DEDUCIBLES MÍNIMAS, 3.1.6 INFORMACIÓN DE SUSCRIPCIÓN…, 3.1.7 FORMA DE PAGO. Los artefactos citan la numeración del CUERPO.
+
+Additional: En el cuerpo, bajo 3.1.5.1.2 aparece el encabezado no numerado &quot;EMISIONES NUEVAS&quot;. Evidencia adicional: el propio cuerpo (pdf p.14, 3.1.4.a) remite internamente a &quot;el Apartado 3.1.6. Primas y Franquicias deducibles mínimas&quot; — es decir, usa la numeración del TOC, no la del cuerpo (donde ese contenido es 3.1.5.4).</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Recorded in Part 1 as a source/document defect; not resolved in the representation.</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="documento aparentemente incompleto" data-status="recorded" data-category="structural" data-search="{&quot;id&quot;: &quot;inc-man-002&quot;, &quot;status&quot;: &quot;recorded&quot;, &quot;kind&quot;: &quot;documento aparentemente incompleto&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;representation/underwriting_manual/document.json&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/document.json → structural_inconsistencies&quot;, &quot;title&quot;: &quot;inc-man-002 — documento aparentemente incompleto&quot;, &quot;conflict&quot;: &quot;la sección 6. convenios (pdf p.41) anuncia \&quot;tres extensiones… atendidos por proveedores externos\&quot; pero el documento termina tras describir solo dos (auxilio mecánico express e inspecciones de pre riesgo). la tercera no aparece.&quot;, &quot;variants&quot;: &quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;recorded in part 1 as a source/document defect; not resolved in the representation.&quot;, &quot;file&quot;: &quot;representation/underwriting_manual/document.json&quot;, &quot;category&quot;: &quot;structural&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">structural</p>
+          <h2>INC-MAN-002 — documento aparentemente incompleto</h2>
+        </div>
+        <div class="badges">
+          <span>recorded</span>
+          <span>documento aparentemente incompleto</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>representation/underwriting_manual/document.json</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/document.json → structural_inconsistencies</p></div>
+<div><span>File</span><p>representation/underwriting_manual/document.json</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>La sección 6. CONVENIOS (pdf p.41) anuncia &quot;tres extensiones… atendidos por proveedores externos&quot; pero el documento termina tras describir solo dos (Auxilio Mecánico Express e inspecciones de pre riesgo). La tercera no aparece.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Recorded in Part 1 as a source/document defect; not resolved in the representation.</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="typo en tabla" data-status="recorded" data-category="structural" data-search="{&quot;id&quot;: &quot;inc-man-003&quot;, &quot;status&quot;: &quot;recorded&quot;, &quot;kind&quot;: &quot;typo en tabla&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;representation/underwriting_manual/document.json&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/document.json → structural_inconsistencies&quot;, &quot;title&quot;: &quot;inc-man-003 — typo en tabla&quot;, &quot;conflict&quot;: &quot;tabla de primas mínimas de renovación (pdf p.36): \&quot;cochabamaba\&quot; [sic] por cochabamba. se conserva verbatim con nota.&quot;, &quot;variants&quot;: &quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;recorded in part 1 as a source/document defect; not resolved in the representation.&quot;, &quot;file&quot;: &quot;representation/underwriting_manual/document.json&quot;, &quot;category&quot;: &quot;structural&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">structural</p>
+          <h2>INC-MAN-003 — typo en tabla</h2>
+        </div>
+        <div class="badges">
+          <span>recorded</span>
+          <span>typo en tabla</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>representation/underwriting_manual/document.json</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/document.json → structural_inconsistencies</p></div>
+<div><span>File</span><p>representation/underwriting_manual/document.json</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>Tabla de primas mínimas de renovación (pdf p.36): &quot;COCHABAMABA&quot; [sic] por Cochabamba. Se conserva verbatim con nota.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Recorded in Part 1 as a source/document defect; not resolved in the representation.</pre></section></div>
+    </article>
+    
+
+    <article class="card" data-kind="formato de cifra irregular" data-status="recorded" data-category="structural" data-search="{&quot;id&quot;: &quot;inc-man-004&quot;, &quot;status&quot;: &quot;recorded&quot;, &quot;kind&quot;: &quot;formato de cifra irregular&quot;, &quot;blocking&quot;: false, &quot;raised_by&quot;: [&quot;representation/underwriting_manual/document.json&quot;], &quot;source&quot;: &quot;representation/underwriting_manual/document.json → structural_inconsistencies&quot;, &quot;title&quot;: &quot;inc-man-004 — formato de cifra irregular&quot;, &quot;conflict&quot;: &quot;matriz case underwriting (pdf p.25): la fila de ricardo velarde registra \&quot;1.750.000\&quot; sin decimales \&quot;,00\&quot;, a diferencia del resto. se conserva verbatim.&quot;, &quot;variants&quot;: &quot;&quot;, &quot;behaviour&quot;: &quot;&quot;, &quot;interaction&quot;: &quot;&quot;, &quot;recommended&quot;: &quot;recorded in part 1 as a source/document defect; not resolved in the representation.&quot;, &quot;file&quot;: &quot;representation/underwriting_manual/document.json&quot;, &quot;category&quot;: &quot;structural&quot;}">
+      <div class="card-top">
+        <div>
+          <p class="eyebrow">structural</p>
+          <h2>INC-MAN-004 — formato de cifra irregular</h2>
+        </div>
+        <div class="badges">
+          <span>recorded</span>
+          <span>formato de cifra irregular</span>
+          
+        </div>
+      </div>
+      <div class="meta"><div><span>Raised by</span><p>representation/underwriting_manual/document.json</p></div>
+<div><span>Source</span><p>representation/underwriting_manual/document.json → structural_inconsistencies</p></div>
+<div><span>File</span><p>representation/underwriting_manual/document.json</p></div></div>
+      <div class="sections"><section><h3>Conflict</h3><pre>Matriz Case Underwriting (pdf p.25): la fila de Ricardo Velarde registra &quot;1.750.000&quot; sin decimales &quot;,00&quot;, a diferencia del resto. Se conserva verbatim.</pre></section>
+<section><h3>Recommended Resolution</h3><pre>Recorded in Part 1 as a source/document defect; not resolved in the representation.</pre></section></div>
+    </article>
+    </main>
+  <script>
+    const search = document.querySelector("#search");
+    const kind = document.querySelector("#kind");
+    const status = document.querySelector("#status");
+    const cards = [...document.querySelectorAll(".card")];
+    function filterCards() {
+      const q = search.value.trim().toLowerCase();
+      const k = kind.value;
+      const s = status.value;
+      for (const card of cards) {
+        const okSearch = !q || card.dataset.search.includes(q);
+        const okKind = !k || card.dataset.kind === k;
+        const okStatus = !s || card.dataset.status === s;
+        card.classList.toggle("hidden", !(okSearch && okKind && okStatus));
+      }
+    }
+    search.addEventListener("input", filterCards);
+    kind.addEventListener("change", filterCards);
+    status.addEventListener("change", filterCards);
+  </script>
+</body>
+</html>

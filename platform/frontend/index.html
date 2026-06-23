@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RiskIQ — Inteligencia de suscripción y cobertura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,860&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <button class="brand" data-route="home" title="Chat">
+          <span class="brand-mark">◆</span>
+          <span class="brand-text">Risk<strong>IQ</strong></span>
+        </button>
+
+        <nav class="nav" id="nav"></nav>
+
+        <div class="sidebar-foot">
+          <div class="env-pill"><span class="dot dot-live" id="health-dot"></span><span id="health-text">Verificando motor…</span></div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="back-btn hidden" id="back-btn" title="Volver a Chat">←</button>
+            <div class="topbar-titles">
+              <h1 id="page-title">RiskIQ</h1>
+              <p class="subtitle" id="page-sub">Consola de inteligencia de suscripción y cobertura.</p>
+            </div>
+          </div>
+          <div class="topbar-actions" id="topbar-actions"></div>
+        </header>
+
+        <div class="view" id="view"></div>
+      </main>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>
