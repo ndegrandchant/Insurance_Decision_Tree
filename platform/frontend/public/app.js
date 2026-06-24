@@ -4032,6 +4032,23 @@ function insightsLayout(result) {
   </div>`;
 }
 
+// Shared "hero" metric card used at the top of Supervisión and Simulación.
+// tone: "ok" | "warn" | "bad" | "info" → color accent; tag is an optional short qualifier.
+function heroKpi(label, value, sub, tone = "info", tag = "") {
+  const toneClass = tone === "ok" ? "is-ok" : tone === "warn" ? "is-warn" : tone === "bad" ? "is-bad" : "";
+  return `<div class="hero-kpi ${toneClass}">
+    <span class="hero-label">${esc(label)}</span>
+    <span class="hero-value">${esc(value)}</span>
+    ${sub ? `<span class="hero-sub">${esc(sub)}</span>` : ""}
+    ${tag ? `<span class="badge hero-tag">${esc(tag)}</span>` : ""}
+  </div>`;
+}
+
+// Labeled band header so a group of tables never floats without context.
+function bandHead(title, hint = "") {
+  return `<div class="band-head"><h2>${esc(title)}</h2>${hint ? `<span class="band-hint">${esc(hint)}</span>` : ""}</div>`;
+}
+
 function tableCard(title, rowsHtml) {
   return `<section class="card sim-table-card">
     <div class="card-head"><h2>${esc(title)}</h2></div>

@@ -1984,3 +1984,31 @@ select:focus, .num-input:focus { outline: none; border-color: var(--brand); box-
   .proposal-ai .composer-bar { align-items: flex-start; }
   .proposal-ai .composer-bar-right { width: 100%; justify-content: space-between; }
 }
+
+/* ---------- Inteligencia shared spine: hero + band headers ---------- */
+.hero-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 22px 26px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+.hero-kpi .hero-label { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; opacity: .7; }
+.hero-kpi .hero-value { font-family: "Fraunces", serif; font-size: 44px; line-height: 1.05; font-weight: 600; }
+.hero-kpi .hero-sub { font-size: 13px; opacity: .75; }
+.hero-kpi.is-ok   { border-color: #2e6f4e; }
+.hero-kpi.is-warn { border-color: #8a6d1f; }
+.hero-kpi.is-bad  { border-color: #8a2f2f; }
+.hero-kpi .hero-tag { align-self: flex-start; margin-top: 4px; }
+
+.band-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 26px 0 12px;
+}
+.band-head h2 { font-size: 16px; margin: 0; }
+.band-head .band-hint { font-size: 12px; opacity: .65; }
