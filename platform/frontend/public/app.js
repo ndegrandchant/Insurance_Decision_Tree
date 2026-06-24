@@ -3757,39 +3757,68 @@ VIEWS.insights = async function () {
 };
 
 VIEWS.supervision = async function () {
-  if (!state.supervision.result) {
-    state.supervision.result = await supervisionPayload();
+  if (!state.supervision.result || !state.supervision.baseline) {
+    const [result, baseline] = await Promise.all([
+      supervisionPayload(),
+      runSimulationPayload({})
+    ]);
+    state.supervision.result = result;
+    state.supervision.baseline = baseline;
   }
   setTopbar(
     "Supervisión",
-    "Control room de riesgo actual: clientes, accidentes, severidad, nodos de salida y renovaciones.",
+    "Cómo está la cartera hoy: riesgo, clientes, severidad y dónde se pierde dinero.",
     `<button class="btn btn-primary" id="supervision-refresh">Actualizar ahora</button>`
   );
-  $("#view").innerHTML = supervisionLayout(state.supervision.result);
+  $("#view").innerHTML = supervisionLayout(state.supervision.result, state.supervision.baseline);
   $("#supervision-refresh").addEventListener("click", async () => {
     $("#supervision-refresh").disabled = true;
-    state.supervision.result = await supervisionPayload();
+    const [result, baseline] = await Promise.all([supervisionPayload(), runSimulationPayload({})]);
+    state.supervision.result = result;
+    state.supervision.baseline = baseline;
     go("supervision");
   });
 };
 
-function supervisionLayout(result) {
+function supervisionLayout(result, baseline) {
   const s = result?.summary || {};
-  const tables = result?.tables || {};
+  const t = result?.tables || {};
+  const b = baseline?.tables || {};
+  const riskTone = Number(s.risk_score || 0) > 55 ? "warn" : "ok";
   return `<div class="supervision-page">
+    ${heroKpi(
+      "Risk score de la cartera",
+      esc(s.risk_score || 0),
+      `LR ${Number(s.loss_ratio || 0).toFixed(2)} · frecuencia ${Number(s.accident_frequency || 0).toFixed(2)}`,
+      riskTone,
+      riskTone === "warn" ? "vigilar" : "estable"
+    )}
     <section class="kpis sim-kpis">
       <div class="kpi is-info"><span class="kpi-label">Clientes activos</span><span class="kpi-value">${esc(s.active_clients || 0)}</span><span class="kpi-sub">${esc(s.claim_count || 0)} reclamos observados</span></div>
-      <div class="kpi ${Number(s.risk_score || 0) > 55 ? "is-warn" : "is-ok"}"><span class="kpi-label">Risk score</span><span class="kpi-value">${esc(s.risk_score || 0)}</span><span class="kpi-sub">LR ${Number(s.loss_ratio || 0).toFixed(2)} · freq ${Number(s.accident_frequency || 0).toFixed(2)}</span></div>
-      <div class="kpi is-warn"><span class="kpi-label">Cash-out exposure</span><span class="kpi-value">Bs ${moneyBob(s.cashout_exposure_bob)}</span><span class="kpi-sub">nodos con salida monetaria</span></div>
-      <div class="kpi is-info"><span class="kpi-label">Severidad promedio</span><span class="kpi-value">Bs ${moneyBob(s.avg_severity_bob)}</span><span class="kpi-sub">mock-live</span></div>
+      <div class="kpi is-warn"><span class="kpi-label">Cash-out exposure</span><span class="kpi-value">Bs ${moneyBob(s.cashout_exposure_bob)}</span><span class="kpi-sub">salida monetaria en nodos</span></div>
+      <div class="kpi is-info"><span class="kpi-label">Severidad promedio</span><span class="kpi-value">Bs ${moneyBob(s.avg_severity_bob)}</span><span class="kpi-sub">por reclamo (mock)</span></div>
+      <div class="kpi is-info"><span class="kpi-label">Reclamos observados</span><span class="kpi-value">${esc(s.claim_count || 0)}</span><span class="kpi-sub">en la ventana actual</span></div>
     </section>
+
+    ${bandHead("Riesgo ahora", "estado operativo de la cartera viva")}
     <section class="supervision-grid">
-      ${tableCard("Alertas de riesgo", alertRows(tables.risk_alerts || []))}
-      ${tableCard("Salud por cliente", clientHealthRows(tables.client_health || []))}
-      ${tableCard("Cash-out nodes", cashoutRows(tables.cashout_nodes || []))}
-      ${tableCard("Frecuencia de accidentes", frequencyRows(tables.accident_frequency || []))}
-      ${tableCard("Severidad por causa", severityRows(tables.severity || []))}
-      ${tableCard("Cola de renovación", renewalRows(tables.renewal_queue || []))}
+      ${tableCard("Alertas de riesgo", alertRows(t.risk_alerts || []))}
+      ${tableCard("Salud por cliente", clientHealthRows(t.client_health || []))}
+      ${tableCard("Frecuencia de accidentes", frequencyRows(t.accident_frequency || []))}
+      ${tableCard("Severidad por causa", severityRows(t.severity || []))}
+    </section>
+
+    ${bandHead("Por qué y dónde se pierde", "diagnóstico sobre el árbol actual (datos mock trazables)")}
+    <section class="supervision-grid">
+      ${tableCard("Pérdida por nodo de reclamo", lossRows(b.loss_nodes || []))}
+      ${tableCard("Cash-out nodes", cashoutRows(t.cashout_nodes || []))}
+      ${tableCard("Cláusulas con fricción broker", clauseRows(b.broker_clause_friction || []))}
+      ${tableCard("Rutas más tocadas", nodeRows(b.node_hits || []))}
+    </section>
+
+    ${bandHead("Renovaciones", "cola priorizada por vencimiento")}
+    <section class="supervision-grid">
+      ${tableCard("Cola de renovación", renewalRows(t.renewal_queue || []))}
     </section>
   </div>`;
 }
