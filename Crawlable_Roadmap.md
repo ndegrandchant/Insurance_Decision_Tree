@@ -1,12 +1,39 @@
 # Crawlable Decision Tree — Roadmap (this approach)
 
-> **What this is.** Your Approach-1 master sequence (`A-PROJECT-TODO-SEQUENCE.md`), transferred onto *this* approach — the accuracy-first extraction in `representation/`. Same end goal, same load-bearing order, but re-authored for a different and higher-fidelity starting point. Where this approach is already ahead of where the Approach-1 plan assumed, the phase **shrinks to "complete/reconcile" instead of "build."** Where I've moved a phase, the reason is stated.
+> **What this is.** Your Approach-1 master sequence (`A-PROJECT-TODO-SEQUENCE.md`), transferred onto *this* approach — the accuracy-first extraction in `representation/`. Same end goal, same load-bearing order, but re-authored for a different and higher-fidelity starting point. Where this approach is already ahead of where the Approach-1 plan assumed, the phase **shrinks to "complete/reconcile" instead of "build."**
 >
 > **End goal (unchanged).** An underwriter or agent inputs risk attributes and gets back eligibility, routing, authority, pricing, and deductibles — **with a full audit trail to the manual rule *and* the governing contract clause** — built from the Automotores manual + cláusulas, generalizable to other manuals, eventually exportable to DMN.
 >
-> **The one strategic decision up front (see §Skeleton at the bottom):** do **not** design a new skeleton. Pour *this approach's data* (verbatim-pinned, both documents, conflicts-as-data) into *Approach-1's node schema* (proven, DMN-aligned). **Their skeleton, our data and fidelity.**
+> **The one strategic decision up front (see §Skeleton at the bottom):** do **not** design a new skeleton. Pour *this approach's data* into *Approach-1's node schema*. **Their skeleton, our data and fidelity.**
 >
-> Conventions carried from your roadmap: **GATE** = don't start until true. ⚠ = do before the thing it precedes.
+> Conventions: **GATE** = don't start until true. ⚠ = do before the thing it precedes.
+
+---
+
+## ▶ STATUS DASHBOARD — as of 2026-06-24
+
+> **This roadmap was authored pre-platform.** Since then: (a) Phases 0–1 + Tasks S1/S2 are **built and verified**; (b) a collaborator ("santi") merged a **platform** (FastAPI backend + `insurance_engine/` + React frontend + Postgres) that **consumes this graph at runtime** — it does not replace it; (c) santi also added a **coverage adjudication engine** (`crawlable/graph_coverage/`) modeling 2 of 7 policy Secciones; (d) regression harnesses now exist (`troubleshoot testing/` UW golden snapshot + santi's `smoke.py`). The badges below and the rewritten Phases 3/5/5-COV/6/7 reflect that reality.
+>
+> **Legend:** ✅ done · 🔶 partial · ⬜ not started · ⏸️ deferred (trigger noted) · ❌ superseded / out-of-scope (genuinely re-scoped, not just unfinished).
+
+| Phase / Task | Status | Where it actually stands |
+|---|---|---|
+| **P0** prove core on a thin slice | ✅ **done** | crawler resolves real cases with an audit trail (`crawler/run_cases.py`) |
+| **P1** executable spine + validator | ✅ **done** | 61 nodes; `validate.py` GREEN; engine-aware `[11]` (D-P9) |
+| **S1** fidelity fields on every node | ✅ **done** | every node carries `source_quote` + `source.version` + first-class `conflict` |
+| **S2** brackets → DMN decision tables | ✅ **done** (UW) | real decision tables w/ inclusivity + `hit_policy` + boundary→ledger |
+| **P2** rulings ledger (operate) | 🔶 **partial** | 18 seeded OPEN (incl. santi's 2 coverage rulings); **0 resolved** — loop built, unexercised (underwriter-gated) |
+| **P3** fact registry + adapter seam | 🔶 **partial / re-scoped** | registry ✅ (55 facts); adapter is now santi's **AI extraction behind a confirmed-facts wall** → re-scoped to "audit, never fabricate" |
+| **P4** clause linking (both directions) | 🔶 **partial** | **O16:** ~2/84 forward edges; reverse + glossary unbuilt |
+| **P5** full crawler + regression | 🔶 **partial** | 5 processes built; **`masiva`/`automática` = out-of-scope ✅ decided**; **O3** stage-chaining ⬜; coverage/rating golden snapshot ⬜ |
+| **P5-COV** full-policy coverage adjudication *(NEW — santi's engine)* | 🔶 **partial** | **2 of 7 Secciones** modeled (III + V; ~31/152 clauses wired) — **5 Secciones unbuilt** |
+| **P6** human layer | ❌ **superseded** | santi's React frontend + DB `human_task`/`chat` tables ARE the human layer; Obsidian vault **dropped** |
+| **P7** manual-integrity report | 🔶 **partial** | findings exist + partly operationalized by santi's DB governance; a business-readable view remains |
+| **P8** standardization (engine + profile) | ⏸️ **deferred** | trigger: a real 2nd manual (premature now); santi's `EngineSpec` is a partial down-payment |
+| **P9** DMN export | ⏸️ **deferred** | trigger: a real DMN consumer (S2 already DMN-aligned internally) |
+| **P10** per-manual loop | ⏸️ **deferred** | depends on P8 |
+
+**To FINISH THE CORE (recommended build order):** **O3** stage-chaining → **O12b** wire the source-anchored rating tables → **P5-COV** coverage golden snapshot + extend to the other 5 Secciones → **O16** clause edges. Then **operate** P2 (underwriter rulings). Everything else is superseded (P6), trigger-gated (P8/P9/P10), or low (P7).
 
 ---
 
@@ -17,153 +44,143 @@
 | 84 quote-anchored rules | `representation/underwriting_manual/rules.json` | Phase 1 fidelity (every rule carries verbatim trigger) |
 | 24 provenance-tagged tables | `…/tables.json` (`verbatim_table` vs `parameter_digest`) | Phase 3 tables |
 | 4 verified decision trees | `…/decision_trees.json` + `decision_trees_view.html` | Phase 1 skeleton seed |
-| **Full cláusulas bundle** | `representation/clausulas_generales/` — 152 clauses verbatim + `base_policy.json` (definitions, exclusions, Secciones I–VII) | **Phase 4 — most of it already done, not cite-driven** |
-| Conflicts captured **as data** | `document.json` (version 3.0/4.0, clause-2023 dual text, TOC numbering), `conflict_flag`, `band_boundary_flag`, flota thresholds | **Phase 2 — both sides already recorded** |
+| **Full cláusulas bundle** | `representation/clausulas_generales/` — 152 clauses verbatim + `base_policy.json` | **Phase 4 — most of it already done, not cite-driven** |
+| Conflicts captured **as data** | `document.json`, `conflict_flag`, `band_boundary_flag`, flota thresholds | **Phase 2 — both sides already recorded** |
 | Cross-document map | `representation/linkage.json` (match-confidence) | Phase 4 forward edges, partly built |
 | Two-layer verification | `verification_report.md` (mechanical 100% + full semantic pass) | Phase 1/7 trust |
 | Reusable method | `Manual Prompt.md` | **Phase 8/10 engine** |
-| Merge plan | `Crawlable_Migration_Notes.md` | the schema graft for Phase 1 |
+| **Platform (runtime consumer)** *(santi)* | `platform/` (backend + `insurance_engine/` + frontend + db), `deploy/` | **a running app that CONSUMES this graph — reinforces P1/S1/S2, supersedes P6** |
+| **Coverage engine** *(santi)* | `crawlable/graph_coverage/`, `coverage_validate.py` | **new P5-COV (2/7 Secciones)** |
+| **Regression harnesses** | `troubleshoot testing/` (UW golden snapshot, Layers A–D) + `platform/backend/scripts/smoke.py` | **P5.2 / O4 infrastructure already exists** |
 
-The net effect: Approach-1's roadmap front-loads extraction breadth (Phases 1–4 build the graph and stub clauses). **Here that work largely exists** — so the center of gravity moves *earlier* to proving the core, and *later* to standardization.
-
----
-
-## PHASE 0 — Prove the core on a thin vertical slice ★ moved to the front
-*GATE: none. This is the de-risking joint, pulled ahead of breadth (your Phase 5 instinct, executed first).*
-
-**Why first.** You can't know the skeleton is right until a crawler resolves one real case end-to-end. Doing this on **one** hand-grafted slice — before converting all 84 rules — is the cheapest possible proof that "Approach-1 schema + our fidelity fields" actually runs.
-
-0.1 Hand-graft **one** path into executable form: the Standard eligibility gate → a few exclusions (incl. one liftable, e.g. antique-vehicle X12) → `refer_process` to Case UW → an outcome, plus the `valor_asegurado` high-value branch that reads `@tables`. Use the §Skeleton node shape below (machine `evaluate` **beside** the verbatim `source_quote`).
-0.2 Build the **minimal crawler**: from a root, pull facts via a stub adapter, fire `on_missing`, apply `hit_policy`, return an outcome **with its audit path** (nodes fired, clause/manual citations, facts used).
-0.3 **Escalation-with-context** from day one: when it can't resolve, refer *this one question* — partial path + exact missing/blocking fact + which node and why. (Your highest-value feature; cheap to stub now.)
-0.4 Run 3 cases: a clean accept, a clean decline, and the liftable exception (both outcomes). ✅ **Milestone:** the architecture resolves a real case with an audit trail. Only now invest in breadth.
+The net effect: Approach-1's roadmap front-loaded extraction breadth. **Here that work largely exists** — so the center of gravity is *proving + finishing the core* (P5/P5-COV), with standardization (P8+) correctly deferred.
 
 ---
 
-## PHASE 1 — Graft the executable spine onto the fidelity layer (the skeleton)
-*GATE: Phase 0 proved the shape. This converts the representation into a resolvable graph.*
+## PHASE 0 — Prove the core on a thin vertical slice ✅ DONE
+*GATE: none. The de-risking joint, pulled to the front.*
 
-1.1 Adopt the **Approach-1 node schema** (`router|gate|condition|authority|referral|accumulator|terminal`; outcomes `eligible|conditional_eligible|decline|refer_authority|refer_process|refer_line`) **extended with fidelity fields** (`source_quote`, `source.version`, provenance tag, a first-class `conflict` object) — see §Skeleton and `Crawlable_Migration_Notes.md` A1–A5.
-1.2 Convert `rules.json` + `decision_trees.json` into nodes: add `needs_facts`, `evaluate`/`branches` (machine-readable), map our `lift_condition`/`lift_conditions` → `exception{liftable, authority_required, conditions, cases[], on_lift/no_lift_outcome}`, and turn prose outcomes into enumerated outcomes + `referral_target`s pointing at real node ids.
-1.3 ⚠ Keep the verbatim on the node. Every converted node carries the `source_quote` it came from — **fidelity is not deferred to Phase 8 here** (the data already exists; don't re-earn it later). This is the single biggest divergence from the Approach-1 order.
-1.4 **Validator (adopt DMN discipline early):** exhaustiveness (every input lands somewhere) + overlap (two branches satisfiable at once with no precedence) + `hit_policy`/`on_no_match` present on every router/gate + **every `fact` defined in the registry, every `@tables.x` resolvable, every `referral_target` exists, every outcome ∈ enum, no unreachable leaf.** This *extends our existing verification harness* (`verification_report.md`) from "matches source" to "executes deterministically."
-
-1.5 **▶ Skeleton Task S1 — add fidelity fields to every node (do it *during* conversion, never as a later Phase-8 retrofit).** Alongside the executable fields, each node emits:
-   - `source_quote` — the verbatim trigger sentence (already in `rules.json` / `clause_texts/`; **copy it, never paraphrase**);
-   - `source.version` — which manual version the reading came from (the v3.0/4.0 identity conflict makes this mandatory);
-   - `conflict` — a **first-class object** (not a bare `needs_human_review` boolean) carrying both source texts + a pointer to the `rulings/` ledger entry that will resolve it.
-   *Done when:* no emitted node lacks a `source_quote`; every flagged conflict resolves to a ledger id.
-
-1.6 **▶ Skeleton Task S2 — represent every bracket/band as a DMN-style decision table (the one place where "look for a better representation" actually pays).** For siniestralidad bands (renovación), VA brackets (eligibility/pricing), and franquicia-by-plaza:
-   - encode rows as explicit intervals with `lower`, `upper`, **`lower_inclusive` / `upper_inclusive`**, and a `hit_policy`;
-   - any undefined or overlapping edge (the 50/51, 60, 250 cases) becomes a `needs_human_review` row → ledger, **not** a silent inequality;
-   - keep them as data referenced by `@tables`, **not** inequality chains buried in `evaluate` strings.
-   *Done when:* no band boundary is ambiguous in the data, and Phase 9 can serialize these to DMN with zero redesign.
-
-✅ **Trusted when:** the 4 trees + the eligibility/authority/rating rules resolve, validator is green, every node is both anchored (our quote, via S1) and runnable (their expression), and every band is a decision table (S2).
+✅ **Done.** One hand-grafted path (Standard eligibility gate → exclusions incl. a liftable antique-vehicle → `refer_process` to Case UW → outcome + the `@tables` high-value branch) runs through a minimal crawler with escalation-with-context and an audit trail; 3 cases resolve (`crawlable/crawler/run_cases.py`, `CONVERSION_RECORD.md` §2). **Milestone met:** the architecture resolves real cases with audit trails.
 
 ---
 
-## PHASE 2 — Rulings ledger (we are ahead: conflicts are already data)
+## PHASE 1 — Graft the executable spine onto the fidelity layer ✅ DONE
+*GATE: Phase 0 proved the shape.*
+
+✅ **Done.** The Approach-1 node schema (`router|gate|condition|authority|referral|accumulator|terminal`; outcomes `eligible|conditional_eligible|decline|refer_authority|refer_process|refer_line`) extended with fidelity fields; `rules.json` + `decision_trees.json` converted into **61 nodes**; the validator (`validate.py`) enforces the full "executes deterministically" contract and is **GREEN** (now engine-aware over the shared ledger — D-P9). The verbatim is on every node (S1).
+
+### ▶ Task S1 — fidelity fields on every node ✅ DONE
+Every node emits `source_quote` (verbatim trigger), `source.version`, and a first-class `conflict` object pointing to its `rulings/` ledger entry. *Done:* no node lacks a `source_quote`; every flagged conflict resolves to a ledger id (validator check [1]/[9]/[11]).
+
+### ▶ Task S2 — brackets/bands as DMN decision tables ✅ DONE (UW side)
+Siniestralidad bands, VA brackets, franquicia-by-plaza are decision tables with explicit `lower`/`upper` + `lower_inclusive`/`upper_inclusive` + `hit_policy`; ambiguous edges (50/51, 60, 250) → ledger, never a silent inequality (`tables_rating.json`, `tables_renovacion.json`; validator check [8]). *Done:* no band boundary is ambiguous; Phase 9 can serialize with zero redesign. **(Coverage-side rating/limits not yet table-modeled — see P5-COV.)**
+
+---
+
+## PHASE 2 — Rulings ledger (operate the loop) 🔶 PARTIAL
 *GATE: any node depending on a contested rule is untrustworthy until ruled.*
 
-Your Phase 2 had to first *find* the inconsistencies. **Here they're already enumerated as data** — `document.json → structural_inconsistencies/conflicts`, the renovación `conflict_flag`, the clause-2023 dual text, the v3.0/4.0 identity, the four "flota" thresholds, the band-boundary ambiguities. So this phase is just the **operational loop**:
+✅ **Built:** a portable, versioned `rulings/` ledger seeded with every captured conflict (now **18** OPEN, including santi's 2 coverage rulings), each with both source texts + a non-binding recommendation; the crawler escalates and **never hand-patches** the graph; `validate.py [11]` enforces every ruling is anchored.
 
-2.1 Stand up a portable, versioned `rulings/` ledger (markdown/JSON) **alongside** the source as authoritative input. Seed it with our already-captured conflicts, each as an open item with both source texts attached.
-2.2 ⚠ **Never hand-patch the graph.** Regenerate the graph from `representation/` + `rulings/`. (Your warning 4; our `decisions.md` "represent, never resolve" is the upstream half — the ledger is the downstream half.)
-2.3 Resolved conflict → writes back the chosen branch + `hit_policy`/boundary inclusivity, so the crawler then runs deterministically. Promote our `conflict` objects from "flagged" to "ruled" without editing the extraction.
+🔶 **Not done (the operational loop is unexercised):** **0 of 18 resolved.** The "underwriter rules → flip to `ruled` → regenerate from `representation/` + `rulings/`" loop has never been run end-to-end. This is **operate-work, not build-work** — the resolutions are underwriter decisions. *Recommended:* exercise the loop **once** (resolve one clean ruling → regenerate → confirm determinism) to prove it; the rest waits on underwriters.
 
-**Key items needing a ruling (already identified, not to be guessed):** renovación Consumer-vs-pesados overlap (the contradiction Approach-1 missed); band boundary inclusivity (50/51, 60, 250); clause 2023 prevailing text; alcoholemia 0.50 vs 0.70; router precedence (Phase 1.4 surfaces it); the "vehículo pesado" definition (manual p.4 vs §3.1.5.2 vs the **clause definition** — see Phase 4).
+**Key items needing a human ruling (already identified, not to be guessed):** renovación Consumer-vs-pesados overlap; band inclusivity (50/51, 60, 250); clause 2023 prevailing text; alcoholemia 0.50 vs 0.70; router precedence; the "vehículo pesado" definition; **+ santi's** extraterritorialidad 30/90-day (RUL-CG-2027) and talleres eligibility-vs-free-choice (RUL-CG-2045-2053).
 
 ---
 
-## PHASE 3 — Fact registry & adapter seam
-*GATE: trusted graph. Leg 2 of "a tree that can resolve a case."*
+## PHASE 3 — Fact registry & adapter seam 🔶 PARTIAL / RE-SCOPED
+*GATE: trusted graph.*
 
-3.1 Build `facts.json` from our **quote-anchored** conditions — every fact typed, sourced, with `on_missing` behavior. Advantage over Approach-1: because each condition carries its verbatim sentence, each fact's definition is auditable to the exact words it was lifted from.
-3.2 Define the **adapter seam** as a contract only (supply side), with the registry as the fixed demand side. ⚠ An adapter may *map and flag-as-missing, never fabricate*. (Your Phase-3 decoupling, unchanged — it's excellent.)
-3.3 Shape-agnostic build (mode A/B/C per process chosen later; the router can pick the mode). ACORD = naming hygiene, not a module.
+✅ **3.1 Done:** `facts.json` — 55 typed, sourced facts with `on_missing`, each auditable to its verbatim sentence; `sync_facts.py` regenerates the impact index.
 
----
-
-## PHASE 4 — Clause linking, both directions (we are far ahead — not cite-driven)
-*GATE: Phases 1–3. **This is where this approach most outclasses the Approach-1 plan.***
-
-Approach-1's Phase 4 was "stub *cited* clauses only — not the full 311 pages." **This approach already extracted the full bundle** (152 clauses verbatim + `base_policy.json`), so the costly part is done and the cite-driven blind spot (clause-side conflicts no rule cites, e.g. 2023) is already covered.
-
-4.1 **Forward (rule → clause):** complete the edges using `linkage.json` (already has match-confidence). The lever is completeness; we start from a real map, not zero. **This phase is where the R3 linkage residual is resolved** (CONVERSION_RECORD **O16** / verification_report §4b): today only ~2 of 84 rules carry a clause edge, so `governing_clauses` is sparse. **It is NOT fixed by the Phase-2 rulings loop** (resolving conflicts ≠ adding edges) — it is its own phase, and it affects clause *citations* on outcomes, not the decision logic.
-4.2 **Reverse (clause → every section):** a **free inversion** of the forward edges — never an independent sweep (your warning 3). Renders as backlinks in Phase 6.
-4.3 **Definitional dependence (the "vehículo pesado" canary):** we *already have* the clause definitions in `base_policy.json → definiciones`. Build the glossary from those + a deterministic concordance across manual sections (no LLM sweep). This yields the blast radius of the "vehículo pesado" ruling — and proves the manual is **not self-contained**, which is the whole reason both documents had to be extracted.
+🔶 **3.2 RE-SCOPED (reality changed).** The roadmap planned the supply side as a *stub contract* ("an adapter may map-and-flag-missing, **never fabricate**"). **santi's platform already implements a real supply side: OpenAI fact extraction** (`platform/engine/insurance_engine/ai_parser.py`, `nl.py`) — vision/audio/text. This is exactly the fabrication risk the "never fabricate" rule was written to forbid, so the seam is now an **audit target, not a design task**. The good news: the invariant is *already enforced in code* — extracted facts carry `confirmed: false`, and `services._assert_confirmed()` **blocks any unconfirmed AI fact from reaching the engines** (proven by `smoke.py`). **Re-scoped P3 deliverable:** keep the AI layer strictly advisory and **audit the confirmed-facts wall** (no path lets an unconfirmed/AI-fabricated fact drive an outcome) — not "define a contract."
 
 ---
 
-## PHASE 5 — Full crawler + regression (expand Phase 0 to all processes)
+## PHASE 4 — Clause linking, both directions 🔶 PARTIAL
+*GATE: Phases 1–3.*
+
+The full bundle is already extracted (152 clauses + `base_policy.json`), so the costly part is done. What remains is **edge completeness**:
+
+🔶 **4.1 Forward (rule → clause) — O16:** only **~2 of 84** rules carry a clause edge (`linkage_edges.json`), so `governing_clauses` on outcomes is sparse. This is its own work, **not** fixed by the Phase-2 rulings loop, and affects clause *citations*, not decision logic.
+⬜ **4.2 Reverse (clause → section):** a free inversion of 4.1 — unbuilt (blocked on 4.1).
+⬜ **4.3 Definitional concordance** (the "vehículo pesado" canary, from `base_policy.json → definiciones`): unbuilt — would prove the manual is not self-contained.
+
+---
+
+## PHASE 5 — Full crawler + regression 🔶 PARTIAL
 *GATE: trusted resolvable graph (1–3) + clause links (4).*
 
-5.1 Generalize the Phase-0 crawler across processes (Standard → Case UW → Masiva → Licitaciones via `refer_process`), with `hit_policy`/`precedence`/`on_no_match` everywhere.
-5.2 **Regression on an examples corpus**, measured against underwriter-validated answers: clean accept, clean decline, liftable exception (both outcomes), one case per contested ruling, and a Standard/Masiva near-miss to prove the router discriminates. ⚠ Keep this runner separate from audit analysis. **This measured pass is the milestone** — accuracy stops being aspiration and becomes demonstrated.
+🔶 **5.1 Crawler across processes.** ✅ Built & node-ified: **Standard, Case-UW, Licitaciones, Renovación, Retroactividad** (router + `hit_policy`/`on_no_match` everywhere).
+❌ **`masiva` & `automática` — OUT-OF-SCOPE for node-ification (decided 2026-06-24, source-faithful).** The source defines **no branchable logic** for them: **Automática §3.2** explicitly states *"no aplican autoridades de suscripción"* (closed "enlatado" products, predefined T&C — only product-membership, which is the router trigger); **Masiva §3.4** is governance/profile prose (R-080–R-085: risk profile, annual-revalidation cadence, single-party authority reservation — no exclusion list, no authority matrix, no bands). Corroborated by `rule_buckets.json` (R-060/R-080 = `partial_router`; R-081–085 = `reference`; none `node_converted`). **The router stubs are correct and sourced; node-ifying would invent logic the manual disclaims.** (Action: record in `NOT_CONVERTED.md` so the absence reads as deliberate.)
+⬜ **O3 — stage-chaining (the real core gap):** lifted/eligible outcomes terminate **before** re-entering authority/rating, so those stages are unreachable for such cases. Faithful end-to-end resolution needs every eligible/conditional path to continue through later stages.
+
+🔶 **5.2 Regression.** ✅ **Infrastructure already exists and passes:** the UW **golden snapshot** (`troubleshoot testing/`, 43 cases, Layers A–D — outcome+path+caveat drift) and santi's **`smoke.py`** (40 exact-value assertions across UW/coverage/rating/simulation). The deterministic core is cleanly separable from the OpenAI layer (env kill-switches + the confirmed-facts wall), so it is **regressable as-is**.
+⬜ **Missing to complete (O4):** (a) a **coverage + rating golden snapshot** (small — the snapshot machinery exists, just needs a blessed corpus); (b) the **correctness-vs-underwriter ground-truth corpus** (the real O4 milestone — *human-gated*); (c) optional pytest/CI wiring (today both harnesses are manual `python3` scripts).
 
 ---
 
-## PHASE 6 — Human layer (extend what we already render)
-*GATE: clause notes (4) + working crawler (5).*
+## PHASE 5-COV — Full-policy coverage adjudication 🔶 PARTIAL  *(NEW — added by santi's platform; not in the original plan)*
+*GATE: the coverage engine exists and validates (`coverage_validate.py` GREEN).*
 
-6.1 We already have a viewer (`decision_trees_view.html`). Extend it / or assemble an Obsidian vault (`rules/`, `condiciones/`, `examples/`, `external/`) with generated rule notes carrying `[[clause-id]]`/`[[example-id]]` wikilinks. ⚠ Generated, never hand-written; backlinks render the Phase-4 reverse view for free.
+santi added a **second engine** (`crawlable/graph_coverage/`, run via the same `ArtifactGraphEngine`) that adjudicates *policy coverage* — covered / not-covered / refer-adjuster — with its own node schema (`coverage-grant`/`exclusion-check`/`clause-modifier`/…) and `facts_coverage.json`.
+
+🔶 **Status: 2 of 7 Secciones modeled.** **III Daños Propios** + **V Robo Parcial** (35 nodes, 32 facts), plus shared Obligaciones-en-siniestro and base Exclusiones Generales. **~31 of 152 clauses** are wired to a runtime effect.
+⬜ **Gap — it CANNOT check every clause's effect today.** Secciones **I (Pérdida Total Accidente), II (Pérdida Total Robo), IV (HMACC-AMITT), VI (Responsabilidad Civil), VII (Accidentes Personales)** have **zero** coverage nodes; ~141 endorsement clauses have no runtime consumer (only CG-2027/2045/2053 are wired). 
+**Build:** additive content on the existing engine/schema/validator (no new architecture) — roughly **2–4× the current coverage graph** + a coverage golden snapshot + coverage stress layers (the UW engine has Layers A–E; the coverage engine has *structural* validation only). **Worth building to the degree full-policy coverage adjudication is a product goal** — it is half of the end-goal ("deductibles/coverage with an audit trail to the governing clause").
 
 ---
 
-## PHASE 7 — Manual-audit capability (we are ahead — the report mostly exists)
+## PHASE 6 — Human layer ❌ SUPERSEDED (re-scoped 2026-06-24)
+*Original GATE: clause notes (4) + working crawler (5).*
+
+❌ **Superseded — do not build the planned Obsidian vault / `decision_trees_view.html` extension.** santi shipped a **React frontend** (`platform/frontend/`) + FastAPI backend + Postgres **`human_task` / `chat_conversation` / `proposal` / `approval`** tables — that **is** the human/escalation/decision surface the roadmap envisioned, and building a parallel vault would duplicate it.
+
+**Residual (optional, only if wanted):** if rule→clause **backlinks** are desired, generate them as **data the existing frontend renders** (a free by-product of the Phase-4 reverse edges) — never a separate app, never hand-written notes.
+
+---
+
+## PHASE 7 — Manual-audit capability 🔶 PARTIAL
 *GATE: validator (1.4) + rulings ledger (2).*
 
-7.1 Promote `verification_report.md` + `document.json → structural_inconsistencies` into a **business-readable "manual integrity report"**: per section, the overlaps/gaps/contradictions/missing precedence, each with a plain-language *why this blocks automation*. Near-free here — the findings are already written and verified.
-7.2 Resolution **only** via the rulings ledger; **no in-tree authoring** of free-floating logic (your warning 7 — the moat is insight + portable formats, not hostage data).
+🔶 The raw findings exist and are verified (`verification_report.md` + `document.json → structural_inconsistencies`), and are **partly operationalized** by santi's DB (`ledger_entry`, `human_task`) + `registry.py` (`issue_flags()`, `ledger_entries()`). **Remaining:** promote them into a **business-readable "manual integrity report" / frontend view** (per section: overlaps/gaps/contradictions + plain-language "why this blocks automation"). **Low priority** — near-free, do it when a stakeholder needs the report. Resolution still flows **only** through the rulings ledger (no in-tree authoring).
 
 ---
 
-## PHASE 8 — Standardization (engine + profile) + **bind `Manual Prompt.md` as the engine**
-*GATE: do NOT start until Phases 1–7 give a proven baseline.*
+## PHASE 8 — Standardization (engine + profile) + bind `Manual Prompt.md` as the engine ⏸️ DEFERRED
+*GATE: do NOT start until Phases 1–7 give a proven baseline. **Trigger to start: a real 2nd manual.***
 
-8.1 Manual-agnostic engine + per-manual profile (zero manual-specific constants; missing profile fields degrade gracefully).
-8.2 ⚠ **`Manual Prompt.md` is the extraction engine's instruction set.** It is the recon → mechanical-extract → schema-bound-subagents → two-layer-verify methodology that produced *this* fidelity. In the standardization refactor it becomes the **engine prompt run on Opus 4.8 max** for every new manual — the reproducible substitute for any earlier bespoke run. (This is the "carry the meticulous extraction across Opus 4.8 max" step you asked to place.)
-8.3 Per-manual config lives in the **profile** only: clause prefix (`CG-`), process taxonomy, routing keywords, `normalize_clause_id()` rules, rulings-ledger location, the *Definiciones* location.
-8.4 Prove it: a second fixture manual runs end-to-end on the untouched engine; original deterministic + verification tests still pass.
+⏸️ **Deferred — premature now** (generalizing before a second manual violates the project's own simplicity rule). The target is unchanged: a manual-agnostic engine + a per-manual **profile** (clause prefix, process taxonomy, routing keywords, `normalize_clause_id()`, ledger location, *Definiciones* location), with `Manual Prompt.md` bound as the **extraction engine prompt (Opus 4.8 max)**.
+**Down-payment already made:** santi's `catalog.py` `EngineSpec`/`ENGINE_SPECS` already externalizes artifact roots, fact paths, allowed sections, and outcome labels per engine — **build P8 on that abstraction, don't design anew.** The remaining hardcode is `validate.py`'s LBC vocab (`PROCESSES`/`LINES`/`COMMITTEES`, flagged in-file) + `lbc_auto_rating.py`'s constants.
 
 ---
 
-## PHASE 9 — DMN (held — template only)
-*GATE: do NOT build until standardization reveals the full node-type set.*
+## PHASE 9 — DMN export ⏸️ DEFERRED (held — template only)
+*GATE: do NOT build until standardization reveals the full node-type set. **Trigger: a real DMN consumer (e.g. Camunda).***
 
-9.1 One-way serializer; every node type has an export rule + round-trip test; ⚠ never auto-pick a hit policy; flagged/unruled nodes must not export as settled logic. **Because Task S2 modeled bracket/band tables as DMN decision tables back in Phase 1.6, this phase is mostly serialization, not redesign.**
-
----
-
-## PHASE 10 — Per-manual loop (the engine = Opus 4.8 max + `Manual Prompt.md`)
-*Once standardized, each new manual is this loop — no code edits:*
-
-10.1 Recon + author the **profile** (the only per-manual artifact), guided by `Manual Prompt.md` §1 (the reconnaissance taxonomy).
-10.2 Run the engine — `Manual Prompt.md` methodology on **Opus 4.8 max** — section by section → review queue → hand-validate → record rulings in the ledger.
-10.3 Complete forward clause edges → invert for free → glossary/concordance → seed examples → run crawler/regression.
-10.4 New node type? → extend DMN (Phase 9).
+⏸️ **Deferred.** A one-way serializer; every node type gets an export rule + round-trip test; never auto-pick a hit policy; flagged/unruled nodes must not export as settled logic. Because **Task S2 already modeled bracket/band tables as DMN decision tables**, this is mostly **serialization, not redesign** — so it costs little and pays off only when something downstream actually consumes DMN.
 
 ---
 
-## §Skeleton — my judgment: extend Approach-1's, don't build a new one
+## PHASE 10 — Per-manual loop ⏸️ DEFERRED
+*Trigger: Phase 8 done + a real 2nd manual.*
 
-**You asked whether it's worth looking for a better skeleton, using this approach's data or Approach-1's. My answer: no new skeleton. Use Approach-1's node schema as the spine; feed it this approach's data.** Reasons:
-
-- Approach-1's schema is **proven and DMN-aligned**, and its own validator already caught real gaps (router overlap). You spent a week earning that; reinventing risks losing DMN alignment and re-deriving node types you already discovered.
-- Its 7 node types (`router/gate/condition/authority/referral/accumulator/terminal`) **cover everything in this approach's data** — our trees, tables, base policy, and clause logic all map onto them. I looked for a node type our richer data needs that theirs can't express; I don't find one. That's the signal to **extend, not replace**.
-- The thing this approach contributes is **data and fidelity, not a better graph shape.**
-
-Two deliberate **extensions** to that skeleton (additive, not a rebuild) — **tracked as concrete tasks in Phase 1:**
-
-1. **Fidelity fields on every node** — `source_quote` (verbatim trigger, sentence-level), `source.version`, provenance tag, and a **first-class `conflict` object** (replacing the bare `needs_human_review` boolean) that points to its `rulings/` ledger entry. This is the merge in `Crawlable_Migration_Notes.md` A1–A6. → **do it as Task S1 (Phase 1.5).**
-2. **Bracket/band logic as DMN decision tables** — model siniestralidad bands, VA brackets, and franquicia-by-plaza as decision tables with **explicit boundary inclusivity and a hit policy**, not as inequality chains inside `evaluate` strings. This is the one place *both* approaches are currently non-deterministic (the 50/51, 60, 250 edges); DMN tables solve it natively and pre-stage Phase 9. The only spot where "look for a better representation" pays off — a local change, not a new skeleton. → **do it as Task S2 (Phase 1.6, serialized in Phase 9).**
-
-**When a fresh skeleton *would* be worth it:** only if a later manual surfaces a node type the 7 can't express. Re-evaluate then, per-node-type, not now.
+⏸️ **Deferred** (depends on P8/P9). Once standardized, each new manual is: author the **profile** → run the `Manual Prompt.md` engine on Opus 4.8 max section-by-section → hand-validate → record rulings → complete forward clause edges (invert for free) → glossary/concordance → crawler/regression → extend DMN for any new node type. No code edits per manual.
 
 ---
 
-## §On Fable's ban — is Opus 4.8 max + `Manual Prompt.md` enough for this level of detail?
+## §Skeleton — extend Approach-1's, don't build a new one  *(unchanged — still valid)*
 
-Short answer: **yes, with high confidence — and the artifacts in `representation/` are themselves the proof.** Everything in this approach was built and verified in a session running **Opus 4.8 (1M context)**. So "can Opus 4.8 hit this fidelity?" isn't a forecast — it already did. The reasons it holds, and the honest caveats, are in the chat reply accompanying this file; the load-bearing point for the roadmap is: **the fidelity is method-driven (mechanical extraction + two-layer verification), which is model-portable**, so Phase 8/10 binds `Manual Prompt.md` to **Opus 4.8 max** as the engine and does not depend on Fable.
+**No new skeleton. Use Approach-1's node schema as the spine; feed it this approach's data.** Reasons:
+- Approach-1's schema is **proven and DMN-aligned**; its validator already caught real gaps (router overlap).
+- Its 7 node types **cover everything in this approach's UW data** — no node type our richer data needs that theirs can't express. *(Note: santi's **coverage** engine introduced its own additional node-type set — `coverage-grant`/`exclusion-check`/`clause-modifier`/`limit-deductible`/`document-duty` — for the contract-text domain; that is an additive sibling schema, validated by `coverage_validate.py`, not a replacement of the UW skeleton.)*
+
+Two deliberate extensions (tracked as Phase-1 tasks, both ✅ done): **S1** fidelity fields on every node; **S2** bracket/band logic as DMN decision tables.
+
+**When a fresh skeleton *would* be worth it:** only if a later manual surfaces a node type the schema can't express. Re-evaluate then, per-node-type.
+
+---
+
+## §On Fable's ban — is Opus 4.8 max + `Manual Prompt.md` enough?  *(unchanged)*
+
+**Yes, with high confidence — the artifacts in `representation/` are themselves the proof.** Everything here was built and verified on **Opus 4.8 (1M context)**. The fidelity is **method-driven** (mechanical extraction + two-layer verification), which is model-portable — so Phase 8/10 binds `Manual Prompt.md` to **Opus 4.8 max** as the engine and does not depend on Fable.
