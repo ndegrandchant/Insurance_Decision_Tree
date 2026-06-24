@@ -25,7 +25,7 @@ The two were deliberately modeled **differently** (see `decisions.md` D1): the m
 ## 2. Status (current)
 
 - **Part 1 — high-fidelity extraction + verification: COMPLETE and verified.** Mechanical checks pass 100%; every derived field got an independent fresh-context semantic pass; findings fixed and logged.
-- **Part 2 — turn this into a crawlable decision tree: COMPLETE and verified.** Built under `crawlable/` (executable crawler + 56 nodes + 29 tables + a 16-entry conflict ledger), following `Crawlable_Roadmap.md`. Validator GREEN; 372/372 source ids accounted (0 deferred); residual semantic drift 0 (including a second, independent dimension-B vote). See `crawlable/CONVERSION_RECORD.md` (what/how + fix log) and `crawlable/COVERAGE_REPORT.md` (the data-loss proof).
+- **Part 2 — turn this into a crawlable decision tree: COMPLETE and verified.** Built under `crawlable/` (executable crawler + 61 nodes + 29 tables + a 16-entry conflict ledger), following `Crawlable_Roadmap.md`. Validator GREEN; 372/372 source ids accounted (0 deferred); residual semantic drift 0 (including a second, independent dimension-B vote). See `crawlable/CONVERSION_RECORD.md` (what/how + fix log) and `crawlable/COVERAGE_REPORT.md` (the data-loss proof).
 - **▶ To extend or re-run Part 2**, see `crawlable/README.md` (run commands); §9 of this file records the entry point, canonical schema, and output layout Part 2 followed.
 
 ## 3. The artifacts (what exists, and what each is for)
@@ -50,7 +50,7 @@ The two were deliberately modeled **differently** (see `decisions.md` D1): the m
 
 **Crawlable graph (Part 2)** → `crawlable/` (generated from `representation/` + `crawlable/rulings/`; the top-level `README.md` map has the exhaustive file list)
 - `node_schema.md` — the authoritative node schema (borrowed spine + **S1** fidelity fields + **S2** decision tables); `decisions.md` — the Part-2 design decisions.
-- `graph/*.json` — the executable **56** nodes (router + one per section); `facts.json` — the input-fact registry; `tables.json` + `tables_{authority,rating,renovacion}.json` — **29** role-typed parameter/decision tables.
+- `graph/*.json` — the executable **61** nodes (router + one per section); `facts.json` — the input-fact registry; `tables.json` + `tables_{authority,rating,renovacion}.json` — **29** role-typed parameter/decision tables.
 - `rulings/` — the conflict ledger (**16** OPEN rulings; the crawler escalates here, never resolves).
 - `crawler/crawl.py`, `validate.py`, `coverage.py`, `build_*.py` — the engine, the deterministic-execution validator, the data-loss reconciler, the mechanical generators.
 - `COVERAGE_REPORT.md` — the data-loss proof (372/372 ids, 0 deferred); `CONVERSION_RECORD.md` — exactly what/how + the fix log (§8) and open items (§9); `README.md` — run commands.

@@ -133,3 +133,80 @@ self-contained domain unit that exercises **every** node type and S1/S2 mechanis
 `@tables`, terminal, bracket table + boundary conflict), so it proves the architecture rather
 than a toy path — while still being one domain, so the rest (Case-UW, rating, renovación,
 retroactividad, clause links) is deferred to Phase 1 and shown only after this checkpoint.
+
+---
+
+## D-P6. Document-level conflicts surface once as `document_provenance` (runtime-stress mitigation)
+
+**Decision (human's choice — G1).** Document-level conflicts declared via `_doc_conflicts` (today only
+`RUL-MAN-VERSION`, the manual's v3.0/v4.0 identity) are surfaced **once per crawl result** as a
+`document_provenance` metadata field — *not* as a per-node caveat on every outcome, and *not* left
+invisible. This is the safest, clearly-visible option: it changes no decision outcome (the Layer-A
+snapshot stayed stable) yet guarantees a represented document-level conflict is never silently omitted
+from a crawl result.
+
+**Why.** The runtime stress test (`troubleshoot testing/`, recorded in `verification_report.md` §4c /
+`CONVERSION_RECORD.md` §8F) found `RUL-MAN-VERSION` was referenced 14× via `_doc_conflicts` but the
+crawler only read node-level `conflict`, so it surfaced on **zero** outcomes — a represented conflict
+made invisible at runtime. A document-level identity conflict doesn't change any single decision, so a
+per-node caveat would be noise on nearly every outcome and would dilute the decision-relevant caveats
+(X15, Lizeth-Rios). Surfacing it once as provenance keeps the caveat channel meaningful while honoring
+"represent, never resolve."
+
+**Rejected.** *Ride-along caveat on every manual-derived outcome* (visible but noisy; would re-bless
+most snapshots for no decision change). *Ledger/docs only* (leaves it out of crawl results entirely —
+rejected because a consumer reading only crawl output would never learn the source identity is
+contested).
+
+**Made it CHECKED either way.** `validate.py [11]` (conflict-coverage) now fails the build if any OPEN
+ruling is neither referenced by a data construct nor justified as `LEDGER_ONLY_BY_DESIGN`; `[9]` is
+extended to `_doc_conflicts` ledger refs. So this class of "represented-but-unsurfaced" conflict cannot
+silently recur. The conflict itself stays **OPEN** in `rulings/RUL-MAN-VERSION.md` — surfacing is not
+resolving.
+
+---
+
+## D-P7. Conflict tiers verified by fresh-context multi-vote; dissents represented, never auto-flipped
+
+**Decision.** The assignment of each conflict to a tier (provenance **caveat** / structural
+**escalate** / contested-outcome **block** / **doc-level** / **reference-only**) was verified by a
+fresh-context **multi-vote** review (Layer E — three independent verifiers with perspective-diverse
+adversarial lenses: under-surfacing, over-escalation, missing-executable-surfacing). Where a verifier
+*dissents* from the assigned tier, the dissent is **represented** (recorded in the conflict's
+`rulings/` entry and the verification docs) — it is **not** used to unilaterally flip the tier.
+
+**Why.** A tier choice is a modeling decision about how the source's conflict behaves; flipping it on
+a minority opinion would itself be a form of *resolving* a question the underwriter owns (CLAUDE.md;
+D-P2). The faithful action is the same as for the conflicts themselves: surface the uncertainty, point
+to where it must be ruled, change nothing in the executable logic. (Run result: 9/11 tiers confirmed
+by ≥2/3; the 4 med/low dissents became ledger enrichments + open item O14; **no tier was flipped, no
+code changed**, `validate.py` GREEN, snapshot stable.)
+
+**What multi-vote bought over a single pass.** Distinct lenses caught what one reviewer would miss in
+*both* directions — V1 flagged a CAVEAT that may ship an unsupported accept (X15) and a DOC-LEVEL note
+that understated a data-currency risk (MAN-VERSION); V3 flagged executable logic mis-filed as reference
+(R-097 → O14). A single agreeable pass tends to confirm the existing tier. **Lesson for any executed
+representation: the *tier* of a conflict is itself a verification target, not just its presence.**
+
+---
+
+## D-P8. Node-ifying a captured prohibition list (O14): process-scoped `decline`, granularity flagged
+
+**Decision.** R-097's licitaciones "condiciones que no pueden ser suscritas" list — captured in the
+representation as a reference rule with an enumerated `logic.prohibited[]` — was compiled into 5
+executable gates in `graph/3.5.2.json` (order 10–14, before capacity). Outcomes follow the source's
+own wording: the four hard prohibitions (Valor Admitido; alcoholemia > 0,70 g/l; licencia vencida
+> 90 días; permisos especiales de velocidad) → `decline`; AP-en-carrocería → `refer_authority` (the
+source explicitly names who may authorize). The auxilio-mecánico item is a reimbursement/handling rule
+with an explicit alternative — NOT an exclusion — so it stays in reference, un-node-ified.
+
+**Why `decline`, not `escalate`.** "decline" is process-scoped (= "no suscribible por el Procedimiento
+de Licitaciones"), exactly what the source states, and consistent with every other exclusion node. The
+one genuine ambiguity — whether a prohibited condition declines the whole quote or is merely
+barred/stripped from it — is **not stated by the source**, so it is flagged per node in `_derived_note`
+rather than silently chosen; decline is the conservative reading and an underwriter can rule otherwise.
+
+**Nothing invented.** Every gate's `source_quote` is copied from R-097 `logic.prohibited[].item`; the
+alcoholemia gate carries `conflict → RUL-ALCOHOLEMIA` so the cross-doc 0,50-vs-0,70 tension surfaces
+when it fires; R-097 moved reference→node_converted in `rule_buckets.json` and `reference.json` was
+regenerated, so the partition stays exact (84/84) and coverage 372/372.

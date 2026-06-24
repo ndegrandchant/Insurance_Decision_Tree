@@ -265,8 +265,8 @@
    "note": "reference.json (licitaciones_process)"
   },
   "R-097": {
-   "status": "reference",
-   "note": "reference.json (licitaciones_process)"
+   "status": "converted",
+   "note": "node: licitaciones.elig.{valor_admitido,alcoholemia,licencia_vencida,permiso_velocidad,ap_carroceria} (R-097 §3.5.5 condiciones prohibidas; O14)"
   },
   "R-098": {
    "status": "reference",

@@ -59,6 +59,22 @@ def load_tables():
                 merged[k] = v
     return merged
 
+def load_doc_conflicts():
+    """Document-level conflicts (`_doc_conflicts`, e.g. the manual's v3.0/v4.0 identity) declared at
+    the top of each graph/table file. They are NOT per-node branch logic; they are surfaced ONCE per
+    crawl result as `document_provenance` so a represented document-level conflict is never invisible
+    at runtime (it rides as metadata, not as a per-node caveat — keeps the caveat channel for
+    decision-relevant conflicts)."""
+    seen = {}
+    for p in sorted(glob.glob(os.path.join(ROOT, "graph", "*.json")) + glob.glob(os.path.join(ROOT, "tables*.json"))):
+        d = json.load(open(p, encoding="utf-8"))
+        for dc in (d.get("_doc_conflicts") or []):
+            ref = dc.get("ledger_ref")
+            if ref and ref not in seen:
+                seen[ref] = {"kind": "document_provenance", "ledger_ref": ref,
+                             "note": dc.get("note") or dc.get("detail")}
+    return list(seen.values())
+
 def flatten_tables(tables):
     """Expose @tables.<id>.<key> (scalars) and @tables.<id>.values (allowlists) as context vars."""
     ctx = {}
@@ -71,6 +87,20 @@ def flatten_tables(tables):
             ctx[f"@tables.{tid}.values"] = t["values"]
         # bracket_map / matrix_lookup are consumed by lookups, not flattened
     return ctx
+
+def load_linkage():
+    """rule_id -> [{bundle_codes, match, note}] from linkage_edges.json (O5: surface the governing
+    clause codes on an outcome). Match-confidence labels are preserved (R3 residual: the crawler
+    CITES a clause, it never asserts proven legal equivalence)."""
+    idx = {}
+    p = os.path.join(ROOT, "linkage_edges.json")
+    if os.path.exists(p):
+        for e in json.load(open(p, encoding="utf-8")).get("edges", []):
+            r = e.get("manual_rule")
+            if r:
+                idx.setdefault(r, []).append({"bundle_codes": e.get("bundle_codes"),
+                                              "match": e.get("match"), "note": e.get("note")})
+    return idx
 
 # ----- JSONLogic (closed set, short-circuit) ----------------------------------
 def jl(expr, ctx):
@@ -134,15 +164,38 @@ def _row_matches(row, x):
     return True
 
 def bracket_lookup(table, x):
-    """Return (output, None) on a unique hit, or (None, conflict) on overlap/gap -> escalate."""
+    """Return (output, None) on a unique hit, or (None, conflict) on overlap/gap -> escalate.
+    On a non-unique match the conflict is attributed to the DECLARED boundary edge x actually hit
+    (nearest edge / containing [edge, edge_upper]), not blindly to boundary_conflicts[0] — so a
+    150% value cites the 150 edge, not 60. The ledger_ref is unchanged; only the cited edge/detail
+    becomes faithful to the value that triggered the escalation."""
     matches = [(i, r) for i, r in enumerate(table["rows"]) if _row_matches(r, x)]
+    # O12a: a table with categorical special_rows cannot be resolved by numeric lookup alone in the
+    # region where a special_row's declared precedence applies — escalate (the categorical overlap
+    # needs a category fact the numeric lookup lacks), never silently return the numeric row. So the
+    # franquicia-lujo precedence (@420000) escalates instead of silently picking the VA bracket.
+    if table.get("special_rows"):
+        for bc in table.get("boundary_conflicts", []):
+            if bc.get("kind") == "precedence" and bc.get("edge") is not None and x > bc["edge"]:
+                return None, {"reason": "bracket_precedence_special_row", "edge": bc.get("edge"),
+                              "ledger_ref": bc["ledger_ref"], "detail": bc.get("detail"),
+                              "special_rows": True, "matched_rows": [i for i, _ in matches]}
     if len(matches) == 1:
         return matches[0][1]["output"], None
-    # 0 or >1 -> consult the table's declared boundary_conflicts
-    for bc in table.get("boundary_conflicts", []):
+    # 0 or >1 -> attribute to the nearest/containing declared boundary edge
+    bcs = table.get("boundary_conflicts", [])
+    if bcs:
+        def edge_dist(bc):
+            e, eu = bc.get("edge"), bc.get("edge_upper")
+            if e is None:
+                return float("inf")
+            if eu is not None and e <= x <= eu:
+                return 0
+            return min(abs(x - e), abs(x - eu) if eu is not None else float("inf"))
+        bc = min(bcs, key=edge_dist)
         return None, {"reason": "bracket_" + bc["kind"], "edge": bc.get("edge"),
-                      "ledger_ref": bc["ledger_ref"], "detail": bc.get("detail"),
-                      "matched_rows": [i for i, _ in matches]}
+                      "edge_upper": bc.get("edge_upper"), "ledger_ref": bc["ledger_ref"],
+                      "detail": bc.get("detail"), "matched_rows": [i for i, _ in matches]}
     return None, {"reason": "bracket_no_unique_match", "matched_rows": [i for i, _ in matches]}
 
 # ----- crawler ----------------------------------------------------------------
@@ -155,6 +208,8 @@ class Crawler:
         self.nodes = load_graph()
         self.facts = load_facts()
         self.tables = load_tables()
+        self.doc_conflicts = load_doc_conflicts()
+        self.rule_clauses = load_linkage()
         self.table_ctx = flatten_tables(self.tables)
         self.by_process = {}
         for n in self.nodes.values():
@@ -174,6 +229,51 @@ class Crawler:
         return {f: ctx.get(f) for f in node.get("needs_facts", []) if f in ctx}
 
     def crawl(self, supplied, start="root.process_router"):
+        """Public entry: run the crawl, then surface document-level provenance conflicts (e.g. the
+        manual's v3.0/v4.0 identity) ONCE on the result so they are never silently omitted."""
+        res = self._crawl_impl(supplied, start)
+        if self.doc_conflicts:
+            res["document_provenance"] = self.doc_conflicts
+        gc = self._governing_clauses(res)
+        if gc:
+            res["governing_clauses"] = gc
+        return res
+
+    def _governing_clauses(self, res):
+        """O5: from the fired nodes' (and the terminal node's) rule origins, surface the clause codes
+        that govern this outcome, each with its match-confidence label. Cites, never asserts
+        equivalence (R3). Empty when the decisive nodes are tree-origin with no rule->clause edge."""
+        rules, gc, seen = [], [], set()
+        for step in res.get("audit", []):
+            if step.get("result") == "advance":
+                continue
+            n = self.nodes.get(step.get("node"))
+            sid = (n or {}).get("_origin", {}).get("source_id")
+            if sid:
+                rules.append(sid)
+        tn = res.get("terminal_node")
+        if tn in self.nodes:
+            sid = self.nodes[tn].get("_origin", {}).get("source_id")
+            if sid:
+                rules.append(sid)
+        for r in rules:
+            for link in self.rule_clauses.get(r, []):
+                key = (r, tuple(link.get("bundle_codes") or []))
+                if key not in seen:
+                    seen.add(key)
+                    gc.append({"rule": r, "via": "linkage", **link})
+        # also promote clauses an exception node attached inline (e.g. the antique-vehicle lift) so
+        # they ride on the result, not only buried in the audit step.
+        for step in res.get("audit", []):
+            rc = step.get("required_clauses")
+            if rc:
+                key = ("required", step.get("node"), tuple(rc) if isinstance(rc, list) else str(rc))
+                if key not in seen:
+                    seen.add(key)
+                    gc.append({"via": step.get("node"), "required_clauses": rc, "match": "exact"})
+        return gc
+
+    def _crawl_impl(self, supplied, start="root.process_router"):
         ctx = {**self.table_ctx, **supplied}
         audit, caveats, visited = [], [], set()
         node = self.nodes[start]
@@ -219,6 +319,10 @@ class Crawler:
                                          "facts_used": fu, **kw})
 
         if t == "terminal":
+            # record the terminal in the audit path too (completeness — sibling of the B6 fix for
+            # plain-fired condition/referral nodes; previously terminals set terminal_node but never
+            # appeared as an audit step).
+            rec(result="terminal", detail=node.get("outcome") or (node.get("referral_target") or {}).get("name"))
             return self._emit_outcome(node, node.get("outcome"), node.get("referral_target"),
                                       ctx, audit, caveats, rec, reason="terminal")
 
@@ -250,7 +354,11 @@ class Crawler:
                 rec(result="conflict_block", detail=blk.get("summary"))
                 return self._escalate("contested_outcome", node, audit, caveats,
                                       blk.get("summary", ""), ledger=blk.get("ledger_ref"))
-            self._maybe_caveat(node, caveats)
+            # router precedence is a MULTI-match conflict (surfaced via the escalate path above); on a
+            # clean single-match route there is no precedence question, so don't attach the router's
+            # caveat (it was noise on every route). Non-router branch nodes still caveat normally.
+            if node.get("type") != "router":
+                self._maybe_caveat(node, caveats)
             rec(result="branch", detail=b.get("reason"), chosen=b.get("target", b["outcome"]))
             return self._emit_outcome(node, b["outcome"], None, ctx, audit, caveats, rec,
                                       target=b.get("target"), reason=b.get("reason"))

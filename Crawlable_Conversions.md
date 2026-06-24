@@ -218,6 +218,18 @@ is a single point of failure on exactly the part that fires. (In the run this se
 DRIFT 0 *and* cleared a commutative AND-reorder a single reviewer might have false-flagged — the kind
 of true-negative a second perspective buys.)
 
+**Diversify the lenses, and review the conflict *tier* itself.** For the highest-stakes multi-vote —
+the conflict tiers (§7) — give each independent verifier a *different* adversarial lens: one hunts
+under-surfacing (a caveat/doc-level that should block or escalate), one hunts over-escalation (a
+block/escalate the source actually settles), one hunts mis-filing (executable underwriting logic filed
+as reference-only / left latent). Redundant identical reviewers mostly agree; diverse lenses catch
+failure modes in opposite directions. The *tier assignment* is itself a verification target — a
+conflict can be correctly captured yet served in the wrong tier (a caveat masking a contested outcome;
+a prohibition list filed as "reference"). **Represent any tier dissent in the ledger; never flip a tier
+on a minority vote** — that resolves a call the underwriter owns. (In the run, three lensed verifiers
+confirmed 9/11 tiers, found 0 silent-resolution holes, and surfaced two genuine enrichments + one new
+open item — with no tier flipped and no code changed.)
+
 ---
 
 ## 7. Conflict handling — the ledger and the three tiers
@@ -247,8 +259,64 @@ case triggering >1 routing **escalates** rather than silently picking.
 
 ---
 
+## 7b. Verify the conflicts actually surface at runtime (the dynamic stress pass)
+
+Dimensions A/B prove the *graph* matches the source. They do **not** prove the *crawler executes it
+without silently resolving a conflict* — a tier can be mis-assigned, a conflict can be tagged in data
+the executor never reads, an edge can resolve instead of escalate. Add a **dynamic** pass: a
+non-destructive harness that runs the real crawler over generated inputs and asserts the property
+**no input yields a confident outcome where the source is contradictory/undefined — it must escalate
+or carry a caveat.** Build it under a throwaway dir (`troubleshoot testing/`), import only the clean
+crawler module, and **never write to the canonical data** — inject faults into in-memory deep-copies.
+Four layers, each a loop:
+
+- **A — golden snapshot / regression guard.** Pin each demonstration case's outcome + decisive path +
+  caveats + escalation; diff on every change. Honest about its limit: it guards against *regression*,
+  not against being *wrong-vs-expert* (that needs a human-validated corpus).
+- **B — property/fuzz sweeps.** Generated inputs, asserted invariants: every declared decision-table
+  edge **escalates with a ledger ref** and clear interiors resolve; authority/threshold inclusivity
+  (`<=`) holds at limit / limit±1; a **missing-fact matrix** (delete each fact) escalates gracefully,
+  never crashes, and off-path facts are *not* demanded (short-circuit); determinism + fact-order
+  independence; type-fuzz → escalation, never a crash, never a confident outcome.
+- **C — mutation testing (the part that makes "green" mean something).** A passing checker is
+  worthless until you prove it *catches* the faults it claims to. Inject each feared fault into an
+  in-memory clone — flip a band inclusivity, delete a `boundary_conflicts` entry, remove a
+  `blocking`/`conflict` flag, switch `hit_policy: unique→first`, nudge a threshold, re-tier
+  blocking→caveat, drop a `source_quote` — and assert **some** check goes red. **Every surviving
+  fault is a blind spot to close.** This is how you discover a check that was vacuously green.
+- **D — conflict-ledger ↔ runtime cross-audit.** For **every** OPEN ruling, establish *either* a real
+  input that surfaces it (caveat/escalate/block) *or* an explicit justification (reference-only
+  contract text / latent table not yet wired / document-level metadata). The completeness analog of
+  section-coverage, for conflicts. This is what catches **the most insidious class: a conflict
+  represented in the data but never read by the executor.** (In the run: a document-level version
+  conflict was attached via `_doc_conflicts` to 14 places but the crawler only read node-level
+  `conflict` — so it surfaced on *zero* outcomes. Fix = surface it once as result metadata
+  (`document_provenance`), and add a validator check so it can't recur. Decide *how* to surface a
+  document-level conflict — once-as-metadata vs per-outcome caveat — but never leave it invisible.)
+
+**Triage every finding** as *checker-bug* (false positive — fix the test, never degrade correct data),
+*by-design* (e.g. a conflict declared in a table no node consumes yet — say so, don't fail), or
+*real-issue* (fix the crawler/validator, re-run A–D + the static validator + coverage, log it). Apply
+real fixes **only after** the trials, and confirm they are outcome-preserving (the snapshot stays
+stable) unless a changed outcome is the intended fix.
+
+---
+
 ## 8. Pitfalls and lessons (paid for in the run)
 
+- **A reference-captured rule can hide *executable* logic.** "Not a branch → capture as reference" is
+  right for contract text, but a prose rule can still state an enforceable prohibition/threshold (in the
+  run: R-097's licitaciones "no pueden ser suscritas" list — alcoholemia > 0,70, Valor Admitido, licencia
+  vencida > 90d). Filed as reference, the crawler never enforces it and a violating case routes to
+  *eligible* silently. When you node-ify such a list: copy each `source_quote` from the captured rule
+  (don't paraphrase), use the outcome the source's own words imply (process-scoped `decline` for "cannot
+  be subscribed"; `refer_authority` where the source names an authorizer), leave non-exclusion items
+  (handling/reimbursement rules) in reference, flag any granularity the source doesn't state
+  (decline-the-quote vs strip-the-condition) in a `_derived_note`, and move the rule
+  reference→node_converted in the bucket partition + regenerate so coverage stays exact. A node-level
+  `conflict` on the new gate makes any cross-doc tension (the 0,50-vs-0,70 alcoholemia numbers) surface
+  at runtime. *A fresh-context reviewer reading the source — not the build — is what catches these
+  (here, the Layer-E tier review flagged R-097).*
 - **Quote-fidelity drift is the #1 trap.** Values are easy to get right; verbatim quotes are easy to
   paraphrase, truncate, import from a neighbour, or fabricate from a related rule. Mechanical checks
   miss it — it is exactly what the fresh-context semantic pass is for. Treat `source_quote` as
@@ -289,6 +357,21 @@ case triggering >1 routing **escalates** rather than silently picking.
 - **Bad input should escalate, not crash.** A wrong-typed fact (a string where a number is
   expected) must route to an escalation with context, not a hard exception: guard numeric
   comparisons/lookups and turn DATA errors into escalations, while letting genuine code bugs surface.
+- **A conflict tagged in data the executor never reads is silently omitted.** Representing a conflict
+  is necessary but not sufficient — the *consumer* must surface it. Document-level conflicts
+  (`_doc_conflicts`) and any side-channel the crawler doesn't read will be invisible at runtime. Add a
+  **conflict-coverage check** (every OPEN ruling is referenced by a construct the executor reads, or
+  explicitly justified) and an attribution check (a multi-edge table must cite the edge actually hit,
+  not `boundary_conflicts[0]`).
+- **A green checker proves nothing until you've shown it catches faults.** Mutation-test the checks
+  themselves (§7b Layer C): inject the feared fault into an in-memory clone and confirm a check goes
+  red; a survivor is a vacuous check. This is the difference between "the validator passed" and "the
+  validator would catch the mistake we fear."
+- **An executable graph is often only partially wired — measure the dead zones.** If lift/branch
+  terminal outcomes don't re-enter later stages, conflict/authority nodes ordered after a lift are
+  unreachable for those cases; and tables consumed by no node yet (deferred rating) can't surface
+  their conflicts. Neither is a bug, but **report the dead zones explicitly** (`log()` them), because
+  silence reads as "covered" when it isn't.
 
 ---
 
@@ -306,7 +389,20 @@ granularity and a float epsilon — so every undeclared gap **and** inclusive po
 (not just the easy overlaps); each flagged edge → ledger, with edge values numeric so the scan can
 compare them; (9) every conflict / boundary / cross-table `ledger_ref` exists; (10) conditions
 use only the chosen language's closed operator set with pinned operand types; (11) every captured
-reference record carries `_origin` (+ source_quote where applicable).
+reference record carries `_origin` (+ source_quote where applicable); (12) **conflict-coverage** —
+every OPEN ledger entry is referenced by a construct the executor actually reads (node `conflict` /
+consumed-table boundary or cross-table conflict / a surfaced `_doc_conflicts`) **or** is explicitly
+listed as ledger-only-by-design with a reason, so a represented conflict can never be silently
+unsurfaced. (Prove this and every other check is load-bearing by mutation-testing it — §7b/C.)
+
+**⚠ Per-business hardcoding — check before reuse.** The reference `validate.py` hardcodes the
+business vocabulary as enums — `PROCESSES`, `LINES`, `COMMITTEES` (the process taxonomy, downstream
+lines, committees). The check *logic* is manual-agnostic, but these enums are **not yet externalized
+to a profile**, so **reusing the validator on another manual requires reviewing and swapping them per
+business** (§11). `OUTCOMES` / `NODE_TYPES` and the operator set are generic schema and normally
+stand. The same per-business review applies to `crawl.py`'s `PROCESSES_NOT_BUILT` set and its Spanish
+escalation strings. Until these are lifted into the profile, treat "swap a handful of enum constants"
+as a required first step for a new manual, not "untouched engine."
 
 ---
 

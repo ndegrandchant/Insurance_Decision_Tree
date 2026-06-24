@@ -54,7 +54,10 @@ ELIG_CASES = [
 ]
 
 # Router payload (process not yet determined).
-rbase = {**elig, "product": "otro", "client_type": "empresa", "requests_standard_deviation": False}
+rbase = {**elig, "product": "otro", "client_type": "empresa", "requests_standard_deviation": False,
+         # O14: licitaciones prohibited-condition facts (R-097) — a clean tender requests none of them
+         "requests_valor_admitido": False, "alcoholemia_permitida_gl": 0.0, "licencia_vencida_dias": 0,
+         "requests_permiso_velocidad_especial": False, "requests_ap_pasajeros_carroceria": False}
 def R(**ov):
     d = dict(rbase); d.update(ov); return d
 
