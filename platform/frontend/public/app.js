@@ -11,20 +11,18 @@ const MODULES = [
     desc: "Recorre el árbol de elegibilidad, revisa la ruta de decisión y obtiene precios finales LBC Auto cuando corresponde." },
   { id: "claims",     name: "Reclamos",          icon: "▣", group: "Flujos",       status: "ready",
     desc: "Ejecuta una orientación de cobertura citada a fuente para reclamos, con deberes documentales, exclusiones y salvedades." },
-  { id: "demo",       name: "Recorrido demo",    icon: "▷", group: "Flujos",       status: "ready",
-    desc: "Muestra cómo una narrativa se convierte en hechos confirmados, recorre el grafo ejecutable y llega a un resultado." },
+  { id: "renewals",   name: "Renovaciones",      icon: "↻", group: "Flujos",       status: "ready",
+    desc: "Mesa de renovación y deltas acotados por cliente/póliza sobre una versión fija del grafo." },
   { id: "graph",      name: "Mapa de decisiones", icon: "⊟", group: "Flujos",       status: "ready",
     desc: "Explora cada nodo de decisión: ramas, hechos, citas fuente y enlaces cruzados del árbol ejecutable." },
   { id: "flags",      name: "Incidencias",       icon: "!", group: "Flujos",       status: "ready",
     desc: "Revisa posibles errores, conflictos, ambigüedades y entradas RUL/OVL del registro en un solo lugar." },
+  { id: "demo",       name: "Recorrido demo",    icon: "▷", group: "Flujos",       status: "ready",
+    desc: "Muestra cómo una narrativa se convierte en hechos confirmados, recorre el grafo ejecutable y llega a un resultado." },
   { id: "simulation", name: "Simulación",        icon: "~", group: "Inteligencia", status: "ready",
-    desc: "Laboratorio de riesgo en vivo: cobertura, precio, frecuencia, severidad y renovaciones antes de lanzar cambios." },
+    desc: "Qué pasa si cambias una regla o precio: elige una versión candidata y mide el impacto antes de lanzarla." },
   { id: "supervision", name: "Supervisión",      icon: "⌁", group: "Inteligencia", status: "ready",
-    desc: "Control room de riesgo actual: clientes, frecuencia, severidad, cash-out nodes y alertas operativas." },
-  { id: "insights",   name: "Insights",          icon: "▦", group: "Inteligencia", status: "ready",
-    desc: "Tablas de nodos, pérdidas y cláusulas con fricción broker sobre datos mock trazables." },
-  { id: "renewals",   name: "Renovaciones",      icon: "↻", group: "Inteligencia", status: "ready",
-    desc: "Mesa de renovación y deltas acotados por cliente/póliza sobre una versión fija del grafo." }
+    desc: "Cómo está la cartera hoy: riesgo, clientes, severidad, dónde se pierde dinero y cola de renovación." }
 ];
 
 const HIDDEN_MODULES = {
@@ -293,10 +291,9 @@ const state = {
     candidate_id: "growth_sandbox",
     tab: "cases",
     showFilters: false,
-    result: null,
-    insightsResult: null
+    result: null
   },
-  supervision: { result: null }
+  supervision: { result: null, baseline: null }
 };
 
 /* ---------- data loaders (cached) ---------- */
