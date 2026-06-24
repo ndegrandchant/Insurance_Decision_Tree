@@ -290,7 +290,6 @@ const state = {
     controls: { ...DEFAULT_SIM_CONTROLS },
     candidate_id: "growth_sandbox",
     tab: "cases",
-    showFilters: false,
     showLevers: false,
     result: null
   },
@@ -4005,7 +4004,7 @@ function simulationRiskLab(result) {
   const risk = result?.risk || {};
   const candidate = risk.candidate || {};
   const delta = risk.delta || {};
-  return `<section class="sim-lab-grid">
+  return `<section class="sim-lab-grid cols-1">
     <section class="card">
       <div class="card-head"><h2>Riesgo en vivo</h2><span class="badge ${Number(delta.risk_score || 0) <= 0 ? "badge-ok" : "badge-amber"}">${signedNumber(delta.risk_score || 0, 1)}</span></div>
       <div class="card-body sim-risk-metrics">
@@ -4021,7 +4020,7 @@ function simulationRiskLab(result) {
 
 function simulationPriceRenewalView(result) {
   const renewal = result?.renewal || {};
-  return `<section class="sim-lab-grid">
+  return `<section class="sim-lab-grid cols-2">
     <section class="card">
       <div class="card-head"><h2>Curva de precio cobertura</h2><span class="badge">profit max</span></div>
       <div class="card-body">${priceCurveBars(result?.price_curve || [])}</div>
@@ -4130,12 +4129,6 @@ function severityRows(rows) {
   </tbody></table>`;
 }
 
-function priceCurveRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Precio</th><th>Prima</th><th>Pérdida</th><th>Utilidad</th><th>LR</th><th>Riesgo</th></tr></thead><tbody>
-    ${rows.map((r) => `<tr class="gtr"><td>${Math.round(Number(r.coverage_price_multiplier) * 100)}%</td><td class="num">Bs ${moneyBob(r.premium_bob)}</td><td class="num">Bs ${moneyBob(r.claim_loss_bob)}</td><td class="num ${Number(r.profit_bob || 0) >= 0 ? "sim-pos" : "sim-neg"}">Bs ${moneyBob(r.profit_bob)}</td><td class="num">${Number(r.loss_ratio || 0).toFixed(2)}</td><td class="num">${esc(r.risk_score)}</td></tr>`).join("") || emptyTableRow(6)}
-  </tbody></table>`;
-}
-
 function renewalRows(rows) {
   return `<table class="gtable"><thead><tr><th>Cliente</th><th>Actual</th><th>LR</th><th>Churn</th><th>Recomendado</th><th>Nodo</th></tr></thead><tbody>
     ${rows.map((r) => `<tr class="gtr"><td><b>${esc(r.client_name)}</b><div class="sim-sub">${esc(r.city)} · ${esc(r.broker)}</div></td><td class="num">Bs ${moneyBob(r.current_premium_bob)}</td><td class="num">${Number(r.loss_ratio || 0).toFixed(2)}</td><td class="num">${Math.round(Number(r.churn_probability || 0) * 100)}%</td><td class="num">${signedNumber(r.recommended_price_change_percent, 1)}%</td><td class="mono">${esc(r.renewal_node)}</td></tr>`).join("") || emptyTableRow(6)}
@@ -4172,7 +4165,7 @@ function bindSimulationControls() {
     state.simulation.controls = { ...DEFAULT_SIM_CONTROLS };
     state.simulation.candidate_id = "growth_sandbox";
     state.simulation.tab = "cases";
-    state.simulation.showFilters = false;
+    state.simulation.showLevers = false;
     state.simulation.result = null;
     await go("simulation");
   });
