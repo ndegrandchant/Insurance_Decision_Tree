@@ -291,6 +291,7 @@ const state = {
     candidate_id: "growth_sandbox",
     tab: "cases",
     showFilters: false,
+    showLevers: false,
     result: null
   },
   supervision: { result: null, baseline: null }
@@ -3736,26 +3737,6 @@ VIEWS.simulation = async function () {
   bindSimulationControls();
 };
 
-VIEWS.insights = async function () {
-  if (!state.simulation.insightsResult) {
-    state.simulation.insightsResult = await runSimulationPayload({
-      filters: { engine: "coverage" },
-      candidate_id: state.simulation.candidate_id
-    });
-  }
-  setTopbar(
-    "Insights",
-    "Pérdidas por nodo, cláusulas con fricción broker y rutas más tocadas en reclamos mock.",
-    `<button class="btn btn-primary" id="insights-refresh">Actualizar</button>`
-  );
-  $("#view").innerHTML = insightsLayout(state.simulation.insightsResult);
-  $("#insights-refresh").addEventListener("click", async () => {
-    $("#insights-refresh").disabled = true;
-    state.simulation.insightsResult = await runSimulationPayload({ filters: { engine: "coverage" }, candidate_id: state.simulation.candidate_id });
-    go("insights");
-  });
-};
-
 VIEWS.supervision = async function () {
   if (!state.supervision.result || !state.supervision.baseline) {
     try {
@@ -3834,6 +3815,19 @@ function supervisionLayout(result, baseline) {
   </div>`;
 }
 
+function simulationHero(result) {
+  const d = result?.summary?.delta || {};
+  const profit = Number(d.profit_bob || 0);
+  const tone = profit > 0 ? "ok" : profit < 0 ? "bad" : "info";
+  return heroKpi(
+    "Impacto en utilidad (Δ)",
+    signedMoneyBob(d.profit_bob),
+    `${esc(d.outcome_changed_count || 0)} casos cambian de resultado · riesgo ${signedNumber(d.risk_score || 0, 1)}`,
+    tone,
+    profit >= 0 ? "favorable" : "adverso"
+  );
+}
+
 function simulationLayout(meta, candidates, result) {
   const db = meta.mock_database || {};
   const counts = db.row_counts || {};
@@ -3849,6 +3843,8 @@ function simulationLayout(meta, candidates, result) {
         <div class="sim-count"><b>${esc(counts.claims || 0)}</b> reclamos</div>
       </div>
     </section>
+
+    <div id="sim-hero-wrap">${simulationHero(result)}</div>
 
     <section class="card sim-controls">
       <div class="card-body">${simulationControls(meta, candidates)}</div>
@@ -3873,25 +3869,26 @@ function simulationControls(meta, candidates) {
   const f = state.simulation.filters;
   const opts = meta.filters || {};
   const active = candidates.find((c) => c.candidate_id === state.simulation.candidate_id) || candidates[0] || {};
-  const showFilters = state.simulation.showFilters;
   const controls = simulationEffectiveControls(active);
   return `<div class="sim-control-row">
       ${simSelect("sim-candidate", "Versión a comparar", candidates.map((c) => ({ value: c.candidate_id, label: c.label })), state.simulation.candidate_id, "sim-field-lg")}
       ${simSelect("sim-engine", "Motor", opts.engines || [], f.engine || "all")}
-      <button class="sim-disclose" id="sim-morefilters" type="button" aria-expanded="${showFilters}">${showFilters ? "Ocultar filtros" : "Más filtros de cohorte"}</button>
     </div>
     <p class="sim-candidate-desc" id="sim-candidate-desc">${esc(active.description || "")}</p>
-    <div class="sim-extra-filters ${showFilters ? "" : "hidden"}" id="sim-extra-filters">
-      ${simSelect("sim-city", "Ciudad", ["all", ...(opts.cities || [])], f.cities || "")}
-      ${simSelect("sim-broker", "Broker", ["all", ...(opts.brokers || [])], f.brokers || "")}
-      ${simSelect("sim-business", "Tipo de negocio", ["all", ...(opts.business_types || [])], f.business_types || "")}
-      ${simSelect("sim-make", "Marca", ["all", ...(opts.vehicle_makes || [])], f.vehicle_makes || "")}
-      ${simSelect("sim-policy", "Producto / cobertura", ["all", ...(opts.policy_types || [])], f.policy_types || "")}
-      ${simSelect("sim-cause", "Causa reclamo", ["all", ...(opts.claim_causes || [])], f.claim_causes || "")}
-      <label class="sim-field"><span>Edad mínima</span><input id="sim-age-min" type="number" min="0" value="${esc(f.age_min)}" placeholder="${esc(opts.age?.min || "")}"></label>
-      <label class="sim-field"><span>Edad máxima</span><input id="sim-age-max" type="number" min="0" value="${esc(f.age_max)}" placeholder="${esc(opts.age?.max || "")}"></label>
-    </div>
-    ${simulationLeverPanel(controls)}
+    <details class="sim-adjust" id="sim-adjust" ${state.simulation.showLevers ? "open" : ""}>
+      <summary>Ajustar palancas y cohorte</summary>
+      <div class="sim-extra-filters" id="sim-extra-filters">
+        ${simSelect("sim-city", "Ciudad", ["all", ...(opts.cities || [])], f.cities || "")}
+        ${simSelect("sim-broker", "Broker", ["all", ...(opts.brokers || [])], f.brokers || "")}
+        ${simSelect("sim-business", "Tipo de negocio", ["all", ...(opts.business_types || [])], f.business_types || "")}
+        ${simSelect("sim-make", "Marca", ["all", ...(opts.vehicle_makes || [])], f.vehicle_makes || "")}
+        ${simSelect("sim-policy", "Producto / cobertura", ["all", ...(opts.policy_types || [])], f.policy_types || "")}
+        ${simSelect("sim-cause", "Causa reclamo", ["all", ...(opts.claim_causes || [])], f.claim_causes || "")}
+        <label class="sim-field"><span>Edad mínima</span><input id="sim-age-min" type="number" min="0" value="${esc(f.age_min)}" placeholder="${esc(opts.age?.min || "")}"></label>
+        <label class="sim-field"><span>Edad máxima</span><input id="sim-age-max" type="number" min="0" value="${esc(f.age_max)}" placeholder="${esc(opts.age?.max || "")}"></label>
+      </div>
+      ${simulationLeverPanel(controls)}
+    </details>
     <details class="sim-changes">
       <summary>Qué cambia esta versión candidata</summary>
       <div class="sandbox-edits" id="sim-overlay-edits">${simulationOverlayRows(active)}</div>
@@ -3960,14 +3957,10 @@ function sandboxRow(node, title, value) {
 }
 
 const SIM_TABS = [
-  { id: "cases", label: "Casos cambiados" },
-  { id: "cashout", label: "Cash-out nodes" },
-  { id: "loss", label: "Pérdida por nodo" },
-  { id: "brokers", label: "Fricción broker" },
-  { id: "pricing", label: "Precio cobertura" },
-  { id: "renewals", label: "Renovaciones" },
-  { id: "renewal_tree", label: "Árbol renovación" },
-  { id: "nodes", label: "Nodos recorridos" },
+  { id: "cases",  label: "Casos cambiados" },
+  { id: "losses", label: "Dónde se pierde" },
+  { id: "price",  label: "Precio y renovación" },
+  { id: "nodes",  label: "Nodos recorridos" },
 ];
 
 function simulationTabs() {
@@ -3977,17 +3970,16 @@ function simulationTabs() {
   ).join("")}</div>`;
 }
 
-// Renders only the table for the active tab — one table at a time instead of four.
 function simulationActiveTable(result) {
   const tables = result?.tables || {};
   switch (state.simulation.tab) {
-    case "cashout": return cashoutRows((tables.cashout_nodes || []).slice(0, 18));
-    case "loss":    return lossRows((tables.loss_nodes || []).slice(0, 12));
-    case "brokers": return clauseRows((tables.broker_clause_friction || []).slice(0, 12));
-    case "pricing": return priceCurveRows(result?.price_curve || []);
-    case "renewals": return renewalRows(result?.renewal?.queue || []);
-    case "renewal_tree": return renewalTreeRows(result?.renewal?.tree || []);
-    case "nodes":   return nodeRows((tables.node_hits || []).slice(0, 12));
+    case "losses":
+      return `${bandHead("Pérdida por nodo")}${lossRows((tables.loss_nodes || []).slice(0, 12))}
+              ${bandHead("Cash-out nodes")}${cashoutRows((tables.cashout_nodes || []).slice(0, 18))}`;
+    case "price":
+      return simulationPriceRenewalView(result);
+    case "nodes":
+      return nodeRows((tables.node_hits || []).slice(0, 12));
     case "cases":
     default: {
       const cases = tables.cases || [];
@@ -4013,7 +4005,6 @@ function simulationRiskLab(result) {
   const risk = result?.risk || {};
   const candidate = risk.candidate || {};
   const delta = risk.delta || {};
-  const renewal = result?.renewal || {};
   return `<section class="sim-lab-grid">
     <section class="card">
       <div class="card-head"><h2>Riesgo en vivo</h2><span class="badge ${Number(delta.risk_score || 0) <= 0 ? "badge-ok" : "badge-amber"}">${signedNumber(delta.risk_score || 0, 1)}</span></div>
@@ -4025,6 +4016,12 @@ function simulationRiskLab(result) {
         ${riskMetric("Cash-out exposure", `Bs ${moneyBob(candidate.cashout_exposure_bob)}`, signedMoneyBob(delta.cashout_exposure_bob || 0))}
       </div>
     </section>
+  </section>`;
+}
+
+function simulationPriceRenewalView(result) {
+  const renewal = result?.renewal || {};
+  return `<section class="sim-lab-grid">
     <section class="card">
       <div class="card-head"><h2>Curva de precio cobertura</h2><span class="badge">profit max</span></div>
       <div class="card-body">${priceCurveBars(result?.price_curve || [])}</div>
@@ -4033,7 +4030,8 @@ function simulationRiskLab(result) {
       <div class="card-head"><h2>Renovaciones</h2><span class="badge badge-ok">mejor ${esc(renewal.best_price_change_percent ?? "--")}%</span></div>
       <div class="card-body">${renewalCurveBars(renewal.curve || [])}</div>
     </section>
-  </section>`;
+  </section>
+  ${bandHead("Árbol de renovación")}${renewalTreeRows(renewal.tree || [])}`;
 }
 
 function riskMetric(label, value, delta) {
@@ -4058,18 +4056,6 @@ function renewalCurveBars(rows) {
     <b>Bs ${moneyBob(r.profit_bob)}</b>
     <em>ret ${Math.round(Number(r.retention_rate || 0) * 100)}%</em>
   </div>`).join("")}</div>`;
-}
-
-function insightsLayout(result) {
-  return `<div class="sim-page">
-    ${simulationSummary(result)}
-    <section class="sim-table-grid insights-tables">
-      ${tableCard("Pérdida por nodo de reclamo", lossRows(result.tables.loss_nodes || []))}
-      ${tableCard("Cláusulas que molestan a brokers", clauseRows(result.tables.broker_clause_friction || []))}
-      ${tableCard("Rutas más tocadas", nodeRows(result.tables.node_hits || []))}
-      ${tableCard("Casos de reclamos", caseRows(result.tables.cases || []))}
-    </section>
-  </div>`;
 }
 
 // Shared "hero" metric card used at the top of Supervisión and Simulación.
@@ -4204,14 +4190,8 @@ function bindSimulationControls() {
     bindSimulationLeverControls();
     runSimulationLive();
   });
-  const more = $("#sim-morefilters");
-  if (more) more.addEventListener("click", () => {
-    state.simulation.showFilters = !state.simulation.showFilters;
-    const panel = $("#sim-extra-filters");
-    if (panel) panel.classList.toggle("hidden", !state.simulation.showFilters);
-    more.setAttribute("aria-expanded", String(state.simulation.showFilters));
-    more.textContent = state.simulation.showFilters ? "Ocultar filtros" : "Más filtros de cohorte";
-  });
+  const adj = $("#sim-adjust");
+  if (adj) adj.addEventListener("toggle", () => { state.simulation.showLevers = adj.open; });
   $$(".sim-tabs [data-simtab]").forEach((b) => b.addEventListener("click", () => {
     state.simulation.tab = b.dataset.simtab;
     $$(".sim-tabs [data-simtab]").forEach((x) => x.classList.toggle("active", x === b));
@@ -4232,7 +4212,6 @@ async function runSimulationFromUi() {
       candidate_id: state.simulation.candidate_id,
       controls: state.simulation.controls
     });
-    state.simulation.insightsResult = null;
     go("simulation");
     toast("Simulación ejecutada");
   } catch {
@@ -4298,13 +4277,14 @@ async function runSimulationLive() {
       candidate_id: state.simulation.candidate_id,
       controls: state.simulation.controls
     });
+    const hero = $("#sim-hero-wrap");
+    if (hero) hero.innerHTML = simulationHero(state.simulation.result);
     const summary = $("#sim-summary-wrap");
     if (summary) summary.innerHTML = simulationSummary(state.simulation.result);
     const risk = $("#sim-risk-wrap");
     if (risk) risk.innerHTML = simulationRiskLab(state.simulation.result);
     const body = $("#sim-detail-body");
     if (body) body.innerHTML = simulationActiveTable(state.simulation.result);
-    state.simulation.insightsResult = null;
   } catch {
     toast("No se pudo recalcular la simulación", true);
   }
