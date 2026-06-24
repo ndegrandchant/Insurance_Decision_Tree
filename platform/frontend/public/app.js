@@ -246,6 +246,7 @@ const hasValor = (v) => v !== null && v !== undefined && v !== "";
 async function getJSON(url) { const r = await fetch(url); if (!r.ok) throw new Error(r.status); return r.json(); }
 async function postJSON(url, body, role) {
   const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json", ...(role ? { "X-Role": role } : {}) }, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error(r.status);
   return r.json();
 }
 
