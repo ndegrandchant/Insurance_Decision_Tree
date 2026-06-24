@@ -3758,12 +3758,17 @@ VIEWS.insights = async function () {
 
 VIEWS.supervision = async function () {
   if (!state.supervision.result || !state.supervision.baseline) {
-    const [result, baseline] = await Promise.all([
-      supervisionPayload(),
-      runSimulationPayload({})
-    ]);
-    state.supervision.result = result;
-    state.supervision.baseline = baseline;
+    try {
+      const [result, baseline] = await Promise.all([
+        supervisionPayload(),
+        runSimulationPayload({})
+      ]);
+      state.supervision.result = result;
+      state.supervision.baseline = baseline;
+    } catch {
+      toast("No se pudo cargar Supervisión", true);
+      return;
+    }
   }
   setTopbar(
     "Supervisión",
@@ -3773,10 +3778,16 @@ VIEWS.supervision = async function () {
   $("#view").innerHTML = supervisionLayout(state.supervision.result, state.supervision.baseline);
   $("#supervision-refresh").addEventListener("click", async () => {
     $("#supervision-refresh").disabled = true;
-    const [result, baseline] = await Promise.all([supervisionPayload(), runSimulationPayload({})]);
-    state.supervision.result = result;
-    state.supervision.baseline = baseline;
-    go("supervision");
+    try {
+      const [result, baseline] = await Promise.all([supervisionPayload(), runSimulationPayload({})]);
+      state.supervision.result = result;
+      state.supervision.baseline = baseline;
+      go("supervision");
+    } catch {
+      toast("No se pudo actualizar", true);
+      const b = $("#supervision-refresh");
+      if (b) b.disabled = false;
+    }
   });
 };
 
@@ -3794,7 +3805,7 @@ function supervisionLayout(result, baseline) {
       riskTone === "warn" ? "vigilar" : "estable"
     )}
     <section class="kpis sim-kpis">
-      <div class="kpi is-info"><span class="kpi-label">Clientes activos</span><span class="kpi-value">${esc(s.active_clients || 0)}</span><span class="kpi-sub">${esc(s.claim_count || 0)} reclamos observados</span></div>
+      <div class="kpi is-info"><span class="kpi-label">Clientes activos</span><span class="kpi-value">${esc(s.active_clients || 0)}</span><span class="kpi-sub">en la cartera viva</span></div>
       <div class="kpi is-warn"><span class="kpi-label">Cash-out exposure</span><span class="kpi-value">Bs ${moneyBob(s.cashout_exposure_bob)}</span><span class="kpi-sub">salida monetaria en nodos</span></div>
       <div class="kpi is-info"><span class="kpi-label">Severidad promedio</span><span class="kpi-value">Bs ${moneyBob(s.avg_severity_bob)}</span><span class="kpi-sub">por reclamo (mock)</span></div>
       <div class="kpi is-info"><span class="kpi-label">Reclamos observados</span><span class="kpi-value">${esc(s.claim_count || 0)}</span><span class="kpi-sub">en la ventana actual</span></div>
