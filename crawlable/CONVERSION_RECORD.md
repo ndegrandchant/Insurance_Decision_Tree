@@ -9,7 +9,7 @@
 >
 > **State at writing: CONVERSION COMPLETE.** Phases 0 → 5 of the roadmap's conversion are done.
 > Validator GREEN; 372/372 source ids accounted; **0 deferred**; residual semantic drift 0 across
-> nine fresh-context verifier passes. Final inventory: 56 nodes, 50 facts, 29 tables, 48 reference
+> nine fresh-context verifier passes. Final inventory: 61 nodes, 55 facts, 29 tables, 47 reference
 > rules, 214 clause-side records, 16 conflict-ledger entries.
 
 ---
@@ -81,7 +81,7 @@ under-counting report is as dishonest as an over-counting one.
 ## 3. The batched conversion (Phase 1), batch by batch
 
 Each batch was **fully reconciled (A) + semantically verified (B) before the next**, all rolling
-into one `COVERAGE_REPORT.md`. Node count grew 27→40→47→50→56; always 372/372 accounted.
+into one `COVERAGE_REPORT.md`. Node count grew 27→40→47→50→56 (Phase-1 batches; later 61 after the O14 licitaciones gates, §8H4); always 372/372 accounted.
 
 ### Batch 1 — Case-UW eligibility (`T-ELIG-CASEUW`)
 `graph/3.3.1.json`: gate (admits all; `evaluate: true`) + C01–C11 + terminal. Crawler: made
@@ -413,14 +413,164 @@ These close the items §9 had flagged as fixable-now. Each confirmed against a r
 - *Verified:* §4b present; the §9 residual entry below now summarizes it and points to §4b.
 
 
+### F. Runtime-conflict stress test (Part-1 mitigation pass)
+
+A non-destructive stress harness (`troubleshoot testing/`, Layers A–D) was built to prove the
+crawler never *silently resolves* a conflict — reads `crawlable/` read-only, all fault injection
+in-memory, nothing under `crawlable/` written. The property held under sweeps/fuzz/mutation; three
+fixes were applied, all **outcome-preserving** (Layer-A snapshot stayed stable). Full report:
+`troubleshoot testing/STRESS_REPORT.md`; verification method recorded in `verification_report.md` §4c.
+
+**F1 — `RUL-MAN-VERSION` surfaced on zero outcomes (G1).**
+- *Error:* the version-identity conflict was referenced 14× via top-level `_doc_conflicts`, but
+  `crawl.py` only reads node-level `conflict` — so a *represented* conflict was invisible on every
+  crawl result (silent omission, the weak form of silent resolution).
+- *Fix / what I did:* added `load_doc_conflicts()`; `crawl()` now surfaces it **once per result** as
+  `document_provenance` (document-level metadata, not a per-node caveat — keeps the caveat channel
+  for decision-relevant conflicts). Your call (G1): doc-level-once, the safest + clearly-visible
+  option. Recorded as D-P6 in `decisions.md`.
+- *Verified:* `document_provenance` present on results; mutation M9 (drop `_doc_conflicts`) caught;
+  snapshot stable (no decision outcome changed).
+
+**F2 — `bracket_lookup` mis-attributed the escalation edge.**
+- *Error:* on a non-unique match it returned `boundary_conflicts[0]` regardless of which edge the
+  value hit — a 150% renovación value reported `edge 60`. Safe (correct `ledger_ref`, still escalates)
+  but misleading in the audit trail.
+- *Fix / what I did:* attribute to the nearest/containing declared edge; 60/150/250 now each cite
+  their own edge. `ledger_ref` unchanged.
+- *Verified:* direct check (60→60, 150→150, 250→250); snapshot stable (edge/detail aren't in the
+  outcome signature).
+
+**F3 — no conflict-coverage check (G2).**
+- *Error:* nothing asserted that every OPEN ruling is actually surfaceable — a future conflict could
+  be added that no input ever shows (exactly how F1 hid).
+- *Fix / what I did:* `validate.py [11]` — every OPEN `rulings/RUL-*.md` must be referenced by a data
+  construct (node conflict / consumed-table boundary or cross conflict / `_doc_conflicts` /
+  reference-capture) **or** listed in `LEDGER_ONLY_BY_DESIGN` with a reason; `[9]` extended to
+  `_doc_conflicts` refs. Mirrors the harness's Layer-D classification.
+- *Verified:* proven load-bearing — a deliberately unanchored `RUL-ZZTEST` made `[11]` go RED, then
+  removed; `validate.py` GREEN with 16 rulings.
+
+### G. Layer E — fresh-context multi-vote conflict-tier review (Part-1 mitigation, semantic)
+
+Three independent fresh-context verifier subagents (distinct adversarial lenses — V1 under-surfacing /
+V2 over-escalation / V3 missing-executable-surfacing) judged all 11 conflict items against the verbatim
+ledger + `crawl.py` tier logic; majority vote per item, dissents adjudicated. Raw verdicts:
+`troubleshoot testing/layer_e_verdicts.json`. **Result: 9/11 tiers unanimously/strongly confirmed
+correct; 0 silent-resolution holes.** No tier was flipped — every majority kept the current tier, and
+flipping on a lone dissent would *resolve* a modeling question that belongs to the underwriter
+(represent-don't-resolve). The four med/low dissents were **represented**, not silenced:
+
+- **G-E1 (X15, V1):** the *validated-importer → `eligible`* branch may be an accept the source doesn't
+  explicitly grant (the bullet sits under the "excluidos" header); it already rides WITH the X15 caveat
+  (surfaced, not silent). → added as open sub-question #3 in `rulings/RUL-X15-HIGHVALUE-READING.md`;
+  tier left CAVEAT.
+- **G-E2 (MAN-VERSION, V1):** tier DOC-LEVEL is right, but the note understated a **data-currency**
+  risk (the 4.0 changelog changes authority/capacity/franquicia *values* shipped off 3.0 pages). →
+  enriched `rulings/RUL-MAN-VERSION.md` with a data-currency warning.
+- **G-E3 (ALCOHOLEMIA, V3):** the cross-doc *number* tier is REFERENCE-ONLY (correct), but **R-097's
+  licitaciones "no pueden ser suscritas" list is unwired executable logic** (a licitación quote
+  requesting a barred condition isn't blocked at runtime). → new open item **O14**; noted in
+  `rulings/RUL-ALCOHOLEMIA.md`.
+- **G-E4 (FLOTA, V3):** suggested a router-branch caveat; majority declined (the `consumer_fleet_4plus`
+  enum already fixes the segment, so ≥4 is unambiguous there). → dissent recorded in
+  `rulings/RUL-FLOTA-THRESHOLDS.md`; no change.
+
+No code or tier change resulted; all four outcomes are ledger/doc enrichments (represent-don't-resolve).
+`validate.py` stayed GREEN and the Layer-A snapshot stayed stable (nothing executable changed).
+
+### H. Bucket-1 "fixable now" correction pass (the user asked to fix everything triaged fixable-now)
+
+All verified together: `validate.py` GREEN (61 nodes, 55 facts, 47 reference rules), `coverage.py`
+372/372, `run_all.py` ALL GREEN (10/10 mutations caught), snapshot re-blessed (43 cases; **all drift
+outcome-preserving** — 0 outcome/terminal changes).
+
+**H1 — O12a: `bracket_lookup` escalates the franquicia `special_rows` precedence.** It scanned only
+numeric `rows`; a table with categorical `special_rows` (TBL-FRANQ-EMPRESAS lujo > 420.000) would
+silently return the VA-bracket row where the lujo categorical also applies. Now: if a value falls in a
+declared `precedence` region of a `special_rows` table, it escalates (the categorical overlap needs a
+category fact the numeric lookup lacks). *Verified:* 420.000 resolves, 420.001/500.000 escalate
+(RUL-BAND-EDGES); renovación bands (no special_rows) unchanged.
+
+**H2 — router caveat noise removed.** Every routed outcome (even a single unambiguous trigger) carried
+the RUL-ROUTER-PRECEDENCE caveat; the precedence conflict only exists on a multi-match (which already
+escalates). Now suppressed on single-match. *Verified:* R2–R5/LR-LIC lost the router caveat
+(outcomes unchanged; LR-LIC keeps its Lizeth-Rios caveat); mutation M5 still caught.
+
+**H3 — O5: governing clauses surfaced on outcomes.** `crawl()` now attaches `governing_clauses` —
+from fired/terminal nodes' rule origins via the `linkage_edges.json` index **and** any inline
+`required_clauses` an exception lifted — each with its match-confidence label (cites, never asserts
+equivalence; R3). Sparse by data (most decisive nodes are tree-origin; linkage keys only R-015/R-016),
+but the antique lift now surfaces its clauses incl. the `unmatched` nota-aclaratoria. Not in the
+snapshot signature (outcome-preserving).
+
+**H4 — O14: licitaciones prohibited-condition gates (R-097) node-ified.** Was reference-only — a
+licitación requesting alcoholemia > 0,70 / Valor Admitido / licencia vencida > 90d / permisos de
+velocidad routed to *eligible* (not blocked). Added 5 facts + 5 nodes (order 10–14, before capacity):
+the four conditions → `decline` (process-scoped = "no suscribible por Licitaciones", faithful to
+"no pueden ser suscritas por este Procedimiento"); AP-en-carrocería → `refer_authority` (the source
+names the authorizers); the auxilio-mecánico item (a reimbursement rule, not an exclusion) stays
+reference. The alcoholemia node carries `conflict → RUL-ALCOHOLEMIA`, so the cross-doc 0,50-vs-0,70
+tension now **surfaces at runtime** when the gate fires. R-097 moved reference→node_converted
+(`rule_buckets.json`); `reference.json` regenerated (47); coverage re-reconciled 372/372. Modelling
+call (decline-vs-strip granularity) recorded as **D-P8** + per-node `_derived_note`. *Verified:* clean
+tender → eligible; each prohibited condition → decline (alcoholemia + caveat); AP → refer_authority.
+
+**H5 — harness add-ons + audit completeness.** 3 O14 regression cases + a gate-rejection case
+(non-admitted vehicle type → `not_admitted_by_standard` → reevaluation-loop escalation); a 10th
+mutation (M10: disable the antique exception's liftability → E3 must change); a node-coverage report.
+*Audit-completeness fix:* terminal nodes now append an audit step (sibling of the B6 fix — terminals
+previously set `terminal_node` but never appeared in the path), so the trail is complete and the
+coverage metric is accurate. Node-coverage went 57→**61/61** (the 3 "missing" eligible terminals were
+a metric blind spot — reached as `terminal_node`, just not logged; the 1 real gap,
+`not_admitted_by_standard`, is closed by the gate-rejection case). Snapshot re-blessed (43 cases; paths
+now include terminals — outcome-preserving).
+
+**Deferred, truthfully reclassified → O15.** R2 (re-read the 10 presentational reprints) and the
+152-clause reference second-vote were listed "fixable now (AI run)", but on attempt proved
+**reference-side (Part-1)**: R2's reprint-diff evidence isn't staged and the classification is buried
+in the representation's internals; the 152-clause re-vote is a large multi-agent pass, lower-stakes
+than the executable logic (already double-voted + tier-reviewed). Moved to O15 — a focused Part-1
+reference-re-verification pass, not crammed in here (accuracy-first over forced completion).
+
+
 ---
 
 ## 9. Open / still to fix (as of this snapshot)
 
-**Nothing is currently failing** — `validate.py` is GREEN, coverage is 372/372, the cases run. Since
-the last snapshot every *fixable-now* item (O1, O2, O8, O10, O11) has been closed and verified
-(see §8E); what remains is *by-design* deferral, *by-mandate* open conflict, and one inherited
-*residual risk*. Tagged so you can triage.
+**Nothing is currently failing** — `validate.py` is GREEN, coverage is 372/372, the cases run. What
+remains is *by-design* deferral, *by-mandate* open conflict, and inherited *extraction residuals*.
+
+### 9.0 Status scoreboard — FIXED vs NOT-FIXED at a glance
+
+> Read THIS table to see what's done and what's left **without reading the fix narratives** (§8).
+> Every item is in exactly one status. ✅ = fixed+verified · ⬜ = deferred (built later) · 🔒 = open
+> by mandate (underwriter) · 📄 = improvable only by better source extraction (Part 1).
+
+| id | item | status | detail |
+|---|---|---|---|
+| O1/O2 | band gap/overlap enforcement (validator) | ✅ FIXED | §8E1 |
+| O8 | 2nd dimension-B vote (executable logic) | ✅ FIXED | §8E4 |
+| O10 | redundant `null_means_unlimited` flag removed | ✅ FIXED | §8E2 |
+| O11 | `boundary_conflicts[].edge` numeric | ✅ FIXED | §8E3 |
+| G1 | RUL-MAN-VERSION surfaced (`document_provenance`) | ✅ FIXED | §8F1 |
+| F1/F2 | bracket edge attribution · conflict-coverage check `[11]` | ✅ FIXED | §8F2/F3 |
+| O13 | Layer-E multi-vote tier review | ✅ FIXED | §8G |
+| O12a | `bracket_lookup` escalates `special_rows` precedence | ✅ FIXED | §8H1 |
+| O-router | router single-route caveat noise removed | ✅ FIXED | §8H2 |
+| O5 | governing clauses surfaced on outcomes (the *wiring*) | ✅ FIXED | §8H3 · map *completeness* → O16 |
+| O14 | licitaciones prohibited-condition gates (R-097) | ✅ FIXED | §8H4 |
+| O3 | full stage-chaining (lift/branch → later stages) | ⬜ DEFERRED · Phase 5 | below |
+| O4 | regression corpus vs underwriter-validated answers | ⬜ DEFERRED · Phase 2/5 | below |
+| O6 | human layer + DMN export | ⬜ DEFERRED · Phase 6/9 | below |
+| O12b | wire latent rating tables into a rating stage | ⬜ DEFERRED · Phase 5 | below |
+| O15 | Part-1 reference re-verification (R2 reprints + reference 2nd vote) | ⬜ DEFERRED · reference-side | below |
+| O16 | linkage rule→clause map **completeness** (~2/84 rules linked) — **not** fixed by the rulings | ⬜ DEFERRED · **Phase 4** (clause-linking) | below |
+| O7 | the 16 conflict rulings | 🔒 OPEN · underwriter / Part 2 | below |
+| O9 | R1 clause-OCR fidelity · R3 linkage *confidence* (existing labels; completeness → O16) | 📄 EXTRACTION-only | `verification_report.md` §4b |
+
+**Bottom line:** every item triaged *fixable-now by code/AI* is ✅; what's left is deferred builds,
+the underwriter's 16 rulings, and two source-extraction residuals. No open crawler **bugs**.
 
 ### Resolved since the last snapshot (fixed + verified — details in §8E)
 
@@ -443,15 +593,50 @@ the last snapshot every *fixable-now* item (O1, O2, O8, O10, O11) has been close
 - **O3 — [Phase 5] full-crawler stage chaining.** The gate→exclusions→capacity→authority→limits
   chain runs only on the fall-through path; branch/lift terminal outcomes (X15 eligible, X07/X12
   conditional) don't re-enter later stages. Faithful flow modeling needs every eligible/conditional
-  path to continue through authority/rating.
+  path to continue through authority/rating. **Now measured** (runtime stress test, §8F /
+  `troubleshoot testing/STRESS_REPORT.md`): an early lift (antique→conditional) terminates before
+  `high_value`(X15) and `authority`, so those nodes are unreachable for lifted cases. Deferred to
+  Phase 5 (confirmed call). *Side-effect to note:* X15 declines standard at 1.05M and routes the
+  importer-path above 700k, so 26/43 standard authority-matrix rows (limits up to 3.48M) can never
+  bind in the standard flow — a possible source tension (X15 1.05M vs matrix 3.48M) for the tier review.
 - **O4 — [Phase 5] regression corpus.** `run_cases.py` is illustrative, not measured against
-  underwriter-validated answers; there is no pass/fail ground truth yet.
-- **O5 — [Phase 4/6] clause citations not surfaced on outcomes.** `linkage_edges.json` (+ the reverse
-  index) exist as data, but the crawler only attaches clauses in the antique exception's
-  `required_clauses`; a general "this outcome is governed by clause X" surfacing isn't wired into
-  the crawl result.
+  underwriter-validated answers; there is no pass/fail ground truth yet. *(Partly addressed:* the
+  Layer-A golden snapshot (`troubleshoot testing/golden_snapshot.json`) is now a **regression** guard
+  — it pins current behavior, not underwriter-correct behavior, which still needs Phase 2.)
+- **O5 — ✅ DONE (§8H3).** `governing_clauses` now surfaced on outcomes (rule-origin linkage edges +
+  inline exception `required_clauses`, each with its match-confidence label). Sparse by data (most
+  decisive nodes are tree-origin); the antique lift surfaces its clauses incl. the `unmatched` note.
+  *This is the **wiring** only.* The **completeness** of the underlying map (how many rule→clause edges
+  exist) is a separate deferred item → **O16 (Phase 4)**.
+- **O16 — [Phase 4 · clause-linking] linkage rule→clause map completeness.** The forward map is sparse:
+  only ~2 of 84 rules (R-015, R-016) carry a clause edge; 10 of the 16 edges are mention-only. Completing
+  the forward (rule→clause) edges is **Roadmap Phase 4 (§4.1)** — it is **NOT** addressed by the
+  Phase-2 rulings loop (resolving a conflict ≠ adding a linkage edge; the two are orthogonal). The
+  crawler runs fine without it: `governing_clauses` is an *enrichment* on outcomes (which clause governs),
+  never a decision input, so sparse linkage means *fewer clause citations*, not wrong outcomes. The
+  *confidence* of the edges that DO exist is the separate R3 residual (O9 / `verification_report.md` §4b;
+  sampled 4/4 clean in the Phase-3 trial, `improvement_crawler_test/`).
 - **O6 — [Phase 6/9] human layer + DMN export not built.** (Phase 9 is mostly serialization: the S2
   tables + JSONLogic are already DMN-aligned.)
+- **O12a — ✅ DONE (§8H1).** `bracket_lookup` escalates the `special_rows` precedence (franquicia-lujo
+  @420.000), so it cannot silently resolve once a rating node consumes the table.
+- **O12b — [Phase 5/rating] latent S2 rating tables still unwired.** `TBL-FRANQ-MOTO` / `TBL-TAR-MOTO`
+  / `TBL-FRANQ-EMPRESAS` are consumed by no runtime node yet (rating stage deferred). Wiring them +
+  the rating outputs is the Phase-5 build; O12a already made the lookup safe for when they are.
+- **O13 — [Layer E] fresh-context multi-vote tier review — ✓ DONE (2026-06-19).** 3 independent
+  fresh-context verifiers (perspective-diverse lenses) re-judged every conflict's *tier*: **9/11
+  confirmed correct, 0 silent-resolution holes; no tier flipped.** The 4 med/low dissents were
+  represented in the ledger, not silenced (see §8G + `troubleshoot testing/layer_e_verdicts.json`).
+  The FLOTA router-caveat judgment call was reviewed and **declined** (majority: the
+  `consumer_fleet_4plus` enum already fixes the Consumer segment, so ≥4 is unambiguous there).
+- **O14 — ✅ DONE (§8H4).** R-097's licitaciones prohibited-condition list is node-ified (5 gates,
+  order 10–14): a tender requesting a barred condition now declines / refers instead of routing to
+  eligible, and RUL-ALCOHOLEMIA surfaces at runtime. Modelling call (decline-vs-strip) recorded as D-P8.
+- **O15 — [reference re-verification] R2 + reference second-vote — deferred (reference-side).** A fresh
+  re-read of the 10 presentational reprints (R2) and a second fresh-context vote over the 152-clause +
+  base-policy reference capture. Reclassified out of "fixable-now" (§8H): R2's reprint-diff evidence
+  isn't staged and both are Part-1 extraction-side, lower-stakes than the executable logic (already
+  double-voted + tier-reviewed). Do as a focused Part-1 pass.
 
 ### Intentionally OPEN — by mandate, NOT errors (do not "fix" by picking a winner)
 

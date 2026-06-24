@@ -17,8 +17,8 @@
 |---|---|
 | **Dimension A — structural** | **372 / 372 source ids accounted (100%)** · **0 deferred · 0 silently dropped**. |
 | **Dimension B — semantic** | **residual DRIFT = 0** across nine independent fresh-context adversarial passes (one per batch + re-checks). |
-| **Validator (`validate.py`)** | **GREEN — 0 errors**: 56 nodes, 50 facts, 29 tables, 48 reference rules, 214 clause-side records, 16 ledger entries. |
-| **Crawler** | 42 case outcomes resolve with full audit + escalation across every mechanism (see §Crawler). |
+| **Validator (`validate.py`)** | **GREEN — 0 errors**: 61 nodes, 55 facts, 29 tables, 47 reference rules, 214 clause-side records, 16 ledger entries. |
+| **Crawler** | 40+ case outcomes resolve with full audit + escalation across every mechanism (see §Crawler). |
 | **Conflicts** | 16 source conflicts represented as OPEN ledger entries; **none resolved** (by mandate). |
 
 ---
@@ -28,7 +28,7 @@
 ```
 artifact                     in  conv  part  ledg   ref  defer  excl   OK
 -------------------------------------------------------------------------
-rules.json                   84    30     6     0    48      0     0   ✓
+rules.json                   84    31     6     0    47      0     0   ✓
 decision_trees.json          44    44     0     0     0      0     0   ✓
 tables.json                  24    23     1     0     0      0     0   ✓
 clause_registry.json        158     0     0     6   152      0     0   ✓
@@ -36,25 +36,25 @@ base_policy.json             13     0     0     0    13      0     0   ✓
 cross_references             33     0     0     0    33      0     0   ✓
 linkage.json                 16    16     0     0     0      0     0   ✓
 -------------------------------------------------------------------------
-TOTAL                       372   113     7     6   246      0     0
-Accounted: 372/372 (100%) · Executable/decisional: 126 · reference: 246 · deferred: 0 · excluded: 0
+TOTAL                       372   114     7     6   245      0     0
+Accounted: 372/372 (100%) · Executable/decisional: 127 · reference: 245 · deferred: 0 · excluded: 0
 ```
 
 **What each bucket means here:**
-- **converted (113)** = executable in the graph: all 4 decision trees (44 elements: both eligibility
-  trees, renovación bands, retroactividad), 30 rules (authority/capacity/RC-AP-limit nodes +
+- **converted (114)** = executable in the graph: all 4 decision trees (44 elements: both eligibility
+  trees, renovación bands, retroactividad), 31 rules (authority/capacity/RC-AP-limit nodes +
   tree-realized + 19 table-realized), 23 tables (authority matrices, S2 rating + renovación
   brackets, rate matrices, scalars), and 16 linkage edges (rule↔clause + reverse inversion).
 - **partial (7)** = the 6 process-definition rules the router references + `TBL-CAPACIDAD`
   (value lifted to `@tables.limits`).
 - **ledger (6)** = the renovación/clause cross-code conflicts pointing to OPEN rulings.
-- **reference (246)** = non-branch normative content captured verbatim, not executable
-  (decisions.md D1/D2): 48 manual rules (governance/coverage-terms/procedural/info/process/
+- **reference (245)** = non-branch normative content captured verbatim, not executable
+  (decisions.md D1/D2): 47 manual rules (governance/coverage-terms/procedural/info/process/
   formula/CRM) in `reference.json`; 152 clauses in `clauses.json`; 13 base-policy elements in
   `base_policy_ref.json`; 33 cross-references in `crossrefs.json`.
 - **deferred (0)** · **excluded (0)** — nothing left unconverted, nothing silently dropped.
 
-Machine snapshot: `coverage_manifest.json`. Rule partition (asserted exact, 84 = 7+2+6+0+19+48):
+Machine snapshot: `coverage_manifest.json`. Rule partition (asserted exact, 84 = 10+2+6+0+19+47):
 `rule_buckets.json`.
 
 ---
@@ -94,7 +94,7 @@ escalates at each; a resolution enters only via the ledger + regeneration, never
 
 ---
 
-## Crawler — every mechanism demonstrated (42 case outcomes)
+## Crawler — every mechanism demonstrated (40+ case outcomes)
 
 Process router (routes + escalates the LBC|Auto and tender+mass precedence overlaps);
 eligibility filters (Standard + Case-UW); the `exception` lift (both ways); authority matrix

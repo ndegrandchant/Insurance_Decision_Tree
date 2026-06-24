@@ -1,0 +1,2340 @@
+{
+  "A1 Estándar autoridad EXCEDE": {
+    "caveats": [],
+    "outcome": "refer_authority",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ],
+      [
+        "standard.elig.high_value",
+        "advance"
+      ],
+      [
+        "standard.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "standard.elig.descapotable_lona",
+        "advance"
+      ],
+      [
+        "standard.elig.blindado",
+        "advance"
+      ],
+      [
+        "standard.elig.emergencia",
+        "advance"
+      ],
+      [
+        "standard.elig.public_tender",
+        "advance"
+      ],
+      [
+        "standard.elig.placa_extranjera",
+        "advance"
+      ],
+      [
+        "standard.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "standard.elig.brevet",
+        "advance"
+      ],
+      [
+        "standard.capacity",
+        "advance"
+      ],
+      [
+        "standard.authority",
+        "authority_exceeds"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.authority"
+  },
+  "A2 Case-UW capacidad EXCEDE": {
+    "caveats": [],
+    "outcome": "refer_authority",
+    "path": [
+      [
+        "case_underwriting.elig.gate",
+        "pass"
+      ],
+      [
+        "case_underwriting.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.competicion",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.body_mods",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rieles",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.bomberos_policia_ejercito",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.licitaciones",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "case_underwriting.capacity",
+        "fired"
+      ]
+    ],
+    "process": "case_underwriting",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "case_underwriting.capacity"
+  },
+  "A3 Case-UW autoridad DENTRO eligible": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "case_underwriting.elig.gate",
+        "pass"
+      ],
+      [
+        "case_underwriting.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.competicion",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.body_mods",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rieles",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.bomberos_policia_ejercito",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.licitaciones",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "case_underwriting.capacity",
+        "advance"
+      ],
+      [
+        "case_underwriting.authority",
+        "authority_within"
+      ],
+      [
+        "case_underwriting.rc_limit",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.eligible",
+        "terminal"
+      ]
+    ],
+    "process": "case_underwriting",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "case_underwriting.elig.eligible"
+  },
+  "A4 Case-UW suscriptor DESCONOCIDO": {
+    "caveats": [],
+    "outcome": "refer_authority",
+    "path": [
+      [
+        "case_underwriting.elig.gate",
+        "pass"
+      ],
+      [
+        "case_underwriting.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.competicion",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.body_mods",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rieles",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.bomberos_policia_ejercito",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.licitaciones",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "case_underwriting.capacity",
+        "advance"
+      ],
+      [
+        "case_underwriting.authority",
+        "authority_unknown"
+      ]
+    ],
+    "process": "case_underwriting",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "case_underwriting.authority"
+  },
+  "AMB-STD ambulancia Estándar X19 decline": {
+    "caveats": [],
+    "outcome": "decline",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ],
+      [
+        "standard.elig.high_value",
+        "advance"
+      ],
+      [
+        "standard.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "standard.elig.descapotable_lona",
+        "advance"
+      ],
+      [
+        "standard.elig.blindado",
+        "advance"
+      ],
+      [
+        "standard.elig.emergencia",
+        "fired"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.emergencia"
+  },
+  "CU1 Case-UW pesado eligible": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "case_underwriting.elig.gate",
+        "pass"
+      ],
+      [
+        "case_underwriting.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.competicion",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.body_mods",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rieles",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.bomberos_policia_ejercito",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.licitaciones",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "case_underwriting.capacity",
+        "advance"
+      ],
+      [
+        "case_underwriting.authority",
+        "authority_within"
+      ],
+      [
+        "case_underwriting.rc_limit",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.eligible",
+        "terminal"
+      ]
+    ],
+    "process": "case_underwriting",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "case_underwriting.elig.eligible"
+  },
+  "CU2 C05 rent-a-car ESCALATE blocking": {
+    "caveats": [],
+    "escalation": {
+      "at_node": "case_underwriting.elig.rent_a_car",
+      "blocking_fact": null,
+      "ledger_ref": "rulings/RUL-CASEUW-C05-RENTACAR.md",
+      "on_missing": null,
+      "reason": "contested_outcome"
+    },
+    "outcome": "ESCALATE",
+    "path": [
+      [
+        "case_underwriting.elig.gate",
+        "pass"
+      ],
+      [
+        "case_underwriting.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.competicion",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.body_mods",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rieles",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rent_a_car",
+        "conflict_block"
+      ]
+    ],
+    "process": null,
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": null
+  },
+  "CU3 ambulancia Case-UW eligible": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "case_underwriting.elig.gate",
+        "pass"
+      ],
+      [
+        "case_underwriting.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.competicion",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.body_mods",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rieles",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.bomberos_policia_ejercito",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.licitaciones",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "case_underwriting.capacity",
+        "advance"
+      ],
+      [
+        "case_underwriting.authority",
+        "authority_within"
+      ],
+      [
+        "case_underwriting.rc_limit",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.eligible",
+        "terminal"
+      ]
+    ],
+    "process": "case_underwriting",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "case_underwriting.elig.eligible"
+  },
+  "E1 clean accept": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ],
+      [
+        "standard.elig.high_value",
+        "advance"
+      ],
+      [
+        "standard.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "standard.elig.descapotable_lona",
+        "advance"
+      ],
+      [
+        "standard.elig.blindado",
+        "advance"
+      ],
+      [
+        "standard.elig.emergencia",
+        "advance"
+      ],
+      [
+        "standard.elig.public_tender",
+        "advance"
+      ],
+      [
+        "standard.elig.placa_extranjera",
+        "advance"
+      ],
+      [
+        "standard.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "standard.elig.brevet",
+        "advance"
+      ],
+      [
+        "standard.capacity",
+        "advance"
+      ],
+      [
+        "standard.authority",
+        "authority_within"
+      ],
+      [
+        "standard.rc_limit",
+        "advance"
+      ],
+      [
+        "standard.ap_limit",
+        "advance"
+      ],
+      [
+        "standard.elig.eligible",
+        "terminal"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.eligible"
+  },
+  "E10 lift YES minibús X07": {
+    "caveats": [],
+    "outcome": "conditional_eligible",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "lift"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.minibus_modified"
+  },
+  "E2 clean decline X05 competición": {
+    "caveats": [],
+    "outcome": "decline",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "fired"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.competicion"
+  },
+  "E3 lift YES antiguo renov X12.a": {
+    "caveats": [],
+    "outcome": "conditional_eligible",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "lift"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.antique_vehicle"
+  },
+  "E4 lift NO antiguo nueva marca X12.b": {
+    "caveats": [],
+    "outcome": "decline",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "no_lift"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.antique_vehicle"
+  },
+  "E5 refer_process X10 rent-a-car petroleras": {
+    "caveats": [],
+    "outcome": "refer_process",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "branch"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": {
+      "name": "case_underwriting"
+    },
+    "terminal_node": "standard.elig.rent_a_car"
+  },
+  "E6 refer_authority X15 importador no aut.": {
+    "caveats": [
+      [
+        "standard.elig.high_value",
+        "rulings/RUL-X15-HIGHVALUE-READING.md"
+      ]
+    ],
+    "outcome": "refer_authority",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ],
+      [
+        "standard.elig.high_value",
+        "branch"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.high_value"
+  },
+  "E7 high-value ELIGIBLE X15 Toyosa": {
+    "caveats": [
+      [
+        "standard.elig.high_value",
+        "rulings/RUL-X15-HIGHVALUE-READING.md"
+      ]
+    ],
+    "outcome": "eligible",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ],
+      [
+        "standard.elig.high_value",
+        "branch"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.high_value"
+  },
+  "E8 ESCALATE missing importer": {
+    "caveats": [],
+    "escalation": {
+      "at_node": "standard.elig.high_value",
+      "blocking_fact": "importer",
+      "ledger_ref": null,
+      "on_missing": "refer",
+      "reason": "missing_fact:refer"
+    },
+    "outcome": "ESCALATE",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ]
+    ],
+    "process": null,
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": null
+  },
+  "E9 decline consumer heavy X02": {
+    "caveats": [],
+    "outcome": "decline",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "fired"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.consumer_heavy_any"
+  },
+  "GATE-REJECT tipo no admitido (remolque)": {
+    "caveats": [],
+    "escalation": {
+      "at_node": "root.process_router",
+      "blocking_fact": null,
+      "ledger_ref": "rulings/RUL-ROUTER-PRECEDENCE.md",
+      "on_missing": null,
+      "reason": "reevaluation_loop"
+    },
+    "outcome": "ESCALATE",
+    "path": [
+      [
+        "root.process_router",
+        "on_no_match"
+      ],
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "block"
+      ],
+      [
+        "standard.elig.not_admitted_by_standard",
+        "terminal"
+      ]
+    ],
+    "process": null,
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": null
+  },
+  "L1 RC>210k refer Case-UW": {
+    "caveats": [],
+    "outcome": "refer_process",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ],
+      [
+        "standard.elig.high_value",
+        "advance"
+      ],
+      [
+        "standard.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "standard.elig.descapotable_lona",
+        "advance"
+      ],
+      [
+        "standard.elig.blindado",
+        "advance"
+      ],
+      [
+        "standard.elig.emergencia",
+        "advance"
+      ],
+      [
+        "standard.elig.public_tender",
+        "advance"
+      ],
+      [
+        "standard.elig.placa_extranjera",
+        "advance"
+      ],
+      [
+        "standard.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "standard.elig.brevet",
+        "advance"
+      ],
+      [
+        "standard.capacity",
+        "advance"
+      ],
+      [
+        "standard.authority",
+        "authority_within"
+      ],
+      [
+        "standard.rc_limit",
+        "fired"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": {
+      "kind": "process",
+      "name": "case_underwriting",
+      "reason": "RC > Bs. 210.000 fuera de la cobertura incidental Estándar; cualquier excepción se atiende por Case Underwriting."
+    },
+    "terminal_node": "standard.rc_limit"
+  },
+  "L2 RC 300k enlatado sin desborde": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ],
+      [
+        "standard.elig.high_value",
+        "advance"
+      ],
+      [
+        "standard.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "standard.elig.descapotable_lona",
+        "advance"
+      ],
+      [
+        "standard.elig.blindado",
+        "advance"
+      ],
+      [
+        "standard.elig.emergencia",
+        "advance"
+      ],
+      [
+        "standard.elig.public_tender",
+        "advance"
+      ],
+      [
+        "standard.elig.placa_extranjera",
+        "advance"
+      ],
+      [
+        "standard.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "standard.elig.brevet",
+        "advance"
+      ],
+      [
+        "standard.capacity",
+        "advance"
+      ],
+      [
+        "standard.authority",
+        "authority_within"
+      ],
+      [
+        "standard.rc_limit",
+        "advance"
+      ],
+      [
+        "standard.ap_limit",
+        "advance"
+      ],
+      [
+        "standard.elig.eligible",
+        "terminal"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.eligible"
+  },
+  "L3 AP>140k refer Seguros Personales": {
+    "caveats": [],
+    "outcome": "refer_line",
+    "path": [
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ],
+      [
+        "standard.elig.high_value",
+        "advance"
+      ],
+      [
+        "standard.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "standard.elig.descapotable_lona",
+        "advance"
+      ],
+      [
+        "standard.elig.blindado",
+        "advance"
+      ],
+      [
+        "standard.elig.emergencia",
+        "advance"
+      ],
+      [
+        "standard.elig.public_tender",
+        "advance"
+      ],
+      [
+        "standard.elig.placa_extranjera",
+        "advance"
+      ],
+      [
+        "standard.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "standard.elig.brevet",
+        "advance"
+      ],
+      [
+        "standard.capacity",
+        "advance"
+      ],
+      [
+        "standard.authority",
+        "authority_within"
+      ],
+      [
+        "standard.rc_limit",
+        "advance"
+      ],
+      [
+        "standard.ap_limit",
+        "fired"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": {
+      "kind": "line",
+      "name": "seguros_personales",
+      "reason": "Capital de AP por persona mayor al máximo de Automotores: revisar por la línea del negocio correspondiente (no asegurable bajo Automotores)."
+    },
+    "terminal_node": "standard.ap_limit"
+  },
+  "L4 Case-UW RC>350k refer Línea RC": {
+    "caveats": [],
+    "outcome": "refer_line",
+    "path": [
+      [
+        "case_underwriting.elig.gate",
+        "pass"
+      ],
+      [
+        "case_underwriting.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.competicion",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.body_mods",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rieles",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.bomberos_policia_ejercito",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.licitaciones",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "case_underwriting.capacity",
+        "advance"
+      ],
+      [
+        "case_underwriting.authority",
+        "authority_within"
+      ],
+      [
+        "case_underwriting.rc_limit",
+        "fired"
+      ]
+    ],
+    "process": "case_underwriting",
+    "rate_action": null,
+    "referral_target": {
+      "kind": "line",
+      "name": "responsabilidad_civil",
+      "reason": "RC > Bs. 350.000 (o extensiones distintas a las permitidas también para el caso Estándar) deben ser suscritas por la respectiva Línea de Responsabilidad Civil."
+    },
+    "terminal_node": "case_underwriting.rc_limit"
+  },
+  "LIC-ALC alcoholemia>0.70 decline+caveat": {
+    "caveats": [
+      [
+        "licitaciones.elig.alcoholemia",
+        "rulings/RUL-ALCOHOLEMIA.md"
+      ]
+    ],
+    "outcome": "decline",
+    "path": [
+      [
+        "root.process_router",
+        "branch"
+      ],
+      [
+        "licitaciones.elig.valor_admitido",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.alcoholemia",
+        "fired"
+      ]
+    ],
+    "process": "licitaciones",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "licitaciones.elig.alcoholemia"
+  },
+  "LIC-AP ap carrocería refer_authority": {
+    "caveats": [],
+    "outcome": "refer_authority",
+    "path": [
+      [
+        "root.process_router",
+        "branch"
+      ],
+      [
+        "licitaciones.elig.valor_admitido",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.alcoholemia",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.licencia_vencida",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.permiso_velocidad",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.ap_carroceria",
+        "fired"
+      ]
+    ],
+    "process": "licitaciones",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "licitaciones.elig.ap_carroceria"
+  },
+  "LIC-VADM valor admitido decline": {
+    "caveats": [],
+    "outcome": "decline",
+    "path": [
+      [
+        "root.process_router",
+        "branch"
+      ],
+      [
+        "licitaciones.elig.valor_admitido",
+        "fired"
+      ]
+    ],
+    "process": "licitaciones",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "licitaciones.elig.valor_admitido"
+  },
+  "LR-LIC Lizeth Rios Licitaciones": {
+    "caveats": [
+      [
+        "licitaciones.authority",
+        "rulings/RUL-LIZETH-RIOS-AUTH.md"
+      ]
+    ],
+    "outcome": "refer_authority",
+    "path": [
+      [
+        "root.process_router",
+        "branch"
+      ],
+      [
+        "licitaciones.elig.valor_admitido",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.alcoholemia",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.licencia_vencida",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.permiso_velocidad",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.ap_carroceria",
+        "advance"
+      ],
+      [
+        "licitaciones.capacity",
+        "advance"
+      ],
+      [
+        "licitaciones.authority",
+        "authority_exceeds"
+      ]
+    ],
+    "process": "licitaciones",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "licitaciones.authority"
+  },
+  "LR-UW Lizeth Rios Case-UW": {
+    "caveats": [
+      [
+        "case_underwriting.authority",
+        "rulings/RUL-LIZETH-RIOS-AUTH.md"
+      ]
+    ],
+    "outcome": "eligible",
+    "path": [
+      [
+        "case_underwriting.elig.gate",
+        "pass"
+      ],
+      [
+        "case_underwriting.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.competicion",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.body_mods",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rieles",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.bomberos_policia_ejercito",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.licitaciones",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "case_underwriting.capacity",
+        "advance"
+      ],
+      [
+        "case_underwriting.authority",
+        "authority_within"
+      ],
+      [
+        "case_underwriting.rc_limit",
+        "advance"
+      ],
+      [
+        "case_underwriting.elig.eligible",
+        "terminal"
+      ]
+    ],
+    "process": "case_underwriting",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "case_underwriting.elig.eligible"
+  },
+  "R1 ESCALATE precedence lbc_auto": {
+    "caveats": [],
+    "escalation": {
+      "at_node": "root.process_router",
+      "blocking_fact": null,
+      "ledger_ref": "rulings/RUL-ROUTER-PRECEDENCE.md",
+      "on_missing": null,
+      "reason": "ambiguous_precedence"
+    },
+    "outcome": "ESCALATE",
+    "path": [],
+    "process": null,
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": null
+  },
+  "R2 refer_process automatica": {
+    "caveats": [],
+    "outcome": "refer_process",
+    "path": [
+      [
+        "root.process_router",
+        "branch"
+      ]
+    ],
+    "process": null,
+    "rate_action": null,
+    "referral_target": {
+      "name": "automatica"
+    },
+    "terminal_node": "root.process_router"
+  },
+  "R3 route standard moto": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "root.process_router",
+        "branch"
+      ],
+      [
+        "standard.elig.gate_tipo_vehiculo",
+        "pass"
+      ],
+      [
+        "standard.elig.heavy_over_8tn",
+        "advance"
+      ],
+      [
+        "standard.elig.consumer_heavy_any",
+        "advance"
+      ],
+      [
+        "standard.elig.tipos_pesados_excluidos",
+        "advance"
+      ],
+      [
+        "standard.elig.contractor_equipment",
+        "advance"
+      ],
+      [
+        "standard.elig.competicion",
+        "advance"
+      ],
+      [
+        "standard.elig.body_mods",
+        "advance"
+      ],
+      [
+        "standard.elig.minibus_modified",
+        "advance"
+      ],
+      [
+        "standard.elig.rieles",
+        "advance"
+      ],
+      [
+        "standard.elig.moto_lujo",
+        "advance"
+      ],
+      [
+        "standard.elig.rent_a_car",
+        "advance"
+      ],
+      [
+        "standard.elig.aprendizaje",
+        "advance"
+      ],
+      [
+        "standard.elig.antique_vehicle",
+        "advance"
+      ],
+      [
+        "standard.elig.fuera_del_pais",
+        "advance"
+      ],
+      [
+        "standard.elig.capacidad_mayor_8",
+        "advance"
+      ],
+      [
+        "standard.elig.high_value",
+        "advance"
+      ],
+      [
+        "standard.elig.servicio_publico",
+        "advance"
+      ],
+      [
+        "standard.elig.descapotable_lona",
+        "advance"
+      ],
+      [
+        "standard.elig.blindado",
+        "advance"
+      ],
+      [
+        "standard.elig.emergencia",
+        "advance"
+      ],
+      [
+        "standard.elig.public_tender",
+        "advance"
+      ],
+      [
+        "standard.elig.placa_extranjera",
+        "advance"
+      ],
+      [
+        "standard.elig.colocacion_masiva",
+        "advance"
+      ],
+      [
+        "standard.elig.brevet",
+        "advance"
+      ],
+      [
+        "standard.capacity",
+        "advance"
+      ],
+      [
+        "standard.authority",
+        "authority_within"
+      ],
+      [
+        "standard.rc_limit",
+        "advance"
+      ],
+      [
+        "standard.ap_limit",
+        "advance"
+      ],
+      [
+        "standard.elig.eligible",
+        "terminal"
+      ]
+    ],
+    "process": "standard",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "standard.elig.eligible"
+  },
+  "R4 refer_process licitaciones": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "root.process_router",
+        "branch"
+      ],
+      [
+        "licitaciones.elig.valor_admitido",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.alcoholemia",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.licencia_vencida",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.permiso_velocidad",
+        "advance"
+      ],
+      [
+        "licitaciones.elig.ap_carroceria",
+        "advance"
+      ],
+      [
+        "licitaciones.capacity",
+        "advance"
+      ],
+      [
+        "licitaciones.authority",
+        "authority_within"
+      ],
+      [
+        "licitaciones.within_authority",
+        "terminal"
+      ]
+    ],
+    "process": "licitaciones",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "licitaciones.within_authority"
+  },
+  "R5 refer_process masiva": {
+    "caveats": [],
+    "outcome": "refer_process",
+    "path": [
+      [
+        "root.process_router",
+        "branch"
+      ]
+    ],
+    "process": null,
+    "rate_action": null,
+    "referral_target": {
+      "name": "masiva"
+    },
+    "terminal_node": "root.process_router"
+  },
+  "R6 ESCALATE precedence licit+masiva": {
+    "caveats": [],
+    "escalation": {
+      "at_node": "root.process_router",
+      "blocking_fact": null,
+      "ledger_ref": "rulings/RUL-ROUTER-PRECEDENCE.md",
+      "on_missing": null,
+      "reason": "ambiguous_precedence"
+    },
+    "outcome": "ESCALATE",
+    "path": [],
+    "process": null,
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": null
+  },
+  "RN1 Comercial 0% mantener": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "renovacion.comercial",
+        "band"
+      ]
+    ],
+    "process": "renovacion",
+    "rate_action": "mantener su tasa vigente sin considerar las tasas mínimas",
+    "referral_target": null,
+    "terminal_node": "renovacion.comercial"
+  },
+  "RN2 Consumer 100% recargo": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "renovacion.comercial",
+        "advance"
+      ],
+      [
+        "renovacion.consumer_pesado_overlap",
+        "advance"
+      ],
+      [
+        "renovacion.consumer",
+        "band"
+      ]
+    ],
+    "process": "renovacion",
+    "rate_action": "recargo del 10% en tasas o tasas del Tarificador (el que sea mayor)",
+    "referral_target": null,
+    "terminal_node": "renovacion.consumer"
+  },
+  "RN3 Consumer 300% depuración": {
+    "caveats": [],
+    "outcome": "decline",
+    "path": [
+      [
+        "renovacion.comercial",
+        "advance"
+      ],
+      [
+        "renovacion.consumer_pesado_overlap",
+        "advance"
+      ],
+      [
+        "renovacion.consumer",
+        "band"
+      ]
+    ],
+    "process": "renovacion",
+    "rate_action": "Depuración (recargo exagerado)",
+    "referral_target": null,
+    "terminal_node": "renovacion.consumer"
+  },
+  "RN4 Consumer pesado 55% OVERLAP": {
+    "caveats": [],
+    "escalation": {
+      "at_node": "renovacion.consumer_pesado_overlap",
+      "blocking_fact": null,
+      "ledger_ref": "rulings/RUL-RENOV-CONSUMER-PESADOS-OVERLAP.md",
+      "on_missing": null,
+      "reason": "contested_outcome"
+    },
+    "outcome": "ESCALATE",
+    "path": [
+      [
+        "renovacion.comercial",
+        "advance"
+      ],
+      [
+        "renovacion.consumer_pesado_overlap",
+        "conflict_block"
+      ]
+    ],
+    "process": null,
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": null
+  },
+  "RN5 Consumer 60% BAND-EDGE": {
+    "caveats": [],
+    "escalation": {
+      "at_node": "renovacion.consumer",
+      "blocking_fact": null,
+      "ledger_ref": "rulings/RUL-BAND-EDGES.md",
+      "on_missing": null,
+      "reason": "band_boundary"
+    },
+    "outcome": "ESCALATE",
+    "path": [
+      [
+        "renovacion.comercial",
+        "advance"
+      ],
+      [
+        "renovacion.consumer_pesado_overlap",
+        "advance"
+      ],
+      [
+        "renovacion.consumer",
+        "band_edge"
+      ]
+    ],
+    "process": null,
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": null
+  },
+  "RN6 Pesados/motos 100% +17%": {
+    "caveats": [],
+    "outcome": "eligible",
+    "path": [
+      [
+        "renovacion.pesados_motos",
+        "band"
+      ]
+    ],
+    "process": "renovacion",
+    "rate_action": "incrementar un 17%",
+    "referral_target": null,
+    "terminal_node": "renovacion.pesados_motos"
+  },
+  "RT1 <=30 sin siniestro": {
+    "caveats": [],
+    "outcome": "conditional_eligible",
+    "path": [
+      [
+        "retroactividad.siniestro_overlay",
+        "advance"
+      ],
+      [
+        "retroactividad.duracion",
+        "branch"
+      ]
+    ],
+    "process": "retroactividad",
+    "rate_action": null,
+    "referral_target": null,
+    "terminal_node": "retroactividad.duracion"
+  },
+  "RT2 >30 sin siniestro Case-UW": {
+    "caveats": [],
+    "outcome": "refer_process",
+    "path": [
+      [
+        "retroactividad.siniestro_overlay",
+        "advance"
+      ],
+      [
+        "retroactividad.duracion",
+        "branch"
+      ]
+    ],
+    "process": "retroactividad",
+    "rate_action": null,
+    "referral_target": {
+      "name": "case_underwriting"
+    },
+    "terminal_node": "retroactividad.duracion"
+  },
+  "RT3 siniestro Comité": {
+    "caveats": [],
+    "outcome": "refer_authority",
+    "path": [
+      [
+        "retroactividad.siniestro_overlay",
+        "fired"
+      ]
+    ],
+    "process": "retroactividad",
+    "rate_action": null,
+    "referral_target": {
+      "kind": "committee",
+      "name": "comite_riesgos_siniestros",
+      "reason": "Si el cliente tuvo algún siniestro durante el periodo, debe solicitarse al Comité de Riesgos y Siniestros la alternativa de cubrirlo (riesgo de fraude); con el VoBo del CR&S se autoriza la retroactividad."
+    },
+    "terminal_node": "retroactividad.siniestro_overlay"
+  }
+}

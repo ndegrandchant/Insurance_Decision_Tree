@@ -547,22 +547,6 @@
    }
   },
   {
-   "id": "R-097",
-   "class": "licitaciones_process",
-   "applies_to": "Licitaciones",
-   "source": {
-    "pdf_page": 32,
-    "printed_page": 25,
-    "section": "3.5.5",
-    "version": "3.0"
-   },
-   "source_quote": "fueron definidas algunas condiciones que no pueden ser suscritas por este Procedimiento de Suscripción",
-   "_origin": {
-    "artifact": "rules.json",
-    "source_id": "R-097"
-   }
-  },
-  {
    "id": "R-098",
    "class": "licitaciones_process",
    "applies_to": "Licitaciones (emisión)",

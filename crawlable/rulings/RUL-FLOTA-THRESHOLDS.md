@@ -29,5 +29,13 @@ segment/tariff. Keep four context-keyed definitions (`flota_threshold[segment]`)
 single `flota_size` rule. Confirm this is intended segmentation, not an editing drift.
 *Advisory only.*
 
+## Layer-E note (tier review — dissent recorded, declined)
+Considered surfacing this as a provenance caveat on the router's `consumer_fleet_4plus` branch
+(verifier V3). Majority (V1 + V2) declined: that branch keys off the caller-supplied `client_type`
+enum, which already fixes the **Consumer** segment, so the ≥4 reading is unambiguous *there* — the
+other thresholds (≥3 PN con NIT, ≥2 Empresas, "uno o más" Commercial) belong to other segments /
+§3.1.5 tarification, not this branch. Recorded for completeness; no caveat added (it would be noise,
+not signal). Tier: REFERENCE-ONLY.
+
 ## Resolution (filled when ruled)
 _keep_context_scoped:_ — · _ruled_by:_ — · _date:_ —

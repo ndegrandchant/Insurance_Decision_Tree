@@ -25,11 +25,12 @@ over logic that isn't in the source; represent conflicts, never resolve them sil
 | Understand the project fast | this map → `PROJECT_CONTEXT.md` |
 | Run or extend the executable graph | `crawlable/README.md` (run commands) → `crawlable/node_schema.md` |
 | Read the faithful source extraction | [`representation/README.md`](representation/README.md) (full folder guide) · or §C below |
-| See the proof nothing was lost | `crawlable/COVERAGE_REPORT.md` (data-loss proof) · `verification_report.md` (Part-1 verification) |
-| Know exactly what was built & fixed | `crawlable/CONVERSION_RECORD.md` (§8 fix log, §9 open items) |
-| Apply the method to a *new* manual | `Manual Prompt.md` (extract) → `Crawlable_Conversions.md` (make crawlable) |
+| See the proof nothing was lost / it executes faithfully | `crawlable/COVERAGE_REPORT.md` (data-loss) · `verification_report.md` (Part-1 + **§4c** runtime-conflict verification) · `troubleshoot testing/STRESS_REPORT.md` |
+| Know exactly what was built & fixed (FIXED vs NOT-FIXED) | `crawlable/CONVERSION_RECORD.md` — **§9.0 scoreboard** (at-a-glance) · §8 fix log · §9 open items |
+| Apply the method to a *new* manual | `Manual Prompt.md` (extract) → `Crawlable_Conversions.md` (make crawlable) — **note the per-business hardcoding caveat (`Crawlable_Conversions.md` §9/§11)** |
 | Audit any claim against the source | `source_text/*.txt` (page-anchored) |
 | Resolve a flagged conflict | don't silently — route it through `crawlable/rulings/` |
+| Stress-test the crawler / re-verify | `troubleshoot testing/` (`python3 run_all.py`) · `improvement_crawler_test/` (R1/R3 source re-derivation) |
 
 ---
 
@@ -90,7 +91,7 @@ The executable deliverable, **generated from `representation/` + `crawlable/ruli
 **Graph + data — the runnable content**
 | File | Purpose |
 |---|---|
-| `crawlable/graph/*.json` | **10** files = the executable **56** nodes: `router.json` + one per section (3.1.2/3.1.3/3.1.4 Standard, 3.3.1/3.3.2/3.3.3 Case-UW, 3.5.2 Licitaciones, 4.1 renovación, 4.11 retroactividad). |
+| `crawlable/graph/*.json` | **10** files = the executable **61** nodes: `router.json` + one per section (3.1.2/3.1.3/3.1.4 Standard, 3.3.1/3.3.2/3.3.3 Case-UW, 3.5.2 Licitaciones incl. the R-097 prohibition gates [O14], 4.1 renovación, 4.11 retroactividad). |
 | `crawlable/facts.json` | The fact registry — the crawl's typed, sourced input-demand contract (`on_missing` per fact). |
 | `crawlable/tables.json` + `tables_authority.json` + `tables_rating.json` + `tables_renovacion.json` | Role-typed parameters, merged at load — authority matrices, rating brackets/rates/scalars, renovación bands: **29** tables incl. the S2 decision tables. |
 | `crawlable/rule_buckets.json` | The authoritative source-element → bucket partition (the data-loss accounting backbone). |
@@ -107,7 +108,7 @@ The executable deliverable, **generated from `representation/` + `crawlable/ruli
 |---|---|
 | `crawlable/crawler/crawl.py` | The crawler engine — self-contained JSONLogic evaluator, bracket/matrix/authority lookups, escalation, the 3 conflict tiers. |
 | `crawlable/crawler/run_cases.py` | Demonstration cases, each with a full audit trail. |
-| `crawlable/validate.py` | Mechanical validator — the "executes deterministically" contract (must be GREEN). |
+| `crawlable/validate.py` | Mechanical validator — the "executes deterministically" contract (must be GREEN). **⚠ Hardcodes LBC vocabulary** (`PROCESSES`/`LINES`/`COMMITTEES`): the check *logic* is generic, but those enums are per-business — **review/swap them when reusing on another manual** (`Crawlable_Conversions.md` §9/§11). |
 | `crawlable/coverage.py` | Data-loss reconciliation engine (dimension A) → `coverage_manifest.json` + `NOT_CONVERTED.md`. |
 | `crawlable/build_tables.py` · `build_reference.py` · `build_clauses.py` | Mechanical generators — parse the representation into tables/reference/clauses (never retype values). |
 | `crawlable/sync_facts.py` | Regenerate the fact→node `required_by` impact index. |
@@ -133,10 +134,12 @@ The executable deliverable, **generated from `representation/` + `crawlable/ruli
 |---|---|
 | `reference_approach1/` | **Read-only frozen snapshots** of the schema files from the separate "Approach 1" project whose node schema this project borrows — *"their skeleton, our data."* Contains `schema.py` (the typed node contract), `graph/*.json` exemplars, `tables.json`, `NEEDS-FACTS-TEMPLATE.md`, `A-PROJECT-TODO-SEQUENCE.md`. **Do not edit.** |
 
-### G. Working / audit (root) — not deliverables
+### G. Working / audit / verification (root) — not deliverables
 | Folder | Purpose |
 |---|---|
 | `work/` | Reproducibility scratch: parser outputs, raw table/clause dumps, per-batch subagent classifications, fresh-context verifier transcripts, rendered formula images, the tree-view generator. Kept so every derived artifact can be re-traced; ignore for normal consumption. |
+| `troubleshoot testing/` | **Runtime-conflict stress harness** (Part-2 verification): Layers A–D (snapshot · property/fuzz · mutation · conflict-ledger↔runtime cross-audit) + Layer-E tier-review verdicts — proving the crawler never silently resolves a conflict. Reads `crawlable/` read-only; run `python3 run_all.py`. `STRESS_REPORT.md` is the reviewer-facing report. |
+| `improvement_crawler_test/` | **Phase-3 trial** — fresh re-derivation of the R1 (clause-OCR) & R3 (linkage) residuals vs source (page-image re-OCR via `render.py`/`crop.py` + linkage re-judgment); `R1_R3_RESULTS.md` is the comparison to the canonical data. |
 
 ---
 

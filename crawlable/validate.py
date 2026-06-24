@@ -27,6 +27,11 @@ if hasattr(sys.stdout, "reconfigure"):
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUTCOMES = {"eligible", "conditional_eligible", "decline", "refer_authority", "refer_process", "refer_line"}
 NODE_TYPES = {"router", "gate", "condition", "authority", "referral", "accumulator", "terminal"}
+# ⚠ PER-BUSINESS / PER-MANUAL — HARDCODED LBC-Automotores vocabulary. PROCESSES, LINES, COMMITTEES
+# below are NOT generic: reusing this validator on a different manual/business REQUIRES reviewing and
+# swapping these three sets (they are not externalized to a profile/config yet). See
+# Crawlable_Conversions.md §9/§11 (the per-manual profile). By contrast OUTCOMES / NODE_TYPES /
+# ALLOWED_OPS are generic schema and normally stand unchanged.
 PROCESSES = {"standard", "automatica", "case_underwriting", "masiva", "licitaciones", "all",
              "renovacion", "retroactividad", None}
 LINES = {"ingenieria", "responsabilidad_civil", "seguros_personales"}
@@ -360,6 +365,52 @@ for capfn, listkey in [("clauses.json", "clauses"), ("base_policy_ref.json", "el
             cap_count += 1
             if not rec.get("_origin"):
                 err(f"[1] {capfn}: a record is missing _origin")
+
+# ---- (11) conflict-coverage: every OPEN ruling is runtime-surfaced OR explicitly justified ----
+# Guards two regressions the stress harness exposed: (a) a represented conflict that NO input can
+# surface (e.g. the _doc_conflicts class — RUL-MAN-VERSION), and (b) silently adding a ledger entry
+# with no anchor in the data. Classification mirrors troubleshoot testing/layer_d_crossaudit.py.
+import re as _re
+_consumed = {n.get("band_table") for n in nodes.values() if n.get("band_table")}
+_consumed |= {n.get("matrix") for n in nodes.values() if n.get("matrix")}
+_lref = {}
+def _addref(ref, kind):
+    if ref:
+        _lref.setdefault(os.path.basename(ref), set()).add(kind)
+for _n in nodes.values():
+    _cf = _n.get("conflict")
+    if _cf and _cf.get("ledger_ref"):
+        _addref(_cf["ledger_ref"], "node-blocking" if _cf.get("blocking") else "node-caveat")
+for _tid, _t in tables.items():
+    _cons = _tid in _consumed
+    for _bc in _t.get("boundary_conflicts", []):
+        _addref(_bc.get("ledger_ref"), "band-consumed" if _cons else "band-latent")
+    for _ctc in _t.get("cross_table_conflicts", []):
+        _addref(_ctc.get("ledger_ref"), "matrix-consumed" if _cons else "matrix-latent")
+    for _dc in _t.get("_doc_conflicts", []):
+        _addref(_dc.get("ledger_ref"), "doc-level")
+# graph top-level _doc_conflicts (+ verify they resolve — G1 'make it CHECKED either way')
+for _gp in sorted(glob.glob(os.path.join(ROOT, "graph", "*.json"))) + sorted(glob.glob(os.path.join(ROOT, "tables*.json"))):
+    for _dc in (json.load(open(_gp, encoding="utf-8")).get("_doc_conflicts") or []):
+        _addref(_dc.get("ledger_ref"), "doc-level")
+        if not ledger_ok(_dc.get("ledger_ref")):
+            err(f"[9] {os.path.basename(_gp)}: _doc_conflicts ledger_ref does not exist: {_dc.get('ledger_ref')}")
+# reference/clause capture files (reference-only refs)
+for _capfn in ("reference.json", "clauses.json", "base_policy_ref.json", "linkage_edges.json", "crossrefs.json"):
+    _cp = os.path.join(ROOT, _capfn)
+    if os.path.exists(_cp):
+        for _m in _re.finditer(r"rulings/RUL-[A-Za-z0-9-]+\.md", open(_cp, encoding="utf-8").read()):
+            _addref(_m.group(0), "reference-only")
+# entries that are intentionally ledger-only (no in-data anchor) — each with its reason
+LEDGER_ONLY_BY_DESIGN = {
+    "RUL-ABSENT-CODES.md": "informational: codes 2025/2131/2146 absent from the bundle (nothing in-data to anchor)",
+    "RUL-ALCOHOLEMIA.md": "cross-doc tension on the R-097 licitaciones constraint, captured as reference (not a runtime branch yet)",
+    "RUL-FLOTA-THRESHOLDS.md": "definitional threshold variance across tarification contexts; the router uses only the Consumer>=4 sense",
+}
+for _lf in sorted(_f for _f in ledger_files if _f.startswith("RUL-")):
+    if not _lref.get(_lf) and _lf not in LEDGER_ONLY_BY_DESIGN:
+        err(f"[11] OPEN ruling {_lf} is referenced by NO data construct and not in LEDGER_ONLY_BY_DESIGN "
+            f"(a conflict no input can surface — anchor it in the data or justify it as ledger-only)")
 
 # ---- report ----
 _rulings = sum(1 for _f in ledger_files if _f.startswith("RUL-"))

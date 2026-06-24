@@ -91,7 +91,7 @@ Your Phase 2 had to first *find* the inconsistencies. **Here they're already enu
 
 Approach-1's Phase 4 was "stub *cited* clauses only — not the full 311 pages." **This approach already extracted the full bundle** (152 clauses verbatim + `base_policy.json`), so the costly part is done and the cite-driven blind spot (clause-side conflicts no rule cites, e.g. 2023) is already covered.
 
-4.1 **Forward (rule → clause):** complete the edges using `linkage.json` (already has match-confidence). The lever is completeness; we start from a real map, not zero.
+4.1 **Forward (rule → clause):** complete the edges using `linkage.json` (already has match-confidence). The lever is completeness; we start from a real map, not zero. **This phase is where the R3 linkage residual is resolved** (CONVERSION_RECORD **O16** / verification_report §4b): today only ~2 of 84 rules carry a clause edge, so `governing_clauses` is sparse. **It is NOT fixed by the Phase-2 rulings loop** (resolving conflicts ≠ adding edges) — it is its own phase, and it affects clause *citations* on outcomes, not the decision logic.
 4.2 **Reverse (clause → every section):** a **free inversion** of the forward edges — never an independent sweep (your warning 3). Renders as backlinks in Phase 6.
 4.3 **Definitional dependence (the "vehículo pesado" canary):** we *already have* the clause definitions in `base_policy.json → definiciones`. Build the glossary from those + a deterministic concordance across manual sections (no LLM sweep). This yields the blast radius of the "vehículo pesado" ruling — and proves the manual is **not self-contained**, which is the whole reason both documents had to be extracted.
 

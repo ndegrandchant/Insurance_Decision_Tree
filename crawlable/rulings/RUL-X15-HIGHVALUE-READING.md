@@ -28,6 +28,13 @@ sintaxis."
    (obtain the fact, then proceed)? Modelled as `refer_authority` (validate), per
    `importer.on_missing = refer` — never a silent decline.
 2. Boundary inclusivity at exactly 700.000 (the source says "superen" = strictly greater).
+3. **Does a *validated* importer (∈ allowlist) make a VA 700k–1.05M vehicle `eligible` in Standard,
+   or does the bullet's "excluidos de este procedimiento" header mean even a validated vehicle stays
+   out of Standard (refer / Case UW)?** The crawler currently ships `eligible` for a validated
+   importer — an accept *derived from the syntax*, not an explicit grant. It rides WITH this caveat
+   (surfaced, not silent), but whether `eligible` is the faithful outcome is open. *(Raised by the
+   Layer-E tier review, verifier V1, med confidence; tier left CAVEAT by 2/3 majority — represented
+   here for the underwriter to confirm, not resolved.)*
 
 ## Recommended resolution (NON-BINDING — D-P2)
 Keep the two-threshold reading (it is the only coherent parse) and treat the importer check as

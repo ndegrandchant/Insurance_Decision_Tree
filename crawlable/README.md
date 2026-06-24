@@ -20,9 +20,9 @@ hand-patch a resolution into the graph; record it in `rulings/` and regenerate.*
   - `tables_authority.json` — the 3 authority matrices (`matrix_lookup`), **generated** by `build_tables.py`.
   - `tables_rating.json` — the rating tables (S2 brackets, rate matrices, scalars, reference).
   - `tables_renovacion.json` — the renovación siniestralidad band tables (S2 `bracket_map`) + minimums.
-- `graph/<section>.json` — executable nodes (**10** files, **56** nodes): `router.json`; Standard
+- `graph/<section>.json` — executable nodes (**10** files, **61** nodes): `router.json`; Standard
   `3.1.2` (elig) + `3.1.3` (capacity/authority) + `3.1.4` (RC/AP limits); Case-UW `3.3.1` + `3.3.2`
-  + `3.3.3`; Licitaciones `3.5.2`; renovación `4.1`; retroactividad `4.11`.
+  + `3.3.3`; Licitaciones `3.5.2` (incl. the R-097 prohibition gates, O14); renovación `4.1`; retroactividad `4.11`.
 - `rulings/` — the conflict ledger (open items, all variants verbatim, non-binding recommendations).
 - `crawler/crawl.py` — the engine (JSONLogic evaluator + bracket/matrix lookups + authority +
   escalation + the 3 conflict tiers).
@@ -45,6 +45,6 @@ python3 crawlable/crawler/crawl.py case.json   # crawl one supplied-facts payloa
 
 ## Status
 **COMPLETE — Phases 0–5 converted, both source documents.** Validator GREEN; 372/372 source ids
-accounted (0 deferred); **56** nodes + **29** tables built; residual semantic drift **0** across the
+accounted (0 deferred); **61** nodes + **29** tables built; residual semantic drift **0** across the
 fresh-context verifier passes (including a second, independent dimension-B vote — DRIFT 0). The full
 record is `CONVERSION_RECORD.md` (§8 fix log, §9 open items); the data-loss proof is `COVERAGE_REPORT.md`.

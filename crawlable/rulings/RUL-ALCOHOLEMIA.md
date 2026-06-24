@@ -19,6 +19,15 @@ Three different alcohol thresholds live in the two documents with no reconciliat
 
 Representation note (linkage): "Se registran los tres sin armonizar."
 
+## Runtime status (raised by the Layer-E tier review, verifier V3) — coverage gap O14
+R-097 §3.5.5 is verbatim a list of conditions that **"no pueden ser suscritas"** in licitaciones
+(alcoholemia > 0,70 g/l, Valor Admitido, licencia vencida > 90 días, …) — i.e. *executable*
+underwriting prohibitions, not mere reference. The licitaciones graph defers them ("Phase 1"), so a
+licitación quote requesting a barred condition is **not** blocked/escalated at runtime today. The
+cross-document *number* tension (CG 0.50 g/1000 ml vs 0,70 g/l) is genuinely REFERENCE-ONLY (tier
+confirmed 3/3); the *prohibition* is the executable part that should surface when licitaciones
+eligibility is node-ified. Tracked as **O14** in `crawlable/CONVERSION_RECORD.md` §9.
+
 ## Recommended resolution (NON-BINDING — D-P2)
 These operate at different layers and may all stand: 0.50 g/1000ml is the *default coverage
 exclusion*; 0,70 g/l is the *maximum a licitación may negotiate*; 2002 is the *mechanism* to

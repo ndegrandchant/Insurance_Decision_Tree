@@ -1,0 +1,25 @@
+{
+  "_what": "Layer E — fresh-context multi-vote conflict-TIER review. 3 independent verifier subagents, distinct adversarial lenses (V1 under-surfacing / V2 over-escalation / V3 missing-executable-surfacing), each judging all 11 conflict items against the verbatim ledger + crawl.py tier logic. Majority vote per item; dissents adjudicated in verification_report.md and the ledger.",
+  "_date": "2026-06-19",
+  "_method": "Agent tool, subagent_type general-purpose, fresh context, read-only; output a verdict per ledger.",
+  "tally": {
+    "RUL-ROUTER-PRECEDENCE":            {"votes": "3 agree (CAVEAT+ESCALATE)", "disposition": "confirmed; V1 notes the single-route caveat is over-surfacing noise (not dangerous)"},
+    "RUL-X15-HIGHVALUE-READING":        {"votes": "2 agree CAVEAT / 1 disagree (V1 -> ESCALATE, med)", "disposition": "tier kept CAVEAT (surfaced via caveat, not silent); V1's concern about the validated->eligible accept added to the ledger open sub-questions"},
+    "RUL-CASEUW-C05-RENTACAR":          {"votes": "3 agree BLOCK", "disposition": "confirmed"},
+    "RUL-RENOV-CONSUMER-PESADOS-OVERLAP":{"votes": "3 agree BLOCK", "disposition": "confirmed"},
+    "RUL-BAND-EDGES":                   {"votes": "3 agree ESCALATE", "disposition": "confirmed"},
+    "RUL-LIZETH-RIOS-AUTH":             {"votes": "3 agree CAVEAT", "disposition": "confirmed (router selects one process -> a single crawl never consults both matrices)"},
+    "RUL-MAN-VERSION":                  {"votes": "2 agree DOC-LEVEL / 1 (V1) keeps tier but flags note understates data-currency risk", "disposition": "tier kept DOC-LEVEL; ledger enriched with the 4.0-changelog data-currency warning"},
+    "RUL-FRANQ-MOTO-OVERLAP":           {"votes": "3 agree (latent -> ESCALATE when wired)", "disposition": "confirmed; tracked under O12"},
+    "RUL-FLOTA-THRESHOLDS":             {"votes": "2 agree REFERENCE-ONLY / 1 disagree (V3 -> RUNTIME-CAVEAT, med)", "disposition": "tier kept REFERENCE-ONLY (the consumer_fleet_4plus enum fixes the segment, so >=4 is unambiguous at that branch); dissent recorded"},
+    "RUL-ALCOHOLEMIA":                  {"votes": "2 agree REFERENCE-ONLY / 1 disagree (V3 -> RUNTIME-CAVEAT, med)", "disposition": "cross-doc tier kept REFERENCE-ONLY; V3 surfaced a COVERAGE gap (R-097 licitaciones no-suscribir list is unwired executable logic) -> new open item O14"},
+    "RUL-CLAUSE-BUNDLE":                {"votes": "3 agree REFERENCE-ONLY", "disposition": "confirmed; V3 notes the Valor-Admitido prohibition inside RUL-2038-2112 is the same R-097 licitaciones logic flagged in O14"}
+  },
+  "adjudicated_findings": [
+    {"id": "E-LE1", "ledger": "RUL-X15-HIGHVALUE-READING", "severity": "med", "type": "ledger-completeness", "action": "added open sub-question: is the validated-importer branch faithfully `eligible` (stay in Standard), or should it refer/escalate given the bullet sits under the 'excluidos' header? The eligible outcome already rides with the X15 caveat (surfaced, not silent)."},
+    {"id": "E-LE2", "ledger": "RUL-MAN-VERSION", "severity": "med", "type": "ledger-completeness", "action": "added data-currency warning: the 4.0 changelog lists changes to authorities (3.1.3/3.3), suscription limits (the 3.48M capacity) and franquicia Empresas — values the crawler ships off 3.0-stamped pages; the body numbers may be pre-4.0."},
+    {"id": "E-LE3", "ledger": "RUL-ALCOHOLEMIA", "severity": "med", "type": "coverage-gap -> O14", "action": "R-097 (licitaciones 'no pueden ser suscritas' list incl. alcoholemia >0,70 g/l and Valor Admitido) is captured as reference but not wired; a licitación quote requesting a barred condition is not blocked at runtime. Recorded as open item O14 (same class as O3 deferred eligibility wiring)."},
+    {"id": "E-LE4", "ledger": "RUL-FLOTA-THRESHOLDS", "severity": "low", "type": "dissent-recorded", "action": "V3 suggested a router-branch provenance caveat; majority (V1+V2) declined — the consumer_fleet_4plus enum already fixes the Consumer segment, so the >=4 reading is unambiguous at that branch and a caveat would be noise. Dissent recorded, no change."}
+  ],
+  "net": "9/11 tiers unanimously or strongly confirmed correct; 0 silent-resolution holes found. 4 med/low dissents -> represented (ledger enrichment) or recorded as a coverage open item (O14). NO tier was flipped on a minority vote (flipping is a modeling/underwriter decision, per represent-don't-resolve)."
+}
