@@ -4,6 +4,8 @@
 >
 > **End goal (unchanged).** An underwriter or agent inputs risk attributes and gets back eligibility, routing, authority, pricing, and deductibles — **with a full audit trail to the manual rule *and* the governing contract clause** — built from the Automotores manual + cláusulas, generalizable to other manuals, eventually exportable to DMN.
 >
+> **▶ NORTH STAR (owner-confirmed 2026-06-24) — clause-impact analysis.** Edit one clause, see *every outcome it moves*, with the citation trail (the **"blast radius"**). This is the latent end-goal made explicit — the contract-clause half of "audit trail to the rule **and** the governing clause," and the generalization of Phase 4.3's "blast radius of the *vehículo pesado* ruling." Its **two halves**: **P5-COV** (model every clause's *effect*) + **P4/O16** (the *dependency graph* of what depends on each clause); the **impact-diff runner** composes them on top of the existing snapshot harness. **Scope ladder:** whole-policy impact (this manual, every clause) → cross-manual impact (after P8 standardization). Until P5-COV/O16 are complete the tool is partial **by construction, not broken.**
+>
 > **The one strategic decision up front (see §Skeleton at the bottom):** do **not** design a new skeleton. Pour *this approach's data* into *Approach-1's node schema*. **Their skeleton, our data and fidelity.**
 >
 > Conventions: **GATE** = don't start until true. ⚠ = do before the thing it precedes.
@@ -26,14 +28,20 @@
 | **P3** fact registry + adapter seam | 🔶 **partial / re-scoped** | registry ✅ (55 facts); adapter is now santi's **AI extraction behind a confirmed-facts wall** → re-scoped to "audit, never fabricate" |
 | **P4** clause linking (both directions) | 🔶 **partial** | **O16:** ~2/84 forward edges; reverse + glossary unbuilt |
 | **P5** full crawler + regression | 🔶 **partial** | 5 processes built; **`masiva`/`automática` = out-of-scope ✅ decided**; **O3** stage-chaining ⬜; coverage/rating golden snapshot ⬜ |
-| **P5-COV** full-policy coverage adjudication *(NEW — santi's engine)* | 🔶 **partial** | **2 of 7 Secciones** modeled (III + V; ~31/152 clauses wired) — **5 Secciones unbuilt** |
+| **P5-COV** full-policy coverage adjudication *(NEW — santi's engine)* | 🔶 **partial** | **2 of 7 Secciones** modeled (III + V; ~31/152 clauses wired) — **5 Secciones unbuilt** (deliberate slice, not a bug — D-PLAT-2) |
+| **★ Impact-diff runner** (clause-impact / blast-radius) | ⬜ **not started** | **the North Star's engine** — POC composes the snapshot harness on the 2 live Secciones; **← immediate next step** |
 | **P6** human layer | ❌ **superseded** | santi's React frontend + DB `human_task`/`chat` tables ARE the human layer; Obsidian vault **dropped** |
 | **P7** manual-integrity report | 🔶 **partial** | findings exist + partly operationalized by santi's DB governance; a business-readable view remains |
 | **P8** standardization (engine + profile) | ⏸️ **deferred** | trigger: a real 2nd manual (premature now); santi's `EngineSpec` is a partial down-payment |
 | **P9** DMN export | ⏸️ **deferred** | trigger: a real DMN consumer (S2 already DMN-aligned internally) |
 | **P10** per-manual loop | ⏸️ **deferred** | depends on P8 |
 
-**To FINISH THE CORE (recommended build order):** **O3** stage-chaining → **O12b** wire the source-anchored rating tables → **P5-COV** coverage golden snapshot + extend to the other 5 Secciones → **O16** clause edges. Then **operate** P2 (underwriter rulings). Everything else is superseded (P6), trigger-gated (P8/P9/P10), or low (P7).
+**Build order — re-ranked around the North Star (clause-impact):**
+1. **Impact-diff runner POC** (on the 2 existing Secciones) — proves the whole concept end-to-end, cheaply, before scaling. ← **immediate next step.**
+2. **P5-COV** — model the other 5 Secciones so *every* clause has an effect to show.
+3. **P4 / O16** — complete the rule↔clause dependency graph (the edges blast-radius traverses).
+
+*Separate UW-decision track (valid, but NOT on the clause-impact path):* **O3** stage-chaining → **O12b** source-rating-table wiring. Then **operate** P2 (underwriter rulings). Superseded (P6) / trigger-gated (P8/P9/P10) / low (P7) unchanged.
 
 ---
 
@@ -104,7 +112,7 @@ The full bundle is already extracted (152 clauses + `base_policy.json`), so the 
 
 🔶 **4.1 Forward (rule → clause) — O16:** only **~2 of 84** rules carry a clause edge (`linkage_edges.json`), so `governing_clauses` on outcomes is sparse. This is its own work, **not** fixed by the Phase-2 rulings loop, and affects clause *citations*, not decision logic.
 ⬜ **4.2 Reverse (clause → section):** a free inversion of 4.1 — unbuilt (blocked on 4.1).
-⬜ **4.3 Definitional concordance** (the "vehículo pesado" canary, from `base_policy.json → definiciones`): unbuilt — would prove the manual is not self-contained.
+⬜ **4.3 Definitional concordance** (the "vehículo pesado" canary, from `base_policy.json → definiciones`): unbuilt — would prove the manual is not self-contained. **This is the narrow seed of the North Star:** "blast radius of one *definition*" generalizes to "blast radius of any *clause*" once O16's edges exist.
 
 ---
 
@@ -128,6 +136,10 @@ santi added a **second engine** (`crawlable/graph_coverage/`, run via the same `
 🔶 **Status: 2 of 7 Secciones modeled.** **III Daños Propios** + **V Robo Parcial** (35 nodes, 32 facts), plus shared Obligaciones-en-siniestro and base Exclusiones Generales. **~31 of 152 clauses** are wired to a runtime effect.
 ⬜ **Gap — it CANNOT check every clause's effect today.** Secciones **I (Pérdida Total Accidente), II (Pérdida Total Robo), IV (HMACC-AMITT), VI (Responsabilidad Civil), VII (Accidentes Personales)** have **zero** coverage nodes; ~141 endorsement clauses have no runtime consumer (only CG-2027/2045/2053 are wired). 
 **Build:** additive content on the existing engine/schema/validator (no new architecture) — roughly **2–4× the current coverage graph** + a coverage golden snapshot + coverage stress layers (the UW engine has Layers A–E; the coverage engine has *structural* validation only). **Worth building to the degree full-policy coverage adjudication is a product goal** — it is half of the end-goal ("deductibles/coverage with an audit trail to the governing clause").
+
+**Not a bug — a deliberate reusable-engine slice.** santi built the coverage runtime to be reusable (root `decisions.md` **D-PLAT-2**: *"the Automotores coverage slice is configuration/data over this runtime, not a one-off evaluator"*); within Daños/Robo it is **complete** (`COVERAGE_SLICE_REPORT.md`: `missing: 0` per group). The other 5 Secciones are unbuilt **data**, added as artifacts — **no new engine code**. A Sección-VI clause changes nothing today only because Sección VI was never modeled, not because anything failed.
+
+**▶ P5-COV.1 — Impact-diff runner (the North Star's engine; build FIRST, on this slice).** Given a clause id: find the nodes/edges that depend on it, run the coverage corpus **with vs. without** its effect, diff which outcomes flip, and emit the citation trail. It **composes the existing snapshot harness** (which already diffs outcome drift). Build it on the 2 live Secciones as a POC — it then scales for free as P5-COV adds sections and O16 adds edges. This is the immediate next step.
 
 ---
 
