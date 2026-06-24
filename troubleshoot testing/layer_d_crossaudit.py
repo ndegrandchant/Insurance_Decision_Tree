@@ -78,6 +78,15 @@ def reference_map():
             _walk_refs(data, "reference-only", out)
         for lf, ctx in out:
             refs.setdefault(lf, []).append((ctx, os.path.basename(path)))
+
+    # coverage engine (graph_coverage/) shares the rulings/ ledger but runs on a separate engine this
+    # UW corpus does not drive — harvest its conflict anchors so coverage-anchored rulings classify as
+    # coverage-runtime, not "ledger-only / no data reference" (consistent with validate.py [11]).
+    for path in glob.glob(os.path.join(ROOT, "graph_coverage", "*.json")):
+        for n in json.load(open(path, encoding="utf-8")).get("nodes", []):
+            conf = n.get("conflict")
+            if conf and conf.get("ledger_ref") and "RUL-" in conf["ledger_ref"]:
+                refs.setdefault(os.path.basename(conf["ledger_ref"]), []).append(("coverage-node", n.get("id")))
     return refs, consumed
 
 def surfaced_by_corpus():
@@ -130,6 +139,9 @@ def main():
             status = "RUNTIME-SURFACED" if surfaced else "RUNTIME-REF but NOT surfaced by corpus"
             if not surfaced:
                 fails.append(f"{lf}: referenced by {kinds} but no corpus case surfaces it")
+        elif "coverage-node" in kinds:
+            status = ("COVERAGE-RUNTIME (anchored in graph_coverage/ conflict node; surfaced by the "
+                      "coverage engine, which this UW corpus does not drive)")
         elif any("LATENT" in k for k in kinds):
             status = "LATENT (declared; table not wired to a node — rating stage deferred)"
         elif "doc-level" in kinds:

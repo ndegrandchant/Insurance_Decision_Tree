@@ -210,3 +210,30 @@ rather than silently chosen; decline is the conservative reading and an underwri
 alcoholemia gate carries `conflict → RUL-ALCOHOLEMIA` so the cross-doc 0,50-vs-0,70 tension surfaces
 when it fires; R-097 moved reference→node_converted in `rule_buckets.json` and `reference.json` was
 regenerated, so the partition stays exact (84/84) and coverage 372/372.
+
+## D-P9. Two validators, one ledger: conflict-coverage made engine-aware (not merged)
+
+**Context.** After the platform branch merged, the repo has TWO crawlable engines sharing ONE
+`rulings/` ledger: the underwriting map (`graph/*.json`, validated by `validate.py`) and the coverage
+map (`graph_coverage/*.json`, validated by `coverage_validate.py`). The two engines have genuinely
+different schemas — node types (`gate/authority/…` vs `coverage-grant/exclusion-check/…`), outcome
+enums, and disjoint fact registries (`facts.json` 55 vs `facts_coverage.json` 32). The merge surfaced
+a RED: `validate.py [11]` (every OPEN ruling must be anchored or whitelisted) and the stress harness's
+`layer_d_crossaudit.py` were authored before the coverage layer and scanned only UW constructs, so the
+two coverage-anchored rulings (`RUL-CG-2027-EXTRATERRITORIALIDAD`, `RUL-CG-2045-2053-TALLERES`, both
+anchored via `conflict.ledger_ref` in `graph_coverage/danos_robo_parcial.json`) read as orphaned
+([11] false-RED) / mislabeled "ledger-only, no data reference" (Layer D).
+
+**Decision.** Keep the two validators as **separate files** (different schemas — merging into one would
+be wrong), but make the **shared-ledger conflict-coverage check engine-aware**: `validate.py [11]` and
+Layer D's `reference_map()` now also harvest conflict anchors from `graph_coverage/*.json` (read-only —
+neither validator structurally validates the other's graph). A coverage-anchored ruling classifies as
+`coverage-runtime` (Layer D: a justified non-fail category — the UW corpus cannot drive the coverage
+engine, so it is NOT required to surface there). **Rejected:** merging the two validators (wrong — two
+schemas); adding the 2 rulings to `LEDGER_ONLY_BY_DESIGN` (a lie — they ARE anchored, just on the
+coverage side); splitting the ledger per engine (loses the single product-wide conflict ledger).
+
+**Represent, don't resolve — preserved.** The change only lets the validator *see* the anchor; both
+rulings stay `status: open`. Verified: `validate.py` GREEN (18 rulings) with the orphan-injection teeth
+test still firing RED [11]; `coverage_validate.py` GREEN and byte-untouched; stress harness ALL GREEN
+with both rulings shown as `COVERAGE-RUNTIME`; confirmed by a fresh-context adversarial reviewer.

@@ -18,6 +18,14 @@ Checks:
     boundary_conflicts with a resolvable ledger_ref
  9  every conflict.ledger_ref / boundary_conflicts[].ledger_ref points to an existing rulings/ file
 10  JSONLogic uses only the allowed operators; 'in' 2nd arg is a list (literal or @tables.*.values)
+11  conflict-coverage: every OPEN ruling in rulings/ is anchored by some runtime construct — the UW
+    graph, tables, reference/clause capture, OR the shared coverage graph (graph_coverage/, which is
+    structurally validated separately by coverage_validate.py) — or justified in LEDGER_ONLY_BY_DESIGN
+
+Two-validator architecture (see crawlable/decisions.md D-P9): validate.py validates the UW map
+(graph/*.json) and owns shared-ledger completeness [11]; coverage_validate.py validates the coverage
+map (graph_coverage/*.json) — a different node/outcome/fact schema. They share ONE rulings/ ledger,
+so [11] reads (does not structurally validate) the coverage anchors to police that ledger once.
 """
 import json, os, glob, sys
 if hasattr(sys.stdout, "reconfigure"):
@@ -401,6 +409,23 @@ for _capfn in ("reference.json", "clauses.json", "base_policy_ref.json", "linkag
     if os.path.exists(_cp):
         for _m in _re.finditer(r"rulings/RUL-[A-Za-z0-9-]+\.md", open(_cp, encoding="utf-8").read()):
             _addref(_m.group(0), "reference-only")
+# coverage engine (graph_coverage/) shares the SAME rulings/ ledger but is structurally validated by
+# its own separate validator (coverage_validate.py — different node schema/outcomes/facts). To keep
+# the two validators separate yet police the shared ledger ONCE, [11] harvests the coverage side's
+# conflict anchors here too, so a ruling surfaced by a coverage node is not falsely reported as
+# orphaned. validate.py does NOT validate coverage node shape — it only reads conflict anchors.
+for _cgp in sorted(glob.glob(os.path.join(ROOT, "graph_coverage", "*.json"))):
+    for _cn in json.load(open(_cgp, encoding="utf-8")).get("nodes", []):
+        _ccf = _cn.get("conflict")
+        if _ccf and _ccf.get("ledger_ref"):
+            _addref(_ccf["ledger_ref"], "coverage-node-blocking" if _ccf.get("blocking") else "coverage-node-caveat")
+            if _ccf.get("status") == "open" and not ledger_ok(_ccf.get("ledger_ref")):
+                err(f"[9] {os.path.basename(_cgp)}: coverage conflict.ledger_ref does not exist: {_ccf.get('ledger_ref')}")
+for _capfn in ("facts_coverage.json", "coverage_slice_manifest.json"):
+    _cp = os.path.join(ROOT, _capfn)
+    if os.path.exists(_cp):
+        for _m in _re.finditer(r"rulings/RUL-[A-Za-z0-9-]+\.md", open(_cp, encoding="utf-8").read()):
+            _addref(_m.group(0), "coverage-reference")
 # entries that are intentionally ledger-only (no in-data anchor) — each with its reason
 LEDGER_ONLY_BY_DESIGN = {
     "RUL-ABSENT-CODES.md": "informational: codes 2025/2131/2146 absent from the bundle (nothing in-data to anchor)",
