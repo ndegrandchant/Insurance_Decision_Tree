@@ -25,13 +25,6 @@ const MODULES = [
     desc: "Cómo está la cartera hoy: riesgo, clientes, severidad, dónde se pierde dinero y cola de renovación." }
 ];
 
-const HIDDEN_MODULES = {
-  simulation: { id: "simulation", name: "Simulación", icon: "~", gateKey: "simulation",
-    desc: "Reproduce solicitudes históricas contra versiones candidatas regeneradas del grafo." },
-  insights: { id: "insights", name: "Inteligencia de cartera", icon: "▦", gateKey: "portfolio_intelligence",
-    desc: "Inteligencia de cartera y siniestros habilitada solo cuando existan datos vinculados por fila." }
-};
-
 /* ---------- sample submissions ---------- */
 // UW examples for the runner: "clean" prices straight through with no human stop;
 // "review" is eligible but the plaza/marca fall outside the LBC calibration, so
@@ -3715,7 +3708,7 @@ function renderPipeline(el, r) {
 }
 
 /* =====================================================================
-   VIEWS: SIMULATION + INSIGHTS
+   VIEWS: SIMULATION
    ===================================================================== */
 VIEWS.simulation = async function () {
   const meta = await simulationFilters();
