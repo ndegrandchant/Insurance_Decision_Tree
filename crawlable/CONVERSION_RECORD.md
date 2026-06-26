@@ -11,6 +11,13 @@
 > Validator GREEN; 372/372 source ids accounted; **0 deferred**; residual semantic drift 0 across
 > nine fresh-context verifier passes. Final inventory: 61 nodes, 55 facts, 29 tables, 47 reference
 > rules, 214 clause-side records, 16 conflict-ledger entries.
+>
+> **▶ Addendum (2026-06-24, post platform-merge).** The counts above are *as of the original
+> conversion*. Since then santi's platform + coverage engine merged: the conflict ledger is now
+> **18** (the coverage slice added `RUL-CG-2027`, `RUL-CG-2045-2053`), and `validate.py [11]` is
+> **engine-aware** over the shared ledger (decisions.md **D-P9**); validator still GREEN. The
+> Automotores-specific record below is unchanged; current status + the forward plan (the clause-impact
+> North Star + P5-COV full-policy coverage) live in `../Crawlable_Roadmap.md`.
 
 ---
 

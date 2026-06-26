@@ -17,9 +17,9 @@
 |---|---|
 | **Dimension A — structural** | **372 / 372 source ids accounted (100%)** · **0 deferred · 0 silently dropped**. |
 | **Dimension B — semantic** | **residual DRIFT = 0** across nine independent fresh-context adversarial passes (one per batch + re-checks). |
-| **Validator (`validate.py`)** | **GREEN — 0 errors**: 61 nodes, 55 facts, 29 tables, 47 reference rules, 214 clause-side records, 16 ledger entries. |
+| **Validator (`validate.py`)** | **GREEN — 0 errors**: 61 nodes, 55 facts, 29 tables, 47 reference rules, 214 clause-side records, **18** ledger entries (now engine-aware over the shared ledger incl. the coverage engine — D-P9). |
 | **Crawler** | 40+ case outcomes resolve with full audit + escalation across every mechanism (see §Crawler). |
-| **Conflicts** | 16 source conflicts represented as OPEN ledger entries; **none resolved** (by mandate). |
+| **Conflicts** | **18** source conflicts represented as OPEN ledger entries (16 UW + 2 coverage-side); **none resolved** (by mandate). |
 
 ---
 
@@ -57,6 +57,8 @@ Accounted: 372/372 (100%) · Executable/decisional: 127 · reference: 245 · def
 Machine snapshot: `coverage_manifest.json`. Rule partition (asserted exact, 84 = 10+2+6+0+19+47):
 `rule_buckets.json`.
 
+**The coverage engine (santi) is reconciled separately.** The table above is the *UW extraction* (372/372). The later **coverage slice** (Secciones III + V) has its own accounting in `COVERAGE_SLICE_REPORT.md` + `coverage_slice_manifest.json` (39 converted · 11 reference · 2 ledger · **missing 0** within the slice). The 2 coverage rulings below are those 2 ledger items. Full-policy coverage (the other 5 Secciones) is the open **P5-COV** build — `Crawlable_Roadmap.md`.
+
 ---
 
 ## (B) Semantic fidelity — DRIFT 0 across all batches (the discipline that made it trustworthy)
@@ -82,13 +84,15 @@ paraphrase-creep. Caught → fixed → re-verified to 0.
 
 ---
 
-## Conflicts — the ledger (16 OPEN; none resolved, by mandate)
+## Conflicts — the ledger (18 OPEN; none resolved, by mandate)
 
 `RUL-MAN-VERSION` (3.0/4.0) · `RUL-ROUTER-PRECEDENCE` · `RUL-X15-HIGHVALUE-READING` ·
 `RUL-FRANQ-MOTO-OVERLAP` · `RUL-BAND-EDGES` (renovación + moto-VA edges) ·
 `RUL-RENOV-CONSUMER-PESADOS-OVERLAP` · `RUL-CASEUW-C05-RENTACAR` · `RUL-LIZETH-RIOS-AUTH` ·
 `RUL-FLOTA-THRESHOLDS` · `RUL-ALCOHOLEMIA` · `RUL-CG-2023` · `RUL-2133-2140` (incl. 2136/2139) ·
-`RUL-2038-2112` · `RUL-2008` · `RUL-2018-PESO` · `RUL-ABSENT-CODES` (2025/2131/2146).
+`RUL-2038-2112` · `RUL-2008` · `RUL-2018-PESO` · `RUL-ABSENT-CODES` (2025/2131/2146) ·
+**(coverage-side)** `RUL-CG-2027-EXTRATERRITORIALIDAD` (manual extra-prima 30→90d vs CG-2027's 30d) ·
+`RUL-CG-2045-2053-TALLERES` (taller eligibility vs free-choice wording).
 Each: all source variants verbatim + status OPEN + a non-binding recommendation (D-P2). The crawler
 escalates at each; a resolution enters only via the ledger + regeneration, never a hand-patch.
 
@@ -129,7 +133,7 @@ dimension data-loss proof. Phases 0–5 of the roadmap's *conversion* are done.
 - **Phase-5 full-crawler integration:** chain every eligible/conditional outcome through the
   authority → rating → limits stages (today the chain runs on the fall-through path; branch/lift
   terminals don't yet re-enter later stages). A regression corpus vs underwriter-validated answers.
-- **Phase 2 operational loop:** underwriters resolve the 16 OPEN rulings; regenerate.
+- **Phase 2 operational loop:** underwriters resolve the 18 OPEN rulings; regenerate.
 - **Phase 6 human layer / Phase 9 DMN export** (the S2 tables + JSONLogic are already DMN-aligned).
 
 These are downstream features, not unconverted source. The data-loss mandate is satisfied:

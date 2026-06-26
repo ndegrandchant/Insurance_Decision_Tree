@@ -1,14 +1,22 @@
 # LBC Automotores — Project Guide & Document Map
 
 This workspace turns two Spanish (Bolivia) insurance PDFs from **La Boliviana Ciacruz (LBC), línea
-Automotores** into machine-usable logic, in **two parts — both complete and verified**:
+Automotores** into machine-usable logic — and a platform that runs on it — in **three layers**:
 
 - **Part 1 — the representation** (`representation/`): a high-fidelity, verbatim-anchored extraction
   of both PDFs (rules, parameter tables, decision trees, clause registry, base policy). Faithful to
-  the source, but *not executable*.
+  the source, but *not executable*. **Complete + verified.**
 - **Part 2 — the crawlable graph** (`crawlable/`): Part 1 compiled into an *executable, crawlable
   decision graph* — a crawler + decision nodes + DMN-style tables + a conflict ledger — with a
-  two-dimension proof that **no source data was lost**.
+  two-dimension proof that **no source data was lost**. **Complete + verified** (validator GREEN).
+- **Part 3 — the platform** (`platform/`, `deploy/`): a FastAPI backend + a reusable engine + a
+  React frontend + Postgres + Docker/VPS deploy that **consumes** the graph at runtime (UW
+  decisions, a coverage-adjudication engine, advisory NL extraction, pricing). It does **not** edit
+  `representation/` or hand-patch the graph. *A first version, built upward on the verified core.*
+
+> **▶ North Star:** clause-impact analysis — *edit one clause, see every outcome it moves, with the
+> citation trail* (the "blast radius"). Its two halves are full-policy coverage (P5-COV) + the
+> rule↔clause dependency graph (P4/O16); see `Crawlable_Roadmap.md` §North Star.
 
 The one rule the whole project obeys (`CLAUDE.md`): **accuracy first — never invent, infer, or smooth
 over logic that isn't in the source; represent conflicts, never resolve them silently.**
@@ -28,6 +36,8 @@ over logic that isn't in the source; represent conflicts, never resolve them sil
 | See the proof nothing was lost / it executes faithfully | `crawlable/COVERAGE_REPORT.md` (data-loss) · `verification_report.md` (Part-1 + **§4c** runtime-conflict verification) · `troubleshoot testing/STRESS_REPORT.md` |
 | Know exactly what was built & fixed (FIXED vs NOT-FIXED) | `crawlable/CONVERSION_RECORD.md` — **§9.0 scoreboard** (at-a-glance) · §8 fix log · §9 open items |
 | Apply the method to a *new* manual | `Manual Prompt.md` (extract) → `Crawlable_Conversions.md` (make crawlable) — **note the per-business hardcoding caveat (`Crawlable_Conversions.md` §9/§11)** |
+| Run the app (UW + coverage + pricing) | `platform/README.md` → `python3 platform/backend/dev_server.py 8765` |
+| See / extend coverage adjudication | `crawlable/COVERAGE_SLICE_REPORT.md` + `crawlable/graph_coverage/`; validate with `crawlable/coverage_validate.py` |
 | Audit any claim against the source | `source_text/*.txt` (page-anchored) |
 | Resolve a flagged conflict | don't silently — route it through `crawlable/rulings/` |
 | Stress-test the crawler / re-verify | `troubleshoot testing/` (`python3 run_all.py`) · `improvement_crawler_test/` (R1/R3 source re-derivation) |
@@ -40,7 +50,7 @@ over logic that isn't in the source; represent conflicts, never resolve them sil
 | File | Purpose |
 |---|---|
 | `README.md` | **This file** — the project map / front door. |
-| `PROJECT_CONTEXT.md` | Self-contained onboarding briefing for a fresh chat: what the project is, the artifacts, task routing, the known source conflicts (§5b), and how to start Part 2. *(Its "Status" section, §2, reflects the original Part-1→Part-2 handoff — both parts are now complete.)* |
+| `PROJECT_CONTEXT.md` | Self-contained onboarding briefing for a fresh chat: what the project is, the artifacts, task routing, the known source conflicts (§5b), and how to start Part 2. *(Parts 1–2 complete + verified; Part 3 — the platform — is a first version built on top.)* |
 | `CLAUDE.md` | Behavioral guardrails: accuracy-first, make-the-call-yourself, simplicity-with-the-supplementary-exception, verify-against-source. |
 
 ### B. Source inputs & audit base (root)
@@ -86,7 +96,7 @@ The executable deliverable, **generated from `representation/` + `crawlable/ruli
 |---|---|
 | `crawlable/README.md` | Part-2 component readme — layout + how to run the pipeline. |
 | `crawlable/node_schema.md` | The authoritative node schema: borrowed spine + **S1** (fidelity fields) + **S2** (decision tables); includes the expression-language decision. |
-| `crawlable/decisions.md` | Part-2 design decisions (the 4 reserved decisions + D-P1…D-P5). |
+| `crawlable/decisions.md` | Part-2 design decisions (the 4 reserved decisions + D-P1…**D-P9**; D-P9 = the engine-aware shared-ledger validator). |
 
 **Graph + data — the runnable content**
 | File | Purpose |
@@ -101,7 +111,7 @@ The executable deliverable, **generated from `representation/` + `crawlable/ruli
 **Conflict ledger**
 | Folder | Purpose |
 |---|---|
-| `crawlable/rulings/` | **16** `RUL-*.md` (+README) — every source conflict held OPEN with all variants verbatim and a non-binding recommendation. The crawler escalates here; **it never resolves a conflict.** |
+| `crawlable/rulings/` | **18** `RUL-*.md` (+README) — every source conflict held OPEN with all variants verbatim and a non-binding recommendation (16 UW-side + 2 coverage-side: `RUL-CG-2027`, `RUL-CG-2045-2053`). The crawler escalates here; **it never resolves a conflict.** |
 
 **Engine & tooling** (Python 3.13, no external deps)
 | File | Purpose |
@@ -119,6 +129,31 @@ The executable deliverable, **generated from `representation/` + `crawlable/ruli
 | `crawlable/COVERAGE_REPORT.md` | **The data-loss proof** — reconciliation (dimension A) + semantic verdicts (dimension B) + backlog. 372/372 source ids accounted. |
 | `crawlable/CONVERSION_RECORD.md` | Exactly what was built and how, the subagent-verification protocol, the consolidated fix log (**§8**), and open items (**§9**). |
 | `crawlable/NOT_CONVERTED.md` | Generated — every source id accounted as *deferred* or *excluded* (never silently missing). |
+
+**Coverage layer — a second engine (santi).** A *coverage-adjudication* graph (covered / not-covered / refer), sibling to the UW graph, sharing the one `rulings/` ledger. Currently a **deliberate slice: 2 of 7 policy Secciones** (III Daños Propios + V Robo Parcial; decisions.md **D-PLAT-3**, *not a bug* — see `Crawlable_Roadmap.md` P5-COV).
+| File | Purpose |
+|---|---|
+| `crawlable/graph_coverage/*.json` | The coverage nodes (own schema: `coverage-grant`/`exclusion-check`/`clause-modifier`/`limit-deductible`/`document-duty`). |
+| `crawlable/facts_coverage.json` | The coverage engine's fact registry (disjoint from `facts.json`). |
+| `crawlable/coverage_validate.py` | The coverage graph's structural validator (parallel to `validate.py`; must be GREEN). |
+| `crawlable/coverage_reconcile.py` · `coverage_slice_manifest.json` | The coverage slice's data-loss reconciliation + manifest. |
+| `crawlable/COVERAGE_SLICE_REPORT.md` | The slice's clause→node map (Secciones III + V + Obligaciones + Exclusiones). |
+
+### D-bis. Part 3 — the platform (`platform/`) + deployment (`deploy/`)
+The runtime that **consumes** the verified graph (it imports `crawler/crawl.py`; it never edits `representation/` or hand-patches the graph). Its own `platform/README.md` + `platform/engine/README.md` carry the detail.
+
+| Path | Purpose |
+|---|---|
+| `platform/engine/insurance_engine/` | The engine: `UWEngine` (adapter over `crawl.py`), `ArtifactGraphEngine` (reusable runtime for new domains), `catalog.py` (`EngineSpec` registry — the per-domain profile), `coverage.py`, `renewal.py`, `registry.py`. |
+| `platform/engine/insurance_engine/lbc_auto_rating.py` | **Isolated** rating compartment — reverse-engineered, **not source-anchored** (D-PLAT-15); called only after an eligible/conditional decision, so the decision path stays auditable. |
+| `platform/engine/insurance_engine/ai_parser.py` · `nl.py` | **Advisory** OpenAI NL/vision fact extraction — gated by a never-fabricate confirmation wall (`services._assert_confirmed`); extracted facts stay `confirmed:false` until a human confirms (D-PLAT-6/12). |
+| `platform/backend/app/` | FastAPI service layer (`main.py`, `services.py`, `simulation.py`, `broker_control.py`, `scheduler.py`); `dev_server.py` = a no-dependency smoke server; `scripts/smoke.py` = a 40-assertion service-layer regression. |
+| `platform/db/schema.sql` · `seed_graph_versions.sql` | Postgres schema (graph versions, portfolio, claims, proposals, simulation, approvals, audit, `human_task`/`chat`). |
+| `platform/frontend/` | Vite/React UI (+ a dependency-free static preview) — workflows: Underwriting, Claims, Graph Reviewer, Issues. |
+| `deploy/` | `docker-compose.vps.yml` · `Dockerfile.backend` · `Caddyfile` · `VPS_SETUP.md` (Ubuntu 24.04 + HTTPS). |
+| `platform/data_discovery_report.md` · `platform/db/import_templates.md` | Platform data-discovery + import notes. |
+
+*(Platform design decisions live in root `decisions.md` **D-PLAT-1…D-PLAT-20**.)*
 
 ### E. Reusable playbooks (root) — the transferable method
 | File | Purpose |

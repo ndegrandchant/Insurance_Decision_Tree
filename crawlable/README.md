@@ -13,7 +13,7 @@ hand-patch a resolution into the graph; record it in `rulings/` and regenerate.*
 ## Layout
 - `node_schema.md` — authoritative merged schema: spine + S1 (fidelity fields) + S2 (decision
   tables). Read first. Includes the expression-language decision (§0).
-- `decisions.md` — Part-2 design decisions D-P1…D-P5 + rationale.
+- `decisions.md` — Part-2 design decisions D-P1…**D-P9** + rationale (D-P9 = the engine-aware shared-ledger validator).
 - `facts.json` — fact registry (the crawl's input demand contract; typed, sourced, `on_missing`).
 - `tables.json` — role-typed parameters incl. the first S2 `bracket_map`. Tables are loaded by
   merging `tables*.json`:
@@ -33,11 +33,19 @@ hand-patch a resolution into the graph; record it in `rulings/` and regenerate.*
 - `sync_facts.py` — regenerate the `required_by` impact-index from the graph.
 - `COVERAGE_REPORT.md` — **the data-loss proof**: reconciliation (A) + per-batch semantic verdicts (B) + backlog. Persistent; accumulates each batch.
 
+**Coverage engine (a second engine — santi; a deliberate 2-of-7-Secciones slice, D-PLAT-3):**
+- `graph_coverage/*.json` — coverage nodes (own schema: `coverage-grant`/`exclusion-check`/`clause-modifier`/`limit-deductible`/`document-duty`).
+- `facts_coverage.json` — the coverage fact registry (disjoint from `facts.json`).
+- `coverage_validate.py` — the coverage structural validator (parallel to `validate.py`; must be GREEN).
+- `coverage_reconcile.py` + `coverage_slice_manifest.json` — the coverage slice's data-loss reconciliation + manifest.
+- `COVERAGE_SLICE_REPORT.md` — the slice's clause→node map (Secciones III + V + Obligaciones + Exclusiones).
+
 ## Run it
 ```
 python3 crawlable/build_tables.py        # (re)generate the authority matrices from representation
 python3 crawlable/sync_facts.py          # regenerate the fact->node impact index
-python3 crawlable/validate.py            # mechanical validator — must be GREEN
+python3 crawlable/validate.py            # mechanical validator (UW + shared ledger) — must be GREEN
+python3 crawlable/coverage_validate.py   # the coverage engine's validator — must be GREEN
 python3 crawlable/coverage.py            # reconciliation — must be 372/372 accounted
 python3 crawlable/crawler/run_cases.py   # the demonstration cases + full audit trail
 python3 crawlable/crawler/crawl.py case.json   # crawl one supplied-facts payload (JSON dict)
@@ -48,3 +56,5 @@ python3 crawlable/crawler/crawl.py case.json   # crawl one supplied-facts payloa
 accounted (0 deferred); **61** nodes + **29** tables built; residual semantic drift **0** across the
 fresh-context verifier passes (including a second, independent dimension-B vote — DRIFT 0). The full
 record is `CONVERSION_RECORD.md` (§8 fix log, §9 open items); the data-loss proof is `COVERAGE_REPORT.md`.
+
+**Since (platform merge):** a sibling **coverage engine** (`graph_coverage/`, `coverage_validate.py` GREEN) was added — a deliberate 2-of-7-Secciones slice (D-PLAT-3) — and the conflict ledger grew to **18** (16 UW + 2 coverage). `validate.py [11]` is now **engine-aware** over the shared ledger (D-P9). Current status + the forward plan (incl. the clause-impact North Star): `../Crawlable_Roadmap.md`.

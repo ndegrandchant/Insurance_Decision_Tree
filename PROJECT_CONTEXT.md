@@ -25,7 +25,9 @@ The two were deliberately modeled **differently** (see `decisions.md` D1): the m
 ## 2. Status (current)
 
 - **Part 1 — high-fidelity extraction + verification: COMPLETE and verified.** Mechanical checks pass 100%; every derived field got an independent fresh-context semantic pass; findings fixed and logged.
-- **Part 2 — turn this into a crawlable decision tree: COMPLETE and verified.** Built under `crawlable/` (executable crawler + 61 nodes + 29 tables + a 16-entry conflict ledger), following `Crawlable_Roadmap.md`. Validator GREEN; 372/372 source ids accounted (0 deferred); residual semantic drift 0 (including a second, independent dimension-B vote). See `crawlable/CONVERSION_RECORD.md` (what/how + fix log) and `crawlable/COVERAGE_REPORT.md` (the data-loss proof).
+- **Part 2 — turn this into a crawlable decision tree: COMPLETE and verified.** Built under `crawlable/` (executable crawler + 61 nodes + 29 tables + an **18**-entry conflict ledger — 16 UW + 2 coverage), following `Crawlable_Roadmap.md`. Validator GREEN (now engine-aware over the shared ledger — D-P9); 372/372 source ids accounted (0 deferred); residual semantic drift 0 (including a second, independent dimension-B vote). See `crawlable/CONVERSION_RECORD.md` (what/how + fix log) and `crawlable/COVERAGE_REPORT.md` (the data-loss proof).
+- **Part 3 — the platform (`platform/`, `deploy/`): a first version, built upward by santi.** A FastAPI backend + reusable engine + React frontend + Postgres + Docker/VPS deploy that **consumes** the graph at runtime (UW decisions, a coverage-adjudication engine on 2 of 7 Secciones, advisory NL extraction, isolated pricing). It does **not** edit `representation/` or hand-patch the graph. Design decisions: root `decisions.md` **D-PLAT-1…D-PLAT-20**.
+- **▶ North Star — clause-impact analysis:** edit one clause → see every outcome it moves + the citation trail. Two halves: full-policy coverage (P5-COV) + the rule↔clause dependency graph (P4/O16). See `Crawlable_Roadmap.md` §North Star + dashboard.
 - **▶ To extend or re-run Part 2**, see `crawlable/README.md` (run commands); §9 of this file records the entry point, canonical schema, and output layout Part 2 followed.
 
 ## 3. The artifacts (what exists, and what each is for)
@@ -51,9 +53,13 @@ The two were deliberately modeled **differently** (see `decisions.md` D1): the m
 **Crawlable graph (Part 2)** → `crawlable/` (generated from `representation/` + `crawlable/rulings/`; the top-level `README.md` map has the exhaustive file list)
 - `node_schema.md` — the authoritative node schema (borrowed spine + **S1** fidelity fields + **S2** decision tables); `decisions.md` — the Part-2 design decisions.
 - `graph/*.json` — the executable **61** nodes (router + one per section); `facts.json` — the input-fact registry; `tables.json` + `tables_{authority,rating,renovacion}.json` — **29** role-typed parameter/decision tables.
-- `rulings/` — the conflict ledger (**16** OPEN rulings; the crawler escalates here, never resolves).
+- `rulings/` — the conflict ledger (**18** OPEN rulings: 16 UW + 2 coverage; the crawler escalates here, never resolves).
 - `crawler/crawl.py`, `validate.py`, `coverage.py`, `build_*.py` — the engine, the deterministic-execution validator, the data-loss reconciler, the mechanical generators.
 - `COVERAGE_REPORT.md` — the data-loss proof (372/372 ids, 0 deferred); `CONVERSION_RECORD.md` — exactly what/how + the fix log (§8) and open items (§9); `README.md` — run commands.
+
+**Coverage engine (a second crawlable engine, santi)** → `crawlable/graph_coverage/` + `facts_coverage.json` + `coverage_validate.py` + `coverage_reconcile.py` + `coverage_slice_manifest.json` + `COVERAGE_SLICE_REPORT.md`. Adjudicates policy coverage (covered/not-covered/refer) with its own node schema, sharing the one `rulings/` ledger. A deliberate **2-of-7-Secciones slice** (III + V; D-PLAT-3) — see `Crawlable_Roadmap.md` P5-COV.
+
+**Platform (Part 3, santi)** → `platform/` (FastAPI backend + `insurance_engine/` reusable engine + React frontend + Postgres `db/`) + `deploy/` (Docker/Caddy/VPS). Consumes the graph at runtime; `lbc_auto_rating.py` is an isolated non-source-anchored rating compartment; `ai_parser.py`/`nl.py` are advisory-only behind a never-fabricate wall. Full guide: `platform/README.md` + `platform/engine/README.md`.
 
 **Methodology & planning docs** (workspace root)
 - `decisions.md` — every design decision + rationale (D1–D13). *Read before changing structure.*

@@ -451,3 +451,38 @@ engine's per-batch loop. No engine code changes; the A+B proof discipline is ide
   per contested ruling, a cross-process referral/handoff, an escalation-with-context, a band-edge
   escalation) against human-validated answers.
 - A second manual runs end-to-end on the **untouched engine** via its profile alone.
+
+---
+
+## 13. Lessons from building *upward* (the platform layer)
+
+A platform was later built *on top* of a finished representation+graph (a backend/engine/UI/deploy
+stack that **consumes** the graph at runtime). Building upward didn't change the extraction method, but
+it paid for several manual-agnostic **Part-2** lessons worth carrying forward:
+
+- **A policy is usually TWO crawlable domains, not one.** The underwriting/decision side
+  (eligible/decline/refer) and the **coverage-adjudication** side (covered/not-covered/refer) are
+  *different engines* — different node types, outcome enums, and fact registries — that should share
+  **one** `rulings/` ledger. Model them as **siblings**, not one merged graph (forcing a single schema
+  over both is the mistake). Each gets its own validator/reconciler mirroring §5/§9.
+- **One runtime, many domains: keep the runtime, swap the data.** The reusable shape is a single
+  runtime (short-circuit JSONLogic + missing-fact escalation + conflict escalation + audit trail +
+  terminal shape) plus a per-domain **EngineSpec** (artifact root, facts path, validator path, section
+  discriminator, outcome labels). This is exactly the §11 per-manual profile *made executable* — and the
+  concrete down-payment on standardization. New domain/manual = new artifacts + spec, **no new evaluator**.
+- **Multiple engines + one ledger ⇒ the conflict-coverage check must be ENGINE-AWARE.** §9's "every OPEN
+  ruling is anchored by some runtime construct" check must scan **all** engines' anchors. A per-engine
+  checker that sees only its own graph will falsely report another engine's (legitimately-anchored)
+  ruling as orphaned — a false RED, not a real hole. Harvest anchors **read-only** across engines; do
+  **not** merge the validators (the schemas differ).
+- **An AI/NL supply side is allowed — behind a never-fabricate wall.** §0's "an adapter may map and
+  flag-missing, never fabricate" survives an LLM extractor *iff* its output is **advisory**: extracted
+  facts stay `confirmed:false`, a human confirms, and the engine **refuses** unconfirmed facts at a hard
+  gate. The wall — not the absence of AI — is what preserves the fidelity mandate.
+- **Isolate any non-source-anchored stage (e.g. reverse-engineered rating).** If a number isn't in the
+  source (rates lifted from observed behaviour), it must live in a **separate compartment** the audited
+  decision path *calls* (only after a decision) but never mixes into `representation/` or the graph —
+  and it must be labelled a fidelity exception. Likewise, mark each engine's outputs by **authority
+  level** (e.g. coverage results as *orientation*, not a final determination).
+
+These are downstream lessons; the **extraction** method (`Manual Prompt.md`) is unchanged.
