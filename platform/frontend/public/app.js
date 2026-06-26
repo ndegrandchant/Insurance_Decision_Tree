@@ -7,6 +7,10 @@
 const MODULES = [
   { id: "simple_chat",     name: "Chat",             icon: "◌", group: "Operación",    status: "ready",
     desc: "Chat local con memoria del caso, paquete vivo y evaluación automática cuando RiskIQ tiene datos suficientes." },
+  { id: "clients",     name: "Clientes",          icon: "▦", group: "Operación",    status: "ready",
+    desc: "Base operacional de clientes, pólizas, vehículos, reclamos, renovaciones y eventos creados desde chat." },
+  { id: "bandeja",    name: "Bandeja de tareas", icon: "✉", group: "Operación",    status: "ready",
+    desc: "Cola del suscriptor: cada caso detenido por dato faltante o dictamen llega con todo el paquete para resolverlo y reanudar el árbol." },
   { id: "uw",         name: "Suscripción",       icon: "▶", group: "Flujos",       status: "ready",
     desc: "Recorre el árbol de elegibilidad, revisa la ruta de decisión y obtiene precios finales LBC Auto cuando corresponde." },
   { id: "claims",     name: "Reclamos",          icon: "▣", group: "Flujos",       status: "ready",
@@ -40,9 +44,207 @@ const UW_EXAMPLES = {
   },
 };
 const DEMO_TEXT = {
-  uw: "Cliente empresa por canal directas solicita Moto Proteccion. Vehiculo motocicleta 150 cc, modelo 2021, marca Toyota, modelo Corolla, valor asegurado Bs. 90000, ciudad La Paz, siniestralidad historica 35%. No tiene techo de lona, no es alquiler, no circula fuera del pais y tiene placas.",
-  uw_review: "Cliente empresa por canal directas solicita Moto Proteccion para una motocicleta 150 cc, modelo 2021, marca Zhongtong, modelo BUS-X, valor asegurado Bs. 90000, ciudad Cobija, siniestralidad historica 35%. No es alquiler, no circula fuera del pais, tiene placas y no solicita desviacion del procedimiento estandar.",
+  uw: "Cliente empresa por canal directas solicita Moto Proteccion. Vehiculo motocicleta 150 cc, modelo 2021, marca Honda, modelo CG 150, valor asegurado Bs. 90000, ciudad La Paz, siniestralidad historica 35%. No tiene techo de lona, no es alquiler, no circula fuera del pais y tiene placas.",
+  uw_review: "Cliente empresa por canal directas solicita Moto Proteccion para una motocicleta 125 cc, modelo 2021, marca Suzuki, modelo GN125, valor asegurado Bs. 90000, ciudad Cobija, siniestralidad historica 35%. No es alquiler, no circula fuera del pais, tiene placas y no solicita desviacion del procedimiento estandar.",
   coverage: "Siniestro de robo parcial de partes en La Paz. La cobertura de robo parcial esta incluida, hubo denuncia policial y dosaje dentro de 6 horas, el vehiculo no estaba en territorio extranjero, las partes estaban adheridas y fueron verificadas, el aviso a la aseguradora fue a los 2 dias y no se inicio reparacion sin autorizacion."
+};
+
+// Pre-written demo clients for "Recorrido demo". These are NOT stored in the portfolio
+// or any database — they are loaded fresh into the in-memory demo session each time.
+// Each carries a natural-language narrative (shown as the incoming chat message) plus a
+// ground-truth fact packet that drives a deterministic traversal. Cliente A prices
+// straight through with no human stop; Cliente B deliberately omits the derived fact
+// `is_heavy` (on_missing: refer) so the tree stops at standard.elig.consumer_heavy_any
+// and routes a resumable human task to the underwriter (Bandeja de tareas).
+const DEMO_RECORRIDO_CLIENTS = [
+  {
+    id: "DEMO-NOVA",
+    engine: "uw",
+    tree: "Suscripción",
+    name: "Transportes Nova SRL",
+    subtitle: "Empresa · Moto Protección · sin intervención",
+    intervention: false,
+    narrative: "Hola, somos Transportes Nova SRL (empresa). Queremos asegurar por canal directas un vehículo liviano, marca Toyota Corolla modelo 2021, valor asegurado Bs. 90.000, que circula en La Paz. Siniestralidad histórica 35%. No es de alquiler, no circula fuera del país, tiene placas y no pedimos desviaciones al procedimiento estándar.",
+    facts: {
+      product: "moto_proteccion", channel: "directas", client_type: "empresa", segment: "comercial",
+      requests_standard_deviation: false, is_public_tender: false, is_mass_grouping: false,
+      is_contractor_equipment: false, is_competition_offroad: false, has_body_modifications: false,
+      is_rail_vehicle: false, es_moto_lujo_o_competicion: false, vehicle_class: "liviano",
+      valor_asegurado: 90000, model_year: 2021, make: "Toyota", model: "Corolla", city: "La Paz", siniestralidad: 35,
+      is_rental: false, is_learning_vehicle: false, vehicle_age_years: 5, circula_fuera_pais_actividad_regular: false,
+      capacidad_original_mayor_8: false, servicio_publico_pasajeros: false, is_convertible_lona: false, is_armored: false,
+      is_bomberos_policia_ejercito: false, is_ambulance: false, has_foreign_plates: false, is_brevet_policy: false,
+      has_rc: false, has_ap: false, is_enlatado: true, suscriptor: "Manuel Sauma", participa_competicion: false,
+      moto_proteccion_terms: true, is_heavy: false, design_modified_capacity: false, capacity_was_reduced: false,
+      cantidad_vehiculos: 1, extraterritorialidad: "no", cuotas: 1, selected_pricing_option: "option_1",
+      rc_asegurado: 0, ap_capital_por_persona: 0, ap_coverage: "ninguna"
+    }
+  },
+  {
+    id: "DEMO-QUISPE",
+    engine: "uw",
+    tree: "Suscripción",
+    name: "Mario Quispe (PN con NIT)",
+    subtitle: "Consumer · vehículo ambiguo · requiere suscriptor",
+    intervention: true,
+    narrative: "Buenas, soy Mario Quispe, persona natural con NIT (consumer). Quiero asegurar por directas mi Toyota Hilux modelo 2020, valor asegurado Bs. 95.000, circula en La Paz, siniestralidad 35%. Tiene placas, no es alquiler y no sale del país. La uso para mi negocio y a veces lleva carga; no estoy seguro si cuenta como vehículo pesado.",
+    facts: {
+      product: "moto_proteccion", channel: "directas", client_type: "pn_con_nit", segment: "consumer",
+      requests_standard_deviation: false, is_public_tender: false, is_mass_grouping: false,
+      is_contractor_equipment: false, is_competition_offroad: false, has_body_modifications: false,
+      is_rail_vehicle: false, es_moto_lujo_o_competicion: false, vehicle_class: "camioneta", tonnage_tn: 3,
+      valor_asegurado: 95000, model_year: 2020, make: "Toyota", model: "Hilux", city: "La Paz", siniestralidad: 35,
+      is_rental: false, is_learning_vehicle: false, vehicle_age_years: 6, circula_fuera_pais_actividad_regular: false,
+      capacidad_original_mayor_8: false, servicio_publico_pasajeros: false, is_convertible_lona: false, is_armored: false,
+      is_bomberos_policia_ejercito: false, is_ambulance: false, has_foreign_plates: false, is_brevet_policy: false,
+      suscriptor: "Manuel Sauma", participa_competicion: false, moto_proteccion_terms: true,
+      design_modified_capacity: false, capacity_was_reduced: false, cantidad_vehiculos: 1, extraterritorialidad: "no",
+      cuotas: 1, selected_pricing_option: "option_1", rc_asegurado: 0, ap_capital_por_persona: 0,
+      ap_coverage: "ninguna", has_rc: false, has_ap: false, is_enlatado: true
+      /* is_heavy intentionally omitted → underwriter decides */
+    }
+  },
+  {
+    id: "DEMO-ROBO",
+    engine: "coverage",
+    tree: "Reclamos",
+    name: "Robo parcial de partes",
+    subtitle: "Reclamos · robo de piezas · cubierto sin intervención",
+    intervention: false,
+    narrative: "Reporto un robo parcial de partes en La Paz. La Sección de Robo Parcial está incluida en mi póliza, hubo denuncia policial y dosaje dentro de las 6 horas, el vehículo no estaba en territorio extranjero, las partes estaban adheridas y fueron verificadas y valorizadas, avisé a la aseguradora a los 2 días, tengo el informe técnico y no inicié reparación sin autorización.",
+    facts: {
+      coverage_section: "robo_parcial", coverage_included: true, event_type: "robo_partes",
+      driver_alcohol_over_limit: false, driver_under_drugs_or_impairing_medication: false,
+      intentional_act: false, confiscation_or_authority_measure: false, vehicle_type: "auto",
+      foreign_territory: false, theft_consumated: true, parts_verified_and_valued: true,
+      parts_permanently_attached_or_declared: true, security_measures_requested: false,
+      security_measures_completed: false, written_security_exception: false, attached_clause_codes: [],
+      uses_free_choice_workshop: false, estimated_replacement_cost_percent_va: 20,
+      part_repair_cost_percent_replacement: 80, insured_requests_part_replacement: false,
+      parts_available_local_market: true, local_price_over_import_price_percent: 0,
+      police_report_within_6h: true, alcohol_test_within_6h: true, justified_impediment: false,
+      technical_report_available: true, insurer_notice_days: 2, repair_started_without_authorization: false
+    }
+  },
+  {
+    id: "DEMO-PARTES",
+    engine: "coverage",
+    tree: "Reclamos",
+    name: "Robo parcial · falta un dato",
+    subtitle: "Reclamos · se detiene y pregunta al reclamante",
+    intervention: true,
+    narrative: "Tengo un robo parcial de partes en La Paz, con la Sección de Robo Parcial incluida. Hubo denuncia policial y dosaje dentro de 6 horas, el vehículo no salió del país, avisé a los 2 días, tengo informe técnico y no inicié reparación sin autorización. Las partes estaban adheridas al vehículo.",
+    facts: {
+      coverage_section: "robo_parcial", coverage_included: true, event_type: "robo_partes",
+      driver_alcohol_over_limit: false, driver_under_drugs_or_impairing_medication: false,
+      intentional_act: false, confiscation_or_authority_measure: false, vehicle_type: "auto",
+      foreign_territory: false, theft_consumated: true,
+      parts_permanently_attached_or_declared: true, security_measures_requested: false,
+      security_measures_completed: false, written_security_exception: false, attached_clause_codes: [],
+      uses_free_choice_workshop: false, estimated_replacement_cost_percent_va: 20,
+      part_repair_cost_percent_replacement: 80, insured_requests_part_replacement: false,
+      parts_available_local_market: true, local_price_over_import_price_percent: 0,
+      police_report_within_6h: true, alcohol_test_within_6h: true, justified_impediment: false,
+      technical_report_available: true, insurer_notice_days: 2, repair_started_without_authorization: false
+      /* parts_verified_and_valued intentionally omitted → el árbol pregunta al reclamante */
+    }
+  },
+  {
+    id: "DEMO-RENU",
+    engine: "uw",
+    tree: "Renovación",
+    policyType: "renovacion",
+    note: "La renovación re-ejecuta el árbol base de suscripción y recalcula la prima; aquí ves ese recorrido base.",
+    name: "Renovación · Transportes Andes",
+    subtitle: "Renovación · re-ejecuta árbol base + recalcula prima",
+    intervention: false,
+    narrative: "Somos Transportes Andes SRL (empresa) y queremos renovar nuestra póliza Moto Protección por directas. Es el mismo vehículo liviano Toyota Corolla 2021, valor asegurado Bs. 90.000, en La Paz, siniestralidad histórica 35%. Sigue sin ser de alquiler, no circula fuera del país y tiene placas.",
+    facts: {
+      product: "moto_proteccion", channel: "directas", client_type: "empresa", segment: "comercial",
+      policy_type: "renovacion",
+      requests_standard_deviation: false, is_public_tender: false, is_mass_grouping: false,
+      is_contractor_equipment: false, is_competition_offroad: false, has_body_modifications: false,
+      is_rail_vehicle: false, es_moto_lujo_o_competicion: false, vehicle_class: "liviano",
+      valor_asegurado: 90000, model_year: 2021, make: "Toyota", model: "Corolla", city: "La Paz", siniestralidad: 35,
+      is_rental: false, is_learning_vehicle: false, vehicle_age_years: 5, circula_fuera_pais_actividad_regular: false,
+      capacidad_original_mayor_8: false, servicio_publico_pasajeros: false, is_convertible_lona: false, is_armored: false,
+      is_bomberos_policia_ejercito: false, is_ambulance: false, has_foreign_plates: false, is_brevet_policy: false,
+      has_rc: false, has_ap: false, is_enlatado: true, suscriptor: "Manuel Sauma", participa_competicion: false,
+      moto_proteccion_terms: true, is_heavy: false, design_modified_capacity: false, capacity_was_reduced: false,
+      cantidad_vehiculos: 1, extraterritorialidad: "no", cuotas: 1, selected_pricing_option: "option_1",
+      rc_asegurado: 0, ap_capital_por_persona: 0, ap_coverage: "ninguna"
+    }
+  }
+];
+
+const SIMPLE_CHAT_CASE_DEFAULTS = {
+  product: "moto_proteccion",
+  channel: "directas",
+  client_type: "empresa",
+  apply_standard_assumptions: true
+};
+
+const SIMPLE_CHAT_SETTING_OPTIONS = {
+  product: [
+    ["moto_proteccion", "Moto Protección"],
+    ["lbc_auto", "LBC Auto"],
+    ["lbc_auto_kilometraje", "LBC Auto Km"],
+    ["lbc_moto_low_cost", "Moto Low Cost"],
+    ["otro", "Otro"]
+  ],
+  channel: [
+    ["directas", "Directas"],
+    ["agentes", "Agentes"],
+    ["brokers", "Brokers"],
+    ["corporate", "Corporate"],
+    ["wholesale", "Wholesale"],
+    ["concesionario", "Concesionario"],
+    ["banco", "Banco"],
+    ["entidad_financiera", "Entidad financiera"]
+  ],
+  client_type: [
+    ["empresa", "Empresa"],
+    ["consumer_individual", "Persona natural"],
+    ["pn_con_nit", "PN con NIT"],
+    ["consumer_fleet_4plus", "Flota consumer"],
+    ["estatal", "Estatal"]
+  ]
+};
+
+const UW_CLIENT_SEGMENT_ASSUMPTIONS = {
+  empresa: "comercial",
+  estatal: "comercial",
+  consumer_individual: "consumer",
+  consumer_fleet_4plus: "consumer",
+  pn_con_nit: "consumer"
+};
+
+const UW_STANDARD_CONTEXT_ASSUMPTIONS = {
+  requests_standard_deviation: false,
+  is_public_tender: false,
+  is_mass_grouping: false,
+  is_contractor_equipment: false,
+  is_competition_offroad: false,
+  has_body_modifications: false,
+  is_rail_vehicle: false,
+  es_moto_lujo_o_competicion: false,
+  is_learning_vehicle: false,
+  capacidad_original_mayor_8: false,
+  servicio_publico_pasajeros: false,
+  is_convertible_lona: false,
+  is_armored: false,
+  is_bomberos_policia_ejercito: false,
+  is_ambulance: false,
+  has_foreign_plates: false,
+  is_brevet_policy: false,
+  has_rc: false,
+  has_ap: false,
+  is_enlatado: false,
+  cantidad_vehiculos: 1,
+  suscriptor: "Manuel Sauma",
+  extraterritorialidad: "no",
+  cuotas: 1,
+  selected_pricing_option: "option_1"
 };
 
 const PRICING_SAMPLE = {
@@ -88,6 +290,389 @@ const RENEWAL_SAMPLE = {
   ]
 };
 
+function demoUwFacts(overrides = {}) {
+  const year = Number(overrides.model_year || 2021);
+  return {
+    ...UW_STANDARD_CONTEXT_ASSUMPTIONS,
+    product: "lbc_auto",
+    channel: "brokers",
+    client_type: "empresa",
+    requests_standard_deviation: false,
+    is_mass_grouping: false,
+    is_public_tender: false,
+    vehicle_class: "liviano",
+    segment: "comercial",
+    tonnage_tn: 0,
+    is_heavy: false,
+    has_plates: true,
+    cilindrada_cc: 0,
+    es_moto_lujo_o_competicion: false,
+    participa_competicion: false,
+    moto_proteccion_terms: false,
+    valor_asegurado: 90000,
+    importer: "Toyosa",
+    is_rental: false,
+    rented_to_petroleum: false,
+    is_renewal: true,
+    model_year: year,
+    vehicle_age_years: Math.max(0, new Date().getFullYear() - year),
+    vehicle_brand: "Toyota",
+    make: "Toyota",
+    marca_auto: 44,
+    model: "Corolla",
+    vehicle_type: "auto",
+    city: "La Paz",
+    plaza_auto: 1,
+    siniestralidad: 20,
+    siniestralidad_historica: 20,
+    retroactividad_dias: 0,
+    siniestro_en_periodo: false,
+    circula_fuera_pais_actividad_regular: false,
+    ...overrides,
+  };
+}
+
+function demoCoverageFacts(overrides = {}) {
+  return {
+    coverage_section: "robo_parcial",
+    coverage_included: true,
+    event_type: "robo_partes",
+    driver_alcohol_over_limit: false,
+    driver_under_drugs_or_impairing_medication: false,
+    intentional_act: false,
+    confiscation_or_authority_measure: false,
+    vehicle_type: "auto",
+    foreign_territory: false,
+    foreign_stay_days: 0,
+    theft_consumated: true,
+    parts_verified_and_valued: true,
+    parts_permanently_attached_or_declared: true,
+    security_measures_requested: false,
+    security_measures_completed: false,
+    written_security_exception: false,
+    attached_clause_codes: [],
+    uses_free_choice_workshop: false,
+    estimated_repair_cost_percent_va: 20,
+    estimated_replacement_cost_percent_va: 20,
+    part_repair_cost_percent_replacement: 80,
+    insured_requests_part_replacement: false,
+    parts_available_local_market: true,
+    local_price_over_import_price_percent: 0,
+    police_report_within_6h: true,
+    alcohol_test_within_6h: true,
+    justified_impediment: false,
+    claim_estimate_usd: 800,
+    affects_only_danos_or_robo: true,
+    technical_report_available: true,
+    insurer_notice_days: 2,
+    repair_started_without_authorization: false,
+    ...overrides,
+  };
+}
+
+const DEMO_CLIENTS = [
+  {
+    id: "CLI-MORA-001",
+    name: "Mora Motors SRL",
+    contact: "Laura Mora",
+    broker: "Broker Andes",
+    city: "La Paz",
+    client_type: "empresa",
+    policy_id: "POL-AUT-2025-101",
+    policy_status: "activa",
+    renewal_due: "2026-08-30",
+    underwriting: {
+      outcome: "eligible",
+      final_price_bob: 3800,
+      approved_at: "2025-08-30",
+      facts: demoUwFacts({
+        valor_asegurado: 90000,
+        model_year: 2021,
+        model: "Corolla",
+        siniestralidad: 12,
+        siniestralidad_historica: 12,
+      }),
+    },
+    renewal: {
+      price_adjustment_percent: -2,
+      reason: "Renovación limpia: póliza activa, cero reclamos y baja siniestralidad histórica.",
+      node_overrides: [],
+    },
+    claims: [],
+  },
+  {
+    id: "CLI-ORIENTE-002",
+    name: "Oriente Courier SRL",
+    contact: "Diego Zambrana",
+    broker: "Oriente Brokers",
+    city: "Santa Cruz",
+    client_type: "empresa",
+    policy_id: "POL-AUT-2025-118",
+    policy_status: "activa",
+    renewal_due: "2026-09-12",
+    underwriting: {
+      outcome: "eligible",
+      final_price_bob: 5080.22,
+      approved_at: "2025-09-12",
+      facts: demoUwFacts({
+        valor_asegurado: 135000,
+        model_year: 2022,
+        make: "Toyota",
+        vehicle_brand: "Toyota",
+        model: "Hilux",
+        city: "Santa Cruz",
+        plaza_auto: "",
+        siniestralidad: 47,
+        siniestralidad_historica: 47,
+      }),
+    },
+    renewal: {
+      price_adjustment_percent: 7,
+      reason: "Un reclamo reciente con aviso tardío; se propone ajuste prudente y seguimiento.",
+      node_overrides: [],
+    },
+    claims: [
+      {
+        id: "SIN-2026-041",
+        date: "2026-05-14",
+        label: "Aviso tardío",
+        status: "refer_adjuster",
+        amount_usd: 1800,
+        summary: "Robo parcial con documentación completa, pero aviso a la aseguradora después de 18 días.",
+        narrative: "Oriente Courier reporta robo parcial de piezas de su Toyota Hilux. La cobertura de robo parcial esta incluida, hubo denuncia policial y dosaje dentro de 6 horas, las partes estaban verificadas y fijadas, no hubo territorio extranjero, pero el aviso a la aseguradora fue a los 18 dias.",
+        facts: demoCoverageFacts({ claim_estimate_usd: 1800, insurer_notice_days: 18 }),
+      },
+    ],
+  },
+  {
+    id: "CLI-AGROSUR-003",
+    name: "AgroSur Logistica",
+    contact: "Maria Fernanda Rivero",
+    broker: "Oriente Brokers",
+    city: "Cochabamba",
+    client_type: "empresa",
+    policy_id: "POL-AUT-2025-144",
+    policy_status: "activa",
+    renewal_due: "2026-10-05",
+    underwriting: {
+      outcome: "eligible",
+      final_price_bob: 5579.17,
+      approved_at: "2025-10-05",
+      facts: demoUwFacts({
+        valor_asegurado: 185000,
+        model_year: 2019,
+        make: "Suzuki",
+        vehicle_brand: "Suzuki",
+        model: "Vitara",
+        city: "Cochabamba",
+        plaza_auto: "",
+        siniestralidad: 82,
+        siniestralidad_historica: 82,
+      }),
+    },
+    renewal: {
+      price_adjustment_percent: 12,
+      reason: "Dos eventos en la vigencia y siniestralidad alta; revisión de condiciones para renovar.",
+      node_overrides: [
+        {
+          target_type: "node",
+          target_id: "standard.elig.antique_vehicle",
+          change_type: "note_only",
+          patch: { note: "Cliente con historial de reclamos; revisar deducible y condiciones al renovar." },
+          rationale: "Nota acotada al cliente para discusión comercial de renovación.",
+        },
+      ],
+    },
+    claims: [
+      {
+        id: "SIN-2026-022",
+        date: "2026-03-03",
+        label: "Falta denuncia",
+        status: "missing_document",
+        amount_usd: 2400,
+        summary: "Robo parcial con monto mayor a USD 1.000 y denuncia policial no acreditada dentro de 6 horas.",
+        narrative: "AgroSur Logistica reclama robo parcial de piezas en Cochabamba. La cobertura esta incluida y las piezas estaban verificadas y fijadas, pero no se acredito denuncia policial dentro de 6 horas. El estimado del reclamo es USD 2400.",
+        facts: demoCoverageFacts({ claim_estimate_usd: 2400, police_report_within_6h: false }),
+      },
+      {
+        id: "SIN-2025-117",
+        date: "2025-11-19",
+        label: "Cambio de parte",
+        status: "partially_covered",
+        amount_usd: 1300,
+        summary: "El asegurado pide cambio de parte aunque reparar cuesta menos del 65% del valor de reposición.",
+        narrative: "AgroSur Logistica solicita cambio de pieza por robo parcial. La parte estaba verificada y fijada, hay denuncia y dosaje en plazo, pero la reparacion cuesta 40% del valor de reposicion y el asegurado pide cambio completo.",
+        facts: demoCoverageFacts({
+          claim_estimate_usd: 1300,
+          insured_requests_part_replacement: true,
+          part_repair_cost_percent_replacement: 40,
+        }),
+      },
+    ],
+  },
+  {
+    id: "CLI-PAREDES-004",
+    name: "Familia Paredes",
+    contact: "Rodrigo Paredes",
+    broker: "Capital Seguros",
+    city: "Sucre",
+    client_type: "consumer_individual",
+    policy_id: "POL-AUT-2025-173",
+    policy_status: "activa",
+    renewal_due: "2026-07-21",
+    underwriting: {
+      outcome: "conditional_eligible",
+      final_price_bob: 3200,
+      approved_at: "2025-07-21",
+      facts: demoUwFacts({
+        client_type: "consumer_individual",
+        segment: "consumer",
+        valor_asegurado: 72000,
+        model_year: 2003,
+        vehicle_age_years: 23,
+        make: "Nissan",
+        vehicle_brand: "Nissan",
+        model: "Patrol",
+        city: "Sucre",
+        plaza_auto: "",
+        siniestralidad: 0,
+        siniestralidad_historica: 0,
+      }),
+    },
+    renewal: {
+      price_adjustment_percent: 4,
+      reason: "Sin reclamos, pero unidad antigua; renovar con validación de inspección vigente.",
+      node_overrides: [],
+    },
+    claims: [],
+  },
+  {
+    id: "CLI-VIEDMA-005",
+    name: "Talleres Viedma SRL",
+    contact: "Paola Viedma",
+    broker: "Broker Andes",
+    city: "Tarija",
+    client_type: "empresa",
+    policy_id: "POL-AUT-2025-189",
+    policy_status: "activa",
+    renewal_due: "2026-11-18",
+    underwriting: {
+      outcome: "eligible",
+      final_price_bob: 4650,
+      approved_at: "2025-11-18",
+      facts: demoUwFacts({
+        valor_asegurado: 118000,
+        model_year: 2020,
+        make: "Toyota",
+        vehicle_brand: "Toyota",
+        model: "RAV4",
+        city: "Tarija",
+        plaza_auto: "",
+        siniestralidad: 34,
+        siniestralidad_historica: 34,
+      }),
+    },
+    renewal: {
+      price_adjustment_percent: 5,
+      reason: "Reclamo parcial con pago limitado; mantener cuenta con ajuste moderado.",
+      node_overrides: [],
+    },
+    claims: [
+      {
+        id: "SIN-2026-058",
+        date: "2026-06-08",
+        label: "Cubierto parcial",
+        status: "partially_covered",
+        amount_usd: 950,
+        summary: "Cambio de parte pedido por el asegurado; aplica diferencia por reparación bajo umbral.",
+        narrative: "Talleres Viedma reporta robo parcial de pieza. La cobertura esta incluida, denuncia y dosaje dentro de plazo, partes verificadas y fijadas. El asegurado pide cambio de parte, pero reparar cuesta 35% del valor de reposicion.",
+        facts: demoCoverageFacts({
+          claim_estimate_usd: 950,
+          insured_requests_part_replacement: true,
+          part_repair_cost_percent_replacement: 35,
+        }),
+      },
+    ],
+  },
+  {
+    id: "CLI-NORTE-006",
+    name: "Clinica Norte",
+    contact: "Sofia Arce",
+    broker: "Salud & Riesgo",
+    city: "La Paz",
+    client_type: "empresa",
+    policy_id: "POL-AUT-2025-207",
+    policy_status: "activa",
+    renewal_due: "2026-12-01",
+    underwriting: {
+      outcome: "eligible",
+      final_price_bob: 6900,
+      approved_at: "2025-12-01",
+      facts: demoUwFacts({
+        valor_asegurado: 210000,
+        model_year: 2023,
+        make: "Toyota",
+        vehicle_brand: "Toyota",
+        model: "Hiace",
+        city: "La Paz",
+        plaza_auto: 1,
+        siniestralidad: 18,
+        siniestralidad_historica: 18,
+      }),
+    },
+    renewal: {
+      price_adjustment_percent: 0,
+      reason: "Cuenta estable, sin accidentes y con prima suficiente para renovar sin cambio.",
+      node_overrides: [],
+    },
+    claims: [],
+  },
+  {
+    id: "CLI-CARGO-007",
+    name: "CargoMin Bolivia",
+    contact: "Victor Iriarte",
+    broker: "Global Risk",
+    city: "Oruro",
+    client_type: "empresa",
+    policy_id: "POL-AUT-2025-226",
+    policy_status: "activa",
+    renewal_due: "2026-09-28",
+    underwriting: {
+      outcome: "eligible",
+      final_price_bob: 14800,
+      approved_at: "2025-09-28",
+      facts: demoUwFacts({
+        valor_asegurado: 420000,
+        model_year: 2021,
+        make: "Toyota",
+        vehicle_brand: "Toyota",
+        model: "Land Cruiser",
+        city: "Oruro",
+        plaza_auto: "",
+        siniestralidad: 61,
+        siniestralidad_historica: 61,
+      }),
+    },
+    renewal: {
+      price_adjustment_percent: 9,
+      reason: "Frecuencia moderada y operación minera; ajuste de renovación para conservar margen.",
+      node_overrides: [],
+    },
+    claims: [
+      {
+        id: "SIN-2026-049",
+        date: "2026-04-26",
+        label: "Cubierto",
+        status: "likely_covered",
+        amount_usd: 800,
+        summary: "Robo parcial de piezas con documentos y aviso en plazo.",
+        narrative: "CargoMin Bolivia reporta robo parcial de piezas. Cobertura incluida, denuncia policial y dosaje dentro de 6 horas, piezas verificadas y fijadas, aviso en 2 dias y sin reparacion iniciada sin autorizacion.",
+        facts: demoCoverageFacts({ claim_estimate_usd: 800, insurer_notice_days: 2 }),
+      },
+    ],
+  },
+];
+
 const DEFAULT_SIM_CONTROLS = {
   coverage_price_multiplier: 1.08,
   deductible_multiplier: 1,
@@ -99,7 +684,8 @@ const DEFAULT_SIM_CONTROLS = {
   coverage_alcohol_outcome: "refer_adjuster",
   coverage_moto_parts_outcome: "refer_adjuster",
   uw_antique_age_limit: 25,
-  uw_rental_non_petroleum_outcome: "refer_process"
+  uw_rental_non_petroleum_outcome: "refer_process",
+  claims_volume_factor: 1
 };
 
 const RATING_FALLBACK_SCHEMA = {
@@ -223,7 +809,16 @@ const UI_TERMS = {
   fired: "activado",
   unknown: "desconocido",
   unknown_key: "clave desconocida",
-  none: "ninguno"
+  none: "ninguno",
+  pricing: "Tarificación",
+  claims_accidents: "Siniestros",
+  underwriting_ops: "Suscripción",
+  robo_partes: "Robo de partes",
+  robo_partes_moto: "Robo de partes (moto)",
+  alcoholemia: "Alcohol sobre el límite",
+  aviso_tardio: "Aviso fuera de plazo",
+  reemplazo_parte: "Reemplazo de parte",
+  dosaje_faltante_menor: "Sin prueba de alcoholemia"
 };
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -260,7 +855,7 @@ function toast(msg, isErr) {
 const DEFAULT_ROUTE = "simple_chat";
 const state = {
   route: DEFAULT_ROUTE,
-  cache: { versions: null, engines: null, discovery: null, health: null, defs: {}, graph: {}, flags: {}, ledger: null, drafts: null, ratingSchema: null, simulationFilters: null, simulationCandidates: null },
+  cache: { versions: null, engines: null, discovery: null, health: null, defs: {}, graph: {}, flags: {}, ledger: null, drafts: null, ratingSchema: null, simulationFilters: null, simulationCandidates: null, portfolio: null },
   runner: {
     engine: "uw",
     values: { uw: {}, coverage: {} },
@@ -268,14 +863,18 @@ const state = {
     demo: { uw: { text: DEMO_TEXT.uw, result: null, step: 0, active: false }, coverage: { text: DEMO_TEXT.coverage, result: null, step: 0, active: false } },
     result: null,
     mode: "form",
-    ratingWeights: null
+    ratingWeights: null,
+    caseSettings: { ...SIMPLE_CHAT_CASE_DEFAULTS },
+    selectedClientId: null,
+    selectedClaimId: null
   },
-  renewal: { values: JSON.parse(JSON.stringify(RENEWAL_SAMPLE)), result: null, saved: null },
+  renewal: { values: JSON.parse(JSON.stringify(RENEWAL_SAMPLE)), result: null, saved: null, selectedClientId: null },
   simple_chat: {
     scenario: "chat",
     result: null,
-    local: { sessions: [], session: null, text: "", engine: "uw" }
+    local: { sessions: [], session: null, text: "", engine: "auto", selectedClientId: "", caseSettings: { ...SIMPLE_CHAT_CASE_DEFAULTS } }
   },
+  clients: { selectedClientId: "CLI-MORA-001" },
   graph: { engine: "uw", selected: null, query: "", mode: "map" },
   flags: { engine: "all", selected: null, query: "", mode: "flags" },
   ledger: { selected: null },
@@ -283,11 +882,12 @@ const state = {
     filters: { engine: "all", age_min: "", age_max: "", cities: "", brokers: "", business_types: "", vehicle_makes: "", policy_types: "", claim_causes: "" },
     controls: { ...DEFAULT_SIM_CONTROLS },
     candidate_id: "growth_sandbox",
-    tab: "cases",
-    showLevers: false,
+    domain: "suscripcion",
     result: null
   },
-  supervision: { result: null, baseline: null }
+  supervision: { result: null, baseline: null },
+  recorrido: { clientId: null, messages: [], facts: {}, result: null, task: null, status: "idle", busy: false, text: "" },
+  bandeja: { tasks: [], selectedId: null, preview: null, answerText: "", busy: false }
 };
 
 /* ---------- data loaders (cached) ---------- */
@@ -336,6 +936,10 @@ async function supervisionPayload(payload = {}) {
   return Object.keys(payload || {}).length ? postJSON("/api/supervision", payload, "supervision_user") : getJSON("/api/supervision");
 }
 async function renewalList() { state.renewal.saved = await getJSON("/api/renewals"); return state.renewal.saved; }
+async function portfolioData(force = false) {
+  if (force || !state.cache.portfolio) state.cache.portfolio = await getJSON("/api/portfolio");
+  return state.cache.portfolio;
+}
 function discovery() { return state.cache.discovery || { downstream_verdict: {} }; }
 function versionFor(engine) { return (state.cache.versions || []).find((v) => v.engine === engine); }
 function registeredMotors() {
@@ -343,6 +947,8 @@ function registeredMotors() {
   return list.length ? list : [{ id: "uw", label: "Suscripción" }, { id: "coverage", label: "Reclamos" }];
 }
 function engineLabel(id) {
+  if (id === "auto") return "Automático";
+  if (id === "renewal") return "Renovación";
   if (id === "coverage" || id === "claims") return "Reclamos";
   const spec = registeredMotors().find((e) => e.id === id);
   return spec ? (spec.label || titleCase(spec.id)) : titleCase(id);
@@ -505,61 +1111,728 @@ function gateReason(key) {
 }
 
 /* =====================================================================
-   VIEW: STAKEHOLDER DEMO
+   VIEW: CLIENTES
    ===================================================================== */
-VIEWS.demo = async function (params) {
-  const priorMotor = state.runner.engine;
-  if (params.engine) state.runner.engine = params.engine;
-  if (params.engine && params.engine !== priorMotor) {
-    state.runner.result = null;
-    if (state.runner.demo[priorMotor]) state.runner.demo[priorMotor].active = false;
+VIEWS.clients = async function () {
+  const data = await portfolioData(true).catch(() => null);
+  if (!data) {
+    toast("No se pudo cargar Clientes", true);
+    return;
   }
-  const engine = state.runner.engine;
-  await defs(engine);
-  if (engine === "uw") {
-    const schema = await ratingSchema();
-    state.runner.ratingWeights ||= JSON.parse(JSON.stringify(schema.calibration || schema.weights || {}));
-  }
-
+  const selectedId = state.clients.selectedClientId || ((data.tables?.clients || [])[0] || {}).client_id || "";
+  state.clients.selectedClientId = selectedId;
+  const selected = (data.tables?.clients || []).find((row) => row.client_id === selectedId);
   setTopbar(
-    "Recorrido demo",
-    "Ingresa un caso y recorre los nodos exactos visitados hasta el resultado.",
-    `${engineSegment("demo-engine", engine)}
-     <button class="btn btn-primary" id="demo-start-btn">Iniciar recorrido</button>`
+    "Clientes",
+    "Base operacional conectada: clientes, pólizas, vehículos, suscripción, reclamos, renovaciones y eventos.",
+    `<span class="badge badge-ok">${esc((data.summary || {}).client_count || 0)} clientes</span>
+     <span class="badge badge-amber">${esc((data.summary || {}).event_count || 0)} eventos chat</span>`
   );
 
   $("#view").innerHTML = `
-    <div class="board demo-simple">
-      <section class="card inputs-card demo-input-card">
-        <div class="card-head"><h2>Entrada del caso</h2>
-          <div class="seg" id="demo-input-mode">
-            <button class="seg-btn active" data-view="chat">Chat</button>
-            <button class="seg-btn" data-view="form">Formulario</button>
-            <button class="seg-btn" data-view="json">JSON</button>
+    <div class="clients-page">
+      <section class="client-browser clients-master">
+        <div class="client-browser-head">
+          <div>
+            <span class="client-browser-kicker">Tabla maestra</span>
+            <h2>Clientes</h2>
+            <p>Haz clic en una fila para filtrar las tablas relacionadas por llave foránea.</p>
+          </div>
+          <div class="client-browser-stats">
+            <span><b>${esc((data.summary || {}).policy_count || 0)}</b> pólizas</span>
+            <span><b>${esc((data.summary || {}).claim_count || 0)}</b> reclamos</span>
+            <span><b>${esc((data.summary || {}).clean_client_count || 0)}</b> limpios</span>
           </div>
         </div>
-        <div class="card-body">
-          <div id="chat-view">${chatPanel()}</div>
-          <div id="form-view" class="fields hidden"></div>
-          <div id="json-view" class="hidden"><textarea id="json-input" spellcheck="false"></textarea><p class="json-hint">Avanzado — los cambios se sincronizan al iniciar el recorrido.</p></div>
-        </div>
+        <div class="client-table-wrap">${clientsMasterTable(data.tables?.clients || [], selectedId)}</div>
       </section>
-      <section class="card result-card demo-stage-card">
-        <div class="card-head"><h2>Recorrido de presentación</h2><span class="audit-id" id="audit-id"></span></div>
-        <div class="card-body" id="result-body">${emptyDemoResult()}</div>
+
+      ${selected ? `<section class="client-browser">
+        <div class="client-detail">
+          <div class="client-detail-main">
+            <span class="client-browser-kicker">Cliente seleccionado</span>
+            <h3>${esc(selected.client_name)}</h3>
+            <p>${esc(selected.client_id)} · ${esc(selected.broker)} · ${esc(selected.city)} · LR ${Number(selected.loss_ratio || 0).toFixed(2)}</p>
+          </div>
+          <div class="client-detail-actions">
+            <button class="btn btn-ghost" id="client-open-uw">Abrir en Suscripción</button>
+            <button class="btn btn-ghost" id="client-open-claims">Abrir en Reclamos</button>
+            <button class="btn btn-primary" id="client-open-renewal">Abrir en Renovación</button>
+          </div>
+        </div>
+      </section>` : ""}
+
+      ${bandHead("Tablas relacionadas", "filtradas por client_id / policy_id")}
+      <section class="supervision-grid clients-grid">
+        ${tableCard("Pólizas", portfolioTableRows("policies", relatedRows(data, "policies", selectedId)))}
+        ${tableCard("Vehículos", portfolioTableRows("vehicles", relatedRows(data, "vehicles", selectedId)))}
+        ${tableCard("Paquetes de suscripción", portfolioTableRows("underwriting_packets", relatedRows(data, "underwriting_packets", selectedId)))}
+        ${tableCard("Reclamos", portfolioTableRows("claims", relatedRows(data, "claims", selectedId)))}
+        ${tableCard("Renovaciones base", portfolioTableRows("renewal_terms", relatedRows(data, "renewal_terms", selectedId)))}
+        ${tableCard("Eventos creados desde chat", portfolioEventRows(relatedRows(data, "events", selectedId)))}
+      </section>
+
+      ${bandHead("Esquema", "llaves foráneas operativas")}
+      <section class="client-browser schema-card">
+        <div class="card-body">${foreignKeyRows(data.schema?.foreign_keys || [])}</div>
       </section>
     </div>`;
 
-  $$("#demo-engine .seg-btn").forEach((b) => b.addEventListener("click", () => go("demo", { engine: b.dataset.engine })));
-  renderForm(); syncJson(); renderChat();
-  const demo = demoState();
-  if (state.runner.result && demo.active) renderWalkthroughResult(state.runner.result);
-  else $("#result-body").innerHTML = emptyDemoResult();
-  $("#demo-start-btn").addEventListener("click", startWalkthrough);
-  $$("#demo-input-mode .seg-btn").forEach((b) => b.addEventListener("click", () => {
-    setInputMode(b.dataset.view, "demo-input-mode");
+  $$("#view .client-row-link").forEach((row) => row.addEventListener("click", () => {
+    state.clients.selectedClientId = row.dataset.clientId;
+    VIEWS.clients();
   }));
+  $("#client-open-uw")?.addEventListener("click", () => openClientInFlow(selectedId, "uw"));
+  $("#client-open-claims")?.addEventListener("click", () => openClientInFlow(selectedId, "claims"));
+  $("#client-open-renewal")?.addEventListener("click", () => openClientInFlow(selectedId, "renewals"));
+  bindPortfolioEventButtons();
 };
+
+function clientsMasterTable(rows, selectedId) {
+  return `<table class="client-table"><thead><tr><th>Cliente</th><th>Broker</th><th>Ciudad</th><th>Pólizas</th><th>Reclamos</th><th>LR</th></tr></thead><tbody>
+    ${rows.map((row) => `<tr class="client-row client-row-link ${row.client_id === selectedId ? "selected" : ""}" data-client-id="${esc(row.client_id)}">
+      <td><b>${esc(row.client_name)}</b><div class="sim-sub">${esc(row.client_id)} · ${esc(titleCase(row.client_type))}</div></td>
+      <td>${esc(row.broker)}<div class="sim-sub">${esc(row.contact || "")}</div></td>
+      <td>${esc(row.city)}</td>
+      <td class="num">${esc(row.policy_count)}</td>
+      <td class="num">${esc(row.claim_count)}</td>
+      <td class="num">${Number(row.loss_ratio || 0).toFixed(2)}</td>
+    </tr>`).join("") || emptyTableRow(6)}
+  </tbody></table>`;
+}
+
+function relatedRows(data, table, clientId) {
+  const rows = (data.tables && data.tables[table]) || [];
+  if (!clientId) return rows;
+  return rows.filter((row) => row.client_id === clientId);
+}
+
+function portfolioTableRows(table, rows) {
+  const columnsByTable = {
+    policies: ["policy_id", "client_id", "vehicle_id", "status", "product", "current_premium_bob", "renewal_due"],
+    vehicles: ["vehicle_id", "policy_id", "make", "model", "model_year", "vehicle_class", "valor_asegurado"],
+    underwriting_packets: ["underwriting_packet_id", "policy_id", "outcome", "approved_at", "final_price_bob"],
+    claims: ["claim_id", "policy_id", "date", "label", "status", "amount_usd"],
+    renewal_terms: ["renewal_id", "policy_id", "renewal_due", "price_adjustment_percent", "reason"],
+  };
+  const columns = columnsByTable[table] || Object.keys(rows[0] || {}).slice(0, 7);
+  return `<table class="gtable"><thead><tr>${columns.map((column) => `<th>${esc(titleCase(column))}</th>`).join("")}</tr></thead><tbody>
+    ${rows.map((row) => `<tr class="gtr">${columns.map((column) => `<td class="${typeof row[column] === "number" ? "num" : ""}">${esc(fmtPortfolioCell(row[column]))}</td>`).join("")}</tr>`).join("") || emptyTableRow(columns.length || 1)}
+  </tbody></table>`;
+}
+
+function portfolioEventRows(rows) {
+  return `<table class="gtable"><thead><tr><th>Evento</th><th>Tipo</th><th>Cliente</th><th>Estado</th><th>Listo</th><th></th></tr></thead><tbody>
+    ${rows.map((event) => `<tr class="gtr"><td class="mono">${esc(event.event_id)}</td><td>${esc(titleCase(event.event_type))}</td><td>${esc(event.client_name || event.client_id || "—")}</td><td>${esc(titleCase(event.status))}</td><td>${event.ready_to_execute ? "sí" : "no"}</td><td><button class="btn btn-ghost event-load-btn" data-event-id="${esc(event.event_id)}">Cargar</button></td></tr>`).join("") || emptyTableRow(6)}
+  </tbody></table>`;
+}
+
+function foreignKeyRows(rows) {
+  return `<table class="gtable"><thead><tr><th>Desde</th><th>Hacia</th></tr></thead><tbody>
+    ${rows.map((row) => `<tr class="gtr"><td class="mono">${esc(row.from)}</td><td class="mono">${esc(row.to)}</td></tr>`).join("") || emptyTableRow(2)}
+  </tbody></table>`;
+}
+
+function portfolioOpsSection(data) {
+  if (!data) return "";
+  const events = ((data.tables || {}).events || []).slice(0, 8);
+  const clients = ((data.tables || {}).clients || []).slice(0, 8);
+  return `${bandHead("Datos operativos vivos", "clientes y eventos creados desde Chat")}
+    <section class="supervision-grid">
+      ${tableCard("Eventos de chat", portfolioEventRows(events))}
+      ${tableCard("Clientes operativos", clientsMasterTable(clients, state.clients.selectedClientId))}
+    </section>`;
+}
+
+function fmtPortfolioCell(value) {
+  if (value && typeof value === "object") return Array.isArray(value) ? `${value.length} filas` : `${Object.keys(value).length} campos`;
+  return fmt(value);
+}
+
+async function openClientInFlow(clientId, route) {
+  if (route === "claims") {
+    state.runner.selectedClientId = clientId;
+    go("claims");
+    return;
+  }
+  if (route === "renewals") {
+    state.renewal.selectedClientId = clientId;
+    go("renewals");
+    return;
+  }
+  const data = await portfolioData();
+  const packet = (data.tables?.underwriting_packets || []).find((row) => row.client_id === clientId);
+  if (packet) state.runner.values.uw = compactFacts(packet.facts || {});
+  go("uw");
+}
+
+/* =====================================================================
+   VIEW: STAKEHOLDER DEMO
+   ===================================================================== */
+VIEWS.demo = async function () {
+  // The demo runs on the UW engine. The left column mirrors the chat experience; the
+  // right column animates the exact nodes the real engine visited for the loaded client.
+  state.runner.engine = "uw";
+  await defs("uw");
+  const schema = await ratingSchema();
+  state.runner.ratingWeights ||= JSON.parse(JSON.stringify(schema.calibration || schema.weights || {}));
+
+  setTopbar(
+    "Recorrido demo",
+    "Carga un cliente pre-escrito y mira el árbol recorrerse nodo por nodo, igual que en el chat.",
+    `<button class="btn btn-ghost" id="recorrido-reset-btn">Reiniciar</button>`
+  );
+
+  $("#view").innerHTML = `
+    <div class="recorrido-workspace">
+      <section class="chat-col recorrido-chat">
+        ${recorridoClientPicker()}
+        <div class="chat-thread" id="recorrido-thread">${recorridoMessages()}</div>
+        <div class="composer-area">
+          <div class="composer">
+            <textarea id="recorrido-input" class="composer-input" rows="1" spellcheck="true" placeholder="Escribe como el cliente para sumar datos…">${esc(state.recorrido.text || "")}</textarea>
+            <button class="composer-send" id="recorrido-send" title="Enviar" aria-label="Enviar">↑</button>
+          </div>
+          <div class="composer-bar">
+            <span class="composer-hint">Carga un cliente arriba · Enter envía · Shift+Enter salto</span>
+          </div>
+        </div>
+      </section>
+      <aside class="card result-card recorrido-stage-card">
+        <div class="card-head"><h2>Recorrido del árbol</h2><span class="audit-id" id="audit-id"></span></div>
+        <div class="card-body" id="result-body">${emptyDemoResult()}</div>
+      </aside>
+    </div>`;
+
+  bindRecorridoControls();
+  renderRecorridoStage();
+  const thread = $("#recorrido-thread");
+  if (thread) thread.scrollTop = thread.scrollHeight;
+};
+
+function recorridoClientPicker() {
+  const active = state.recorrido.clientId;
+  const trees = [];
+  for (const c of DEMO_RECORRIDO_CLIENTS) {
+    const label = c.tree || "Otros";
+    let group = trees.find((t) => t.label === label);
+    if (!group) { group = { label, clients: [] }; trees.push(group); }
+    group.clients.push(c);
+  }
+  const groups = trees.map((group) => {
+    const chips = group.clients.map((c) => `
+      <button class="recorrido-client ${active === c.id ? "active" : ""}" data-client="${esc(c.id)}">
+        <span class="recorrido-client-dot ${c.intervention ? "warn" : "ok"}"></span>
+        <span class="recorrido-client-main"><b>${esc(c.name)}</b><span>${esc(c.subtitle)}</span></span>
+      </button>`).join("");
+    return `<div class="recorrido-tree-group">
+      <span class="recorrido-tree-label">${esc(group.label)}</span>
+      <div class="recorrido-clients-row">${chips}</div>
+    </div>`;
+  }).join("");
+  return `<div class="recorrido-clients">
+    <span class="recorrido-clients-label">Cliente pre-escrito (no se guarda) · un caso por árbol</span>
+    ${groups}
+  </div>`;
+}
+
+function recorridoMessages() {
+  const messages = state.recorrido.messages || [];
+  if (!messages.length) return `<div class="chat-empty">
+    <div class="chat-empty-mark">▷</div>
+    <p class="chat-empty-title">Elige un cliente para iniciar</p>
+    <p class="chat-empty-sub">Cliente A pasa elegible y tarificado sin intervención. Cliente B se detiene en un dato que decide el suscriptor y crea una tarea en la Bandeja.</p>
+  </div>`;
+  return messages.map((m) => {
+    if (m.sender === "sistema") return `<div class="msg-sys">${esc(m.text)}</div>`;
+    const isUser = m.sender === "cliente";
+    const who = isUser ? "user" : "bot";
+    const label = isUser ? (state.recorrido.clientName || "Cliente") : "RiskIQ";
+    const avatar = isUser ? esc(label.slice(0, 1)) : "◌";
+    return `<div class="msg msg-${who}">
+      <div class="msg-avatar">${avatar}</div>
+      <div class="msg-content">
+        <div class="msg-name">${esc(label)}</div>
+        <div class="msg-text">${esc(m.text)}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function pushRecorridoMsg(sender, text) {
+  state.recorrido.messages.push({ sender, text });
+}
+
+function refreshRecorridoThread() {
+  const thread = $("#recorrido-thread");
+  if (thread) { thread.innerHTML = recorridoMessages(); thread.scrollTop = thread.scrollHeight; }
+  const picker = $(".recorrido-clients");
+  if (picker) picker.outerHTML = recorridoClientPicker();
+  bindRecorridoClientChips();
+}
+
+function recorridoStageEmpty() {
+  return `<div class="empty demo-empty"><div class="empty-ico">▷</div><p class="empty-title">Sin recorrido todavía</p>
+    <p class="empty-sub">Carga un cliente: RiskIQ confirma los datos y el árbol se recorre aquí, nodo por nodo, hasta el dictamen.</p></div>`;
+}
+
+function renderRecorridoStage() {
+  if (state.recorrido.result) renderWalkthroughResult(state.recorrido.result);
+  else $("#result-body").innerHTML = recorridoStageEmpty();
+}
+
+function bindRecorridoClientChips() {
+  $$(".recorrido-client").forEach((b) => b.addEventListener("click", () => loadDemoClient(b.dataset.client)));
+}
+
+function bindRecorridoControls() {
+  bindRecorridoClientChips();
+  $("#recorrido-reset-btn")?.addEventListener("click", () => {
+    state.recorrido = { clientId: null, messages: [], facts: {}, result: null, task: null, status: "idle", busy: false, text: "" };
+    state.runner.result = null;
+    demoState().active = false; demoState().step = 0;
+    refreshRecorridoThread(); renderRecorridoStage();
+    toast("Recorrido reiniciado");
+  });
+  const input = $("#recorrido-input");
+  if (input) {
+    const grow = () => { input.style.height = "auto"; input.style.height = Math.min(input.scrollHeight, 160) + "px"; };
+    input.addEventListener("input", (e) => { state.recorrido.text = e.target.value; grow(); });
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendRecorridoMessage(); } });
+    grow();
+  }
+  $("#recorrido-send")?.addEventListener("click", sendRecorridoMessage);
+}
+
+async function loadDemoClient(clientId) {
+  const client = DEMO_RECORRIDO_CLIENTS.find((c) => c.id === clientId);
+  if (!client || state.recorrido.busy) return;
+  const engine = client.engine || "uw";
+  state.runner.engine = engine;
+  state.recorrido = {
+    clientId: client.id, clientName: client.name, engine, messages: [], facts: { ...client.facts },
+    result: null, task: null, status: "loading", busy: true, text: ""
+  };
+  pushRecorridoMsg("cliente", client.narrative);
+  pushRecorridoMsg("sistema", `Cliente nuevo cargado (no se guarda en la base): ${client.name}.`);
+  if (client.note) pushRecorridoMsg("sistema", client.note);
+  refreshRecorridoThread();
+  await defs(engine).catch(() => {});
+  await runRecorrido(client);
+  state.recorrido.busy = false;
+}
+
+async function runRecorrido(client) {
+  const engine = client.engine || "uw";
+  state.runner.engine = engine;
+  try {
+    const endpoint = engine === "uw" ? "/api/uw/run" : "/api/coverage/run";
+    const role = engine === "uw" ? "uw_user" : "claims_user";
+    const body = { facts: state.recorrido.facts, facts_confirmed: true };
+    if (engine === "uw") {
+      body.include_pricing = true;
+      body.rating_weights = state.runner.ratingWeights;
+    }
+    const data = await postJSON(endpoint, body, role);
+    state.recorrido.result = data;
+    state.runner.values[engine] = compactFacts({ ...state.recorrido.facts });
+    state.runner.result = data;
+    demoState().active = true; demoState().step = -1;
+
+    const packet = data.human_packet;
+    const factCount = Object.keys(compactFacts(state.recorrido.facts)).length;
+    const treeWord = client.tree === "Reclamos" ? "el árbol de reclamos"
+      : client.tree === "Renovación" ? "el árbol base de la renovación"
+      : "el árbol";
+    pushRecorridoMsg("riskiq", `Confirmé ${factCount} datos del caso y recorrí ${treeWord}. Mira el recorrido nodo por nodo a la derecha.`);
+    if (packet && shouldCreateHumanTaskClient(packet)) {
+      const task = await postJSON("/api/human-tasks", {
+        packet, initial_slip: client.narrative, source_channel: "demo", source_sender: client.name
+      }, "chat_agent");
+      state.recorrido.task = task;
+      state.recorrido.status = "human_task";
+      pushRecorridoMsg("riskiq", `El árbol se detuvo en “${packet.question || "un dato que necesita criterio"}”. Pasé el caso a ${task.owner_name || "Santiago Bustillos"} con todo el paquete.`);
+      pushRecorridoMsg("sistema", `Tarea ${task.task_id} creada en la Bandeja de tareas → resuélvela ahí para reanudar el árbol.`);
+    } else if (packet && packet.resolution_channel === "client_followup") {
+      state.recorrido.status = "client_followup";
+      pushRecorridoMsg("riskiq", `El árbol se detuvo porque falta un dato: ${packet.question || packet.requested_fact || "un dato del caso"}. Respóndelo en el chat y sigo el recorrido.`);
+    } else if (engine === "coverage") {
+      state.recorrido.status = "done";
+      pushRecorridoMsg("riskiq", `Dictamen orientativo: ${titleCase(data.outcome || "evaluado")}. Revisa el detalle del recorrido a la derecha.`);
+    } else if (data.outcome === "eligible" || data.outcome === "conditional_eligible") {
+      const price = (data.pricing && data.pricing.status === "approved_final_price");
+      state.recorrido.status = "done";
+      const renew = client.tree === "Renovación";
+      pushRecorridoMsg("riskiq", price
+        ? `Resultado: ${titleCase(data.outcome)} y ${renew ? "prima de renovación recalculada" : "precio final aprobado"}, sin intervención humana.`
+        : `Resultado: ${titleCase(data.outcome)}. Revisa el dictamen a la derecha.`);
+    } else {
+      state.recorrido.status = "done";
+      pushRecorridoMsg("riskiq", `Resultado: ${titleCase(data.outcome || "dictamen")}. Revisa el detalle a la derecha.`);
+    }
+  } catch (err) {
+    state.recorrido.status = "error";
+    pushRecorridoMsg("sistema", "No se pudo correr el árbol — ¿está levantado el servidor?");
+  }
+  refreshRecorridoThread();
+  renderRecorridoStage();
+}
+
+function shouldCreateHumanTaskClient(packet) {
+  return packet && packet.needs_human_task !== false && packet.resolution_channel !== "client_followup";
+}
+
+async function sendRecorridoMessage() {
+  const text = ($("#recorrido-input")?.value || state.recorrido.text || "").trim();
+  if (!text) { toast("Escribe un mensaje primero", true); return; }
+  if (!state.recorrido.clientId) { toast("Carga primero un cliente", true); return; }
+  if (state.recorrido.busy) return;
+  state.recorrido.busy = true; state.recorrido.text = "";
+  const input = $("#recorrido-input"); if (input) { input.value = ""; input.style.height = "auto"; }
+  pushRecorridoMsg("cliente", text);
+  refreshRecorridoThread();
+  const engine = state.recorrido.engine || "uw";
+  const role = engine === "uw" ? "uw_user" : "claims_user";
+  try {
+    const extraction = await postJSON("/api/nl/extract-facts", { engine, text }, role);
+    const added = {};
+    for (const [k, item] of Object.entries(extraction.facts || {})) {
+      if (item && typeof item === "object" && "value" in item && hasValor(item.value)) added[k] = item.value;
+    }
+    if (Object.keys(added).length) {
+      state.recorrido.facts = { ...state.recorrido.facts, ...added };
+      pushRecorridoMsg("sistema", `Datos añadidos: ${Object.keys(added).join(", ")}.`);
+      const client = DEMO_RECORRIDO_CLIENTS.find((c) => c.id === state.recorrido.clientId) || { narrative: text, name: state.recorrido.clientName };
+      await runRecorrido(client);
+    } else {
+      pushRecorridoMsg("riskiq", "No encontré datos nuevos en ese mensaje. Dame un dato concreto (marca, valor, ciudad, etc.).");
+      refreshRecorridoThread();
+    }
+  } catch {
+    pushRecorridoMsg("sistema", "No se pudo interpretar el mensaje.");
+    refreshRecorridoThread();
+  } finally {
+    state.recorrido.busy = false;
+  }
+}
+
+/* =====================================================================
+   VIEW: BANDEJA DE TAREAS (underwriter inbox)
+   Every case the tree stops on arrives here with its full packet. The
+   underwriter answers in natural language; the LLM interprets it, the
+   underwriter confirms, and the answer is merged so the tree resumes.
+   ===================================================================== */
+VIEWS.bandeja = async function () {
+  state.runner.engine = "uw";
+  await defs("uw").catch(() => {});
+  await refreshBandejaTasks();
+  renderBandejaInner();
+};
+
+async function refreshBandejaTasks() {
+  try {
+    const tasks = await getJSON("/api/human-tasks");
+    state.bandeja.tasks = Array.isArray(tasks) ? tasks : [];
+  } catch {
+    state.bandeja.tasks = [];
+    toast("No se pudo cargar la Bandeja", true);
+  }
+  const tasks = state.bandeja.tasks;
+  if (!state.bandeja.selectedId || !tasks.some((t) => t.task_id === state.bandeja.selectedId)) {
+    const open = tasks.filter(bandejaIsOpen);
+    state.bandeja.selectedId = (open[0] || tasks[0] || {}).task_id || null;
+  }
+}
+
+function bandejaIsOpen(task) {
+  return !!task && (task.status === "needs_human_input" || task.status === "resumed_needs_more_input");
+}
+
+function renderBandejaInner() {
+  const tasks = state.bandeja.tasks;
+  const open = tasks.filter(bandejaIsOpen);
+  setTopbar(
+    "Bandeja de tareas",
+    "Cola del suscriptor Santiago Bustillos: cada caso detenido por un dato o dictamen llega con todo el paquete para resolverlo y reanudar el árbol.",
+    `<span class="badge ${open.length ? "badge-amber" : "badge-ok"}">${open.length} pendientes</span>
+     <span class="badge badge-muted">${tasks.length} en total</span>
+     <button class="btn btn-ghost" id="bandeja-refresh-btn">Actualizar</button>`
+  );
+  $("#view").innerHTML = `
+    <div class="bandeja-workspace">
+      <section class="card bandeja-list">
+        <div class="card-head"><h2>Tareas asignadas</h2><span class="audit-id">Santiago Bustillos</span></div>
+        <div class="card-body bandeja-list-body">${bandejaTaskListHtml(tasks)}</div>
+      </section>
+      <section class="card bandeja-detail" id="bandeja-detail">${bandejaDetailHtml()}</section>
+    </div>`;
+  bindBandeja();
+}
+
+function bandejaTaskListHtml(tasks) {
+  if (!tasks.length) return `<div class="empty"><div class="empty-ico">✉</div>
+    <p class="empty-title">Sin tareas todavía</p>
+    <p class="empty-sub">Carga el cliente que requiere intervención en Recorrido demo: su caso se detiene y llega aquí con todo el paquete.</p></div>`;
+  return tasks.map((t) => {
+    const open = bandejaIsOpen(t);
+    const active = t.task_id === state.bandeja.selectedId;
+    return `<button class="bandeja-task ${active ? "active" : ""}" data-task="${esc(t.task_id)}">
+      <span class="bandeja-task-dot ${open ? "warn" : "ok"}"></span>
+      <span class="bandeja-task-main">
+        <b>${esc(t.question || "Revisión humana")}</b>
+        <span class="bandeja-task-sub">${esc(t.task_id)} · ${esc(titleCase(t.engine || "uw"))} · ${esc(bandejaStatusLabel(t.status))}</span>
+        <span class="bandeja-task-meta">${esc(t.owner_name || "Santiago Bustillos")} · ${esc(t.source_sender || t.source_channel || "—")}</span>
+      </span>
+      <span class="badge ${open ? "badge-amber" : "badge-ok"}">${esc(bandejaPriorityLabel(t.priority))}</span>
+    </button>`;
+  }).join("");
+}
+
+function bandejaDetailHtml() {
+  const task = state.bandeja.tasks.find((t) => t.task_id === state.bandeja.selectedId);
+  if (!task) return `<div class="empty"><div class="empty-ico">▷</div>
+    <p class="empty-title">Elige una tarea</p>
+    <p class="empty-sub">Selecciona una tarea de la izquierda para ver el paquete completo y resolverla.</p></div>`;
+  const open = bandejaIsOpen(task);
+  const facts = task.confirmed_facts || {};
+  const factChips = Object.entries(facts).map(([k, v]) => `<span class="fact-chip">${esc(k)}=<b>${esc(fmt(v))}</b></span>`).join("")
+    || `<span class="human-sub">Sin hechos en el paquete.</span>`;
+  const node = task.current_node || {};
+  const schema = task.answer_schema || {};
+  const sourceQuote = schema.source_quote || node.source_quote || (task.audit_packet || {}).source_quote || "";
+  const head = `<div class="bandeja-detail-head">
+    <div>
+      <span class="bandeja-kicker">${esc(bandejaStatusLabel(task.status))} · ${esc(task.priority || "normal")}</span>
+      <h2>${esc(task.question || "Revisión humana")}</h2>
+      <p>${esc(task.task_id)} · motor ${esc(titleCase(task.engine || "uw"))} · asignada a <b>${esc(task.owner_name || "Santiago Bustillos")}</b></p>
+    </div>
+    <span class="badge ${open ? "badge-amber" : "badge-ok"}">${open ? "abierta" : "resuelta"}</span>
+  </div>`;
+  // The full case packet (every confirmed fact, route, source) is available but tucked
+  // away in a collapsible — the underwriter should focus on the one missing thing, not
+  // re-read 40 facts the chat already settled.
+  const packetDetails = `<details class="bandeja-packet-details">
+    <summary>Ver paquete completo del caso (${Object.keys(facts).length} hechos)</summary>
+    <div class="bandeja-packet">
+      ${task.initial_slip ? `<div class="section-label">Solicitud original</div><blockquote class="quote sm">${esc(task.initial_slip)}</blockquote>` : ""}
+      <div class="bandeja-packet-meta">
+        <div><span>Detenido en</span><b>${esc(node.id || node.title || "—")}</b></div>
+        <div><span>Hechos confirmados</span><b>${task.facts_count ?? Object.keys(facts).length}</b></div>
+        <div><span>Pasos de ruta</span><b>${task.path_count ?? 0}</b></div>
+        <div><span>Dato solicitado</span><b>${esc(task.requested_fact || "—")}</b></div>
+      </div>
+      <div class="bandeja-facts">${factChips}</div>
+    </div>
+  </details>`;
+  if (!open) {
+    return head + bandejaCompletedHtml(task) + packetDetails;
+  }
+  // Open task: lead with ONLY the missing thing — the question, the fact it needs, and
+  // the source text that justifies asking.
+  const focus = `<div class="bandeja-focus">
+    <div class="section-label">Lo único que falta</div>
+    <div class="bandeja-focus-fact">
+      <span class="bandeja-focus-q">${esc(task.question || "Revisión humana")}</span>
+      ${task.requested_fact ? `<span class="fact-chip needed">dato · <b>${esc(task.requested_fact)}</b></span>` : ""}
+    </div>
+    ${bandejaPricingHtml(task)}
+    ${sourceQuote ? `<blockquote class="quote sm">${esc(sourceQuote)}</blockquote>` : ""}
+  </div>`;
+  return head + focus + bandejaResolveHtml(task) + packetDetails;
+}
+
+function bandejaPricingHtml(task) {
+  const pricing = (task.packet && task.packet.context && task.packet.context.pricing) || {};
+  const suggested = pricing.suggested_price_bob;
+  if (suggested == null) return "";
+  const currency = pricing.currency === "BOB" || !pricing.currency ? "Bs" : esc(pricing.currency);
+  const options = Array.isArray(pricing.suggested_options) ? pricing.suggested_options : [];
+  const optionRows = options.map((o) => `<div class="bandeja-price-opt">
+      <span>${esc(o.label || o.id || "Opción")}</span>
+      <b>${currency} ${esc(money(o.cash_annual_premium_bob ?? o.installment_amount_bob))}</b>
+    </div>`).join("");
+  const reasons = (pricing.review_reasons || []).map((r) => `<span class="fact-chip">${esc(titleCase(r))}</span>`).join("");
+  return `<div class="bandeja-price">
+    <div class="bandeja-price-head">
+      <span>Prima sugerida por el motor</span>
+      <b class="bandeja-price-big">${currency} ${esc(money(suggested))}</b>
+    </div>
+    ${optionRows ? `<div class="bandeja-price-opts">${optionRows}</div>` : ""}
+    ${reasons ? `<div class="bandeja-price-reasons"><span class="human-sub">Motivo de revisión</span>${reasons}</div>` : ""}
+    <p class="human-sub">Aprueba, ajusta o rechaza esta prima antes de convertirla en precio final.</p>
+  </div>`;
+}
+
+function bandejaResolveHtml(task) {
+  if (!task.resumable) {
+    return `<div class="bandeja-resolve">
+      <div class="section-label">Dictamen manual</div>
+      <p class="human-sub">${esc((task.packet || {}).non_resumable_reason || "Esta tarea requiere un dictamen y no se reanuda con un solo dato.")}</p>
+      <textarea id="bandeja-answer" class="composer-input" rows="3" placeholder="Notas del dictamen…">${esc(state.bandeja.answerText || "")}</textarea>
+      <div class="bandeja-actions"><button class="btn btn-primary" id="bandeja-dictamen-btn">Marcar como resuelto</button></div>
+    </div>`;
+  }
+  const preview = (state.bandeja.preview && state.bandeja.preview.task_id === task.task_id) ? state.bandeja.preview : null;
+  const schema = task.answer_schema || {};
+  return `<div class="bandeja-resolve">
+    <div class="section-label">Responde como suscriptor${schema.type ? ` <span class="chip">tipo · <b>${esc(schema.type)}</b></span>` : ""}</div>
+    <textarea id="bandeja-answer" class="composer-input" rows="3" placeholder="Escribe tu criterio en lenguaje natural (p. ej. ‘es un camión con cabina separada, trátalo como pesado’)…">${esc(state.bandeja.answerText || "")}</textarea>
+    <div class="bandeja-actions"><button class="btn btn-ghost" id="bandeja-interpret-btn">Interpretar respuesta</button></div>
+    ${preview ? bandejaPreviewHtml(preview) : ""}
+  </div>`;
+}
+
+function bandejaPreviewHtml(preview) {
+  if (!preview.interpreted) {
+    return `<div class="bandeja-preview warn"><p>${esc(preview.reply_es)}</p></div>`;
+  }
+  const label = bandejaValueLabel(preview.interpreted_value, preview.fact_type);
+  return `<div class="bandeja-preview ok">
+    <div class="bandeja-preview-head"><span class="human-badge">Interpretación del LLM</span><span class="chip">confianza · <b>${esc(preview.confidence)}</b></span></div>
+    <p>${esc(preview.reply_es)}</p>
+    <div class="bandeja-preview-val"><span>${esc(preview.requested_fact)}</span><b>${esc(label)}</b></div>
+    <div class="bandeja-actions">
+      <button class="btn btn-primary" id="bandeja-confirm-btn">Confirmar e incorporar al paquete</button>
+      <button class="btn btn-ghost" id="bandeja-edit-btn">Reescribir</button>
+    </div>
+  </div>`;
+}
+
+function bandejaCompletedHtml(task) {
+  const ans = task.answer || {};
+  const valueLabel = bandejaValueLabel(ans.value, (task.answer_schema || {}).type);
+  return `<div class="bandeja-resolved">
+    <div class="bandeja-preview ok">
+      <div class="bandeja-preview-head"><span class="human-badge">Resuelto por ${esc(task.owner_name || "Santiago Bustillos")}</span></div>
+      <p>El suscriptor respondió <b>${esc(task.requested_fact || ans.fact_id || "")} = ${esc(valueLabel)}</b>. El árbol se reanudó con el paquete actualizado.</p>
+      ${task.human_notes ? `<p class="human-sub">“${esc(task.human_notes)}”</p>` : ""}
+    </div>
+    ${task.next_task_id ? `<div class="bandeja-preview warn"><p>El árbol volvió a detenerse: se creó la tarea <b>${esc(task.next_task_id)}</b>.</p><div class="bandeja-actions"><button class="btn btn-ghost" id="bandeja-goto-next">Ir a la siguiente tarea</button></div></div>` : ""}
+    <div class="card-head sub"><h3>Recorrido reanudado</h3><span class="audit-id" id="audit-id"></span></div>
+    <div id="result-body">${emptyDemoResult()}</div>
+  </div>`;
+}
+
+function bindBandeja() {
+  $("#bandeja-refresh-btn")?.addEventListener("click", async () => {
+    await refreshBandejaTasks();
+    renderBandejaInner();
+    toast("Bandeja actualizada");
+  });
+  $$(".bandeja-task").forEach((b) => b.addEventListener("click", () => {
+    state.bandeja.selectedId = b.dataset.task;
+    state.bandeja.preview = null;
+    state.bandeja.answerText = "";
+    renderBandejaInner();
+  }));
+  const task = state.bandeja.tasks.find((t) => t.task_id === state.bandeja.selectedId);
+  if (!task) return;
+  const ta = $("#bandeja-answer");
+  if (ta) ta.addEventListener("input", (e) => { state.bandeja.answerText = e.target.value; });
+  $("#bandeja-interpret-btn")?.addEventListener("click", () => bandejaInterpret(task));
+  $("#bandeja-confirm-btn")?.addEventListener("click", () => bandejaConfirm(task));
+  $("#bandeja-edit-btn")?.addEventListener("click", () => { state.bandeja.preview = null; renderBandejaInner(); });
+  $("#bandeja-dictamen-btn")?.addEventListener("click", () => bandejaDictamen(task));
+  $("#bandeja-goto-next")?.addEventListener("click", () => {
+    state.bandeja.selectedId = task.next_task_id;
+    state.bandeja.preview = null;
+    state.bandeja.answerText = "";
+    renderBandejaInner();
+  });
+  if (!bandejaIsOpen(task) && task.resume_result && Array.isArray(task.resume_result.audit)) {
+    state.runner.engine = "uw";
+    const merged = { ...((task.packet || {}).facts || task.confirmed_facts || {}) };
+    if (task.answer && task.answer.fact_id) merged[task.answer.fact_id] = task.answer.value;
+    state.runner.values.uw = compactFacts(merged);
+    state.runner.result = task.resume_result;
+    demoState().active = true; demoState().step = -1;
+    renderWalkthroughResult(task.resume_result);
+  }
+}
+
+async function bandejaInterpret(task) {
+  const text = ($("#bandeja-answer")?.value || state.bandeja.answerText || "").trim();
+  if (!text) { toast("Escribe tu criterio primero", true); return; }
+  if (state.bandeja.busy) return;
+  state.bandeja.busy = true;
+  const btn = $("#bandeja-interpret-btn");
+  if (btn) { btn.classList.add("loading"); btn.disabled = true; }
+  try {
+    const preview = await postJSON(`/api/human-tasks/${task.task_id}/interpret`, { text }, "uw_user");
+    state.bandeja.preview = { ...preview, task_id: task.task_id };
+    state.bandeja.answerText = text;
+    renderBandejaInner();
+  } catch {
+    toast("No se pudo interpretar la respuesta", true);
+  } finally {
+    state.bandeja.busy = false;
+  }
+}
+
+async function bandejaConfirm(task) {
+  const preview = state.bandeja.preview;
+  if (!preview || !preview.interpreted) { toast("Interpreta una respuesta primero", true); return; }
+  if (state.bandeja.busy) return;
+  state.bandeja.busy = true;
+  const btn = $("#bandeja-confirm-btn");
+  if (btn) { btn.classList.add("loading"); btn.disabled = true; }
+  try {
+    await postJSON(`/api/human-tasks/${task.task_id}/complete`, {
+      answer: { fact_id: preview.requested_fact, value: preview.interpreted_value },
+      human_notes: state.bandeja.answerText
+    }, "uw_user");
+    state.bandeja.preview = null;
+    state.bandeja.answerText = "";
+    await refreshBandejaTasks();
+    state.bandeja.selectedId = task.task_id;
+    renderBandejaInner();
+    toast("Paquete actualizado · árbol reanudado");
+  } catch {
+    toast("No se pudo completar la tarea", true);
+  } finally {
+    state.bandeja.busy = false;
+  }
+}
+
+async function bandejaDictamen(task) {
+  if (state.bandeja.busy) return;
+  state.bandeja.busy = true;
+  const btn = $("#bandeja-dictamen-btn");
+  if (btn) { btn.classList.add("loading"); btn.disabled = true; }
+  try {
+    await postJSON(`/api/human-tasks/${task.task_id}/complete`, {
+      human_notes: state.bandeja.answerText, status: "completed"
+    }, "uw_user");
+    state.bandeja.answerText = "";
+    await refreshBandejaTasks();
+    state.bandeja.selectedId = task.task_id;
+    renderBandejaInner();
+    toast("Tarea marcada como resuelta");
+  } catch {
+    toast("No se pudo cerrar la tarea", true);
+  } finally {
+    state.bandeja.busy = false;
+  }
+}
+
+function bandejaValueLabel(value, factType) {
+  if (factType === "boolean") return value === true ? "Sí" : (value === false ? "No" : "—");
+  if (Array.isArray(value)) return value.join(", ");
+  return value === null || value === undefined ? "—" : String(value);
+}
+
+function bandejaStatusLabel(status) {
+  return {
+    needs_human_input: "pendiente",
+    resumed_needs_more_input: "necesita más datos",
+    completed: "resuelto",
+    completed_needs_client_followup: "espera al cliente",
+  }[status] || titleCase(status || "");
+}
+
+function bandejaPriorityLabel(priority) {
+  return titleCase(priority || "normal");
+}
 
 /* =====================================================================
    VIEW: DECISION RUNNER
@@ -568,6 +1841,7 @@ VIEWS.runner = async function (params) {
   if (params.engine) state.runner.engine = params.engine;
   const engine = state.runner.engine;
   await defs(engine);
+  const portfolioView = await portfolioData().catch(() => null);
   if (engine === "uw") {
     const schema = await ratingSchema();
     state.runner.ratingWeights ||= JSON.parse(JSON.stringify(schema.calibration || schema.weights || {}));
@@ -586,17 +1860,17 @@ VIEWS.runner = async function (params) {
 
   $("#view").innerHTML = `
     ${runnerKpis(engine)}
+    ${engine === "coverage" ? claimsListPanel() : portfolioEventPanel("subscription", portfolioView)}
     <div class="board">
       <section class="card inputs-card">
         <div class="card-head"><h2>Hechos de la solicitud</h2>
           <div class="card-head-tools">
             <div class="search"><span class="search-ico">⌕</span><input id="fact-search" type="text" placeholder="Filtrar…" autocomplete="off"/></div>
-            <div class="seg" id="input-mode"><button class="seg-btn active" data-view="chat">Chat</button><button class="seg-btn" data-view="form">Formulario</button><button class="seg-btn" data-view="json">JSON</button></div>
+            <div class="seg" id="input-mode"><button class="seg-btn active" data-view="form">Formulario</button><button class="seg-btn" data-view="json">JSON</button></div>
           </div>
         </div>
         <div class="card-body">
-          <div id="chat-view">${chatPanel()}</div>
-          <div id="form-view" class="fields hidden"></div>
+          <div id="form-view" class="fields"></div>
           <div id="json-view" class="hidden"><textarea id="json-input" spellcheck="false"></textarea><p class="json-hint">Avanzado — los cambios se sincronizan al ejecutar.</p></div>
         </div>
       </section>
@@ -606,15 +1880,25 @@ VIEWS.runner = async function (params) {
       </section>
     </div>`;
 
-  renderForm(); syncJson(); renderChat();
+  renderForm(); syncJson();
   $("#run-btn").addEventListener("click", runMotor);
-  $("#reset-btn").addEventListener("click", () => { state.runner.values[engine] = {}; renderForm(); syncJson(); resetResult(); toast("Hechos limpiados"); });
+  $("#reset-btn").addEventListener("click", () => {
+    state.runner.values[engine] = {};
+    if (engine === "coverage") {
+      state.runner.selectedClientId = null;
+      state.runner.selectedClaimId = null;
+      refreshClaimsList();
+    }
+    renderForm(); syncJson(); resetResult(); toast("Hechos limpiados");
+  });
   $$("#engine-seg .seg-btn").forEach((b) => b.addEventListener("click", () => go(b.dataset.engine === "coverage" ? "claims" : "uw")));
   $$("#input-mode .seg-btn").forEach((b) => b.addEventListener("click", () => setInputMode(b.dataset.view)));
   $("#fact-search").addEventListener("input", (e) => {
     const q = e.target.value.toLowerCase();
     $$("#form-view .field").forEach((r) => r.classList.toggle("hide", q && !r.textContent.toLowerCase().includes(q)));
   });
+  if (engine === "coverage") bindClaimsList();
+  else bindPortfolioEventButtons();
 };
 
 VIEWS.uw = function () {
@@ -624,6 +1908,332 @@ VIEWS.uw = function () {
 VIEWS.claims = function () {
   return VIEWS.runner({ engine: "coverage" });
 };
+
+function copyDemo(value) {
+  return JSON.parse(JSON.stringify(value || {}));
+}
+
+function demoClientById(id) {
+  return DEMO_CLIENTS.find((client) => client.id === id) || null;
+}
+
+function demoClaimById(client, claimId) {
+  if (!client || !Array.isArray(client.claims) || !client.claims.length) return null;
+  return client.claims.find((claim) => claim.id === claimId) || client.claims[0];
+}
+
+function demoClaimTotalUsd(client) {
+  return (client.claims || []).reduce((total, claim) => total + Number(claim.amount_usd || 0), 0);
+}
+
+function demoLossRatio(client) {
+  const premium = Number((client.underwriting || {}).final_price_bob || 0);
+  if (!premium) return 0;
+  return (demoClaimTotalUsd(client) * 6.96) / premium;
+}
+
+function demoVehicleLabel(client) {
+  const facts = (client.underwriting || {}).facts || {};
+  return `${facts.model_year || "--"} ${facts.make || facts.vehicle_brand || ""} ${facts.model || ""}`.trim();
+}
+
+function demoRatingFacts(client) {
+  const facts = (client.underwriting || {}).facts || {};
+  const keys = ["valor_asegurado", "model_year", "make", "marca_auto", "model", "city", "plaza_auto", "extraterritorialidad", "cuotas", "selected_pricing_option"];
+  const out = {};
+  for (const key of keys) if (hasValor(facts[key])) out[key] = facts[key];
+  return out;
+}
+
+function demoRenewalPayload(client) {
+  return {
+    client_id: client.id,
+    policy_id: client.policy_id,
+    renewal_date: client.renewal_due || new Date().toISOString().slice(0, 10),
+    price_adjustment_percent: Number((client.renewal || {}).price_adjustment_percent || 0),
+    price_adjustment_reason: (client.renewal || {}).reason || "Renovación cargada desde cartera demo.",
+    rating_facts: demoRatingFacts(client),
+    node_overrides: copyDemo((client.renewal || {}).node_overrides || []),
+    source_subscription: {
+      outcome: (client.underwriting || {}).outcome,
+      approved_at: (client.underwriting || {}).approved_at,
+      final_price_bob: (client.underwriting || {}).final_price_bob,
+    },
+  };
+}
+
+function selectedDemoClient(context) {
+  const selectedId = context === "renewals" ? state.renewal.selectedClientId : state.runner.selectedClientId;
+  return demoClientById(selectedId);
+}
+
+function allDemoClaims() {
+  const out = [];
+  DEMO_CLIENTS.forEach((client) => (client.claims || []).forEach((claim) => out.push({ client, claim })));
+  return out;
+}
+
+// Reclamos flow: a flat list of the created claim instances. Selecting one loads
+// its facts into the package; the full portfolio table lives in Supervisión.
+function claimsListPanel() {
+  const items = allDemoClaims();
+  const selectedId = state.runner.selectedClaimId;
+  const totalUsd = items.reduce((total, item) => total + Number(item.claim.amount_usd || 0), 0);
+  return `<section class="client-browser" id="claims-list">
+    <div class="client-browser-head">
+      <div>
+        <span class="client-browser-kicker">Reclamos cargados</span>
+        <h2>Lista de reclamos</h2>
+        <p>Selecciona un reclamo para cargar sus hechos en el paquete y ejecutar la orientación de cobertura.</p>
+      </div>
+      <div class="client-browser-stats">
+        <span><b>${esc(items.length)}</b> reclamos</span>
+        <span><b>USD ${moneyBob(totalUsd)}</b> expuesto</span>
+      </div>
+    </div>
+    <div class="client-table-wrap">
+      <table class="client-table">
+        <thead><tr><th>Reclamo</th><th>Cliente</th><th>Vehículo</th><th>Tipo</th><th>Monto</th><th></th></tr></thead>
+        <tbody>${items.map(({ client, claim }) => claimsListRow(client, claim, selectedId)).join("")}</tbody>
+      </table>
+    </div>
+  </section>`;
+}
+
+function claimsListRow(client, claim, selectedId) {
+  const active = selectedId === claim.id;
+  return `<tr class="client-row${active ? " selected" : ""}">
+    <td><b>${esc(claim.id)}</b><div class="sim-sub">${esc(client.policy_id)}</div></td>
+    <td>${esc(client.name)}<div class="sim-sub">${esc(client.city)} · ${esc(client.broker)}</div></td>
+    <td>${esc(demoVehicleLabel(client))}</td>
+    <td>${esc(claim.label)}</td>
+    <td>USD ${moneyBob(claim.amount_usd)}</td>
+    <td><button class="btn ${active ? "btn-secondary" : "btn-ghost"} claim-list-pick" data-client-id="${esc(client.id)}" data-claim-id="${esc(claim.id)}">${active ? "Cargado" : "Cargar"}</button></td>
+  </tr>`;
+}
+
+function bindClaimsList() {
+  $$("#claims-list .claim-list-pick").forEach((button) => button.addEventListener("click", () => {
+    selectDemoClientForClaims(button.dataset.clientId, button.dataset.claimId);
+  }));
+}
+
+function refreshClaimsList() {
+  const host = $("#claims-list");
+  if (!host) return;
+  host.outerHTML = claimsListPanel();
+  bindClaimsList();
+}
+
+function demoPortfolioPanel(context) {
+  const selected = selectedDemoClient(context);
+  const claimsCount = DEMO_CLIENTS.reduce((total, client) => total + (client.claims || []).length, 0);
+  const cleanCount = DEMO_CLIENTS.filter((client) => !(client.claims || []).length).length;
+  const isRenewals = context === "renewals";
+  const clients = isRenewals
+    ? [...DEMO_CLIENTS].sort((a, b) => String(a.renewal_due || "").localeCompare(String(b.renewal_due || "")))
+    : DEMO_CLIENTS;
+  const title = isRenewals ? "Cartera para renovación" : "Cartera para reclamos";
+  const sub = isRenewals
+    ? "Pólizas ordenadas por vencimiento más próximo. Selecciona una para precargar rating, prima y ajuste de renovación."
+    : "Selecciona un cliente; si tiene siniestros, se carga el paquete del reclamo en el motor.";
+  const extraHead = isRenewals
+    ? `<th class="num">Severidad anual</th><th class="num">Siniestros/año</th><th class="num">Prom. siniestro</th>`
+    : "";
+  return `<section class="client-browser" id="demo-client-browser">
+    <div class="client-browser-head">
+      <div>
+        <span class="client-browser-kicker">Clientes demo suscritos</span>
+        <h2>${esc(title)}</h2>
+        <p>${esc(sub)}</p>
+      </div>
+      <div class="client-browser-stats">
+        <span><b>${esc(DEMO_CLIENTS.length)}</b> clientes</span>
+        <span><b>${esc(claimsCount)}</b> reclamos</span>
+        <span><b>${esc(cleanCount)}</b> sin accidentes</span>
+      </div>
+    </div>
+    <div class="client-table-wrap">
+      <table class="client-table">
+        <thead><tr><th>Cliente</th><th>Póliza</th><th>Vehículo</th><th>Reclamos</th>${extraHead}<th>Renovación</th><th></th></tr></thead>
+        <tbody>${clients.map((client) => demoClientRow(client, context, selected)).join("")}</tbody>
+      </table>
+    </div>
+    ${demoClientDetail(context, selected)}
+  </section>`;
+}
+
+function demoClientRow(client, context, selected) {
+  const claimCount = (client.claims || []).length;
+  const loss = demoLossRatio(client);
+  const selectedCls = selected && selected.id === client.id ? " selected" : "";
+  const action = context === "renewals"
+    ? "Preparar"
+    : (claimCount ? "Abrir reclamo" : "Ver póliza");
+  const severityUsd = demoClaimTotalUsd(client);
+  const extraCells = context === "renewals"
+    ? `<td class="num">USD ${moneyBob(severityUsd)}</td><td class="num">${claimCount}</td><td class="num">${claimCount ? `USD ${moneyBob(severityUsd / claimCount)}` : "--"}</td>`
+    : "";
+  return `<tr class="client-row${selectedCls}">
+    <td><b>${esc(client.name)}</b><div class="sim-sub">${esc(client.id)} · ${esc(client.broker)}</div></td>
+    <td><span class="mono">${esc(client.policy_id)}</span><div class="sim-sub">${esc(client.city)} · ${esc(titleCase(client.policy_status))}</div></td>
+    <td>${esc(demoVehicleLabel(client))}<div class="sim-sub">Bs ${moneyBob(((client.underwriting || {}).facts || {}).valor_asegurado)}</div></td>
+    <td><span class="claim-pill ${claimCount ? "has-claims" : "is-clean"}">${claimCount ? `${claimCount} reclamo${claimCount === 1 ? "" : "s"}` : "sin accidentes"}</span><div class="sim-sub">LR ${loss.toFixed(2)}</div></td>
+    ${extraCells}
+    <td>${signedNumber((client.renewal || {}).price_adjustment_percent || 0, 0)}%<div class="sim-sub">${esc(client.renewal_due)}</div></td>
+    <td><button class="btn btn-ghost client-pick" data-client-id="${esc(client.id)}" data-context="${esc(context)}">${esc(action)}</button></td>
+  </tr>`;
+}
+
+function demoClientDetail(context, client) {
+  if (!client) {
+    return `<div class="client-detail empty-detail">
+      <p>Elige un cliente de la tabla para cargar sus datos de suscripción, póliza y ${context === "renewals" ? "renovación" : "reclamo"}.</p>
+    </div>`;
+  }
+  const facts = (client.underwriting || {}).facts || {};
+  const claim = context === "renewals" ? null : demoClaimById(client, state.runner.selectedClaimId);
+  const claimButtons = context === "claims" ? demoClaimButtons(client, claim) : "";
+  const detailAction = context === "renewals"
+    ? `<button class="btn btn-primary" id="client-preview-renewal">Previsualizar renovación</button>`
+    : (claim ? `<button class="btn btn-primary" id="client-run-claim">Ejecutar reclamo cargado</button>` : "");
+  const detailNote = context === "renewals"
+    ? (client.renewal || {}).reason
+    : (claim ? claim.summary : "Cliente con póliza activa y sin reclamos abiertos en la cartera demo.");
+  return `<div class="client-detail">
+    <div class="client-detail-main">
+      <span class="client-browser-kicker">Seleccionado</span>
+      <h3>${esc(client.name)}</h3>
+      <p>${esc(detailNote)}</p>
+      ${claimButtons}
+      <div class="client-detail-actions">${detailAction}</div>
+    </div>
+    <div class="client-fact-grid">
+      ${priceMeta("Suscripción", titleCase((client.underwriting || {}).outcome))}
+      ${priceMeta("Precio final", `Bs ${money((client.underwriting || {}).final_price_bob)}`)}
+      ${priceMeta("Producto", facts.product)}
+      ${priceMeta("Canal", facts.channel)}
+      ${priceMeta("Tipo", facts.client_type)}
+      ${priceMeta("Hechos UW", Object.keys(compactFacts(facts)).length)}
+    </div>
+  </div>`;
+}
+
+function demoClaimButtons(client, selectedClaim) {
+  const claims = client.claims || [];
+  if (!claims.length) return `<div class="claim-options"><span class="claim-pill is-clean">sin reclamos abiertos</span></div>`;
+  return `<div class="claim-options">${claims.map((claim) => `
+    <button class="claim-option ${selectedClaim && selectedClaim.id === claim.id ? "active" : ""}" data-client-id="${esc(client.id)}" data-claim-id="${esc(claim.id)}">
+      <b>${esc(claim.id)}</b><span>${esc(claim.label)} · USD ${moneyBob(claim.amount_usd)}</span>
+    </button>`).join("")}</div>`;
+}
+
+function bindDemoPortfolio(context) {
+  $$("#demo-client-browser .client-pick").forEach((button) => button.addEventListener("click", () => {
+    if (context === "renewals") selectDemoClientForRenewal(button.dataset.clientId);
+    else selectDemoClientForClaims(button.dataset.clientId);
+  }));
+  $$("#demo-client-browser .claim-option").forEach((button) => button.addEventListener("click", () => {
+    selectDemoClientForClaims(button.dataset.clientId, button.dataset.claimId);
+  }));
+  const claimRun = $("#client-run-claim");
+  if (claimRun) claimRun.addEventListener("click", runMotor);
+  const renewalPreview = $("#client-preview-renewal");
+  if (renewalPreview) renewalPreview.addEventListener("click", () => runRenewal(false));
+}
+
+function refreshDemoPortfolio(context) {
+  const host = $("#demo-client-browser");
+  if (!host) return;
+  host.outerHTML = demoPortfolioPanel(context);
+  bindDemoPortfolio(context);
+}
+
+function selectDemoClientForClaims(clientId, claimId = null) {
+  const client = demoClientById(clientId);
+  if (!client) return;
+  const claim = demoClaimById(client, claimId);
+  state.runner.selectedClientId = client.id;
+  state.runner.selectedClaimId = claim ? claim.id : null;
+  state.runner.result = null;
+  demoState().active = false;
+  if (claim) {
+    state.runner.values.coverage = compactFacts(copyDemo(claim.facts));
+    renderForm(); syncJson(); resetResult();
+    setInputMode("form", activeInputModeId());
+    toast(`${claim.id} cargado para ${client.name}`);
+  } else {
+    state.runner.values.coverage = {};
+    renderForm(); syncJson(); resetResult();
+    setInputMode("form", activeInputModeId());
+    toast(`${client.name}: sin reclamos abiertos`);
+  }
+  refreshClaimsList();
+}
+
+function selectDemoClientForRenewal(clientId) {
+  const client = demoClientById(clientId);
+  if (!client) return;
+  state.renewal.selectedClientId = client.id;
+  state.renewal.values = demoRenewalPayload(client);
+  state.renewal.result = null;
+  renderRenewalForm();
+  renderRenewalResult(null);
+  refreshDemoPortfolio("renewals");
+  toast(`Renovación preparada para ${client.name}`);
+}
+
+function portfolioEventPanel(eventType, data) {
+  const rows = ((data && data.tables && data.tables.events) || []).filter((event) => event.event_type === eventType).slice(0, 6);
+  const title = {
+    subscription: "Eventos de suscripción creados desde chat",
+    claim: "Eventos de reclamo creados desde chat",
+    renewal: "Eventos de renovación creados desde chat",
+  }[eventType] || "Eventos creados desde chat";
+  return `<section class="client-browser event-inbox">
+    <div class="client-browser-head">
+      <div>
+        <span class="client-browser-kicker">Bandeja operativa</span>
+        <h2>${esc(title)}</h2>
+        <p>Estos paquetes nacen en Chat, quedan guardados en Clientes y pueden cargarse aquí para ejecutar el flujo.</p>
+      </div>
+      <div class="client-browser-stats"><span><b>${esc(rows.length)}</b> visibles</span></div>
+    </div>
+    <div class="client-table-wrap">${portfolioEventRows(rows)}</div>
+  </section>`;
+}
+
+function bindPortfolioEventButtons() {
+  $$("#view .event-load-btn").forEach((button) => button.addEventListener("click", () => loadPortfolioEvent(button.dataset.eventId)));
+}
+
+async function loadPortfolioEvent(eventId) {
+  const event = await getJSON(`/api/portfolio/events/${encodeURIComponent(eventId)}`);
+  if (event.event_type === "claim") {
+    state.runner.engine = "coverage";
+    state.runner.values.coverage = compactFacts(event.facts || {});
+    state.runner.chat.coverage = { text: (event.source || {}).text || "", attachments: [], result: { facts: event.facts || {} } };
+    state.runner.result = null;
+    if (state.route !== "claims") return go("claims");
+    renderForm(); syncJson(); renderChat(); resetResult();
+    setInputMode("form", activeInputModeId());
+  } else if (event.event_type === "renewal") {
+    state.renewal.values = { ...(event.renewal_payload || {}) };
+    state.renewal.selectedClientId = event.client_id || "";
+    state.renewal.result = null;
+    if (state.route !== "renewals") return go("renewals");
+    renderRenewalForm(); renderRenewalResult(null);
+  } else {
+    state.runner.engine = "uw";
+    state.runner.values.uw = compactFacts(event.facts || {});
+    state.runner.chat.uw = { text: (event.source || {}).text || "", attachments: [], result: { facts: event.facts || {} } };
+    state.runner.result = null;
+    if (state.route !== "uw") return go("uw");
+    renderForm(); syncJson(); renderChat(); resetResult();
+    setInputMode("form", activeInputModeId());
+  }
+  toast(`Evento ${event.event_id} cargado`);
+}
 
 // Switch the input card between Chat / Formulario / JSON. Shared by the segment
 // buttons and the chat "Cargar al paquete" step so the flow stays consistent.
@@ -637,7 +2247,7 @@ function setInputMode(next, modeId = "input-mode") {
   $$(`#${modeId} .seg-btn`).forEach((x) => x.classList.toggle("active", x.dataset.view === next));
   $("#form-view").classList.toggle("hidden", next !== "form");
   $("#json-view").classList.toggle("hidden", next !== "json");
-  $("#chat-view").classList.toggle("hidden", next !== "chat");
+  $("#chat-view")?.classList.toggle("hidden", next !== "chat");
 }
 
 function runnerKpis(engine) {
@@ -677,6 +2287,7 @@ function chatExampleControl() {
 
 function chatPanel() {
   return `<div class="chat-panel">
+    ${runnerChatSettingsBar()}
     <div class="chat-steps" aria-hidden="true">
       <span class="chat-step is-on" data-step="1"><b>1</b> Extraer</span>
       <span class="chat-step" data-step="2"><b>2</b> Cargar al paquete</span>
@@ -733,15 +2344,82 @@ function renderChat() {
   if (loadBtn) loadBtn.onclick = () => {
     const entries = chatSuggestionEntries(chat.result);
     if (!entries.length) { toast("Primero extrae hechos del chat", true); return; }
-    entries.forEach(([k, v]) => applySuggestedFact(k, v, false));
+    const assumed = runnerChatAssumptionEntries(Object.fromEntries(entries));
+    [...entries, ...assumed].forEach(([k, v]) => applySuggestedFact(k, v, false));
     renderForm(); syncJson();
     setInputMode("form", activeInputModeId());
     toast("Paquete cargado — revisa el formulario o pulsa Ejecutar");
   };
+  bindRunnerChatSettings();
   renderChatMedia();
   renderFactSuggestions(chat.result, "#chat-result");
   bindChatExampleControls();
   updateChatStep();
+}
+
+function runnerCaseSettings() {
+  state.runner.caseSettings = { ...SIMPLE_CHAT_CASE_DEFAULTS, ...(state.runner.caseSettings || {}) };
+  return state.runner.caseSettings;
+}
+
+function runnerChatSettingsBar() {
+  if (state.runner.engine !== "uw") return "";
+  const settings = runnerCaseSettings();
+  return `<div class="simple_chat-settings runner-chat-settings" aria-label="Contexto del caso">
+    ${caseSettingSelect("chat", "channel", "Canal", settings.channel)}
+    ${caseSettingSelect("chat", "client_type", "Tipo", settings.client_type)}
+    ${caseSettingSelect("chat", "product", "Macro", settings.product)}
+    <label class="simple_chat-setting toggle">
+      <input id="chat-setting-apply_standard_assumptions" type="checkbox" data-runner-setting="apply_standard_assumptions" ${settings.apply_standard_assumptions !== false ? "checked" : ""}/>
+      <span>Supuestos estándar</span>
+    </label>
+  </div>`;
+}
+
+function bindRunnerChatSettings() {
+  $$("#chat-view [data-runner-setting]").forEach((control) => {
+    control.addEventListener("change", () => {
+      const key = control.dataset.runnerSetting;
+      const settings = runnerCaseSettings();
+      settings[key] = control.type === "checkbox" ? control.checked : control.value;
+      toast("Contexto actualizado");
+    });
+  });
+}
+
+function runnerChatAssumptionEntries(sourceFacts = {}) {
+  if (state.runner.engine !== "uw") return [];
+  const settings = runnerCaseSettings();
+  const merged = { ...(state.runner.values.uw || {}), ...(sourceFacts || {}) };
+  const assumptions = [];
+  const add = (key, value) => {
+    if (hasValor(merged[key])) return;
+    merged[key] = value;
+    assumptions.push([key, value]);
+  };
+  add("product", settings.product);
+  add("channel", settings.channel);
+  add("client_type", settings.client_type);
+  if (UW_CLIENT_SEGMENT_ASSUMPTIONS[merged.client_type]) {
+    add("segment", UW_CLIENT_SEGMENT_ASSUMPTIONS[merged.client_type]);
+  }
+  if (settings.apply_standard_assumptions !== false) {
+    for (const [key, value] of Object.entries(UW_STANDARD_CONTEXT_ASSUMPTIONS)) add(key, value);
+  }
+  const year = Number(merged.model_year || merged.year || 0);
+  if (year > 1900) add("vehicle_age_years", Math.max(0, new Date().getFullYear() - year));
+  if (normalizeSettingText(merged.make || merged.vehicle_brand) === "toyota") add("marca_auto", 44);
+  if (normalizeSettingText(merged.city || merged.plaza) === "la paz") add("plaza_auto", 1);
+  return assumptions;
+}
+
+function normalizeSettingText(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
 }
 
 function bindChatExampleControls() {
@@ -933,7 +2611,7 @@ async function startWalkthrough() {
     }
     const data = await postJSON(endpoint, body, role);
     state.runner.result = data;
-    demo.step = 0;
+    demo.step = -1;
     demo.active = true;
     renderWalkthroughResult(data);
     renderDemo();
@@ -1068,7 +2746,7 @@ function emptyDemoResult() {
 function resetResult() {
   const demo = demoState();
   demo.active = false;
-  demo.step = 0;
+  demo.step = -1;
   $("#result-body").innerHTML = emptyResult();
   $("#audit-id").textContent = "";
   setKpi("—", state.runner.engine === "coverage" ? "pendiente de evaluar" : "Aún no ejecutado", "");
@@ -1128,30 +2806,34 @@ function renderResult(data) {
 function renderWalkthroughResult(data) {
   const audit = Array.isArray(data.audit) ? data.audit : [];
   const demo = demoState();
-  const finalIndex = audit.length;
-  demo.step = Math.max(0, Math.min(Number(demo.step || 0), finalIndex));
+  const rawStep = Number(demo.step);
+  demo.step = Number.isFinite(rawStep) ? rawStep : -1;
+  if (!audit.length || demo.step < 0) demo.step = -1;
+  else demo.step = Math.min(demo.step, audit.length - 1);
   const idx = demo.step;
-  const totalSlides = Math.max(1, audit.length + 1);
-  const progress = Math.round(((idx + 1) / totalSlides) * 100);
-  const body = idx < audit.length
-    ? walkthroughNodePanel(audit[idx], idx, audit.length, data)
-    : walkthroughVerdictPanel(data);
+  const showingVerdict = idx < 0;
+  const progress = showingVerdict ? 100 : Math.round(((idx + 1) / Math.max(1, audit.length)) * 100);
+  const routePanel = walkthroughRoutePanel(audit, idx);
+  const body = showingVerdict
+    ? walkthroughVerdictPanel(data, routePanel)
+    : `${walkthroughNodePanel(audit[idx], idx, audit.length, data)}${routePanel}`;
   $("#result-body").innerHTML = `<div class="walkthrough">
     <div class="walk-head">
       <div>
         <span class="walk-label">Recorrido de presentación</span>
-        <h3>${idx < audit.length ? `Paso ${idx + 1} de ${audit.length}` : "Dictamen alcanzado"}</h3>
+        <h3>${showingVerdict ? "Decisión final" : `Nodo ${idx + 1} de ${audit.length}`}</h3>
       </div>
-      <span class="badge ${idx < audit.length ? "badge-amber" : "badge-ok"}">${idx < audit.length ? "recorriendo grafo" : "completo"}</span>
+      <span class="badge ${showingVerdict ? "badge-ok" : "badge-amber"}">${showingVerdict ? "dictamen visible" : "detalle de nodo"}</span>
     </div>
     <div class="walk-progress"><span style="width:${progress}%"></span></div>
-    ${body}
-    <div class="walk-controls">
-      <button class="btn btn-ghost" id="walk-back" ${idx <= 0 ? "disabled" : ""}>Atrás</button>
-      <button class="btn btn-primary" id="walk-next" ${idx >= finalIndex ? "disabled" : ""}>Siguiente</button>
-      <button class="btn btn-ghost" id="walk-restart">Reiniciar</button>
+    <div class="walk-controls walk-controls-top">
+      <button class="btn btn-ghost" id="walk-verdict" ${showingVerdict ? "disabled" : ""}>Decisión final</button>
+      <button class="btn btn-ghost" id="walk-back" ${showingVerdict || idx <= 0 ? "disabled" : ""}>Atrás</button>
+      <button class="btn btn-primary" id="walk-next" ${!audit.length || idx >= audit.length - 1 ? "disabled" : ""}>${showingVerdict ? "Ver paso 1" : "Siguiente"}</button>
     </div>
+    ${body}
   </div>`;
+  resetWalkthroughViewport();
   bindWalkthroughControls(data);
   bindIncidenciaActions("#result-body");
   bindHumanPaquete(data.human_packet);
@@ -1171,6 +2853,7 @@ function walkthroughNodePanel(step, idx, total, data) {
     : "";
   const packetFacts = Object.keys(compactFacts(state.runner.values[state.runner.engine])).length;
   const result = step.chosen || step.result || "evaluated";
+  const pricing = step.type === "rating" && data.pricing ? uwPricingPanel(data.pricing) : "";
   return `<div class="walk-node">
     <div class="walk-node-top">
       <span class="ntype nt-${esc(step.type || "condition")}">${esc(step.type || "nodo")}</span>
@@ -1183,13 +2866,14 @@ function walkthroughNodePanel(step, idx, total, data) {
       <div><span>Progreso</span><b>${idx + 1}/${total} nodos</b></div>
     </div>
     ${step.detail ? `<p class="walk-detail">${esc(step.detail)}</p>` : ""}
+    ${pricing ? `<div class="section-label inline">Tarificación producida</div>${pricing}` : ""}
     ${facts ? `<div class="section-label inline">Hechos usados en este nodo</div><div class="walk-facts">${facts}</div>` : ""}
     ${step.source_quote ? `<div class="section-label inline">Texto fuente</div><blockquote class="quote sm">${esc(step.source_quote)}</blockquote>` : ""}
     ${data.human_packet && idx === total - 1 ? `<div class="walk-callout"><b>Punto de intervención humana.</b> Esta ruta se detiene con un paquete que puede responderse y reanudarse.</div>` : ""}
   </div>`;
 }
 
-function walkthroughVerdictPanel(data) {
+function walkthroughVerdictPanel(data, routePanel = "") {
   const summary = walkthroughSummary(data);
   const caveats = Array.isArray(data.caveats) ? data.caveats : [];
   let html = `<div class="walk-verdict ${summary.meta.cls}">
@@ -1202,10 +2886,53 @@ function walkthroughVerdictPanel(data) {
     </div>
   </div>`;
   if (summary.source) html += `<blockquote class="quote">${esc(summary.source)}</blockquote>`;
+  html += routePanel;
   if (data.human_packet) html += humanPaquetePanel(data.human_packet);
   if (data.pricing) html += uwPricingPanel(data.pricing);
   if (caveats.length) html += `<div class="section-label">Salvedades</div><div class="caveats">${caveats.map(caveatRow).join("")}</div>`;
   return html;
+}
+
+function walkthroughRoutePanel(audit, activeIdx = -1) {
+  if (!Array.isArray(audit) || !audit.length) {
+    return `<div class="walk-route-panel">
+      <div class="walk-route-head"><span>Ruta atravesada</span><b>0 nodos</b></div>
+      <p class="walk-route-empty">El motor no devolvió nodos auditables para este caso.</p>
+    </div>`;
+  }
+  const rows = audit.map((step, i) => {
+    const result = step.chosen || step.result || "evaluated";
+    return `<button class="walk-route-item ${i === activeIdx ? "active" : ""}" data-step="${i}" title="${esc(step.node || `step-${i + 1}`)}">
+      <span class="walk-route-num">${i + 1}</span>
+      <span class="walk-route-main">
+        <span class="walk-route-title">${esc(step.title || step.node || "Nodo ejecutable")}</span>
+        <span class="walk-route-id">${esc(step.node || `step-${i + 1}`)}</span>
+      </span>
+      <span class="walk-route-meta">
+        <span class="ntype nt-${esc(step.type || "condition")}">${esc(step.type || "nodo")}</span>
+        <span class="walk-route-result">${esc(titleCase(result))}</span>
+      </span>
+    </button>`;
+  }).join("");
+  return `<div class="walk-route-panel">
+    <div class="walk-route-head"><span>Nodos atravesados</span><b>${audit.length} ${audit.length === 1 ? "nodo" : "nodos"}</b></div>
+    <div class="walk-route-list">${rows}</div>
+  </div>`;
+}
+
+function resetWalkthroughViewport() {
+  const goTop = () => {
+    const body = $("#result-body");
+    try { if (body) body.scrollTop = 0; } catch {}
+    const cardBody = body?.closest(".card-body");
+    try { if (cardBody) cardBody.scrollTop = 0; } catch {}
+    window.scrollTo({ top: 0, left: window.scrollX, behavior: "auto" });
+  };
+  requestAnimationFrame(() => {
+    goTop();
+    setTimeout(goTop, 0);
+    setTimeout(goTop, 80);
+  });
 }
 
 function walkthroughSummary(data) {
@@ -1233,13 +2960,18 @@ function walkthroughSummary(data) {
 
 function bindWalkthroughControls(data) {
   const demo = demoState();
-  const max = Array.isArray(data.audit) ? data.audit.length : 0;
+  const max = Array.isArray(data.audit) ? data.audit.length - 1 : -1;
+  const currentStep = () => Number.isFinite(Number(demo.step)) ? Number(demo.step) : -1;
+  const verdict = $("#walk-verdict");
   const back = $("#walk-back");
   const next = $("#walk-next");
-  const restart = $("#walk-restart");
+  if (verdict) verdict.addEventListener("click", () => { demo.step = -1; renderWalkthroughResult(data); });
   if (back) back.addEventListener("click", () => { demo.step = Math.max(0, demo.step - 1); renderWalkthroughResult(data); });
-  if (next) next.addEventListener("click", () => { demo.step = Math.min(max, demo.step + 1); renderWalkthroughResult(data); });
-  if (restart) restart.addEventListener("click", () => { demo.step = 0; renderWalkthroughResult(data); });
+  if (next) next.addEventListener("click", () => { demo.step = Math.min(max, currentStep() < 0 ? 0 : currentStep() + 1); renderWalkthroughResult(data); });
+  $$(".walk-route-item").forEach((item) => item.addEventListener("click", () => {
+    demo.step = Number(item.dataset.step || 0);
+    renderWalkthroughResult(data);
+  }));
 }
 
 const chip = (k, v) => `<span class="chip">${esc(titleCase(k))} · <b>${esc(v)}</b></span>`;
@@ -1328,7 +3060,18 @@ function bindHumanPaquete(packet) {
       }, role);
       state.runner.values[packet.engine] = compactFacts({ ...(packet.facts || {}), [packet.requested_fact]: value });
       state.runner.result = data;
-      renderForm(); syncJson(); renderResult(data);
+      if (state.route === "demo" || $(".recorrido-workspace")) {
+        state.recorrido.facts = compactFacts({ ...(state.recorrido.facts || {}), [packet.requested_fact]: value });
+        state.recorrido.result = data;
+        state.recorrido.status = data.human_packet ? "human_task" : "done";
+        demoState().active = true;
+        demoState().step = -1;
+        renderWalkthroughResult(data);
+      } else if ($("#form-view")) {
+        renderForm(); syncJson(); renderResult(data);
+      } else {
+        renderWalkthroughResult(data);
+      }
       toast("Recorrido continuado");
     } catch {
       toast("No se pudo reanudar el recorrido", true);
@@ -1580,6 +3323,32 @@ function setRunPriceKpi(pricing) {
   }
 }
 
+// Synonym facts the parser mirrors so both the decision-tree layer (vehicle_brand,
+// siniestralidad) and the rating/form layer (make, year, siniestralidad_historica) stay
+// fed. We collapse each group to one display row but still apply every member on click.
+const FACT_ALIAS_GROUPS = [
+  ["make", "vehicle_brand"],
+  ["model_year", "year"],
+  ["siniestralidad", "siniestralidad_historica"],
+];
+function aliasGroupFor(key) {
+  return FACT_ALIAS_GROUPS.find((g) => g.includes(key)) || null;
+}
+function dedupeFactEntries(entries) {
+  const rows = [];
+  const byCanon = new Map();
+  for (const [k, v] of entries) {
+    const group = aliasGroupFor(k);
+    if (!group) { rows.push({ keys: [k], k, v }); continue; }
+    const canon = group[0];
+    let row = byCanon.get(canon);
+    if (!row) { row = { keys: [], k, v, canon }; byCanon.set(canon, row); rows.push(row); }
+    row.keys.push(k);
+    if (k === canon || row.k !== canon) { row.k = k; row.v = v; }
+  }
+  return rows;
+}
+
 function renderFactSuggestions(data, hostSel) {
   const host = $(hostSel);
   if (!host) return;
@@ -1593,20 +3362,24 @@ function renderFactSuggestions(data, hostSel) {
   </div>`).join("");
   if (!entries.length && !mediaRows) { host.innerHTML = `<p class="nl-empty">No se sugirieron hechos. Es solo orientativo; confirma manualmente.</p>`; return; }
   const applyTodos = entries.length ? `<div class="chat-bulk"><button class="nl-apply apply-all" data-host="${esc(hostSel)}">Aplicar todas las sugerencias</button><span>Revisar antes de ejecutar.</span></div>` : "";
-  host.innerHTML = `${applyTodos}${entries.map(([k, v]) => {
+  host.innerHTML = `${applyTodos}${dedupeFactEntries(entries).map((row) => {
+    const v = row.v;
     const val = v && typeof v === "object" && "value" in v ? v.value : v;
     const conf = v && typeof v === "object" && "confidence" in v ? ` · ${Math.round(Number(v.confidence || 0) * 100)}%` : "";
-    return `<div class="nl-row"><span class="nl-key">${esc(k)}${esc(conf)}</span><span class="nl-val">${esc(fmt(val))}</span><button class="nl-apply" data-ak="${esc(k)}" data-av='${esc(JSON.stringify(val))}'>Aplicar →</button></div>`;
+    return `<div class="nl-row"><span class="nl-key">${esc(row.k)}${esc(conf)}</span><span class="nl-val">${esc(fmt(val))}</span><button class="nl-apply" data-aks='${esc(JSON.stringify(row.keys))}' data-av='${esc(JSON.stringify(val))}'>Aplicar →</button></div>`;
   }).join("")}${mediaRows}`;
-  $$(`${hostSel} .nl-apply[data-ak]`).forEach((b) => b.addEventListener("click", () => {
+  $$(`${hostSel} .nl-apply[data-aks]`).forEach((b) => b.addEventListener("click", () => {
     try {
       const v = JSON.parse(b.dataset.av);
-      applySuggestedFact(b.dataset.ak, v);
+      const keys = JSON.parse(b.dataset.aks);
+      keys.forEach((kk, i) => applySuggestedFact(kk, v, i === keys.length - 1));
     } catch { toast("No se pudo aplicar", true); }
   }));
   const all = $(`${hostSel} .apply-all`);
   if (all) all.addEventListener("click", () => {
-    entries.forEach(([k, v]) => applySuggestedFact(k, v && typeof v === "object" && "value" in v ? v.value : v, false));
+    const plainEntries = entries.map(([k, v]) => [k, v && typeof v === "object" && "value" in v ? v.value : v]);
+    const assumed = hostSel === "#chat-result" ? runnerChatAssumptionEntries(Object.fromEntries(plainEntries)) : [];
+    [...plainEntries, ...assumed].forEach(([k, v]) => applySuggestedFact(k, v, false));
     renderForm(); syncJson(); renderChat(); renderDemo();
     toast("Sugerencias aplicadas para revisión");
   });
@@ -1625,27 +3398,26 @@ function applySuggestedFact(key, value, rerender = true) {
    ===================================================================== */
 VIEWS.simple_chat = async function (params) {
   await loadChatLocalSessions();
+  const portfolioView = await portfolioData().catch(() => null);
   const local = state.simple_chat.local;
   if (params.session) {
     try { local.session = await getJSON(`/api/chat/${encodeURIComponent(params.session)}`); }
     catch { toast("No se encontró la conversación local", true); }
   }
   const session = local.session;
+  local.caseSettings = { ...SIMPLE_CHAT_CASE_DEFAULTS, ...(local.caseSettings || {}), ...((session && session.case_settings) || {}) };
 
   setTopbar(
     "Chat",
-    "Chat local con memoria del caso y paquete vivo.",
-    `${engineSegment("simple_chat-engine-seg", local.engine)}
+    "Chat local con detección automática de intención, cliente seleccionado y creación de eventos.",
+    `<span class="badge badge-ok">intención automática</span>
      <button class="btn btn-ghost" id="simple_chat-new-chat-btn">Nueva conversación</button>`
   );
 
   $("#view").innerHTML = `
     <div class="simple_chat-workspace">
-      <aside class="simple_chat-packet-rail">
-        ${simple_chatLivePacket(session)}
-      </aside>
       <section class="chat-col">
-        <p class="simple_chat-explainer">El chat arma memoria del caso, actualiza el paquete y llama a RiskIQ cuando tiene datos suficientes. RiskIQ es quien decide.</p>
+        ${simple_chatCaseSettingsBar(local)}
         ${simple_chatStatusBanner(session)}
         <div class="chat-thread" id="simple_chat-local-log">
           ${simple_chatLocalMessages(session)}
@@ -1658,8 +3430,10 @@ VIEWS.simple_chat = async function (params) {
           <div class="chat-loaded-note simple_chat-loaded-note hidden" id="simple_chat-loaded-note"></div>
           <div class="composer-bar">
             <label class="composer-engine"><span>Tipo de caso</span>${simple_chatEngineSelect(local.engine)}</label>
+            <label class="composer-engine client-select"><span>Cliente</span>${simple_chatClientSelect(local, portfolioView)}</label>
             <div class="composer-bar-right">
-              <button class="btn btn-ghost composer-confirm" id="simple_chat-sample-btn">Cargar demo</button>
+              <button class="btn btn-ghost composer-confirm" id="simple_chat-sample-clean-btn">Sin revisión</button>
+              <button class="btn btn-ghost composer-confirm" id="simple_chat-sample-review-btn">Con revisión</button>
               <span class="composer-hint">Enter envía · Shift+Enter salto</span>
             </div>
           </div>
@@ -1674,12 +3448,16 @@ VIEWS.simple_chat = async function (params) {
           </div>
         </details>
       </section>
+      <aside class="simple_chat-packet-rail">
+        ${simple_chatLivePacket(session)}
+      </aside>
     </div>`;
 
   $("#simple_chat-new-chat-btn").addEventListener("click", newChatLocalChat);
-  $("#simple_chat-sample-btn").addEventListener("click", loadChatLocalSample);
+  $("#simple_chat-sample-clean-btn").addEventListener("click", () => loadChatLocalSample("clean"));
+  $("#simple_chat-sample-review-btn").addEventListener("click", () => loadChatLocalSample("review"));
   $("#simple_chat-send-local-btn").addEventListener("click", () => sendChatLocalChat(false));
-  $$("#simple_chat-engine-seg .seg-btn").forEach((b) => b.addEventListener("click", () => setChatLocalEngine(b.dataset.engine)));
+  bindSimpleChatCaseSettings();
   $$("#view .sb-chip").forEach((b) => b.addEventListener("click", () => {
     const reply = b.dataset.reply || "";
     state.simple_chat.local.text = reply;
@@ -1694,10 +3472,17 @@ VIEWS.simple_chat = async function (params) {
   });
   autoGrowComposer();
   $("#simple_chat-engine-select").addEventListener("change", (e) => setChatLocalEngine(e.target.value));
+  $("#simple_chat-client-select")?.addEventListener("change", (e) => {
+    state.simple_chat.local.selectedClientId = e.target.value;
+    toast(e.target.value ? "Cliente seleccionado" : "Chat sin cliente fijo");
+  });
+  bindPortfolioEventButtons();
   $$("#view .local-session").forEach((b) => b.addEventListener("click", async () => {
     try {
       state.simple_chat.local.session = await getJSON(`/api/chat/${encodeURIComponent(b.dataset.session)}`);
       state.simple_chat.local.engine = state.simple_chat.local.session.engine || "uw";
+      state.simple_chat.local.selectedClientId = state.simple_chat.local.session.client_id || "";
+      state.simple_chat.local.caseSettings = { ...SIMPLE_CHAT_CASE_DEFAULTS, ...((state.simple_chat.local.session || {}).case_settings || {}) };
       state.simple_chat.local.text = "";
       VIEWS.simple_chat({});
     } catch { toast("No se pudo abrir la conversación", true); }
@@ -1721,13 +3506,68 @@ async function loadChatLocalSessions() {
 }
 
 function simple_chatEngineSelect(current) {
-  return `<select id="simple_chat-engine-select">${registeredMotors().map((engine) =>
-    `<option value="${esc(engine.id)}" ${current === engine.id ? "selected" : ""}>${esc(engineLabel(engine.id))}</option>`
+  const options = [
+    { id: "auto", label: "Automático" },
+    { id: "uw", label: "Suscripción" },
+    { id: "renewal", label: "Renovación" },
+    { id: "coverage", label: "Reclamos" },
+  ];
+  return `<select id="simple_chat-engine-select">${options.map((engine) =>
+    `<option value="${esc(engine.id)}" ${current === engine.id ? "selected" : ""}>${esc(engine.label)}</option>`
   ).join("")}</select>`;
 }
 
-function chatDemoText(engine) {
+function simple_chatClientSelect(local, portfolioView) {
+  const clients = (portfolioView && portfolioView.tables && portfolioView.tables.clients) || [];
+  return `<select id="simple_chat-client-select">
+    <option value="" ${!local.selectedClientId ? "selected" : ""}>Sin cliente fijo</option>
+    ${clients.map((client) => `<option value="${esc(client.client_id)}" ${local.selectedClientId === client.client_id ? "selected" : ""}>${esc(client.client_name)} · ${esc(client.client_id)}</option>`).join("")}
+  </select>`;
+}
+
+function caseSettingSelect(prefix, id, label, value, dataAttr = "data-runner-setting") {
+  const options = SIMPLE_CHAT_SETTING_OPTIONS[id] || [];
+  return `<label class="simple_chat-setting">
+    <span>${esc(label)}</span>
+    <select id="${esc(prefix)}-setting-${esc(id)}" ${dataAttr}="${esc(id)}">
+      ${options.map(([optionValue, optionLabel]) => `<option value="${esc(optionValue)}" ${value === optionValue ? "selected" : ""}>${esc(optionLabel)}</option>`).join("")}
+    </select>
+  </label>`;
+}
+
+function simple_chatSettingSelect(id, label, value) {
+  return caseSettingSelect("simple_chat", id, label, value, "data-setting");
+}
+
+function simple_chatCaseSettingsBar(local) {
+  if (!["uw", "auto"].includes(local.engine || "auto")) return "";
+  const settings = { ...SIMPLE_CHAT_CASE_DEFAULTS, ...(local.caseSettings || {}) };
+  return `<div class="simple_chat-settings" aria-label="Contexto del caso">
+    ${simple_chatSettingSelect("channel", "Canal", settings.channel)}
+    ${simple_chatSettingSelect("client_type", "Tipo", settings.client_type)}
+    ${simple_chatSettingSelect("product", "Macro", settings.product)}
+    <label class="simple_chat-setting toggle">
+      <input id="simple_chat-setting-apply_standard_assumptions" type="checkbox" data-setting="apply_standard_assumptions" ${settings.apply_standard_assumptions !== false ? "checked" : ""}/>
+      <span>Supuestos estándar</span>
+    </label>
+  </div>`;
+}
+
+function bindSimpleChatCaseSettings() {
+  const local = state.simple_chat.local;
+  $$("#view [data-setting]").forEach((control) => {
+    control.addEventListener("change", () => {
+      const key = control.dataset.setting;
+      local.caseSettings = { ...SIMPLE_CHAT_CASE_DEFAULTS, ...(local.caseSettings || {}) };
+      local.caseSettings[key] = control.type === "checkbox" ? control.checked : control.value;
+      toast("Contexto actualizado");
+    });
+  });
+}
+
+function chatDemoText(engine, variant = "clean") {
   const key = engine === "claims" ? "coverage" : engine;
+  if (key === "uw") return exampleNarrative("uw", variant);
   return DEMO_TEXT[key] || DEMO_TEXT.uw;
 }
 
@@ -1755,7 +3595,6 @@ function humanizeChatText(text) {
     [/datos sugeridos/gi, "datos"],
     [/hechos sugeridos/gi, "datos"],
     [/No pude extraer datos suficientes todav[íi]a\.?/gi, "Todavía no tengo datos suficientes."],
-    [/\bHUM-[A-Z0-9]+\b/g, ""],
     [/\bhechos\b/gi, "datos"],
   ];
   for (const [re, rep] of map) t = t.replace(re, rep);
@@ -1801,9 +3640,34 @@ const SIMPLE_CHAT_FACT_LABELS = {
   model: "Modelo",
   siniestralidad_historica: "Siniestralidad",
   has_plates: "Placas",
+  is_public_tender: "Licitación",
+  is_mass_grouping: "Agrupación",
+  is_contractor_equipment: "Equipo contratista",
+  is_competition_offroad: "Competición/off-road",
   is_rental: "Alquiler",
   has_body_modifications: "Modificaciones",
+  is_rail_vehicle: "Sobre rieles",
+  es_moto_lujo_o_competicion: "Moto lujo/competición",
+  is_learning_vehicle: "Aprendizaje",
   circula_fuera_pais_actividad_regular: "Circula fuera del país",
+  capacidad_original_mayor_8: "Más de 8 pasajeros",
+  servicio_publico_pasajeros: "Servicio público",
+  is_armored: "Blindado",
+  is_bomberos_policia_ejercito: "Emergencia/FFAA",
+  is_ambulance: "Ambulancia",
+  has_foreign_plates: "Placa extranjera",
+  is_brevet_policy: "Póliza brevet",
+  has_rc: "RC",
+  has_ap: "AP",
+  is_enlatado: "Enlatado",
+  cantidad_vehiculos: "Vehículos",
+  suscriptor: "Suscriptor",
+  extraterritorialidad: "Extraterritorialidad",
+  cuotas: "Cuotas",
+  selected_pricing_option: "Opción precio",
+  vehicle_age_years: "Antigüedad",
+  marca_auto: "ID marca",
+  plaza_auto: "ID plaza",
   coverage_section: "Cobertura",
   coverage_included: "Cobertura incluida",
   event_type: "Evento",
@@ -1819,9 +3683,12 @@ function simple_chatFactLabel(key) {
 function simple_chatLivePacket(session) {
   const facts = (session && session.confirmed_facts) || {};
   const pending = (session && session.pending_facts) || {};
+  const assumed = (session && Array.isArray(session.assumed_facts)) ? session.assumed_facts : [];
   const factEntries = Object.entries(facts).filter(([, value]) => hasValor(value));
   const pendingEntries = Object.entries(pending).filter(([, value]) => hasValor(value));
+  const assumedRows = assumed.slice(0, 10).map((item) => `<li class="assumed"><span>${esc(simple_chatFactLabel(item.fact_id))}</span><b>${esc(fmt(item.value))}</b></li>`).join("");
   const summary = (session && session.last_result_summary) || {};
+  const event = session && session.last_event;
   const followup = session && session.client_followup;
   const task = session && session.human_task;
   const title = session ? (session.title || "Paquete del caso") : "Paquete del caso";
@@ -1844,10 +3711,16 @@ function simple_chatLivePacket(session) {
       <span>${esc(stateLabel)}</span>
       <b>${factEntries.length} datos</b>
     </div>
+    ${event ? `<div class="packet-section">
+      <h3>Evento</h3>
+      <p class="packet-next"><span class="mono">${esc(event.event_id)}</span> · ${esc(titleCase(event.event_type))} · ${event.ready_to_execute ? "listo" : "incompleto"}</p>
+      <button class="btn btn-ghost event-load-btn" data-event-id="${esc(event.event_id)}">Cargar en flujo</button>
+    </div>` : ""}
     <div class="packet-section">
       <h3>Datos</h3>
       ${rows || pendingRows ? `<ul class="packet-list">${rows}${pendingRows}</ul>` : `<p class="packet-empty">Aún no hay datos del caso.</p>`}
     </div>
+    ${assumedRows ? `<div class="packet-section"><h3>Supuestos</h3><ul class="packet-list">${assumedRows}</ul></div>` : ""}
     <div class="packet-section">
       <h3>Siguiente</h3>
       <p class="packet-next">${esc(humanizeChatText(next))}</p>
@@ -1858,7 +3731,7 @@ function simple_chatLivePacket(session) {
 
 function simple_chatStatusBanner(session) {
   if (!session || !Array.isArray(session.messages) || !session.messages.length) {
-    return simple_chatBanner("info", "Empieza una conversación", "Escribe el primer mensaje como si fueras el cliente. Chat irá armando el paquete a la izquierda.");
+    return simple_chatBanner("info", "Listo para conversar", "Cuéntame el caso como se lo dirías a un suscriptor. Si falta algo, te lo pregunto aquí.");
   }
   const pendingCount = Object.keys(session.pending_facts || {}).length;
   const summary = session.last_result_summary || {};
@@ -1866,7 +3739,7 @@ function simple_chatStatusBanner(session) {
   const task = session.human_task;
 
   if (pendingCount) {
-    return simple_chatBanner("info", "Chat tiene datos del caso", "El paquete ya está visible a la izquierda. Sigue con el siguiente dato y Chat lo incorpora.");
+    return simple_chatBanner("info", "Tengo datos del caso", "Sigue con el siguiente dato o corrige lo que haga falta; lo incorporo en la conversación.");
   }
   if (followup) {
     const q = humanizeChatText(followup.client_question || followup.question || "Chat necesita un dato más del cliente.");
@@ -2022,12 +3895,17 @@ async function sendChatLocalChat(confirmPending) {
       action: confirmPending ? "confirm_pending" : "message",
       use_pending_facts: confirmPending,
       facts_confirmed: confirmPending,
+      case_settings: local.caseSettings || SIMPLE_CHAT_CASE_DEFAULTS,
+      client_id: local.selectedClientId || "",
+      auto_detect_intent: local.engine === "auto",
       create_human_task: true
     };
     const data = await postJSON("/api/chat", body, "chat_agent");
     if (data.error) throw new Error(data.error);
     local.session = data.session;
     local.engine = data.session.engine || local.engine;
+    local.selectedClientId = data.session.client_id || local.selectedClientId || "";
+    state.cache.portfolio = null;
     local.text = "";
     await loadChatLocalSessions();
     VIEWS.simple_chat({});
@@ -2047,12 +3925,13 @@ function newChatLocalChat() {
   toast("Nueva conversación local");
 }
 
-async function loadChatLocalSample() {
+async function loadChatLocalSample(variant = "clean") {
   const local = state.simple_chat.local;
   local.session = null;
-  local.text = chatDemoText(local.engine);
+  local.text = chatDemoText(local.engine, variant);
   await VIEWS.simple_chat({});
-  markExampleTextarea("#simple_chat-local-input", "#simple_chat-loaded-note", `Demo de ${engineLabel(local.engine)} cargado aquí`);
+  const label = local.engine === "uw" && UW_EXAMPLES[variant] ? UW_EXAMPLES[variant].label : `Demo de ${engineLabel(local.engine)}`;
+  markExampleTextarea("#simple_chat-local-input", "#simple_chat-loaded-note", `${label} cargado aquí`);
   toast(`Demo de ${engineLabel(local.engine)} cargado en el chat`);
 }
 
@@ -2266,6 +4145,7 @@ VIEWS.renewals = async function () {
       <div class="kpi"><span class="kpi-label">Árbol completo</span><span class="kpi-value" id="ren-kpi-tree">--</span><span class="kpi-sub">no duplicado</span></div>
       <div class="kpi"><span class="kpi-label">Deltas de nodo</span><span class="kpi-value" id="ren-kpi-nodes">--</span><span class="kpi-sub">cambios acotados</span></div>
     </section>
+    ${demoPortfolioPanel("renewals")}
     <div class="board renewal-board">
       <section class="card">
         <div class="card-head"><h2>Paquete de renovación</h2><span class="badge badge-amber">fuente sin cambios</span></div>
@@ -2311,10 +4191,13 @@ VIEWS.renewals = async function () {
   $("#ren-sample-btn").addEventListener("click", () => {
     state.renewal.values = JSON.parse(JSON.stringify(RENEWAL_SAMPLE));
     state.renewal.result = null;
+    state.renewal.selectedClientId = null;
     renderRenewalForm();
     renderRenewalResult(null);
+    refreshDemoPortfolio("renewals");
     toast("Ejemplo de renovación cargado");
   });
+  bindDemoPortfolio("renewals");
 };
 
 function renderRenewalForm() {
@@ -3714,6 +5597,7 @@ function renderPipeline(el, r) {
 VIEWS.simulation = async function () {
   const meta = await simulationFilters();
   const candidates = await simulationCandidates();
+  const portfolioView = await portfolioData().catch(() => null);
   if (!state.simulation.result) {
     state.simulation.result = await runSimulationPayload({
       filters: simulationApiFilters(state.simulation.filters),
@@ -3723,14 +5607,17 @@ VIEWS.simulation = async function () {
   }
   setTopbar(
     "Simulación",
-    "Laboratorio vivo de riesgo: cambia precio, cobertura, frecuencia, severidad y renovaciones.",
-    `<button class="btn btn-ghost" id="sim-reset">Restablecer</button><button class="btn btn-primary" id="sim-run">Ejecutar simulación</button>`
+    "Elige un dominio, mueve las palancas de mercado y edita los nodos donde se va el dinero para ver el impacto en vivo.",
+    `<button class="btn btn-ghost" id="sim-reset">Restablecer</button>`
   );
-  $("#view").innerHTML = simulationLayout(meta, candidates, state.simulation.result);
+  $("#view").innerHTML = simulationLayout(meta, candidates, state.simulation.result, portfolioView);
   bindSimulationControls();
+  bindPortfolioEventButtons();
 };
 
 VIEWS.supervision = async function () {
+  const portfolioView = await portfolioData().catch(() => null);
+  const humanTasks = await getJSON("/api/human-tasks").catch(() => []);
   if (!state.supervision.result || !state.supervision.baseline) {
     try {
       const [result, baseline] = await Promise.all([
@@ -3749,7 +5636,8 @@ VIEWS.supervision = async function () {
     "Cómo está la cartera hoy: riesgo, clientes, severidad y dónde se pierde dinero.",
     `<button class="btn btn-primary" id="supervision-refresh">Actualizar ahora</button>`
   );
-  $("#view").innerHTML = supervisionLayout(state.supervision.result, state.supervision.baseline);
+  $("#view").innerHTML = supervisionLayout(state.supervision.result, state.supervision.baseline, portfolioView, humanTasks);
+  bindPortfolioEventButtons();
   $("#supervision-refresh").addEventListener("click", async () => {
     $("#supervision-refresh").disabled = true;
     try {
@@ -3765,25 +5653,68 @@ VIEWS.supervision = async function () {
   });
 };
 
-function supervisionLayout(result, baseline) {
+function supervisionLayout(result, baseline, portfolioView, humanTasks = []) {
   const s = result?.summary || {};
   const t = result?.tables || {};
   const b = baseline?.tables || {};
-  const riskTone = Number(s.risk_score || 0) > 55 ? "warn" : "ok";
+  const riskScore = Number(s.risk_score || 0);
+  const riskTone = riskScore > 70 ? "bad" : riskScore > 55 ? "warn" : "ok";
+  const lossRatio = Number(s.loss_ratio || 0);
+  const lrTone = lossRatio > 0.7 ? "bad" : lossRatio > 0.5 ? "warn" : "ok";
+  const profit = Number(s.profit_bob || 0);
+  const brokerSat = Math.round(Number(s.avg_broker_satisfaction || 0));
+  const churnPct = Math.round(Number(s.avg_churn_probability || 0) * 100);
+  const criticalClaims = (t.cashout_nodes || []).filter((r) => r.side === "current");
+  const automation = result?.automation || {};
+  const byCity = result?.by_city || [];
+  const byLine = result?.by_line || [];
+  const riskTrend = result?.risk_trend || [];
   return `<div class="supervision-page">
     ${heroKpi(
-      "Risk score de la cartera",
-      esc(s.risk_score || 0),
-      `LR ${Number(s.loss_ratio || 0).toFixed(2)} · frecuencia ${Number(s.accident_frequency || 0).toFixed(2)}`,
+      "Riesgo de la cartera",
+      esc(riskScore),
+      `Siniestralidad ${pctInt(lossRatio)} · frecuencia ${Number(s.accident_frequency || 0).toFixed(2)} reclamos/cliente`,
       riskTone,
-      riskTone === "warn" ? "vigilar" : "estable"
+      riskTone === "bad" ? "crítico" : riskTone === "warn" ? "vigilar" : "estable"
     )}
-    <section class="kpis sim-kpis">
-      <div class="kpi is-info"><span class="kpi-label">Clientes activos</span><span class="kpi-value">${esc(s.active_clients || 0)}</span><span class="kpi-sub">en la cartera viva</span></div>
-      <div class="kpi is-warn"><span class="kpi-label">Cash-out exposure</span><span class="kpi-value">Bs ${moneyBob(s.cashout_exposure_bob)}</span><span class="kpi-sub">salida monetaria en nodos</span></div>
-      <div class="kpi is-info"><span class="kpi-label">Severidad promedio</span><span class="kpi-value">Bs ${moneyBob(s.avg_severity_bob)}</span><span class="kpi-sub">por reclamo (mock)</span></div>
-      <div class="kpi is-info"><span class="kpi-label">Reclamos observados</span><span class="kpi-value">${esc(s.claim_count || 0)}</span><span class="kpi-sub">en la ventana actual</span></div>
+
+    ${bandHead("Macro de la cartera", "resultado económico de la cartera viva (datos mock trazables)")}
+    <section class="widget-grid">
+      ${statWidget("Prima suscrita", `Bs ${moneyBob(s.premium_bob)}`, "primas anuales en vigor", "info")}
+      ${statWidget("Resultado técnico", `${profit >= 0 ? "+" : "−"}Bs ${moneyBob(Math.abs(profit))}`, "prima menos siniestros esperados", profit >= 0 ? "ok" : "bad")}
+      ${statWidget("Siniestralidad", pctInt(lossRatio), "siniestros sobre prima", lrTone)}
+      ${statWidget("Exposición de caja", `Bs ${moneyBob(s.cashout_exposure_bob)}`, "salida de dinero comprometida", "warn")}
+      ${statWidget("Satisfacción de brokers", `${brokerSat}/100`, "promedio de la cartera", brokerSat >= 65 ? "ok" : brokerSat >= 50 ? "warn" : "bad")}
+      ${statWidget("Probabilidad de fuga", `${churnPct}%`, "clientes en riesgo de no renovar", churnPct >= 40 ? "warn" : "ok")}
     </section>
+
+    ${bandHead("Operación hoy", "la cartera viva en números")}
+    <section class="widget-grid">
+      ${statWidget("Clientes activos", esc(s.active_clients || 0), "en la cartera viva", "info")}
+      ${statWidget("Reclamos observados", esc(s.claim_count || 0), "en la ventana actual", "info")}
+      ${statWidget("Severidad promedio", `Bs ${moneyBob(s.avg_severity_bob)}`, "costo medio por reclamo", "info")}
+      ${statWidget("Frecuencia de accidentes", Number(s.accident_frequency || 0).toFixed(2), "reclamos por cliente", "info")}
+    </section>
+
+    ${bandHead("Automatización y tiempo ahorrado", "cuánto cierra el motor sin tocar a un humano")}
+    ${automationWidgets(automation)}
+
+    ${bandHead("Tendencia de riesgo", "cómo cambian severidad y frecuencia semana a semana (datos mock)")}
+    ${riskTrendChart(riskTrend)}
+
+    ${bandHead("Macro por ciudad", "siniestralidad, severidad y resultado por plaza")}
+    <section class="supervision-grid">
+      ${tableCard("Cartera por ciudad", byCityRows(byCity))}
+    </section>
+
+    ${bandHead("Resultado por línea", "suscripción, reclamos y renovación por separado")}
+    ${byLineCards(byLine)}
+
+    ${bandHead("Siniestros críticos", "los reclamos que más dinero están costando ahora mismo")}
+    ${criticalClaimsWidget(criticalClaims)}
+
+    ${bandHead("Tareas resueltas", "intervenciones humanas cerradas en la Bandeja, para seguimiento")}
+    ${resolvedTasksWidget(humanTasks)}
 
     ${bandHead("Riesgo ahora", "estado operativo de la cartera viva")}
     <section class="supervision-grid">
@@ -3796,259 +5727,595 @@ function supervisionLayout(result, baseline) {
     ${bandHead("Por qué y dónde se pierde", "diagnóstico sobre el árbol actual (datos mock trazables)")}
     <section class="supervision-grid">
       ${tableCard("Pérdida por nodo de reclamo", lossRows(b.loss_nodes || []))}
-      ${tableCard("Cash-out nodes", cashoutRows(t.cashout_nodes || []))}
-      ${tableCard("Cláusulas con fricción broker", clauseRows(b.broker_clause_friction || []))}
-      ${tableCard("Rutas más tocadas", nodeRows(b.node_hits || []))}
+      ${tableCard("Nodos con salida de dinero", cashoutRows(t.cashout_nodes || []))}
+      ${tableCard("Cláusulas con fricción de brokers", clauseRows(b.broker_clause_friction || []))}
+      ${tableCard("Rutas más recorridas", nodeRows(b.node_hits || []))}
     </section>
 
     ${bandHead("Renovaciones", "cola priorizada por vencimiento")}
     <section class="supervision-grid">
       ${tableCard("Cola de renovación", renewalRows(t.renewal_queue || []))}
     </section>
+    ${portfolioEventPanel("renewal", portfolioView)}
+
+    ${bandHead("Cartera de reclamos", "clientes suscritos, siniestralidad y cola de renovación")}
+    ${supervisionPortfolioCard()}
+    ${portfolioOpsSection(portfolioView)}
   </div>`;
 }
 
-function simulationHero(result) {
-  const d = result?.summary?.delta || {};
-  const profit = Number(d.profit_bob || 0);
-  const tone = profit > 0 ? "ok" : profit < 0 ? "bad" : "info";
-  return heroKpi(
-    "Impacto en utilidad (Δ)",
-    signedMoneyBob(d.profit_bob),
-    `${esc(d.outcome_changed_count || 0)} casos cambian de resultado · riesgo ${signedNumber(d.risk_score || 0, 1)}`,
-    tone,
-    profit >= 0 ? "favorable" : "adverso"
-  );
-}
-
-function simulationLayout(meta, candidates, result) {
-  const db = meta.mock_database || {};
-  const counts = db.row_counts || {};
-  return `<div class="sim-page">
-    <section class="sim-intro">
-      <div class="sim-intro-text">
-        <h2>Simulación de impacto</h2>
-        <p>Compara el árbol <b>actual</b> con una versión <b>candidata</b> sobre una cartera mock y mide el efecto antes de lanzar cambios.</p>
-      </div>
-      <div class="sim-counts">
-        <span class="badge badge-amber">datos mock</span>
-        <div class="sim-count"><b>${esc(counts.submissions || 0)}</b> solicitudes</div>
-        <div class="sim-count"><b>${esc(counts.claims || 0)}</b> reclamos</div>
-      </div>
-    </section>
-
-    <div id="sim-hero-wrap">${simulationHero(result)}</div>
-
-    <section class="card sim-controls">
-      <div class="card-body">${simulationControls(meta, candidates)}</div>
-    </section>
-
-    <div id="sim-summary-wrap">${simulationSummary(result)}</div>
-    <div id="sim-risk-wrap">${simulationRiskLab(result)}</div>
-
-    <section class="card sim-detail">
-      <div class="card-head">
-        <h2>Detalle de resultados</h2>
-        ${simulationTabs()}
-      </div>
-      <div class="card-body gtable-wrap" id="sim-detail-body">${simulationActiveTable(result)}</div>
-    </section>
+// Compact, flexible stat widget for the Supervisión macro/operation bands.
+// tone: "ok" | "warn" | "bad" | "info" → left-edge accent color. value may contain markup.
+function statWidget(label, value, sub, tone = "info") {
+  const toneClass = tone === "ok" ? "is-ok" : tone === "warn" ? "is-warn" : tone === "bad" ? "is-bad" : "is-info";
+  return `<div class="widget ${toneClass}">
+    <span class="widget-label">${esc(label)}</span>
+    <span class="widget-value">${value}</span>
+    ${sub ? `<span class="widget-sub">${esc(sub)}</span>` : ""}
   </div>`;
 }
 
-// Two primary controls (candidate version + engine) always visible; the rest of
-// the cohort filters and the overlay diff stay tucked away to reduce noise.
-function simulationControls(meta, candidates) {
-  const f = state.simulation.filters;
-  const opts = meta.filters || {};
-  const active = candidates.find((c) => c.candidate_id === state.simulation.candidate_id) || candidates[0] || {};
-  const controls = simulationEffectiveControls(active);
-  return `<div class="sim-control-row">
-      ${simSelect("sim-candidate", "Versión a comparar", candidates.map((c) => ({ value: c.candidate_id, label: c.label })), state.simulation.candidate_id, "sim-field-lg")}
-      ${simSelect("sim-engine", "Motor", opts.engines || [], f.engine || "all")}
+// Automation band: how many packets the engine closed on its own vs how many a
+// human had to attend, plus an estimate of the manual time that automation saved.
+function automationWidgets(a) {
+  if (!a || !a.total_packets) {
+    return `<section class="card"><div class="card-body sm" style="padding:16px">Sin paquetes en esta ventana.</div></section>`;
+  }
+  const lines = a.by_line || {};
+  const lineOrder = [["suscripcion", "Suscripción"], ["reclamos", "Reclamos"], ["renovacion", "Renovación"]];
+  const lineChips = lineOrder
+    .filter(([k]) => lines[k])
+    .map(([k, label]) => `<span class="auto-line-chip"><b>${esc(label)}</b> ${esc(lines[k].automated)}/${esc(lines[k].automated + lines[k].human)} auto · ${pctInt(lines[k].automation_rate)}</span>`)
+    .join("");
+  return `<section class="widget-grid">
+    ${statWidget("Atendidos sin humanos", `${esc(a.automated_packets)}/${esc(a.total_packets)}`, "paquetes cerrados por el motor", "ok")}
+    ${statWidget("Con intervención humana", esc(a.human_packets), `${esc(a.human_clients)} cliente(s) tocados por un humano`, a.human_packets > 0 ? "warn" : "ok")}
+    ${statWidget("Tasa de automatización", pctInt(a.automation_rate), "del total de paquetes", "info")}
+    ${statWidget("Tiempo ahorrado (est.)", `${esc(a.time_saved_hours)} h`, `${esc(a.time_saved_minutes)} min de gestión manual evitada`, "ok")}
+  </section>
+  ${lineChips ? `<div class="auto-line-strip">${lineChips}</div>` : ""}`;
+}
+
+// Week-over-week risk: two independently-scaled lines (severity in Bs, frequency
+// in claims/client) over the synthetic weekly history. Each series is normalized
+// to its own min/max so both fit the same plot; the legend carries the live value
+// and the change vs the start of the window.
+function riskTrendChart(trend) {
+  if (!trend || trend.length < 2) {
+    return `<section class="card"><div class="card-body sm" style="padding:16px">Sin histórico de riesgo.</div></section>`;
+  }
+  const W = 640, H = 240, padL = 14, padR = 14, padT = 18, padB = 34;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const n = trend.length;
+  const xAt = (i) => padL + (innerW * i) / (n - 1);
+  const sev = trend.map((t) => Number(t.severity_bob) || 0);
+  const freq = trend.map((t) => Number(t.frequency) || 0);
+  const yScale = (arr) => {
+    const mn = Math.min(...arr), mx = Math.max(...arr), span = (mx - mn) || 1;
+    return arr.map((v) => padT + innerH - ((v - mn) / span) * innerH);
+  };
+  const sy = yScale(sev), fy = yScale(freq);
+  const points = (ys) => ys.map((y, i) => `${xAt(i).toFixed(1)},${y.toFixed(1)}`).join(" ");
+  const dots = (ys, cls) => ys.map((y, i) => `<circle class="trend-dot ${cls}" cx="${xAt(i).toFixed(1)}" cy="${y.toFixed(1)}" r="${i === n - 1 ? 4 : 2.4}"/>`).join("");
+  const xlabels = trend.map((t, i) => `<text class="trend-xlabel" x="${xAt(i).toFixed(1)}" y="${H - 12}" text-anchor="middle">${esc(t.label)}</text>`).join("");
+  const sevDelta = sev[n - 1] - sev[0], freqDelta = freq[n - 1] - freq[0];
+  return `<section class="card trend-card">
+    <div class="card-head"><h2>Riesgo semana a semana</h2><span class="band-hint">severidad y frecuencia · datos mock</span></div>
+    <div class="card-body">
+      <div class="trend-legend">
+        <span class="trend-key"><i class="trend-sw is-sev"></i>Severidad <b>Bs ${moneyBob(sev[n - 1])}</b> <span class="${sevDelta >= 0 ? "txt-bad" : "txt-good"}">${signedMoneyBob(sevDelta)} vs inicio</span></span>
+        <span class="trend-key"><i class="trend-sw is-freq"></i>Frecuencia <b>${freq[n - 1].toFixed(2)}</b> <span class="${freqDelta >= 0 ? "txt-bad" : "txt-good"}">${signedNumber(freqDelta, 2)} vs inicio</span></span>
+      </div>
+      <svg class="trend-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Tendencia de riesgo semana a semana">
+        <polyline class="trend-line is-sev" points="${points(sy)}"/>
+        <polyline class="trend-line is-freq" points="${points(fy)}"/>
+        ${dots(sy, "is-sev")}${dots(fy, "is-freq")}
+        ${xlabels}
+      </svg>
     </div>
-    <p class="sim-candidate-desc" id="sim-candidate-desc">${esc(active.description || "")}</p>
-    <details class="sim-adjust" id="sim-adjust" ${state.simulation.showLevers ? "open" : ""}>
-      <summary>Ajustar palancas y cohorte</summary>
-      <div class="sim-extra-filters" id="sim-extra-filters">
-        ${simSelect("sim-city", "Ciudad", ["all", ...(opts.cities || [])], f.cities || "")}
-        ${simSelect("sim-broker", "Broker", ["all", ...(opts.brokers || [])], f.brokers || "")}
-        ${simSelect("sim-business", "Tipo de negocio", ["all", ...(opts.business_types || [])], f.business_types || "")}
-        ${simSelect("sim-make", "Marca", ["all", ...(opts.vehicle_makes || [])], f.vehicle_makes || "")}
-        ${simSelect("sim-policy", "Producto / cobertura", ["all", ...(opts.policy_types || [])], f.policy_types || "")}
-        ${simSelect("sim-cause", "Causa reclamo", ["all", ...(opts.claim_causes || [])], f.claim_causes || "")}
-        <label class="sim-field"><span>Edad mínima</span><input id="sim-age-min" type="number" min="0" value="${esc(f.age_min)}" placeholder="${esc(opts.age?.min || "")}"></label>
-        <label class="sim-field"><span>Edad máxima</span><input id="sim-age-max" type="number" min="0" value="${esc(f.age_max)}" placeholder="${esc(opts.age?.max || "")}"></label>
+  </section>`;
+}
+
+// Macro by city: loss ratio (siniestralidad), average severity and technical
+// result per plaza — the geographic read on where risk and money concentrate.
+function byCityRows(rows) {
+  if (!rows.length) return `<table class="gtable"><tbody>${emptyTableRow(7)}</tbody></table>`;
+  return `<table class="gtable"><thead><tr>
+      <th>Ciudad</th><th>Clientes</th><th>Reclamos</th><th>Prima</th><th>Siniestralidad</th><th>Severidad prom.</th><th>Resultado</th>
+    </tr></thead><tbody>
+    ${rows.map((r) => `<tr class="gtr">
+      <td><b>${esc(r.city)}</b></td>
+      <td class="num">${esc(r.clients)}</td>
+      <td class="num">${esc(r.claim_count)}</td>
+      <td class="num">Bs ${moneyBob(r.premium_bob)}</td>
+      <td class="num"><span class="${lossRatioClass(r.loss_ratio)}">${pctInt(r.loss_ratio)}</span></td>
+      <td class="num">Bs ${moneyBob(r.avg_severity_bob)}</td>
+      <td class="num ${Number(r.profit_bob) >= 0 ? "txt-good" : "txt-bad"}">${signedMoneyBob(r.profit_bob)}</td>
+    </tr>`).join("")}
+  </tbody></table>`;
+}
+
+// One profitability card per line of business so reclamos, suscripción and
+// renovación each show their own economics side by side.
+function byLineCards(rows) {
+  if (!rows.length) {
+    return `<section class="card"><div class="card-body sm" style="padding:16px">Sin datos por línea.</div></section>`;
+  }
+  return `<section class="line-grid">${rows.map(lineCard).join("")}</section>`;
+}
+
+function lineCard(r) {
+  const profitGood = Number(r.profit_bob) >= 0;
+  return `<article class="line-card">
+    <header class="line-card-head"><h3>${esc(r.label)}</h3><span class="badge badge-muted">${esc(r.count)} casos</span></header>
+    <div class="line-card-rows">
+      <div class="line-row"><span>Resultado</span><b class="${profitGood ? "txt-good" : "txt-bad"}">${signedMoneyBob(r.profit_bob)}</b></div>
+      <div class="line-row"><span>Prima</span><b>Bs ${moneyBob(r.premium_bob)}</b></div>
+      <div class="line-row"><span>Siniestralidad</span><b class="${lossRatioClass(r.loss_ratio)}">${pctInt(r.loss_ratio)}</b></div>
+      ${r.line === "reclamos" ? `<div class="line-row"><span>Severidad prom.</span><b>Bs ${moneyBob(r.avg_severity_bob)}</b></div>` : ""}
+      <div class="line-row"><span>Automatización</span><b>${pctInt(r.automation_rate)}</b></div>
+    </div>
+  </article>`;
+}
+
+// Loss-ratio (siniestralidad) tone: green under 50%, amber to 70%, red above.
+function lossRatioClass(ratio) {
+  const r = Number(ratio || 0);
+  return r > 0.7 ? "txt-bad" : r > 0.5 ? "txt-warn" : "txt-good";
+}
+
+// Highlights the costliest claims in the live portfolio so a supervisor sees where
+// the money is going. Bar length is relative to the most expensive claim shown.
+function criticalClaimsWidget(rows) {
+  const top = rows.slice(0, 5);
+  if (!top.length) {
+    return `<section class="card"><div class="card-body sm" style="padding:16px">Sin siniestros con salida de dinero en esta ventana.</div></section>`;
+  }
+  const max = Math.max(...top.map((r) => Number(r.cashout_bob) || 0)) || 1;
+  return `<section class="crit-grid">
+    ${top.map((r, i) => {
+      const amount = Number(r.cashout_bob) || 0;
+      const width = Math.max(8, Math.round((amount / max) * 100));
+      const tone = i === 0 ? "is-bad" : amount / max > 0.5 ? "is-warn" : "is-info";
+      return `<article class="crit-card ${tone}">
+        <div class="crit-top"><span class="crit-rank">#${i + 1}</span><span class="crit-amount">Bs ${moneyBob(amount)}</span></div>
+        <div class="crit-client">${esc(r.client_name)}</div>
+        <div class="crit-meta">${esc(titleCase(r.cause || "sin causa"))} · ${esc(r.broker)}</div>
+        <div class="crit-node mono">${esc(truncate(r.node_id || "—", 40))}</div>
+        <div class="crit-bar"><i style="width:${width}%"></i></div>
+      </article>`;
+    }).join("")}
+  </section>`;
+}
+
+// Tracking log of human interventions already closed in the Bandeja. Lets a supervisor
+// see what underwriters decided, the fact each task resolved, and when — without opening
+// the Bandeja itself.
+function resolvedTasksWidget(tasks) {
+  const resolved = (tasks || []).filter((t) => t.status === "completed" || t.status === "completed_needs_client_followup");
+  resolved.sort((a, b) => String(b.completed_at || b.updated_at || "").localeCompare(String(a.completed_at || a.updated_at || "")));
+  if (!resolved.length) {
+    return `<section class="card"><div class="card-body sm" style="padding:16px">Aún no hay tareas resueltas en la Bandeja.</div></section>`;
+  }
+  const fmtWhen = (iso) => {
+    if (!iso) return "—";
+    const d = new Date(iso);
+    return isNaN(d.getTime()) ? "—" : d.toLocaleString("es-BO", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
+  };
+  return `<section class="card resolved-tasks-card">
+    <div class="card-head"><h2>Tareas resueltas</h2><span class="badge badge-ok">${resolved.length} cerradas</span></div>
+    <div class="card-body resolved-tasks-body">
+      ${resolved.map((t) => {
+        const ans = t.answer || {};
+        const factId = t.requested_fact || ans.fact_id || "";
+        const valueLabel = bandejaValueLabel(ans.value, (t.answer_schema || {}).type);
+        const resolvedFact = factId ? `${esc(factId)} = <b>${esc(valueLabel)}</b>` : "dictamen manual";
+        return `<div class="resolved-task">
+          <div class="resolved-task-main">
+            <span class="resolved-task-q">${esc(t.question || "Revisión humana")}</span>
+            <span class="resolved-task-fact">${resolvedFact}</span>
+            ${t.human_notes ? `<span class="resolved-task-note">“${esc(t.human_notes)}”</span>` : ""}
+          </div>
+          <div class="resolved-task-meta">
+            <span class="badge badge-muted">${esc(titleCase(t.engine || "uw"))}</span>
+            <span>${esc(t.owner_name || "Santiago Bustillos")}</span>
+            <span>${esc(fmtWhen(t.completed_at || t.updated_at))}</span>
+          </div>
+        </div>`;
+      }).join("")}
+    </div>
+  </section>`;
+}
+
+// Ratio (0–1) → integer percent string, e.g. 0.683 → "68%".
+const pctInt = (ratio) => `${Math.round(Number(ratio || 0) * 100)}%`;
+// Simulation "side" → Spanish label. "current" is the live tree, "candidate" the sandbox.
+const sideLabel = (side) => (side === "candidate" ? "Sandbox" : "Actual");
+// Alert severity → Spanish label.
+const severityLabel = (sev) => (sev === "high" ? "alta" : sev === "low" ? "baja" : "media");
+
+// Read-only portfolio overview for supervisión: the full client/claims table that
+// used to live in the Reclamos flow. No selection here — operations happen in the flows.
+function supervisionPortfolioCard() {
+  const claimsCount = DEMO_CLIENTS.reduce((total, client) => total + (client.claims || []).length, 0);
+  const cleanCount = DEMO_CLIENTS.filter((client) => !(client.claims || []).length).length;
+  return `<section class="card sim-table-card">
+    <div class="card-head">
+      <h2>Cartera para reclamos</h2>
+      <div class="client-browser-stats">
+        <span><b>${esc(DEMO_CLIENTS.length)}</b> clientes</span>
+        <span><b>${esc(claimsCount)}</b> reclamos</span>
+        <span><b>${esc(cleanCount)}</b> sin accidentes</span>
       </div>
-      ${simulationLeverPanel(controls)}
-    </details>
-    <details class="sim-changes">
-      <summary>Qué cambia esta versión candidata</summary>
-      <div class="sandbox-edits" id="sim-overlay-edits">${simulationOverlayRows(active)}</div>
-      <p class="sim-footnote">El overlay no edita los archivos fuente; compara una versión candidata gobernada contra el árbol actual.</p>
-    </details>`;
+    </div>
+    <div class="card-body gtable-wrap">
+      <table class="client-table">
+        <thead><tr><th>Cliente</th><th>Póliza</th><th>Vehículo</th><th>Reclamos</th><th>Renovación</th></tr></thead>
+        <tbody>${DEMO_CLIENTS.map(supervisionPortfolioRow).join("")}</tbody>
+      </table>
+    </div>
+  </section>`;
+}
+
+function supervisionPortfolioRow(client) {
+  const claimCount = (client.claims || []).length;
+  const loss = demoLossRatio(client);
+  return `<tr class="client-row">
+    <td><b>${esc(client.name)}</b><div class="sim-sub">${esc(client.id)} · ${esc(client.broker)}</div></td>
+    <td><span class="mono">${esc(client.policy_id)}</span><div class="sim-sub">${esc(client.city)} · ${esc(titleCase(client.policy_status))}</div></td>
+    <td>${esc(demoVehicleLabel(client))}<div class="sim-sub">Bs ${moneyBob(((client.underwriting || {}).facts || {}).valor_asegurado)}</div></td>
+    <td><span class="claim-pill ${claimCount ? "has-claims" : "is-clean"}">${claimCount ? `${claimCount} reclamo${claimCount === 1 ? "" : "s"}` : "sin accidentes"}</span><div class="sim-sub">LR ${loss.toFixed(2)}</div></td>
+    <td>${signedNumber((client.renewal || {}).price_adjustment_percent || 0, 0)}%<div class="sim-sub">${esc(client.renewal_due)}</div></td>
+  </tr>`;
+}
+
+// The three lenses the user picks between. Each scopes the same simulated cases
+// to a domain and surfaces its own stats, critical nodes and headline output.
+const SIM_DOMAINS = [
+  { id: "suscripcion", label: "Suscripción", hint: "Nuevos negocios: qué entra a la cartera y a qué precio." },
+  { id: "reclamos",    label: "Reclamos",    hint: "Cómo responde el árbol de cobertura y dónde sale el dinero." },
+  { id: "renovacion",  label: "Renovación",  hint: "Retención de cartera y acción de precio al renovar." },
+];
+
+// One place that describes how each editable control renders and formats its value.
+const CONTROL_SPECS = {
+  uw_antique_age_limit:            { kind: "range", label: "Antigüedad máxima", min: 10, max: 30, step: 1, fmt: (v) => `${Math.round(v)} años` },
+  uw_rental_non_petroleum_outcome: { kind: "select", label: "Rent-a-car no petrolero", options: [["decline", "No elegible"], ["refer_process", "Derivar a Case UW"]] },
+  coverage_notice_days_limit:      { kind: "range", label: "Aviso tardío", min: 3, max: 20, step: 1, fmt: (v) => `${Math.round(v)} días` },
+  coverage_alcohol_outcome:        { kind: "select", label: "Alcoholemia", options: [["not_covered", "No cubrir"], ["refer_adjuster", "Revisión humana"]] },
+  coverage_replacement_threshold:  { kind: "range", label: "Cambio de parte", min: 45, max: 80, step: 1, fmt: (v) => `${Math.round(v)}%` },
+  coverage_moto_parts_outcome:     { kind: "select", label: "Robo partes moto", options: [["not_covered", "No cubrir"], ["refer_adjuster", "Revisión humana"], ["likely_covered", "Cubrir"]] },
+  coverage_price_multiplier:       { kind: "range", label: "Precio de cobertura", min: 0.75, max: 1.5, step: 0.01, fmt: (v) => `${Math.round(v * 100)}%` },
+  deductible_multiplier:           { kind: "range", label: "Deducible", min: 0.8, max: 1.6, step: 0.01, fmt: (v) => `${Math.round(v * 100)}%` },
+  accident_frequency_multiplier:   { kind: "range", label: "Frecuencia de siniestros", min: 0.5, max: 2, step: 0.01, fmt: (v) => `${Math.round(v * 100)}%` },
+  severity_multiplier:             { kind: "range", label: "Severidad (Bs por siniestro)", min: 0.5, max: 2, step: 0.01, fmt: (v) => `${Math.round(v * 100)}%` },
+  claims_volume_factor:            { kind: "range", label: "Número de clientes", min: 0.5, max: 2, step: 0.05, fmt: (v) => `${Math.round(v * 100)}% de cartera` },
+  renewal_price_change_percent:    { kind: "range", label: "Cambio precio renovación", min: -15, max: 30, step: 1, fmt: (v) => `${signedNumber(v, 0)}%` },
+  renewal_churn_elasticity:        { kind: "range", label: "Elasticidad de fuga", min: 0, max: 0.03, step: 0.001, fmt: (v) => Number(v).toFixed(3) },
+};
+
+// Spanish labels for the universal per-node outcome override (reclamos).
+const OUTCOME_OVERRIDE_LABELS = {
+  not_covered: "No cubrir",
+  refer_adjuster: "Revisión humana",
+  partially_covered: "Cobertura parcial",
+  conditionally_covered: "Cobertura condicional",
+  likely_covered: "Cubrir",
+  missing_document: "Falta documento",
+  excluded: "Excluido",
+};
+
+function activeSimDomain() {
+  return SIM_DOMAINS.find((d) => d.id === state.simulation.domain) || SIM_DOMAINS[0];
+}
+
+function simDomainData(result) {
+  const domains = result?.domains || {};
+  return domains[state.simulation.domain] || domains.suscripcion || {};
 }
 
 function simulationEffectiveControls(active) {
   return { ...DEFAULT_SIM_CONTROLS, ...((active && active.overlays) || {}), ...(state.simulation.controls || {}) };
 }
 
-function simulationLeverPanel(c) {
-  return `<section class="sim-levers" aria-label="Palancas de simulación">
-    ${simRange("sim-price-mult", "Precio cobertura", c.coverage_price_multiplier, 0.75, 1.5, 0.01, `${Math.round(c.coverage_price_multiplier * 100)}%`)}
-    ${simRange("sim-deductible-mult", "Deducible", c.deductible_multiplier, 0.8, 1.6, 0.01, `${Math.round(c.deductible_multiplier * 100)}%`)}
-    ${simRange("sim-frequency-mult", "Frecuencia accidentes", c.accident_frequency_multiplier, 0.5, 1.8, 0.01, `${Math.round(c.accident_frequency_multiplier * 100)}%`)}
-    ${simRange("sim-severity-mult", "Severidad", c.severity_multiplier, 0.5, 1.8, 0.01, `${Math.round(c.severity_multiplier * 100)}%`)}
-    ${simRange("sim-renewal-price", "Renovación precio", c.renewal_price_change_percent, -15, 30, 1, `${Number(c.renewal_price_change_percent).toFixed(0)}%`)}
-    ${simRange("sim-notice-days", "Aviso reclamo días", c.coverage_notice_days_limit, 3, 20, 1, `${Number(c.coverage_notice_days_limit).toFixed(0)} días`)}
-    ${simRange("sim-replacement-threshold", "Cambio de parte", c.coverage_replacement_threshold, 45, 80, 1, `${Number(c.coverage_replacement_threshold).toFixed(0)}%`)}
-    <label class="sim-field sim-field-sm"><span>Alcoholemia</span><select id="sim-alcohol-outcome" data-sim-control="coverage_alcohol_outcome">
-      ${simOption("not_covered", "No cubrir", c.coverage_alcohol_outcome)}
-      ${simOption("refer_adjuster", "Revisión humana", c.coverage_alcohol_outcome)}
-    </select></label>
-    <label class="sim-field sim-field-sm"><span>Robo partes moto</span><select id="sim-moto-outcome" data-sim-control="coverage_moto_parts_outcome">
-      ${simOption("not_covered", "No cubrir", c.coverage_moto_parts_outcome)}
-      ${simOption("refer_adjuster", "Revisión humana", c.coverage_moto_parts_outcome)}
-      ${simOption("likely_covered", "Cubrir", c.coverage_moto_parts_outcome)}
-    </select></label>
-  </section>`;
+function simulationLayout(meta, candidates, result, portfolioView) {
+  const db = meta.mock_database || {};
+  const counts = db.row_counts || {};
+  return `<div class="sim-page">
+    <section class="sim-domain-bar">
+      ${simSelect("sim-domain", "Dominio", SIM_DOMAINS.map((d) => ({ value: d.id, label: d.label })), state.simulation.domain, "sim-field-lg")}
+      ${simSelect("sim-candidate", "Punto de partida", candidates.map((c) => ({ value: c.candidate_id, label: c.label })), state.simulation.candidate_id)}
+      <p class="sim-domain-hint">${esc(activeSimDomain().hint)}</p>
+      <span class="sim-mock-note"><span class="badge badge-amber">datos mock</span> ${esc(counts.submissions || 0)} solicitudes · ${esc(counts.claims || 0)} reclamos</span>
+    </section>
+
+    <div class="sim-sticky" id="sim-outputs-wrap">${simulationOutputs(result)}</div>
+    <div id="sim-stats-wrap">${simulationStats(result)}</div>
+
+    <section class="card sim-dials">
+      <div class="card-head"><h2>Dinámica de mercado</h2><span class="band-hint">mueve toda la cartera de golpe</span></div>
+      <div class="card-body sim-dials-grid" id="sim-dials-wrap">${simulationMacroDials(result)}</div>
+    </section>
+
+    <section class="card sim-detail">
+      <div class="card-head"><h2>Dónde se va el dinero</h2><span class="band-hint">nodos clave ordenados por Bs en juego — edítalos aquí mismo</span></div>
+      <div class="card-body gtable-wrap" id="sim-nodes-wrap">${simulationKeyNodes(result)}</div>
+    </section>
+    ${portfolioOpsSection(portfolioView)}
+  </div>`;
 }
 
-function simRange(id, label, value, min, max, step, display) {
-  return `<label class="sim-lever"><span>${esc(label)}</span><input id="${id}" data-sim-control="${esc(controlKeyFor(id))}" type="range" min="${min}" max="${max}" step="${step}" value="${esc(value)}"><b>${esc(display)}</b></label>`;
-}
-
-function controlKeyFor(id) {
-  return {
-    "sim-price-mult": "coverage_price_multiplier",
-    "sim-deductible-mult": "deductible_multiplier",
-    "sim-frequency-mult": "accident_frequency_multiplier",
-    "sim-severity-mult": "severity_multiplier",
-    "sim-renewal-price": "renewal_price_change_percent",
-    "sim-notice-days": "coverage_notice_days_limit",
-    "sim-replacement-threshold": "coverage_replacement_threshold"
-  }[id];
-}
-
-function simOption(value, label, selected) {
-  return `<option value="${esc(value)}" ${String(value) === String(selected) ? "selected" : ""}>${esc(label)}</option>`;
-}
-
-function simulationOverlayRows(active) {
-  const ov = (active && active.overlays) || {};
-  return [
-    sandboxRow("standard.elig.antique_vehicle", "Antigüedad de renovación", `vehicle_age_years > ${fmt(ov.uw_antique_age_limit || 20)}`),
-    sandboxRow("standard.elig.rent_a_car", "Rent-a-car no petrolero", fmt(ov.uw_rental_non_petroleum_outcome || "decline")),
-    sandboxRow("coverage.duty.notice_delay", "Aviso tardío reclamos", `insurer_notice_days > ${fmt(ov.coverage_notice_days_limit || 10)}`),
-    sandboxRow("coverage.general.alcohol", "Alcoholemia", fmt(ov.coverage_alcohol_outcome || "not_covered")),
-    sandboxRow("coverage.parts.replacement_threshold", "Cambio de parte", `reparación <= ${fmt(ov.coverage_replacement_threshold || 65)}%`),
-  ].join("");
-}
-
-function sandboxRow(node, title, value) {
-  return `<div class="sandbox-row"><code>${esc(node)}</code><span>${esc(title)}</span><b>${esc(value)}</b></div>`;
-}
-
-const SIM_TABS = [
-  { id: "cases",  label: "Casos cambiados" },
-  { id: "losses", label: "Dónde se pierde" },
-  { id: "price",  label: "Precio y renovación" },
-  { id: "nodes",  label: "Nodos recorridos" },
-];
-
-function simulationTabs() {
-  const tab = state.simulation.tab;
-  return `<div class="seg sim-tabs">${SIM_TABS.map((t) =>
-    `<button class="seg-btn ${tab === t.id ? "active" : ""}" data-simtab="${t.id}">${esc(t.label)}</button>`
-  ).join("")}</div>`;
-}
-
-function simulationActiveTable(result) {
-  const tables = result?.tables || {};
-  switch (state.simulation.tab) {
-    case "losses":
-      return `${bandHead("Pérdida por nodo")}${lossRows((tables.loss_nodes || []).slice(0, 12))}
-              ${bandHead("Cash-out nodes")}${cashoutRows((tables.cashout_nodes || []).slice(0, 18))}`;
-    case "price":
-      return simulationPriceRenewalView(result);
-    case "nodes":
-      return nodeRows((tables.node_hits || []).slice(0, 12));
-    case "cases":
-    default: {
-      const cases = tables.cases || [];
-      const ordered = cases.filter((r) => r.outcome_changed).concat(cases.filter((r) => !r.outcome_changed));
-      return caseRows(ordered.slice(0, 15));
-    }
+function simulationOutputs(result) {
+  const dom = simDomainData(result);
+  const cur = dom.current || {}, cand = dom.candidate || {}, delta = dom.delta || {};
+  const profit = Number(delta.profit_bob || 0);
+  const tone = profit > 0 ? "ok" : profit < 0 ? "bad" : "info";
+  const hero = heroKpi(
+    "Impacto en utilidad (Δ)",
+    signedMoneyBob(delta.profit_bob),
+    `actual Bs ${moneyBob(cur.profit_bob)} → candidato Bs ${moneyBob(cand.profit_bob)}`,
+    tone,
+    profit >= 0 ? "favorable" : "adverso"
+  );
+  let card = "";
+  if (state.simulation.domain === "suscripcion") {
+    card = outputCard("Clientes nuevos", `${esc(cand.new_clients ?? 0)} / ${esc(cand.submissions ?? 0)}`,
+      `${signedNumber(delta.new_clients || 0, 0)} vs actual · ${Math.round((cand.accept_rate || 0) * 100)}% aceptación`,
+      Number(delta.new_clients || 0) >= 0 ? "ok" : "bad");
+  } else if (state.simulation.domain === "reclamos") {
+    card = outputCard("Pérdida en reclamos", `Bs ${moneyBob(cand.incurred_bob)}`,
+      `${signedMoneyBob(delta.incurred_bob)} vs actual`,
+      Number(delta.incurred_bob || 0) <= 0 ? "ok" : "bad");
+  } else {
+    card = outputCard("Renovaciones retenidas", `${esc(cand.renewals_retained ?? 0)} / ${esc(cand.pool ?? 0)}`,
+      `${signedNumber(delta.renewals_retained || 0, 0)} vs actual · ${Math.round((cand.retention_rate || 0) * 100)}% retención`,
+      Number(delta.renewals_retained || 0) >= 0 ? "ok" : "bad");
   }
+  return `<div class="sim-outputs">${hero}<section class="kpis sim-output-cards">${card}</section></div>`;
 }
 
-function simulationSummary(result) {
-  const s = result?.summary || {};
-  const d = s.delta || {};
-  const sel = result?.selection || {};
-  return `<section class="kpis sim-kpis">
-    <div class="kpi is-info"><span class="kpi-label">Cohorte</span><span class="kpi-value">${esc(sel.selected_count || 0)}</span><span class="kpi-sub">${esc(sel.uw_count || 0)} suscripción · ${esc(sel.coverage_count || 0)} reclamos</span></div>
-    <div class="kpi ${Number(d.profit_bob || 0) >= 0 ? "is-ok" : "is-bad"}"><span class="kpi-label">Delta utilidad</span><span class="kpi-value">${signedMoneyBob(d.profit_bob)}</span><span class="kpi-sub">BOB modelado mock</span></div>
-    <div class="kpi ${Number(d.claim_loss_bob || 0) <= 0 ? "is-ok" : "is-warn"}"><span class="kpi-label">Delta pérdida reclamos</span><span class="kpi-value">${signedMoneyBob(d.claim_loss_bob)}</span><span class="kpi-sub">pagado + reserva esperado</span></div>
-    <div class="kpi ${Number(d.risk_score || 0) <= 0 ? "is-ok" : "is-warn"}"><span class="kpi-label">Delta riesgo</span><span class="kpi-value">${signedNumber(d.risk_score || 0, 1)}</span><span class="kpi-sub">loss ratio ${signedNumber(d.loss_ratio || 0, 3)} · outcome ${esc(d.outcome_changed_count || 0)}</span></div>
-  </section>`;
+function outputCard(label, value, sub, tone) {
+  const cls = tone === "ok" ? "is-ok" : tone === "bad" ? "is-bad" : tone === "warn" ? "is-warn" : "is-info";
+  return `<div class="kpi ${cls}"><span class="kpi-label">${esc(label)}</span><span class="kpi-value">${value}</span><span class="kpi-sub">${esc(sub)}</span></div>`;
 }
 
-function simulationRiskLab(result) {
-  const risk = result?.risk || {};
-  const candidate = risk.candidate || {};
-  const delta = risk.delta || {};
-  return `<section class="sim-lab-grid cols-1">
-    <section class="card">
-      <div class="card-head"><h2>Riesgo en vivo</h2><span class="badge ${Number(delta.risk_score || 0) <= 0 ? "badge-ok" : "badge-amber"}">${signedNumber(delta.risk_score || 0, 1)}</span></div>
-      <div class="card-body sim-risk-metrics">
-        ${riskMetric("Risk score", candidate.risk_score, signedNumber(delta.risk_score || 0, 1))}
-        ${riskMetric("Loss ratio", candidate.loss_ratio, signedNumber(delta.loss_ratio || 0, 3))}
-        ${riskMetric("Frecuencia", candidate.accident_frequency, signedNumber(delta.accident_frequency || 0, 3))}
-        ${riskMetric("Severidad", `Bs ${moneyBob(candidate.avg_severity_bob)}`, signedMoneyBob(delta.avg_severity_bob || 0))}
-        ${riskMetric("Cash-out exposure", `Bs ${moneyBob(candidate.cashout_exposure_bob)}`, signedMoneyBob(delta.cashout_exposure_bob || 0))}
-      </div>
-    </section>
-  </section>`;
+function simulationStats(result) {
+  const dom = simDomainData(result);
+  const rows = simDomainStatRows(state.simulation.domain, dom.candidate || {}, dom.delta || {});
+  return `<section class="kpis sim-kpis">${rows.map((r) =>
+    `<div class="kpi ${r.cls || "is-info"}"><span class="kpi-label">${esc(r.label)}</span><span class="kpi-value">${r.value}</span><span class="kpi-sub">${esc(r.sub || "")}</span></div>`
+  ).join("")}</section>`;
 }
 
-function simulationPriceRenewalView(result) {
-  const renewal = result?.renewal || {};
-  return `<section class="sim-lab-grid cols-2">
-    <section class="card">
-      <div class="card-head"><h2>Curva de precio cobertura</h2><span class="badge">profit max</span></div>
-      <div class="card-body">${priceCurveBars(result?.price_curve || [])}</div>
-    </section>
-    <section class="card">
-      <div class="card-head"><h2>Renovaciones</h2><span class="badge badge-ok">mejor ${esc(renewal.best_price_change_percent ?? "--")}%</span></div>
-      <div class="card-body">${renewalCurveBars(renewal.curve || [])}</div>
-    </section>
-  </section>
-  ${bandHead("Árbol de renovación")}${renewalTreeRows(renewal.tree || [])}`;
+function simDomainStatRows(domain, c, d) {
+  if (domain === "suscripcion") return [
+    { label: "Solicitudes", value: esc(c.submissions ?? 0), sub: "en la cohorte" },
+    { label: "Aceptación", value: `${Math.round((c.accept_rate || 0) * 100)}%`, sub: `${signedNumber((d.accept_rate || 0) * 100, 0)} pts vs actual` },
+    { label: "Prima suscrita", value: `Bs ${moneyBob(c.premium_bob)}`, sub: `${signedMoneyBob(d.premium_bob)} vs actual` },
+    { label: "Pérdida esperada", value: `Bs ${moneyBob(c.expected_loss_bob)}`, sub: `${signedMoneyBob(d.expected_loss_bob)} vs actual` },
+    { label: "Satisfacción broker", value: Number(c.avg_broker_satisfaction || 0).toFixed(0), sub: `${signedNumber(d.avg_broker_satisfaction || 0, 1)} vs actual` },
+  ];
+  if (domain === "reclamos") return [
+    { label: "Reclamos", value: esc(c.claim_count ?? 0), sub: "en la cohorte" },
+    { label: "Loss ratio", value: Number(c.loss_ratio || 0).toFixed(2), sub: `${signedNumber(d.loss_ratio || 0, 3)} vs actual` },
+    { label: "Cash-out", value: `Bs ${moneyBob(c.cashout_bob)}`, sub: `${signedMoneyBob(d.cashout_bob)} vs actual` },
+    { label: "Severidad prom.", value: `Bs ${moneyBob(c.avg_severity_bob)}`, sub: `${signedMoneyBob(d.avg_severity_bob)} vs actual` },
+    { label: "Fricción broker", value: `${Math.round((c.unhappy_rate || 0) * 100)}%`, sub: "reclamos inconformes" },
+  ];
+  return [
+    { label: "Pólizas en renovación", value: esc(c.pool ?? 0), sub: "en la cohorte" },
+    { label: "Retención", value: `${Math.round((c.retention_rate || 0) * 100)}%`, sub: `${signedNumber((d.retention_rate || 0) * 100, 1)} pts vs actual` },
+    { label: "Prima retenida", value: `Bs ${moneyBob(c.premium_bob)}`, sub: `${signedMoneyBob(d.premium_bob)} vs actual` },
+    { label: "Pérdida esperada", value: `Bs ${moneyBob(c.expected_loss_bob)}`, sub: `${signedMoneyBob(d.expected_loss_bob)} vs actual` },
+    { label: "Loss ratio", value: Number(c.loss_ratio || 0).toFixed(2), sub: `${signedNumber(d.loss_ratio || 0, 3)} vs actual` },
+  ];
 }
 
-function riskMetric(label, value, delta) {
-  return `<div class="risk-metric"><span>${esc(label)}</span><b>${esc(value ?? "--")}</b><em>${esc(delta)}</em></div>`;
+// The macro dials for the active domain: a small set of market-wide levers that
+// move the whole portfolio at once (siniestralidad, número de clientes, etc.).
+// These are the "act fast on changing market dynamics" controls. Never
+// re-rendered during a live recalc so a slider drag is never interrupted.
+function simulationMacroDials(result) {
+  const dom = simDomainData(result);
+  const controls = simulationEffectiveControls(activeSimCandidate());
+  const dials = dom.macro_dials || [];
+  if (!dials.length) return `<p class="sim-footnote">Sin palancas de mercado para este dominio.</p>`;
+  return dials.map((k) => renderControl(k, controls[k])).join("");
 }
 
-function priceCurveBars(rows) {
-  const maxProfit = Math.max(1, ...rows.map((r) => Math.abs(Number(r.profit_bob || 0))));
-  return `<div class="curve-list">${rows.map((r) => `<div class="curve-row">
-    <span>${Math.round(Number(r.coverage_price_multiplier) * 100)}%</span>
-    <div class="curve-track"><i style="width:${Math.max(4, Math.round(Math.abs(Number(r.profit_bob || 0)) / maxProfit * 100))}%"></i></div>
-    <b>Bs ${moneyBob(r.profit_bob)}</b>
-    <em>LR ${Number(r.loss_ratio || 0).toFixed(2)}</em>
-  </div>`).join("")}</div>`;
+// "Dónde se va el dinero": the key nodes for the active domain, ranked by the Bs
+// they move (NOT by traversal count). Each row carries its own inline editor —
+// a per-node outcome override and/or a numeric parameter — so the user edits the
+// node right where they see its cost. Cost cells carry stable data-cost hooks so
+// a live recalc can patch the numbers without re-rendering the inputs.
+function simulationKeyNodes(result) {
+  const dom = simDomainData(result);
+  const nodes = dom.key_nodes || [];
+  if (!nodes.length) return `<p class="sim-footnote">No hay nodos con dinero en juego para esta selección.</p>`;
+  const controls = simulationEffectiveControls(activeSimCandidate());
+  const costLabel = nodes[0].cost_label || "Costo";
+  return `<table class="gtable sim-keynodes"><thead><tr>
+      <th>Nodo</th><th>Volumen</th>
+      <th>${esc(costLabel)} actual</th><th>${esc(costLabel)} candidato</th><th>Δ</th>
+      <th>Editar aquí</th>
+    </tr></thead><tbody>
+    ${nodes.map((n) => keyNodeRow(n, controls)).join("")}
+  </tbody></table>`;
 }
 
-function renewalCurveBars(rows) {
-  const maxProfit = Math.max(1, ...rows.map((r) => Math.abs(Number(r.profit_bob || 0))));
-  return `<div class="curve-list">${rows.map((r) => `<div class="curve-row">
-    <span>${signedNumber(r.price_change_percent, 0)}%</span>
-    <div class="curve-track"><i style="width:${Math.max(4, Math.round(Math.abs(Number(r.profit_bob || 0)) / maxProfit * 100))}%"></i></div>
-    <b>Bs ${moneyBob(r.profit_bob)}</b>
-    <em>ret ${Math.round(Number(r.retention_rate || 0) * 100)}%</em>
-  </div>`).join("")}</div>`;
+function keyNodeRow(n, controls) {
+  return `<tr class="gtr sim-keynode" data-node="${esc(n.node_id)}">
+    <td class="sim-keynode-name" data-node-open="${esc(n.node_id)}" role="button" tabindex="0" title="Ver detalle del nodo"><b>${esc(truncate(n.title || n.node_id, 52))}</b><div class="sim-sub mono">${esc(truncate(n.node_id, 50))}</div><span class="sim-node-open-hint">ver detalle ↗</span></td>
+    <td class="num">${esc(n.count ?? 0)}<div class="sim-sub">${esc(n.count_label || "")}</div></td>
+    <td class="num" data-cost="current">Bs ${moneyBob(n.current_cost_bob)}</td>
+    <td class="num" data-cost="candidate">Bs ${moneyBob(n.candidate_cost_bob)}</td>
+    <td class="num ${deltaCostClass(n.delta_cost_bob)}" data-cost="delta">${signedMoneyBob(n.delta_cost_bob)}</td>
+    <td class="sim-keynode-edit">${keyNodeEditors(n, controls)}</td>
+  </tr>`;
+}
+
+// Lower cost is always better here (cash-out, blocked premium, premium leaking
+// out), so a negative delta is favorable.
+function deltaCostClass(value) {
+  const d = Number(value || 0);
+  return d < 0 ? "sim-delta is-good" : d > 0 ? "sim-delta is-bad" : "sim-delta";
+}
+
+function keyNodeEditors(n, controls) {
+  const parts = [];
+  if (n.override_key && Array.isArray(n.override_options)) parts.push(overrideSelect(n));
+  if (n.numeric_control && CONTROL_SPECS[n.numeric_control]) parts.push(renderControl(n.numeric_control, controls[n.numeric_control]));
+  if (!parts.length) parts.push(`<span class="sim-sub">Usa las palancas de mercado ↑</span>`);
+  return parts.join("");
+}
+
+// Universal per-node outcome override (reclamos): force this node's terminal
+// outcome regardless of the tree logic. Only sent to the backend once the user
+// actually changes it, so by default the natural outcome is preserved.
+function overrideSelect(n) {
+  const current = n.override_value || n.current_outcome;
+  const opts = n.override_options.slice();
+  if (current && !opts.includes(current)) opts.unshift(current);
+  const options = opts.map((opt) =>
+    `<option value="${esc(opt)}" ${String(opt) === String(current) ? "selected" : ""}>${esc(OUTCOME_OVERRIDE_LABELS[opt] || titleCase(opt))}</option>`).join("");
+  return `<label class="sim-field sim-field-sm sim-override"><span>Forzar salida</span><select data-sim-control="${esc(n.override_key)}">${options}</select></label>`;
+}
+
+// Which decision engine backs each domain's key nodes. Renovación nodes are
+// synthetic (they come from the portfolio model, not a graph), so they have no
+// engine and fall back to a description built from the simulation data itself.
+const SIM_DOMAIN_ENGINE = { suscripcion: "uw", reclamos: "coverage", renovacion: null };
+
+const SIM_SYNTHETIC_NODE_INFO = {
+  "renewal.price_action": "Acción de precio al renovar: el cambio porcentual de prima que se aplica a cada póliza en su renovación. Es el principal driver del equilibrio entre retención y prima retenida.",
+  "renewal.churn_elasticity": "Elasticidad de fuga: qué tan sensible es la cartera a subir el precio. A mayor elasticidad, más pólizas se pierden por cada punto de aumento de prima.",
+};
+
+// Click-to-inspect a key node: mirror the tree's node drawer in a focused modal.
+// reclamos/suscripción nodes come from a real engine graph; renovación nodes are
+// synthetic and get a description built from the simulation row itself.
+async function openSimNodeModal(nodeId) {
+  const engine = SIM_DOMAIN_ENGINE[state.simulation.domain];
+  const keyNode = (simDomainData(state.simulation.result).key_nodes || []).find((n) => n.node_id === nodeId) || { node_id: nodeId };
+  let node = null;
+  if (engine) {
+    try {
+      const data = await graphData(engine);
+      node = (data.nodes || []).find((x) => x.id === nodeId) || null;
+    } catch { /* fall through to the synthetic panel */ }
+  }
+  if (node) mountSimNodeModal(simNodeHead(node), simNodeSectionsHtml(node, engine), node);
+  else mountSimNodeModal(syntheticNodeHead(keyNode), syntheticNodeHtml(keyNode), null);
+}
+
+function simNodeHead(n) {
+  return `<div><div class="node-modal-kicker"><span class="ntype nt-${esc(n.type)} big">${esc(titleCase(n.type))}</span><span>${esc(n.process || "sin proceso")}</span></div>
+    <h2 class="modal-title">${esc(n.title || n.id)}</h2>
+    <p class="modal-sub mono">${esc(n.id)}${n._file ? " · " + esc(n._file) : ""}</p></div>`;
+}
+
+function syntheticNodeHead(n) {
+  return `<div><div class="node-modal-kicker"><span class="ntype big">Modelo</span><span>renovación</span></div>
+    <h2 class="modal-title">${esc(n.title || n.node_id)}</h2>
+    <p class="modal-sub mono">${esc(n.node_id)} · sintético</p></div>`;
+}
+
+// The two-column informational grid, same sections the tree drawer shows but
+// read-only (cross-references are plain text, no graph navigation here).
+function simNodeSectionsHtml(n, engine) {
+  const link = (t) => `<span class="xtarget">${esc(t && typeof t === "object" ? (t.name || t.id || JSON.stringify(t)) : t)}</span>`;
+  let branches = "";
+  if (Array.isArray(n.branches) && n.branches.length) {
+    branches = `<div class="ins-sec"><h4>Ramas · ${n.branches.length}</h4>${n.branches.map((b) => `
+      <div class="branch">
+        <div class="branch-cond"><code>${esc(humanLogic(b.when || b.evaluate))}</code></div>
+        <div class="branch-arrow">→</div>
+        <div class="branch-out">
+          <span class="branch-outcome">${esc(b.outcome || "")}</span>
+          ${b.target ? link(b.target) : ""}
+          ${b.reason ? `<p class="branch-reason">${esc(b.reason)}</p>` : ""}
+          ${b.source_quote ? `<blockquote class="quote sm">${esc(b.source_quote)}</blockquote>` : ""}
+        </div>
+      </div>`).join("")}</div>`;
+  }
+  let evalBlock = "";
+  if (n.evaluate && !n.branches) {
+    evalBlock = `<div class="ins-sec"><h4>Condición</h4><div class="branch"><div class="branch-cond"><code>${esc(humanLogic(n.evaluate))}</code></div><div class="branch-arrow">→</div>
+      <div class="branch-out"><span class="branch-outcome">${esc(n.outcome || "")}</span>${n.referral_target ? link(n.referral_target) : ""}${n.reason ? `<p class="branch-reason">${esc(n.reason)}</p>` : ""}</div></div></div>`;
+  }
+  let outcomeBlock = "";
+  if (!n.branches && !n.evaluate && (n.outcome || n.referral_target)) {
+    outcomeBlock = `<div class="ins-sec"><h4>Resultado</h4><div class="branch-out"><span class="branch-outcome">${esc(n.outcome || "terminal")}</span>${n.referral_target ? link(n.referral_target) : ""}${n.reason ? `<p class="branch-reason">${esc(n.reason)}</p>` : ""}</div></div>`;
+  }
+  const defs = state.cache.defs[engine] || {};
+  const facts = (n.needs_facts || []).map((f) => `<span class="fact-chip" title="${esc((defs[f] && defs[f].prompt) || "")}">${esc(f)}</span>`).join("");
+  const flags = nodeFlags(n);
+  const flagBlock = flags.length ? `<div class="ins-sec"><h4>Alertas · ${flags.length}</h4>${flags.map((f) => `
+    <div class="flag-card mini">
+      <div class="flag-top"><span class="flag-kind">${esc(titleCase(f.category))}</span><span class="badge ${f.status === "open" ? "badge-amber" : ""}">${esc(titleCase(f.status))}</span></div>
+      <p class="flag-summary">${esc(f.summary || f.title)}</p>
+    </div>`).join("")}</div>` : "";
+  const links = [];
+  if (n.on_no_match) links.push(`<div class="ins-row"><span class="ins-k">si no coincide</span>${link(n.on_no_match)}</div>`);
+  if (n.referral_target && n.branches) links.push(`<div class="ins-row"><span class="ins-k">derivación</span>${link(n.referral_target)}</div>`);
+  if (Array.isArray(n.see_also)) n.see_also.forEach((s) => links.push(`<div class="ins-row"><span class="ins-k">ver también</span>${link(s)}</div>`));
+  return `<div class="node-modal-grid">
+    <div class="node-modal-col">
+      ${n.source_quote ? `<div class="ins-sec first"><h4>Fuente citada</h4><blockquote class="quote">${esc(n.source_quote)}</blockquote></div>` : ""}
+      <div class="ins-sec first"><h4>Condición explicada</h4>${conditionDescriptionHtml(n)}</div>
+      ${facts ? `<div class="ins-sec"><h4>Hechos que lee · ${(n.needs_facts || []).length}</h4><div class="step-facts">${facts}</div></div>` : ""}
+      ${n.note ? `<div class="ins-sec"><h4>Nota</h4><p class="ins-note">${esc(n.note)}</p></div>` : ""}
+    </div>
+    <div class="node-modal-col">
+      ${evalBlock}${branches}${outcomeBlock}${flagBlock}
+      ${links.length ? `<div class="ins-sec"><h4>Enlaces</h4>${links.join("")}</div>` : ""}
+    </div>
+  </div>`;
+}
+
+function syntheticNodeHtml(n) {
+  const desc = SIM_SYNTHETIC_NODE_INFO[n.node_id] || "Nodo del modelo de cartera de renovación; no proviene del árbol de decisiones, sino del simulador.";
+  const rows = [];
+  if (n.count != null) rows.push(`<div class="ins-row"><span class="ins-k">${esc(n.count_label || "volumen")}</span><span>${esc(n.count)}</span></div>`);
+  if (n.cost_label) {
+    rows.push(`<div class="ins-row"><span class="ins-k">${esc(n.cost_label)} actual</span><span>Bs ${moneyBob(n.current_cost_bob)}</span></div>`);
+    rows.push(`<div class="ins-row"><span class="ins-k">${esc(n.cost_label)} candidato</span><span>Bs ${moneyBob(n.candidate_cost_bob)}</span></div>`);
+  }
+  if (n.numeric_control && CONTROL_SPECS[n.numeric_control]) rows.push(`<div class="ins-row"><span class="ins-k">palanca</span><span>${esc(CONTROL_SPECS[n.numeric_control].label)}</span></div>`);
+  return `<div class="node-modal-grid"><div class="node-modal-col">
+    <div class="ins-sec first"><h4>Qué representa</h4><p class="ins-note">${esc(desc)}</p></div>
+    ${rows.length ? `<div class="ins-sec"><h4>En esta simulación</h4>${rows.join("")}</div>` : ""}
+  </div></div>`;
+}
+
+function mountSimNodeModal(headHtml, innerHtml, node) {
+  const back = document.createElement("div");
+  back.className = "modal-back";
+  back.innerHTML = `<div class="modal node-info-modal" role="dialog" aria-modal="true">
+    <div class="modal-head">${headHtml}<button class="drawer-x" id="sn-close" title="Cerrar">✕</button></div>
+    <div class="modal-body">${innerHtml}</div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" id="sn-cancel">Cerrar</button>
+      ${node ? `<button class="btn btn-primary" id="sn-edit">Editar con chat guiado</button>` : ""}
+    </div></div>`;
+  document.body.appendChild(back);
+  requestAnimationFrame(() => back.classList.add("open"));
+  const close = () => { back.classList.remove("open"); setTimeout(() => back.remove(), 180); };
+  back.addEventListener("click", (e) => { if (e.target === back) close(); });
+  back.querySelector("#sn-close").addEventListener("click", close);
+  back.querySelector("#sn-cancel").addEventListener("click", close);
+  const editBtn = back.querySelector("#sn-edit");
+  if (editBtn) editBtn.addEventListener("click", () => { close(); openProposeModal(node); });
+}
+
+function renderControl(key, value) {
+  const spec = CONTROL_SPECS[key];
+  if (!spec) return "";
+  if (spec.kind === "select") {
+    return `<label class="sim-field sim-field-sm"><span>${esc(spec.label)}</span><select data-sim-control="${esc(key)}">${spec.options.map(([v, l]) => `<option value="${esc(v)}" ${String(v) === String(value) ? "selected" : ""}>${esc(l)}</option>`).join("")}</select></label>`;
+  }
+  const display = spec.fmt ? spec.fmt(Number(value)) : value;
+  return `<label class="sim-lever"><span>${esc(spec.label)}</span><input data-sim-control="${esc(key)}" type="range" min="${spec.min}" max="${spec.max}" step="${spec.step}" value="${esc(value)}"><b>${esc(display)}</b></label>`;
 }
 
 // Shared "hero" metric card used at the top of Supervisión and Simulación.
@@ -4075,15 +6342,9 @@ function tableCard(title, rowsHtml) {
   </section>`;
 }
 
-function caseRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Caso</th><th>Cliente</th><th>Actual</th><th>Sandbox</th><th>Impacto</th></tr></thead><tbody>
-    ${rows.map((r) => `<tr class="gtr"><td class="mono">${esc(r.case_id)}</td><td><b>${esc(r.client_name)}</b><div class="sim-sub">${esc(r.city)} · ${esc(r.vehicle_make)}</div></td><td>${esc(titleCase(r.current_outcome))}</td><td>${esc(titleCase(r.candidate_outcome))}</td><td class="${Number(r.profit_bob || 0) >= 0 ? "sim-pos" : "sim-neg"}">${signedMoneyBob(r.profit_bob)}</td></tr>`).join("") || emptyTableRow(5)}
-  </tbody></table>`;
-}
-
 function lossRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Lado</th><th>Nodo</th><th>Reclamos</th><th>Pérdida</th><th>Broker</th></tr></thead><tbody>
-    ${rows.map((r) => `<tr class="gtr"><td>${esc(r.side)}</td><td class="mono">${esc(truncate(r.node_id, 44))}</td><td class="num">${esc(r.claim_count)}</td><td class="num">Bs ${moneyBob(r.loss_bob)}</td><td class="num">${esc(r.avg_broker_satisfaction)}</td></tr>`).join("") || emptyTableRow(5)}
+  return `<table class="gtable"><thead><tr><th>Árbol</th><th>Nodo</th><th>Reclamos</th><th>Pérdida</th><th>Satisf. broker</th></tr></thead><tbody>
+    ${rows.map((r) => `<tr class="gtr"><td>${esc(sideLabel(r.side))}</td><td class="mono">${esc(truncate(r.node_id, 44))}</td><td class="num">${esc(r.claim_count)}</td><td class="num">Bs ${moneyBob(r.loss_bob)}</td><td class="num">${Math.round(Number(r.avg_broker_satisfaction || 0))}/100</td></tr>`).join("") || emptyTableRow(5)}
   </tbody></table>`;
 }
 
@@ -4094,25 +6355,25 @@ function clauseRows(rows) {
 }
 
 function cashoutRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Lado</th><th>Caso</th><th>Cliente</th><th>Nodo</th><th>Salida</th></tr></thead><tbody>
-    ${rows.map((r) => `<tr class="gtr"><td>${esc(r.side)}</td><td class="mono">${esc(r.case_id)}</td><td>${esc(r.client_name)}<div class="sim-sub">${esc(titleCase(r.cause))} · ${esc(r.broker)}</div></td><td class="mono">${esc(truncate(r.node_id, 48))}</td><td class="num">Bs ${moneyBob(r.cashout_bob)}</td></tr>`).join("") || emptyTableRow(5)}
+  return `<table class="gtable"><thead><tr><th>Árbol</th><th>Caso</th><th>Cliente</th><th>Nodo</th><th>Salida</th></tr></thead><tbody>
+    ${rows.map((r) => `<tr class="gtr"><td>${esc(sideLabel(r.side))}</td><td class="mono">${esc(r.case_id)}</td><td>${esc(r.client_name)}<div class="sim-sub">${esc(titleCase(r.cause))} · ${esc(r.broker)}</div></td><td class="mono">${esc(truncate(r.node_id, 48))}</td><td class="num">Bs ${moneyBob(r.cashout_bob)}</td></tr>`).join("") || emptyTableRow(5)}
   </tbody></table>`;
 }
 
 function alertRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Sev</th><th>Alerta</th><th>Owner</th><th>Nodo</th></tr></thead><tbody>
-    ${rows.map((r) => `<tr class="gtr"><td><span class="badge ${r.severity === "high" ? "badge-bad" : "badge-amber"}">${esc(r.severity)}</span></td><td><b>${esc(r.title)}</b><div class="sim-sub">${esc(r.detail)}</div></td><td>${esc(titleCase(r.owner))}</td><td class="mono">${esc(truncate(r.node, 38))}</td></tr>`).join("") || emptyTableRow(4)}
+  return `<table class="gtable"><thead><tr><th>Prioridad</th><th>Alerta</th><th>Responsable</th><th>Nodo</th></tr></thead><tbody>
+    ${rows.map((r) => `<tr class="gtr"><td><span class="badge ${r.severity === "high" ? "badge-bad" : "badge-amber"}">${esc(severityLabel(r.severity))}</span></td><td><b>${esc(r.title)}</b><div class="sim-sub">${esc(r.detail)}</div></td><td>${esc(titleCase(r.owner))}</td><td class="mono">${esc(truncate(r.node, 38))}</td></tr>`).join("") || emptyTableRow(4)}
   </tbody></table>`;
 }
 
 function clientHealthRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Cliente</th><th>Riesgo</th><th>LR</th><th>Freq</th><th>Incurrido</th><th>Nodos</th></tr></thead><tbody>
-    ${rows.map((r) => `<tr class="gtr"><td><b>${esc(r.client_name)}</b><div class="sim-sub">${esc(r.city)} · ${esc(r.broker)}</div></td><td class="num">${esc(r.risk_score)}</td><td class="num">${Number(r.loss_ratio || 0).toFixed(2)}</td><td class="num">${Number(r.accident_frequency || 0).toFixed(2)}</td><td class="num">Bs ${moneyBob(r.incurred_bob)}</td><td class="mono">${esc(truncate((r.risk_nodes || []).join(", "), 50))}</td></tr>`).join("") || emptyTableRow(6)}
+  return `<table class="gtable"><thead><tr><th>Cliente</th><th>Riesgo</th><th>Siniestr.</th><th>Frec.</th><th>Incurrido</th><th>Nodos</th></tr></thead><tbody>
+    ${rows.map((r) => `<tr class="gtr"><td><b>${esc(r.client_name)}</b><div class="sim-sub">${esc(r.city)} · ${esc(r.broker)}</div></td><td class="num">${esc(r.risk_score)}</td><td class="num">${pctInt(r.loss_ratio)}</td><td class="num">${Number(r.accident_frequency || 0).toFixed(2)}</td><td class="num">Bs ${moneyBob(r.incurred_bob)}</td><td class="mono">${esc(truncate((r.risk_nodes || []).join(", "), 50))}</td></tr>`).join("") || emptyTableRow(6)}
   </tbody></table>`;
 }
 
 function frequencyRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Ciudad</th><th>Negocio</th><th>Clientes</th><th>Reclamos</th><th>Freq</th><th>Incurrido</th></tr></thead><tbody>
+  return `<table class="gtable"><thead><tr><th>Ciudad</th><th>Negocio</th><th>Clientes</th><th>Reclamos</th><th>Frec.</th><th>Incurrido</th></tr></thead><tbody>
     ${rows.map((r) => `<tr class="gtr"><td>${esc(r.city)}</td><td>${esc(titleCase(r.business_type))}</td><td class="num">${esc(r.client_count)}</td><td class="num">${esc(r.claim_count)}</td><td class="num">${Number(r.accident_frequency || 0).toFixed(2)}</td><td class="num">Bs ${moneyBob(r.incurred_bob)}</td></tr>`).join("") || emptyTableRow(6)}
   </tbody></table>`;
 }
@@ -4124,20 +6385,14 @@ function severityRows(rows) {
 }
 
 function renewalRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Cliente</th><th>Actual</th><th>LR</th><th>Churn</th><th>Recomendado</th><th>Nodo</th></tr></thead><tbody>
-    ${rows.map((r) => `<tr class="gtr"><td><b>${esc(r.client_name)}</b><div class="sim-sub">${esc(r.city)} · ${esc(r.broker)}</div></td><td class="num">Bs ${moneyBob(r.current_premium_bob)}</td><td class="num">${Number(r.loss_ratio || 0).toFixed(2)}</td><td class="num">${Math.round(Number(r.churn_probability || 0) * 100)}%</td><td class="num">${signedNumber(r.recommended_price_change_percent, 1)}%</td><td class="mono">${esc(r.renewal_node)}</td></tr>`).join("") || emptyTableRow(6)}
-  </tbody></table>`;
-}
-
-function renewalTreeRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Nodo</th><th>Padre</th><th>Métrica</th><th>Valor</th><th>Decisión</th></tr></thead><tbody>
-    ${rows.map((r) => `<tr class="gtr"><td><span class="mono">${esc(r.id)}</span><div class="sim-sub">${esc(r.title)}</div></td><td class="mono">${esc(r.parent || "root")}</td><td>${esc(r.metric || r.condition || "—")}</td><td>${esc(r.value_bob ? `Bs ${moneyBob(r.value_bob)}` : r.value ?? "—")}</td><td>${esc(titleCase(r.decision))}</td></tr>`).join("") || emptyTableRow(5)}
+  return `<table class="gtable"><thead><tr><th>Cliente</th><th>Prima</th><th>Siniestr.</th><th>Prob. fuga</th><th>Recomendado</th><th>Nodo</th></tr></thead><tbody>
+    ${rows.map((r) => `<tr class="gtr"><td><b>${esc(r.client_name)}</b><div class="sim-sub">${esc(r.city)} · ${esc(r.broker)}</div></td><td class="num">Bs ${moneyBob(r.current_premium_bob)}</td><td class="num">${pctInt(r.loss_ratio)}</td><td class="num">${Math.round(Number(r.churn_probability || 0) * 100)}%</td><td class="num">${signedNumber(r.recommended_price_change_percent, 1)}%</td><td class="mono">${esc(r.renewal_node)}</td></tr>`).join("") || emptyTableRow(6)}
   </tbody></table>`;
 }
 
 function nodeRows(rows) {
-  return `<table class="gtable"><thead><tr><th>Lado</th><th>Nodo</th><th>Hits</th><th>Pérdida</th><th>Utilidad</th></tr></thead><tbody>
-    ${rows.map((r) => `<tr class="gtr"><td>${esc(r.side)}</td><td><span class="mono">${esc(truncate(r.node_id, 48))}</span><div class="sim-sub">${esc(truncate(r.title || "", 70))}</div></td><td class="num">${esc(r.hit_count)}</td><td class="num">Bs ${moneyBob(r.loss_bob)}</td><td class="num">Bs ${moneyBob(r.profit_bob)}</td></tr>`).join("") || emptyTableRow(5)}
+  return `<table class="gtable"><thead><tr><th>Árbol</th><th>Nodo</th><th>Veces</th><th>Pérdida</th><th>Utilidad</th></tr></thead><tbody>
+    ${rows.map((r) => `<tr class="gtr"><td>${esc(sideLabel(r.side))}</td><td><span class="mono">${esc(truncate(r.node_id, 48))}</span><div class="sim-sub">${esc(truncate(r.title || "", 70))}</div></td><td class="num">${esc(r.hit_count)}</td><td class="num">Bs ${moneyBob(r.loss_bob)}</td><td class="num">Bs ${moneyBob(r.profit_bob)}</td></tr>`).join("") || emptyTableRow(5)}
   </tbody></table>`;
 }
 
@@ -4153,128 +6408,120 @@ function simSelect(id, label, rawOptions, selected, extraClass = "") {
 }
 
 function bindSimulationControls() {
-  $("#sim-run").addEventListener("click", runSimulationFromUi);
   $("#sim-reset").addEventListener("click", async () => {
-    state.simulation.filters = { engine: "all", age_min: "", age_max: "", cities: "", brokers: "", business_types: "", vehicle_makes: "", policy_types: "", claim_causes: "" };
     state.simulation.controls = { ...DEFAULT_SIM_CONTROLS };
     state.simulation.candidate_id = "growth_sandbox";
-    state.simulation.tab = "cases";
-    state.simulation.showLevers = false;
+    state.simulation.domain = "suscripcion";
     state.simulation.result = null;
     await go("simulation");
   });
+  // Domain change is a pure relens: reuse the result, just re-render for the
+  // newly selected domain (no re-run needed — all three domains come from one run).
+  $("#sim-domain").addEventListener("change", (e) => {
+    state.simulation.domain = e.target.value;
+    go("simulation");
+  });
+  // Candidate change resets the levers to that version's overlays and forces a re-run.
   $("#sim-candidate").addEventListener("change", (e) => {
     state.simulation.candidate_id = e.target.value;
     const candidates = state.cache.simulationCandidates || [];
     const active = candidates.find((c) => c.candidate_id === e.target.value) || candidates[0] || {};
     state.simulation.controls = { ...DEFAULT_SIM_CONTROLS, ...(active.overlays || {}) };
-    const edits = $("#sim-overlay-edits");
-    if (edits) edits.innerHTML = simulationOverlayRows(active);
-    const desc = $("#sim-candidate-desc");
-    if (desc) desc.textContent = active.description || "";
-    const levers = $(".sim-levers");
-    if (levers) levers.outerHTML = simulationLeverPanel(simulationEffectiveControls(active));
-    bindSimulationLeverControls();
-    runSimulationLive();
-  });
-  const adj = $("#sim-adjust");
-  if (adj) adj.addEventListener("toggle", () => { state.simulation.showLevers = adj.open; });
-  $$(".sim-tabs [data-simtab]").forEach((b) => b.addEventListener("click", () => {
-    state.simulation.tab = b.dataset.simtab;
-    $$(".sim-tabs [data-simtab]").forEach((x) => x.classList.toggle("active", x === b));
-    const body = $("#sim-detail-body");
-    if (body) body.innerHTML = simulationActiveTable(state.simulation.result);
-  }));
-  bindSimulationLeverControls();
-}
-
-async function runSimulationFromUi() {
-  const btn = $("#sim-run");
-  btn.disabled = true;
-  btn.classList.add("loading");
-  collectSimulationFormState();
-  try {
-    state.simulation.result = await runSimulationPayload({
-      filters: simulationApiFilters(state.simulation.filters),
-      candidate_id: state.simulation.candidate_id,
-      controls: state.simulation.controls
-    });
+    state.simulation.result = null;
     go("simulation");
-    toast("Simulación ejecutada");
-  } catch {
-    toast("No se pudo ejecutar la simulación", true);
-  } finally {
-    btn.disabled = false;
-    btn.classList.remove("loading");
-  }
+  });
+  bindSimulationEditorControls();
 }
 
-function collectSimulationFormState() {
-  state.simulation.filters = {
-    engine: $("#sim-engine")?.value || "all",
-    age_min: $("#sim-age-min")?.value || "",
-    age_max: $("#sim-age-max")?.value || "",
-    cities: $("#sim-city")?.value || "",
-    brokers: $("#sim-broker")?.value || "",
-    business_types: $("#sim-business")?.value || "",
-    vehicle_makes: $("#sim-make")?.value || "",
-    policy_types: $("#sim-policy")?.value || "",
-    claim_causes: $("#sim-cause")?.value || ""
-  };
-  state.simulation.candidate_id = $("#sim-candidate")?.value || state.simulation.candidate_id;
-  const nextControls = { ...(state.simulation.controls || {}) };
-  $$("[data-sim-control]").forEach((el) => {
-    const key = el.dataset.simControl;
-    if (!key) return;
-    nextControls[key] = el.type === "range" || el.type === "number" ? Number(el.value) : el.value;
+function activeSimCandidate() {
+  const candidates = state.cache.simulationCandidates || [];
+  return candidates.find((c) => c.candidate_id === state.simulation.candidate_id) || candidates[0] || {};
+}
+
+// Apply a single control edit to state. Writing from the fired element (rather
+// than re-scanning the whole DOM) avoids a stale duplicate input — e.g. a macro
+// dial and an inline node editor that share the same control key — clobbering
+// the value the user is actively dragging. Sibling inputs/labels for the same
+// key are synced so the two stay consistent.
+function applySimControl(el) {
+  const key = el.dataset.simControl;
+  if (!key) return;
+  const value = el.type === "range" || el.type === "number" ? Number(el.value) : el.value;
+  state.simulation.controls = { ...(state.simulation.controls || {}), [key]: value };
+  $$(`[data-sim-control="${key}"]`).forEach((other) => {
+    if (other !== el && String(other.value) !== String(value)) other.value = value;
+    const lbl = other.closest(".sim-lever")?.querySelector("b");
+    if (lbl) lbl.textContent = liveControlLabel(key, value);
   });
-  state.simulation.controls = nextControls;
 }
 
 let simulationLiveTimer;
-function bindSimulationLeverControls() {
-  $$("[data-sim-control]").forEach((el) => {
+function bindSimulationEditorControls() {
+  $$("#sim-dials-wrap [data-sim-control], #sim-nodes-wrap [data-sim-control]").forEach((el) => {
     el.addEventListener("input", () => {
-      collectSimulationFormState();
-      const label = el.closest(".sim-lever")?.querySelector("b");
-      if (label) label.textContent = liveControlLabel(el.dataset.simControl, state.simulation.controls[el.dataset.simControl]);
+      applySimControl(el);
       clearTimeout(simulationLiveTimer);
       simulationLiveTimer = setTimeout(runSimulationLive, 260);
     });
     el.addEventListener("change", () => {
-      collectSimulationFormState();
+      applySimControl(el);
       clearTimeout(simulationLiveTimer);
       simulationLiveTimer = setTimeout(runSimulationLive, 80);
+    });
+  });
+  $$("#sim-nodes-wrap [data-node-open]").forEach((el) => {
+    el.addEventListener("click", () => openSimNodeModal(el.dataset.nodeOpen));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openSimNodeModal(el.dataset.nodeOpen); }
     });
   });
 }
 
 function liveControlLabel(key, value) {
-  if (key === "coverage_notice_days_limit") return `${Number(value).toFixed(0)} días`;
-  if (key === "renewal_price_change_percent") return `${Number(value).toFixed(0)}%`;
-  if (key === "coverage_replacement_threshold") return `${Number(value).toFixed(0)}%`;
-  return `${Math.round(Number(value) * 100)}%`;
+  const spec = CONTROL_SPECS[key];
+  if (spec && spec.fmt) return spec.fmt(Number(value));
+  return String(value);
 }
 
+// Recalc on edit. The outputs/stats are re-rendered wholesale (no inputs in
+// them), but the key-nodes table only has its cost cells patched in place — its
+// inline editors are never re-rendered, so a slider drag is never interrupted.
 async function runSimulationLive() {
-  collectSimulationFormState();
   try {
     state.simulation.result = await runSimulationPayload({
       filters: simulationApiFilters(state.simulation.filters),
       candidate_id: state.simulation.candidate_id,
       controls: state.simulation.controls
     });
-    const hero = $("#sim-hero-wrap");
-    if (hero) hero.innerHTML = simulationHero(state.simulation.result);
-    const summary = $("#sim-summary-wrap");
-    if (summary) summary.innerHTML = simulationSummary(state.simulation.result);
-    const risk = $("#sim-risk-wrap");
-    if (risk) risk.innerHTML = simulationRiskLab(state.simulation.result);
-    const body = $("#sim-detail-body");
-    if (body) body.innerHTML = simulationActiveTable(state.simulation.result);
+    const outputs = $("#sim-outputs-wrap");
+    if (outputs) outputs.innerHTML = simulationOutputs(state.simulation.result);
+    const stats = $("#sim-stats-wrap");
+    if (stats) stats.innerHTML = simulationStats(state.simulation.result);
+    patchKeyNodeCosts(state.simulation.result);
   } catch {
     toast("No se pudo recalcular la simulación", true);
   }
+}
+
+// Patch the Bs columns of the existing key-node rows without touching the inline
+// editor inputs. Row order is intentionally left stable mid-edit; it re-sorts on
+// the next full render (domain/candidate change).
+function patchKeyNodeCosts(result) {
+  const wrap = $("#sim-nodes-wrap");
+  if (!wrap) return;
+  (simDomainData(result).key_nodes || []).forEach((n) => {
+    const row = wrap.querySelector(`[data-node="${n.node_id}"]`);
+    if (!row) return;
+    const cur = row.querySelector('[data-cost="current"]');
+    const cand = row.querySelector('[data-cost="candidate"]');
+    const delta = row.querySelector('[data-cost="delta"]');
+    if (cur) cur.textContent = `Bs ${moneyBob(n.current_cost_bob)}`;
+    if (cand) cand.textContent = `Bs ${moneyBob(n.candidate_cost_bob)}`;
+    if (delta) {
+      delta.textContent = signedMoneyBob(n.delta_cost_bob);
+      delta.className = `num ${deltaCostClass(n.delta_cost_bob)}`;
+    }
+  });
 }
 
 function simulationApiFilters(filters) {
