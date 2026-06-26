@@ -13,6 +13,13 @@
 > **Run it:** `cd "troubleshoot testing" && python3 run_all.py` (reads `crawlable/` read-only; all
 > fault injection is in-memory; **nothing under `crawlable/` is written**). Result at writing:
 > **ALL GREEN** — Layers A, B, C, D; 9/9 injected faults caught; 16/16 rulings surfaced-or-justified.
+>
+> **▶ Addendum (2026-06-24, post platform-merge).** The harness now covers **18** rulings (16 UW + 2
+> coverage). Layer D was made **engine-aware** (it harvests `graph_coverage/` conflict anchors), so the
+> 2 coverage rulings classify as **COVERAGE-RUNTIME** rather than mislabeled ledger-only — consistent
+> with `validate.py [11]` (decisions.md **D-P9**); a re-run is still **ALL GREEN** (18/18
+> surfaced-or-justified). The specific counts in §2/§4 below are *as-of their original 2026-06-19 runs*
+> (e.g. the 56-node / 16-ruling snapshot predates the later 61-node / 18-ruling state).
 
 ---
 
