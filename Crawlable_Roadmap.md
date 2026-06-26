@@ -4,7 +4,7 @@
 >
 > **End goal (unchanged).** An underwriter or agent inputs risk attributes and gets back eligibility, routing, authority, pricing, and deductibles — **with a full audit trail to the manual rule *and* the governing contract clause** — built from the Automotores manual + cláusulas, generalizable to other manuals, eventually exportable to DMN.
 >
-> **▶ NORTH STAR (owner-confirmed 2026-06-24) — clause-impact analysis.** Edit one clause, see *every outcome it moves*, with the citation trail (the **"blast radius"**). This is the latent end-goal made explicit — the contract-clause half of "audit trail to the rule **and** the governing clause," and the generalization of Phase 4.3's "blast radius of the *vehículo pesado* ruling." Its **two halves**: **P5-COV** (model every clause's *effect*) + **P4/O16** (the *dependency graph* of what depends on each clause); the **impact-diff runner** composes them on top of the existing snapshot harness. **Scope ladder:** whole-policy impact (this manual, every clause) → cross-manual impact (after P8 standardization). Until P5-COV/O16 are complete the tool is partial **by construction, not broken.**
+> **▶ NORTH STAR (owner-confirmed 2026-06-24) — clause-impact analysis.** Edit one clause, see *every outcome it moves*, with the citation trail (the **"blast radius"**). This is the latent end-goal made explicit — the contract-clause half of "audit trail to the rule **and** the governing clause," and the generalization of Phase 4.3's "blast radius of the *vehículo pesado* ruling." Its **two halves**: **P5-COV** (model every clause's *effect*) + **P4/O16** (the *dependency graph* of what depends on each clause); the **impact-diff runner** composes them on top of the existing snapshot harness. **Scope ladder:** whole-policy impact (this manual, every clause) → cross-manual impact (after P8 standardization). Until P5-COV/O16 are complete the tool is partial **by construction, not broken.** It is also the **original Phase-6 goal** — interlinking each clause to its effects (the Obsidian-vault idea); santi's React frontend is its eventual *surface*, **not** its substance (which is P5-COV + O16, both unbuilt).
 >
 > **The one strategic decision up front (see §Skeleton at the bottom):** do **not** design a new skeleton. Pour *this approach's data* into *Approach-1's node schema*. **Their skeleton, our data and fidelity.**
 >
@@ -30,7 +30,7 @@
 | **P5** full crawler + regression | 🔶 **partial** | 5 processes built; **`masiva`/`automática` = out-of-scope ✅ decided**; **O3** stage-chaining ⬜; coverage/rating golden snapshot ⬜ |
 | **P5-COV** full-policy coverage adjudication *(NEW — santi's engine)* | 🔶 **partial** | **2 of 7 Secciones** modeled (III + V; ~31/152 clauses wired) — **5 Secciones unbuilt** (deliberate slice, not a bug — D-PLAT-2) |
 | **★ Impact-diff runner** (clause-impact / blast-radius) | ⬜ **not started** | **the North Star's engine** — POC composes the snapshot harness on the 2 live Secciones; **← immediate next step** |
-| **P6** human layer | ❌ **superseded** | santi's React frontend + DB `human_task`/`chat` tables ARE the human layer; Obsidian vault **dropped** |
+| **P6** human layer | 🔶 **format superseded, purpose UNBUILT** | the Obsidian *vault* → dropped (santi's React frontend is the **surface**); but the **clause→effect interlinking it was FOR is unbuilt = the North Star** — santi's UI does **not** consume the linkage data |
 | **P7** manual-integrity report | 🔶 **partial** | findings exist + partly operationalized by santi's DB governance; a business-readable view remains |
 | **P8** standardization (engine + profile) | ⏸️ **deferred** | trigger: a real 2nd manual (premature now); santi's `EngineSpec` is a partial down-payment |
 | **P9** DMN export | ⏸️ **deferred** | trigger: a real DMN consumer (S2 already DMN-aligned internally) |
@@ -123,7 +123,7 @@ The full bundle is already extracted (152 clauses + `base_policy.json`), so the 
 ❌ **`masiva` & `automática` — OUT-OF-SCOPE for node-ification (decided 2026-06-24, source-faithful).** The source defines **no branchable logic** for them: **Automática §3.2** explicitly states *"no aplican autoridades de suscripción"* (closed "enlatado" products, predefined T&C — only product-membership, which is the router trigger); **Masiva §3.4** is governance/profile prose (R-080–R-085: risk profile, annual-revalidation cadence, single-party authority reservation — no exclusion list, no authority matrix, no bands). Corroborated by `rule_buckets.json` (R-060/R-080 = `partial_router`; R-081–085 = `reference`; none `node_converted`). **The router stubs are correct and sourced; node-ifying would invent logic the manual disclaims.** (Action: record in `NOT_CONVERTED.md` so the absence reads as deliberate.)
 ⬜ **O3 — stage-chaining (the real core gap):** lifted/eligible outcomes terminate **before** re-entering authority/rating, so those stages are unreachable for such cases. Faithful end-to-end resolution needs every eligible/conditional path to continue through later stages.
 
-🔶 **5.2 Regression.** ✅ **Infrastructure already exists and passes:** the UW **golden snapshot** (`troubleshoot testing/`, 43 cases, Layers A–D — outcome+path+caveat drift) and santi's **`smoke.py`** (40 exact-value assertions across UW/coverage/rating/simulation). The deterministic core is cleanly separable from the OpenAI layer (env kill-switches + the confirmed-facts wall), so it is **regressable as-is**.
+🔶 **5.2 Regression.** ✅ **Infrastructure already exists and passes:** the UW **golden snapshot** (`troubleshoot testing/`, 43 cases, Layers A–D — outcome+path+caveat drift) and santi's **`smoke.py`** (40 exact-value assertions across UW/coverage/rating/simulation). The deterministic core is cleanly separable from the OpenAI layer (env kill-switches + the confirmed-facts wall), so it is **regressable as-is**. **Keep the UW golden snapshot:** it is the *only* drift-guard for the UW decision graph the platform runs on — including **renovación (4.1)** + **retroactividad (4.11)** (23 + 12 pinned cases); santi's `smoke.py` does **not** cover those decision nodes. It catches *change*, not *wrongness* — O4 (below) is the upgrade to ground-truth.
 ⬜ **Missing to complete (O4):** (a) a **coverage + rating golden snapshot** (small — the snapshot machinery exists, just needs a blessed corpus); (b) the **correctness-vs-underwriter ground-truth corpus** (the real O4 milestone — *human-gated*); (c) optional pytest/CI wiring (today both harnesses are manual `python3` scripts).
 
 ---
@@ -143,12 +143,14 @@ santi added a **second engine** (`crawlable/graph_coverage/`, run via the same `
 
 ---
 
-## PHASE 6 — Human layer ❌ SUPERSEDED (re-scoped 2026-06-24)
+## PHASE 6 — Human layer 🔶 FORMAT SUPERSEDED, PURPOSE UNBUILT (re-scoped 2026-06-24)
 *Original GATE: clause notes (4) + working crawler (5).*
 
-❌ **Superseded — do not build the planned Obsidian vault / `decision_trees_view.html` extension.** santi shipped a **React frontend** (`platform/frontend/`) + FastAPI backend + Postgres **`human_task` / `chat_conversation` / `proposal` / `approval`** tables — that **is** the human/escalation/decision surface the roadmap envisioned, and building a parallel vault would duplicate it.
+The original phase conflated two things — split them:
+- **The *format* (an Obsidian vault / `decision_trees_view.html` extension) → ❌ superseded.** santi shipped a **React frontend** (`platform/frontend/`) + FastAPI backend + Postgres (`human_task`/`chat`/`proposal`/`approval`) — *that* is the human **surface**; don't build a parallel Obsidian app.
+- **The *purpose* — interlink each clause to its effects, navigably (rule→clause→outcome, with backlinks) → ⬜ NOT BUILT. It is the North Star.** Verified 2026-06-24: santi's platform does **not** consume the linkage data (`linkage_edges.json` / `clause_registry` → **0** references in `platform/`), the map is still **16 edges (~2/84, O16)**, and the frontend has **no** clause-interlinking view. His frontend is the *surface*; the *substance* is **P5-COV** (model every clause's effect) + **P4/O16** (the dependency edges) + the impact-diff runner.
 
-**Residual (optional, only if wanted):** if rule→clause **backlinks** are desired, generate them as **data the existing frontend renders** (a free by-product of the Phase-4 reverse edges) — never a separate app, never hand-written notes.
+**So Phase 6 is now: render the North Star in santi's existing frontend.** Once P5-COV/O16 supply the data, generate the clause→effect graph as **data the frontend displays** (no separate app, no hand-written notes). The original Obsidian intent is **alive** — only its delivery changed.
 
 ---
 
